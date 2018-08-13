@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:paddingBottom="@dimen/activity_vertical_margin">
+
+    <!--android:paddingTop="@dimen/activity_vertical_margin"-->
+
+    <!--android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"-->
+
+
+
+    <!--<TextView-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:layout_marginLeft="0dp"-->
+        <!--android:layout_marginRight="0dp"-->
+        <!--android:layout_marginEnd="0dp"-->
+        <!--android:layout_marginStart="0dp"-->
+        <!--android:background="#88000000"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1dp" />-->
+
+
+    <!--<RelativeLayout-->
+        <!--android:background="@color/white"-->
+        <!--android:layout_marginTop="0dp"-->
+        <!--android:layout_marginBottom="0dp"-->
+        <!--android:orientation="vertical"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+
+
+        <!--<TextView-->
+            <!--android:id="@+id/status_indicator_one"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_alignParentEnd="true"-->
+            <!--android:layout_gravity="end"-->
+            <!--android:layout_marginEnd="0dp"-->
+            <!--android:layout_marginRight="0dp"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:background="@color/gplus_color_1"-->
+            <!--android:layout_width="20dp"-->
+            <!--android:layout_height="20dp" />-->
+
+
+        <!--&lt;!&ndash;-->
+        <!--android:textColor="@color/white"-->
+        <!--android:textColorHint="@color/white"-->
+        <!--android:textColorHighlight="@color/white"-->
+        <!--android:textColorLink="@color/white"-->
+
+        <!--android:textColorHint="@color/white"-->
+        <!--&ndash;&gt;-->
+
+        <!--<android.support.design.widget.TextInputLayout-->
+            <!--android:paddingTop="10dp"-->
+            <!--android:paddingBottom="10dp"-->
+            <!--android:paddingLeft="0dp"-->
+            <!--android:paddingRight="0dp"-->
+            <!--android:id="@+id/text_input_service_url"-->
+            <!--app:layout_scrollFlags="scroll|enterAlways"-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+
+            <!--<EditText-->
+                <!--android:inputType="textUri"-->
+                <!--android:id="@+id/serviceURL"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:hint="Enter Service URL"/>-->
+
+        <!--</android.support.design.widget.TextInputLayout>-->
+
+
+
+        <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginTop="10dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginLeft="10dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginRight="10dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginEnd="10dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginStart="10dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:id="@+id/border_text_input"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_below="@id/text_input_service_url"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:background="#88000000"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="1dp" />&ndash;&gt;-->
+
+
+        <!--&lt;!&ndash;android:layout_below="@id/border_text_input"&ndash;&gt;-->
+        <!--&lt;!&ndash;<LinearLayout&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_below="@id/text_input_service_url"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_marginTop="5dp"&ndash;&gt;-->
+            <!--&lt;!&ndash;app:layout_scrollFlags="scroll|enterAlways"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_marginBottom="0dp"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:orientation="horizontal"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_height="wrap_content">&ndash;&gt;-->
+
+            <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+                <!--&lt;!&ndash;android:id="@+id/discover_services_button"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_marginBottom="10dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_weight="1"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:textColor="@color/white"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_marginStart="0dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_marginLeft="0dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_marginRight="10dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_marginEnd="10dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:background="@color/buttonColor"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:padding="10dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:paddingRight="1dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:paddingLeft="10dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:paddingBottom="10dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:paddingTop="10dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:text="Discover Services"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_width="0dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_height="wrap_content" />&ndash;&gt;-->
+
+            <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+                <!--&lt;!&ndash;android:id="@+id/paste_url_button"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_marginBottom="10dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:textColor="@color/white"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_marginRight="0dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_marginEnd="0dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:background="@color/cyan900"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:padding="10dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:paddingRight="20dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:paddingLeft="20dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:paddingBottom="10dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:paddingTop="10dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:text="Paste Service URL"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_weight="1"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_width="0dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_height="wrap_content" />&ndash;&gt;-->
+
+        <!--&lt;!&ndash;</LinearLayout>&ndash;&gt;-->
+
+    <!--</RelativeLayout>-->
+
+    <!--</android.support.v7.widget.CardView>-->
+
+
+        <TextView
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textSize="24sp"
+            android:text="Nearby Shops : Admin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:background="#88000000"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+    <TextView
+        android:layout_marginTop="5dp"
+        android:padding="10dp"
+        android:text="Login"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginStart="0dp"
+        android:background="@color/gplus_color_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:layout_marginTop="5dp"
+        android:background="#88000000"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+
+
+
+    <!--<ProgressBar-->
+        <!--android:visibility="invisible"-->
+        <!--android:id="@+id/progress_bar"-->
+        <!--style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:indeterminate="true"-->
+        <!--android:indeterminateTint="@color/buttonColorDark" />-->
+
+
+
+    <android.support.design.widget.TextInputLayout
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:inputType="text"
+            android:id="@+id/distributorIDEdittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Username"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        app:passwordToggleEnabled="true"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:inputType="textPassword"
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Password"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <LinearLayout
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:gravity="end"
+        android:weightSum="1"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--<Button-->
+            <!--android:id="@+id/signUpButton"-->
+            <!--android:layout_marginLeft="0dp"-->
+            <!--android:layout_marginStart="0dp"-->
+            <!--android:layout_gravity="end"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@color/light_grey"-->
+            <!--android:textColor="@color/white"/>-->
+
+
+        <!--android:layout_marginLeft="5dp"-->
+        <!--android:layout_marginStart="5dp"-->
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:elevation="10dp"
+                android:id="@+id/loginButton"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="end"
+                android:layout_height="wrap_content"
+                android:text="Login"
+                android:textColor="@color/white"
+                android:background="@color/blueGrey800"/>
+
+
+            <ProgressBar
+                app:layout_constraintStart_toStartOf="@id/loginButton"
+                app:layout_constraintEnd_toEndOf="@id/loginButton"
+                app:layout_constraintTop_toTopOf="@id/loginButton"
+                app:layout_constraintBottom_toBottomOf="@id/loginButton"
+                android:visibility="invisible"
+                android:id="@+id/progress_bar"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:indeterminate="true" />
+
+
+        </android.support.constraint.ConstraintLayout>
+
+    </LinearLayout>
+
+
+
+
+
+<!--
+    <TextView
+        android:layout_marginTop="10dp"
+        android:textColor="@color/white"
+        android:padding="5dp"
+        android:text="ServiceConfigurationLocal Configuration"
+        android:background="@android:color/darker_gray"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+-->
+<!--
+
+    <TextView
+        android:visibility="gone"
+        android:layout_marginTop="10dp"
+        app:layout_scrollFlags="scroll|enterAlwaysCollapsed"
+        android:textColor="@color/white"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/colorPrimaryDark"
+        android:layout_gravity="left"
+        android:gravity="left"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="Change \nService Discovery Provider"
+        android:textSize="@dimen/appbar_label_size"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+-->
+
+</LinearLayout>
+
+
+</android.support.v4.widget.NestedScrollView>
