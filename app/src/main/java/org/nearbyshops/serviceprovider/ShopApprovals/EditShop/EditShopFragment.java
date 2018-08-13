@@ -13,6 +13,8 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.PermissionChecker;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +23,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -72,6 +75,7 @@ public class EditShopFragment extends Fragment implements OnMapReadyCallback {
     // Upload the image after picked up
     private static final int REQUEST_CODE_READ_EXTERNAL_STORAGE = 56;
 
+    boolean isDestroyed = false;
 
 //    Validator validator;
 
@@ -136,7 +140,8 @@ public class EditShopFragment extends Fragment implements OnMapReadyCallback {
 //    @BindView(R.id.designation) EditText designation;
 //    @BindView(R.id.switch_enable) Switch aSwitch;
 
-    @BindView(R.id.saveButton) Button buttonUpdateItem;
+    @BindView(R.id.saveButton) TextView buttonUpdateItem;
+    @BindView(R.id.progress_bar) ProgressBar progressBar;
 
 
     public static final String SHOP_INTENT_KEY = "shop_intent_key";
@@ -167,8 +172,14 @@ public class EditShopFragment extends Fragment implements OnMapReadyCallback {
 
         setRetainInstance(true);
         View rootView = inflater.inflate(R.layout.content_edit_shop_fragment, container, false);
-
         ButterKnife.bind(this,rootView);
+
+
+        Toolbar toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
+        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
 
         if(savedInstanceState==null)
         {
@@ -511,6 +522,10 @@ public class EditShopFragment extends Fragment implements OnMapReadyCallback {
         getDataFromViews();
 
 
+        buttonUpdateItem.setVisibility(View.INVISIBLE);
+        progressBar.setVisibility(View.VISIBLE);
+
+
         Call<ResponseBody> call = shopService.updateShop(
                 UtilityLogin.getAuthorizationHeaders(getContext()),
                 shop,shop.getShopID()
@@ -530,11 +545,25 @@ public class EditShopFragment extends Fragment implements OnMapReadyCallback {
                 {
                     showToastMessage("Update Failed Code : " + response.code());
                 }
+
+
+
+                buttonUpdateItem.setVisibility(View.VISIBLE);
+                progressBar.setVisibility(View.INVISIBLE);
             }
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
 
+
+                if(isDestroyed)
+                {
+                    return;
+                }
+
+
+                buttonUpdateItem.setVisibility(View.VISIBLE);
+                progressBar.setVisibility(View.INVISIBLE);
             }
         });
 
@@ -545,11 +574,22 @@ public class EditShopFragment extends Fragment implements OnMapReadyCallback {
     {
         getDataFromViews();
 
+
+
+        buttonUpdateItem.setVisibility(View.INVISIBLE);
+        progressBar.setVisibility(View.VISIBLE);
+
         Call<Shop> call = shopService.postShop(UtilityLogin.getAuthorizationHeaders(getContext()),shop);
 
         call.enqueue(new Callback<Shop>() {
             @Override
             public void onResponse(Call<Shop> call, Response<Shop> response) {
+
+
+                if(isDestroyed)
+                {
+                    return;
+                }
 
                 if(response.code()==201)
                 {
@@ -568,11 +608,26 @@ public class EditShopFragment extends Fragment implements OnMapReadyCallback {
                     showToastMessage("Add failed Code : " + response.code());
                 }
 
+
+                buttonUpdateItem.setVisibility(View.VISIBLE);
+                progressBar.setVisibility(View.INVISIBLE);
+
+
             }
 
             @Override
             public void onFailure(Call<Shop> call, Throwable t) {
+
+
+                if(isDestroyed)
+                {
+                    return;
+                }
+
                 showToastMessage("Add failed !");
+
+                buttonUpdateItem.setVisibility(View.VISIBLE);
+                progressBar.setVisibility(View.INVISIBLE);
             }
         });
 
@@ -839,6 +894,12 @@ public class EditShopFragment extends Fragment implements OnMapReadyCallback {
 
 
 
+
+        buttonUpdateItem.setVisibility(View.INVISIBLE);
+        progressBar.setVisibility(View.VISIBLE);
+
+
+
         Call<Image> imageCall = shopService.uploadImage(UtilityLogin.getAuthorizationHeaders(getContext()),
                 requestBodyBinary);
 
@@ -846,6 +907,17 @@ public class EditShopFragment extends Fragment implements OnMapReadyCallback {
         imageCall.enqueue(new Callback<Image>() {
             @Override
             public void onResponse(Call<Image> call, Response<Image> response) {
+
+
+                if(isDestroyed)
+                {
+                    return;
+                }
+
+
+                buttonUpdateItem.setVisibility(View.VISIBLE);
+                progressBar.setVisibility(View.INVISIBLE);
+
 
                 if(response.code()==201)
                 {
@@ -888,6 +960,18 @@ public class EditShopFragment extends Fragment implements OnMapReadyCallback {
             @Override
             public void onFailure(Call<Image> call, Throwable t) {
 
+
+                if(isDestroyed)
+                {
+                    return;
+                }
+
+                buttonUpdateItem.setVisibility(View.VISIBLE);
+                progressBar.setVisibility(View.INVISIBLE);
+
+
+
+
                 showToastMessage("Image Upload failed !");
                 shop.setLogoImagePath(null);
 
@@ -909,6 +993,13 @@ public class EditShopFragment extends Fragment implements OnMapReadyCallback {
 
     void deleteImage(String filename)
     {
+
+
+        buttonUpdateItem.setVisibility(View.INVISIBLE);
+        progressBar.setVisibility(View.VISIBLE);
+
+
+
         Call<ResponseBody> call = shopService.deleteImage(
                 UtilityLogin.getAuthorizationHeaders(getContext()),
                 filename);
@@ -930,12 +1021,30 @@ public class EditShopFragment extends Fragment implements OnMapReadyCallback {
                     }
 
 
+
+                buttonUpdateItem.setVisibility(View.VISIBLE);
+                progressBar.setVisibility(View.INVISIBLE);
+
             }
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
 
 //                showToastMessage("Image Delete failed");
+
+
+
+                if(isDestroyed)
+                {
+                    return;
+                }
+
+
+//                showToastMessage("Image Delete failed");
+
+
+                buttonUpdateItem.setVisibility(View.VISIBLE);
+                progressBar.setVisibility(View.INVISIBLE);
             }
         });
     }
@@ -1065,5 +1174,20 @@ public class EditShopFragment extends Fragment implements OnMapReadyCallback {
         startActivity(mapIntent);
     }
 
+
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        isDestroyed = false;
+    }
+
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        isDestroyed = true;
+    }
 
 }
