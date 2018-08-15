@@ -10,16 +10,21 @@ import java.sql.Timestamp;
  */
 public class User {
 
-    // constants
-    public static final int REGISTRATION_MODE_EMAIL = 1;
-    public static final int REGISTRATION_MODE_PHONE = 2;
-
 
     // role codes
     public static final int ROLE_ADMIN_CODE = 1;
     public static final int ROLE_STAFF_CODE = 2;
-    public static final int ROLE_DRIVER_CODE = 3;
-    public static final int ROLE_END_USER_CODE = 4;
+    public static final int ROLE_SHOP_ADMIN_CODE = 3;
+    public static final int ROLE_SHOP_STAFF_CODE = 4;
+    public static final int ROLE_DELIVERY_GUY_CODE = 5;
+    public static final int ROLE_END_USER_CODE = 6;
+
+
+
+    // constants
+    public static final int REGISTRATION_MODE_EMAIL = 1;
+    public static final int REGISTRATION_MODE_PHONE = 2;
+
 
 
     // Table Name for User

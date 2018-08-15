@@ -9,6 +9,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.nearbyshops.serviceprovider.DaggerComponentBuilder;
+import org.nearbyshops.serviceprovider.EditProfile.EditProfile;
+import org.nearbyshops.serviceprovider.EditProfile.FragmentEditProfile;
 import org.nearbyshops.serviceprovider.ModelRoles.OldFiles.Staff;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.StaffService;
@@ -71,8 +73,14 @@ public class StaffHome extends AppCompatActivity {
     @OnClick(R.id.edit_profile)
     void editProfileClick()
     {
-        Intent intent = new Intent(this, EditStaffSelf.class);
-        intent.putExtra(EditStaffSelfFragment.EDIT_MODE_INTENT_KEY,EditStaffSelfFragment.MODE_UPDATE);
+//        Intent intent = new Intent(this, EditStaffSelf.class);
+//        intent.putExtra(EditStaffSelfFragment.EDIT_MODE_INTENT_KEY,EditStaffSelfFragment.MODE_UPDATE);
+//        startActivity(intent);
+
+
+
+        Intent intent = new Intent(this, EditProfile.class);
+        intent.putExtra(FragmentEditProfile.EDIT_MODE_INTENT_KEY, FragmentEditProfile.MODE_UPDATE);
         startActivity(intent);
     }
 
@@ -83,41 +91,45 @@ public class StaffHome extends AppCompatActivity {
     {
         Call<Staff> call = staffService.getLogin(PrefLogin.getAuthorizationHeaders(this));
 
-        call.enqueue(new Callback<Staff>() {
-            @Override
-            public void onResponse(Call<Staff> call, Response<Staff> response) {
+//        call.enqueue(new Callback<Staff>() {
+//            @Override
+//            public void onResponse(Call<Staff> call, Response<Staff> response) {
+//
+//                if(response.code()==200)
+//                {
+//                    // permitted
+//                    if(response.body().getEnabled())
+//                    {
+//                        PrefLogin.saveStaff(response.body(),StaffHome.this);
+//                        startActivity(new Intent(StaffHome.this,StaffDashboard.class));
+//                    }
+//                    else
+//                    {
+//                        showToastMessage("Not Permitted. Your Account is Disabled !");
+//                    }
+//                }
+//                else if(response.code() == 401 || response.code() ==403)
+//                {
+//                    showToastMessage("Not permitted !");
+//                }
+//                else
+//                {
+//                    showToastMessage("Server Error Code : " + String.valueOf(response.code()));
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onFailure(Call<Staff> call, Throwable t) {
+//
+//                showToastMessage("Network Failed. Check your Internet Connection !");
+//            }
+//        });
 
-                if(response.code()==200)
-                {
-                    // permitted
-                    if(response.body().getEnabled())
-                    {
-                        PrefLogin.saveStaff(response.body(),StaffHome.this);
-                        startActivity(new Intent(StaffHome.this,StaffDashboard.class));
-                    }
-                    else
-                    {
-                        showToastMessage("Not Permitted. Your Account is Disabled !");
-                    }
-                }
-                else if(response.code() == 401 || response.code() ==403)
-                {
-                    showToastMessage("Not permitted !");
-                }
-                else
-                {
-                    showToastMessage("Server Error Code : " + String.valueOf(response.code()));
-                }
 
-            }
 
-            @Override
-            public void onFailure(Call<Staff> call, Throwable t) {
-
-                showToastMessage("Network Failed. Check your Internet Connection !");
-            }
-        });
-
+//        PrefLogin.saveStaff(response.body(),StaffHome.this);
+        startActivity(new Intent(StaffHome.this,StaffDashboard.class));
     }
 
 

@@ -12,6 +12,8 @@ import org.nearbyshops.serviceprovider.DetachedTabs.DetachedTabs;
 import org.nearbyshops.serviceprovider.ItemCategoriesTabs.ItemCategoriesTabs;
 import org.nearbyshops.serviceprovider.ItemsByCategorySimple.ItemCategoriesSimple;
 import org.nearbyshops.serviceprovider.ModelRoles.OldFiles.Staff;
+import org.nearbyshops.serviceprovider.ModelRoles.StaffPermissions;
+import org.nearbyshops.serviceprovider.ModelRoles.User;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.ShopAdminApprovals.ShopAdminApprovals;
 import org.nearbyshops.serviceprovider.ShopApprovals.ShopApprovals;
@@ -49,7 +51,8 @@ public class StaffDashboard extends AppCompatActivity {
 
     @BindView(R.id.border_bottom) TextView borderBottom;
 
-    Staff staff;
+//    Staff staff;
+    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +63,9 @@ public class StaffDashboard extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        staff = PrefLogin.getStaff(this);
+//        staff = PrefLogin.getStaff(this);
+
+        user = PrefLogin.getUser(this);
         setupDashboard();
     }
 
@@ -68,12 +73,17 @@ public class StaffDashboard extends AppCompatActivity {
 
     void setupDashboard()
     {
-        if(!staff.getEnabled())
-        {
-            return;
-        }
+//        if(!staff.getEnabled())
+//        {
+//            return;
+//        }
 
-        if(staff.isCreateUpdateItemCategory()||staff.isCreateUpdateItems())
+
+        StaffPermissions permissions = user.getRt_staff_permissions();
+
+
+
+        if(permissions.isPermitCreateUpdateItemCat()||permissions.isPermitCreateUpdateItems())
         {
             borderTop.setVisibility(View.VISIBLE);
             headerItems.setVisibility(View.VISIBLE);
@@ -86,41 +96,40 @@ public class StaffDashboard extends AppCompatActivity {
         }
 
 
-        if(staff.isApproveShops()||staff.isApproveShopAdminAccounts()||staff.isApproveEndUserAccounts())
+        if(permissions.isPermitApproveShops())
         {
             borderApprovals.setVisibility(View.VISIBLE);
             headerApprovals.setVisibility(View.VISIBLE);
-        }
 
 
-        if(staff.isApproveShopAdminAccounts())
-        {
-            shopAdminApprovals.setVisibility(View.VISIBLE);
-            textShopAdminApprovals.setVisibility(View.VISIBLE);
-        }
-
-        if(staff.isApproveShops())
-        {
             shopApprovals.setVisibility(View.VISIBLE);
             textShopApprovals.setVisibility(View.VISIBLE);
         }
 
-        if(staff.isApproveEndUserAccounts())
-        {
-            endUserApprovals.setVisibility(View.VISIBLE);
-            textEndUserApprovals.setVisibility(View.VISIBLE);
-            borderBottom.setVisibility(View.VISIBLE);
-        }
+
+//        if(staff.isApproveShopAdminAccounts())
+//        {
+//            shopAdminApprovals.setVisibility(View.VISIBLE);
+//            textShopAdminApprovals.setVisibility(View.VISIBLE);
+//        }
+
+
+//        if(staff.isApproveEndUserAccounts())
+//        {
+//            endUserApprovals.setVisibility(View.VISIBLE);
+//            textEndUserApprovals.setVisibility(View.VISIBLE);
+//            borderBottom.setVisibility(View.VISIBLE);
+//        }
 
     }
 
 
 
-    @OnClick(R.id.detached_items)
-    void optionDetachedClick()
-    {
-        startActivity(new Intent(this, DetachedTabs.class));
-    }
+//    @OnClick(R.id.detached_items)
+//    void optionDetachedClick()
+//    {
+//        startActivity(new Intent(this, DetachedTabs.class));
+//    }
 
 
     @OnClick(R.id.items_database)
@@ -131,12 +140,15 @@ public class StaffDashboard extends AppCompatActivity {
 
 
 
-    @OnClick(R.id.end_user_approvals)
-    void itemCategoriesClick(View view)
-    {
-        Intent intent = new Intent(this, ItemCategoriesTabs.class);
-        startActivity(intent);
-    }
+
+
+
+//    @OnClick(R.id.end_user_approvals)
+//    void itemCategoriesClick(View view)
+//    {
+//        Intent intent = new Intent(this, ItemCategoriesTabs.class);
+//        startActivity(intent);
+//    }
 
 
 
@@ -150,12 +162,12 @@ public class StaffDashboard extends AppCompatActivity {
 
 
 
-    @OnClick(R.id.shop_admin_approvals)
-    void distributorAccountClick(View view)
-    {
-        Intent intent = new Intent(this, ShopAdminApprovals.class);
-        startActivity(intent);
-    }
+//    @OnClick(R.id.shop_admin_approvals)
+//    void distributorAccountClick(View view)
+//    {
+//        Intent intent = new Intent(this, ShopAdminApprovals.class);
+//        startActivity(intent);
+//    }
 
 
 

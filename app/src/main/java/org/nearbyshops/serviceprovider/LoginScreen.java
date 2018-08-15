@@ -14,6 +14,7 @@ import com.google.gson.Gson;
 
 import org.nearbyshops.serviceprovider.ModelRoles.User;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.UserService;
+import org.nearbyshops.serviceprovider.StaffHome.StaffHome;
 import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
 import org.nearbyshops.serviceprovider.Utility.PrefLogin;
 
@@ -121,9 +122,20 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
 
                 if(response.code()==200)
                 {
+                    User user = response.body();
 
-                    PrefLogin.saveUserProfile(response.body(),LoginScreen.this);
-                    startActivity(new Intent(LoginScreen.this,Home.class));
+                    PrefLogin.saveUserProfile(user,LoginScreen.this);
+
+
+                    if(user.getRole()==User.ROLE_ADMIN_CODE)
+                    {
+                        startActivity(new Intent(LoginScreen.this,Home.class));
+                    }
+                    else if(user.getRole()==User.ROLE_STAFF_CODE)
+                    {
+                        startActivity(new Intent(LoginScreen.this, StaffHome.class));
+                    }
+
                 }
                 else
                 {
