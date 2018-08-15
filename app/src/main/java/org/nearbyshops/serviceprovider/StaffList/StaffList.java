@@ -7,11 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
-
-import com.google.android.gms.common.oob.SignUp;
-
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.SignUp.PrefSignUp.PrefrenceSignUp;
+import org.nearbyshops.serviceprovider.SignUp.SignUp;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -69,6 +67,7 @@ public class StaffList extends AppCompatActivity {
 
 
 
+
     @OnClick(R.id.fab)
     void fabClick()
     {
@@ -78,6 +77,7 @@ public class StaffList extends AppCompatActivity {
         Intent intent = new Intent(this, SignUp.class);
         startActivity(intent);
     }
+
 
 
 

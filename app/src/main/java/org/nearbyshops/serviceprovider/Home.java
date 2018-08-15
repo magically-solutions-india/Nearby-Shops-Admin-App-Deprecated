@@ -25,6 +25,7 @@ import org.nearbyshops.serviceprovider.ServiceConfiguration.EditConfiguration.Ut
 import org.nearbyshops.serviceprovider.ShopAdminApprovals.ShopAdminApprovals;
 import org.nearbyshops.serviceprovider.ShopApprovals.ShopApprovals;
 import org.nearbyshops.serviceprovider.StaffAccounts.StaffAccounts;
+import org.nearbyshops.serviceprovider.StaffList.StaffList;
 
 import javax.inject.Inject;
 
@@ -255,11 +256,14 @@ public class Home extends AppCompatActivity {
     }
 
 
+
     @OnClick(R.id.staff_accounts)
     void optionStaffClick(View view)
     {
-        Intent intent = new Intent(this, StaffAccounts.class);
-        startActivity(intent);
+//        Intent intent = new Intent(this, StaffAccounts.class);
+//        startActivity(intent);
+
+        startActivity(new Intent(this, StaffList.class));
     }
 
 
