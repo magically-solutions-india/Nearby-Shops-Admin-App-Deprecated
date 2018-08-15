@@ -33,21 +33,21 @@ public class StaffDashboard extends AppCompatActivity {
     @BindView(R.id.items_database) ImageView itemsDatabase;
     @BindView(R.id.text_items_database) TextView textItemsDatabase;
 
-    @BindView(R.id.detached_items) ImageView detachedItems;
-    @BindView(R.id.text_detached_items)TextView textDetached;
+//    @BindView(R.id.detached_items) ImageView detachedItems;
+//    @BindView(R.id.text_detached_items)TextView textDetached;
 
 
     @BindView(R.id.border_approvals) TextView borderApprovals;
     @BindView(R.id.header_approvals) TextView headerApprovals;
 
-    @BindView(R.id.shop_admin_approvals) ImageView shopAdminApprovals;
-    @BindView(R.id.text_shop_admin_approvals) TextView textShopAdminApprovals;
+//    @BindView(R.id.shop_admin_approvals) ImageView shopAdminApprovals;
+//    @BindView(R.id.text_shop_admin_approvals) TextView textShopAdminApprovals;
 
     @BindView(R.id.shop_approvals) ImageView shopApprovals;
     @BindView(R.id.text_shop_approvals) TextView textShopApprovals;
 
-    @BindView(R.id.end_user_approvals) ImageView endUserApprovals;
-    @BindView(R.id.text_end_user_approvals) TextView textEndUserApprovals;
+//    @BindView(R.id.end_user_approvals) ImageView endUserApprovals;
+//    @BindView(R.id.text_end_user_approvals) TextView textEndUserApprovals;
 
     @BindView(R.id.border_bottom) TextView borderBottom;
 
@@ -91,8 +91,8 @@ public class StaffDashboard extends AppCompatActivity {
             itemsDatabase.setVisibility(View.VISIBLE);
             textItemsDatabase.setVisibility(View.VISIBLE);
 
-            detachedItems.setVisibility(View.VISIBLE);
-            textDetached.setVisibility(View.VISIBLE);
+//            detachedItems.setVisibility(View.VISIBLE);
+//            textDetached.setVisibility(View.VISIBLE);
         }
 
 

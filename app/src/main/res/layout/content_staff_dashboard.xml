@@ -50,6 +50,7 @@
             tools:layout_editor_absoluteX="0dp" />
 
 
+        
 
         <ImageView
             android:visibility="gone"
@@ -59,10 +60,10 @@
             android:paddingBottom="60dp"
             android:background="@color/buttonColor"
             android:id="@+id/items_database"
-            app:layout_constraintRight_toLeftOf="@+id/vertical_guide"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/header_items"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:srcCompat="@drawable/ic_dns_black_24px"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ic_items_24px"
             android:layout_width="0dp"
             android:layout_height="150dp" />
 
@@ -77,36 +78,6 @@
             android:textSize="@dimen/menu_item_text_size"
             android:textColor="#ffffff"
             android:text="Items Database"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content" />
-
-
-
-        <ImageView
-            android:visibility="gone"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginStart="5dp"
-            android:paddingBottom="60dp"
-            android:background="@color/buttonColorDark"
-            android:id="@+id/detached_items"
-            app:layout_constraintTop_toBottomOf="@+id/header_items"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_width="0dp"
-            android:layout_height="150dp"
-            app:layout_constraintLeft_toLeftOf="@+id/vertical_guide" />
-
-
-        <TextView
-            android:visibility="gone"
-            app:layout_constraintLeft_toLeftOf="@+id/detached_items"
-            app:layout_constraintRight_toRightOf="@+id/detached_items"
-            app:layout_constraintBottom_toBottomOf="@+id/detached_items"
-            android:padding="10dp"
-            android:id="@+id/text_detached_items"
-            android:textSize="@dimen/menu_item_text_size"
-            android:textColor="#ffffff"
-            android:text="Detached Items"
             android:layout_width="0dp"
             android:layout_height="wrap_content" />
 
@@ -144,52 +115,51 @@
 
 
 
+        <!--<ImageView-->
+            <!--android:visibility="gone"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_marginEnd="5dp"-->
+            <!--android:layout_marginRight="5dp"-->
+            <!--android:paddingBottom="60dp"-->
+            <!--android:background="@color/gplus_color_1"-->
+            <!--android:id="@+id/shop_admin_approvals"-->
+            <!--app:layout_constraintRight_toLeftOf="@+id/vertical_guide"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/header_approvals"-->
+            <!--app:layout_constraintLeft_toLeftOf="parent"-->
+            <!--app:srcCompat="@drawable/ic_delete_black_48px"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="150dp" />-->
+
+
+        <!--<TextView-->
+            <!--android:visibility="gone"-->
+            <!--app:layout_constraintLeft_toLeftOf="@+id/shop_admin_approvals"-->
+            <!--app:layout_constraintRight_toRightOf="@+id/shop_admin_approvals"-->
+            <!--app:layout_constraintBottom_toBottomOf="@+id/shop_admin_approvals"-->
+            <!--android:padding="10dp"-->
+            <!--android:id="@+id/text_shop_admin_approvals"-->
+            <!--android:textSize="@dimen/menu_item_text_size"-->
+            <!--android:textColor="#ffffff"-->
+            <!--android:text="Shop Admin approvals"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content" />-->
+
+
+
+
+
         <ImageView
             android:visibility="gone"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginRight="5dp"
-            android:paddingBottom="60dp"
-            android:background="@color/gplus_color_1"
-            android:id="@+id/shop_admin_approvals"
-            app:layout_constraintRight_toLeftOf="@+id/vertical_guide"
-            app:layout_constraintTop_toBottomOf="@+id/header_approvals"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:srcCompat="@drawable/ic_delete_black_48px"
-            android:layout_width="0dp"
-            android:layout_height="150dp" />
-
-
-        <TextView
-            android:visibility="gone"
-            app:layout_constraintLeft_toLeftOf="@+id/shop_admin_approvals"
-            app:layout_constraintRight_toRightOf="@+id/shop_admin_approvals"
-            app:layout_constraintBottom_toBottomOf="@+id/shop_admin_approvals"
-            android:padding="10dp"
-            android:id="@+id/text_shop_admin_approvals"
-            android:textSize="@dimen/menu_item_text_size"
-            android:textColor="#ffffff"
-            android:text="Shop Admin approvals"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content" />
-
-
-
-
-        <ImageView
-            android:visibility="gone"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
             android:paddingBottom="60dp"
             android:background="@color/cyan900"
             android:id="@+id/shop_approvals"
-            app:srcCompat="@drawable/ic_settings_black_24dp"
+            app:srcCompat="@drawable/ic_home_black_24px"
             app:layout_constraintTop_toBottomOf="@+id/header_approvals"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             android:layout_width="0dp"
-            android:layout_height="150dp"
-            app:layout_constraintLeft_toLeftOf="@+id/vertical_guide" />
+            android:layout_height="150dp" />
 
 
         <TextView
@@ -201,39 +171,39 @@
             android:id="@+id/text_shop_approvals"
             android:textSize="@dimen/menu_item_text_size"
             android:textColor="#ffffff"
-            android:text="Shop Approvals"
+            android:text="Shops Database"
             android:layout_width="0dp"
             android:layout_height="wrap_content" />
 
 
-        <ImageView
-            android:visibility="gone"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginRight="5dp"
-            android:paddingBottom="60dp"
-            android:background="@color/gplus_color_3"
-            android:id="@+id/end_user_approvals"
-            app:layout_constraintRight_toLeftOf="@+id/vertical_guide"
-            app:layout_constraintTop_toBottomOf="@+id/shop_admin_approvals"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:srcCompat="@drawable/ic_delete_black_48px"
-            android:layout_width="0dp"
-            android:layout_height="150dp" />
+        <!--<ImageView-->
+            <!--android:visibility="gone"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_marginEnd="5dp"-->
+            <!--android:layout_marginRight="5dp"-->
+            <!--android:paddingBottom="60dp"-->
+            <!--android:background="@color/gplus_color_3"-->
+            <!--android:id="@+id/end_user_approvals"-->
+            <!--app:layout_constraintRight_toLeftOf="@+id/vertical_guide"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/shop_admin_approvals"-->
+            <!--app:layout_constraintLeft_toLeftOf="parent"-->
+            <!--app:srcCompat="@drawable/ic_delete_black_48px"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="150dp" />-->
 
 
-        <TextView
-            android:visibility="gone"
-            app:layout_constraintLeft_toLeftOf="@+id/end_user_approvals"
-            app:layout_constraintRight_toRightOf="@+id/end_user_approvals"
-            app:layout_constraintBottom_toBottomOf="@+id/end_user_approvals"
-            android:padding="10dp"
-            android:id="@+id/text_end_user_approvals"
-            android:textSize="@dimen/menu_item_text_size"
-            android:textColor="#ffffff"
-            android:text="End User approvals"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content" />
+        <!--<TextView-->
+            <!--android:visibility="gone"-->
+            <!--app:layout_constraintLeft_toLeftOf="@+id/end_user_approvals"-->
+            <!--app:layout_constraintRight_toRightOf="@+id/end_user_approvals"-->
+            <!--app:layout_constraintBottom_toBottomOf="@+id/end_user_approvals"-->
+            <!--android:padding="10dp"-->
+            <!--android:id="@+id/text_end_user_approvals"-->
+            <!--android:textSize="@dimen/menu_item_text_size"-->
+            <!--android:textColor="#ffffff"-->
+            <!--android:text="End User approvals"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content" />-->
 
 
         <TextView
