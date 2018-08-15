@@ -20,7 +20,7 @@ import org.nearbyshops.serviceprovider.RetrofitRESTContract.StaffService;
 import org.nearbyshops.serviceprovider.StaffAccounts.EditStaff.EditStaff;
 import org.nearbyshops.serviceprovider.StaffAccounts.EditStaff.EditStaffFragment;
 import org.nearbyshops.serviceprovider.Utility.DividerItemDecoration;
-import org.nearbyshops.serviceprovider.Utility.UtilityLogin;
+import org.nearbyshops.serviceprovider.Utility.PrefLogin;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -183,7 +183,7 @@ public class FragmentStaffAccounts extends Fragment implements Adapter.NotifyCon
 //        Shop currentShop = UtilityShopHome.getShop(getContext());
 
 
-        Call<List<Staff>> call = staffService.getStaffList(UtilityLogin.getAuthorizationHeaders(getContext()),
+        Call<List<Staff>> call = staffService.getStaffList(PrefLogin.getAuthorizationHeaders(getContext()),
                 getArguments().getBoolean(ARG_ENABLED));
 
         call.enqueue(new Callback<List<Staff>>() {

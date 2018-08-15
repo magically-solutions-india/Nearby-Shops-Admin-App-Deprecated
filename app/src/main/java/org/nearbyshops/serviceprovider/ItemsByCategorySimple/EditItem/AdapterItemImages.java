@@ -20,7 +20,7 @@ import com.squareup.picasso.Picasso;
 
 import org.nearbyshops.serviceprovider.Model.ItemImage;
 import org.nearbyshops.serviceprovider.R;
-import org.nearbyshops.serviceprovider.Utility.UtilityGeneral;
+import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
 
 import java.util.List;
 
@@ -91,7 +91,7 @@ public class AdapterItemImages extends RecyclerView.Adapter<RecyclerView.ViewHol
             holder.copyrights.setText(dataset.get(position-1).getImageCopyrights());
 
 
-            String imagePath = UtilityGeneral.getServiceURL(context) + "/api/v1/ItemImage/Image/five_hundred_"
+            String imagePath = PrefGeneral.getServiceURL(context) + "/api/v1/ItemImage/Image/five_hundred_"
                     + dataset.get(position-1).getImageFilename() + ".jpg";
 
             Drawable placeholder = VectorDrawableCompat

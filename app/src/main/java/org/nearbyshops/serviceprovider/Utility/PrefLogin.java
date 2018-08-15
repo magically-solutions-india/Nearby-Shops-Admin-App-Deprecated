@@ -20,7 +20,7 @@ import static android.content.Context.MODE_PRIVATE;
  * Created by sumeet on 25/9/16.
  */
 
-public class UtilityLogin {
+public class PrefLogin {
 
 
     public static final Integer ROLE_ADMIN = 1;
@@ -31,8 +31,8 @@ public class UtilityLogin {
 
     public static String getAuthorizationHeaders(Context context)
     {
-        return UtilityLogin
-                .baseEncoding(UtilityLogin.getUsername(context), UtilityLogin.getPassword(context));
+        return PrefLogin
+                .baseEncoding(PrefLogin.getUsername(context), PrefLogin.getPassword(context));
     }
 
 
@@ -55,6 +55,42 @@ public class UtilityLogin {
     }
 
 
+
+
+    public static void saveUsername(Context context, String username)
+    {
+        // get a handle to shared Preference
+        SharedPreferences sharedPref;
+
+        sharedPref = context.getSharedPreferences(
+                context.getString(R.string.preference_file_name),
+                MODE_PRIVATE);
+
+        // write to the shared preference
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString("username", username);
+//        editor.putString("password",password);
+        editor.apply();
+    }
+
+
+
+
+    public static void savePassword(Context context, String password)
+    {
+        // get a handle to shared Preference
+        SharedPreferences sharedPref;
+
+        sharedPref = context.getSharedPreferences(
+                context.getString(R.string.preference_file_name),
+                MODE_PRIVATE);
+
+        // write to the shared preference
+        SharedPreferences.Editor editor = sharedPref.edit();
+//        editor.putString("username", username);
+        editor.putString("password",password);
+        editor.apply();
+    }
 
 
     public static String getUsername(Context context)

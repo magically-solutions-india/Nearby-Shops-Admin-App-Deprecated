@@ -19,7 +19,7 @@ import com.squareup.picasso.Picasso;
 
 import org.nearbyshops.serviceprovider.ModelItemSpecification.ItemSpecificationName;
 import org.nearbyshops.serviceprovider.R;
-import org.nearbyshops.serviceprovider.Utility.UtilityGeneral;
+import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
 
 import java.util.List;
 
@@ -89,7 +89,7 @@ class AdapterItemSpecName extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
             holder.description.setText(itemSpecName.getDescription());
 
             Drawable drawable = ContextCompat.getDrawable(context,R.drawable.ic_nature_people_white_48px);
-            String imagePath = UtilityGeneral.getServiceURL(context) + "/api/v1/ItemSpecificationName/Image/" + "three_hundred_"+ itemSpecName.getImageFilename() + ".jpg";
+            String imagePath = PrefGeneral.getServiceURL(context) + "/api/v1/ItemSpecificationName/Image/" + "three_hundred_"+ itemSpecName.getImageFilename() + ".jpg";
 
             Picasso.with(context)
                     .load(imagePath)

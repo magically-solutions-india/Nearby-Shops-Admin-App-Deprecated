@@ -17,8 +17,8 @@ import org.nearbyshops.serviceprovider.DaggerComponentBuilder;
 import org.nearbyshops.serviceprovider.ModelRoles.Distributor;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.DistributorAccountService;
-import org.nearbyshops.serviceprovider.Utility.UtilityGeneral;
-import org.nearbyshops.serviceprovider.Utility.UtilityLogin;
+import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
+import org.nearbyshops.serviceprovider.Utility.PrefLogin;
 
 import javax.inject.Inject;
 
@@ -105,7 +105,7 @@ public class DistributorDetail extends AppCompatActivity {
             return;
         }
 
-        String imagePath = UtilityGeneral.getImageEndpointURL(this)
+        String imagePath = PrefGeneral.getImageEndpointURL(this)
                 + distributor.getProfileImageURL();
 
         Drawable drawable = VectorDrawableCompat
@@ -198,7 +198,7 @@ public class DistributorDetail extends AppCompatActivity {
         distributor.setEnabled(switchEnabled.isChecked());
         distributor.setWaitlisted(switchWaitlisted.isChecked());
 
-        String headerString = UtilityLogin.baseEncoding(UtilityLogin.getUsername(this),UtilityLogin.getPassword(this));
+        String headerString = PrefLogin.baseEncoding(PrefLogin.getUsername(this), PrefLogin.getPassword(this));
 
         Call<ResponseBody> call = distributorAccountService
                 .putDistributor(headerString,distributor,distributor.getDistributorID());

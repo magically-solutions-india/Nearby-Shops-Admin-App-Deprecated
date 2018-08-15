@@ -26,7 +26,7 @@ import org.nearbyshops.serviceprovider.ModelItemSpecification.ItemSpecificationN
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContractItem.ItemSpecNameService;
 import org.nearbyshops.serviceprovider.Utility.DividerItemDecoration;
-import org.nearbyshops.serviceprovider.Utility.UtilityLogin;
+import org.nearbyshops.serviceprovider.Utility.PrefLogin;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -367,7 +367,7 @@ public class ItemSpecNameFragment extends Fragment implements SwipeRefreshLayout
     {
 
         Call<ResponseBody> call = itemSpecNameService.deleteItemSpecName(
-                UtilityLogin.getAuthorizationHeaders(getActivity()),itemSpecName.getId()
+                PrefLogin.getAuthorizationHeaders(getActivity()),itemSpecName.getId()
         );
 
 

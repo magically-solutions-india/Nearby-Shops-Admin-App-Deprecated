@@ -14,7 +14,7 @@ import com.squareup.picasso.Picasso;
 
 import org.nearbyshops.serviceprovider.ModelRoles.ShopAdmin;
 import org.nearbyshops.serviceprovider.R;
-import org.nearbyshops.serviceprovider.Utility.UtilityGeneral;
+import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
 
 import java.util.List;
 
@@ -59,7 +59,7 @@ class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
         holder.phoneNumber.setText(shopAdmin.getPhoneNumber());
 
         Drawable drawable = ContextCompat.getDrawable(context,R.drawable.ic_nature_people_white_48px);
-        String imagePath = UtilityGeneral.getServiceURL(context) + "/api/ShopAdmin/Image/" + "three_hundred_"+ shopAdmin.getProfileImageURL() + ".jpg";
+        String imagePath = PrefGeneral.getServiceURL(context) + "/api/ShopAdmin/Image/" + "three_hundred_"+ shopAdmin.getProfileImageURL() + ".jpg";
 
         Picasso.with(context)
                 .load(imagePath)

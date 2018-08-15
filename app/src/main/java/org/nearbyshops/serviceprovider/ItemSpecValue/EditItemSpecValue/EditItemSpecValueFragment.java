@@ -18,7 +18,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -34,8 +33,8 @@ import org.nearbyshops.serviceprovider.Model.Image;
 import org.nearbyshops.serviceprovider.ModelItemSpecification.ItemSpecificationValue;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContractItem.ItemSpecValueService;
-import org.nearbyshops.serviceprovider.Utility.UtilityGeneral;
-import org.nearbyshops.serviceprovider.Utility.UtilityLogin;
+import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
+import org.nearbyshops.serviceprovider.Utility.PrefLogin;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -222,7 +221,7 @@ public class EditItemSpecValueFragment extends Fragment {
 //        String iamgepath = UtilityGeneral.getServiceURL(getContext()) + "/api/v1/ItemImage/five_hundred_" + imagePath + ".jpg";
 
 
-        String imagePath = UtilityGeneral.getServiceURL(getActivity()) + "/api/v1/ItemSpecificationValue/Image/five_hundred_"
+        String imagePath = PrefGeneral.getServiceURL(getActivity()) + "/api/v1/ItemSpecificationValue/Image/five_hundred_"
                 + filename + ".jpg";
 
         System.out.println(imagePath);
@@ -402,7 +401,7 @@ public class EditItemSpecValueFragment extends Fragment {
 
 
         Call<ResponseBody> call = itemSpecNameService.updateItemSpec(
-                UtilityLogin.getAuthorizationHeaders(getContext()),
+                PrefLogin.getAuthorizationHeaders(getContext()),
                 itemSpecName,itemSpecName.getId()
         );
 
@@ -473,7 +472,7 @@ public class EditItemSpecValueFragment extends Fragment {
         buttonUpdateItem.setVisibility(View.INVISIBLE);
         progressBar.setVisibility(View.VISIBLE);
 
-        Call<ItemSpecificationValue> call = itemSpecNameService.saveItemSpecValue(UtilityLogin.getAuthorizationHeaders(getContext()), itemSpecName);
+        Call<ItemSpecificationValue> call = itemSpecNameService.saveItemSpecValue(PrefLogin.getAuthorizationHeaders(getContext()), itemSpecName);
 
         call.enqueue(new Callback<ItemSpecificationValue>() {
             @Override
@@ -795,7 +794,7 @@ public class EditItemSpecValueFragment extends Fragment {
         progressBar.setVisibility(View.VISIBLE);
 
 
-        Call<Image> imageCall = itemSpecNameService.uploadImage(UtilityLogin.getAuthorizationHeaders(getContext()),
+        Call<Image> imageCall = itemSpecNameService.uploadImage(PrefLogin.getAuthorizationHeaders(getContext()),
                 requestBodyBinary);
 
 
@@ -891,7 +890,7 @@ public class EditItemSpecValueFragment extends Fragment {
         progressBar.setVisibility(View.VISIBLE);
 
         Call<ResponseBody> call = itemSpecNameService.deleteImage(
-                UtilityLogin.getAuthorizationHeaders(getContext()),
+                PrefLogin.getAuthorizationHeaders(getContext()),
                 filename);
 
 

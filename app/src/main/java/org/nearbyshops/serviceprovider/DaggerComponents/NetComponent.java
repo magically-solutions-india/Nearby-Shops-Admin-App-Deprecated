@@ -6,6 +6,12 @@ import org.nearbyshops.serviceprovider.DetachedTabs.ItemCategories.DetachedItemC
 import org.nearbyshops.serviceprovider.DetachedTabs.ItemCategories.DetachedItemCatFragment;
 import org.nearbyshops.serviceprovider.DetachedTabs.Items.DetachedItemAdapter;
 import org.nearbyshops.serviceprovider.DetachedTabs.Items.DetachedItemFragment;
+import org.nearbyshops.serviceprovider.EditProfile.ChangeEmail.FragmentChangeEmail;
+import org.nearbyshops.serviceprovider.EditProfile.ChangeEmail.FragmentVerifyEmailChange;
+import org.nearbyshops.serviceprovider.EditProfile.ChangePassword.FragmentChangePassword;
+import org.nearbyshops.serviceprovider.EditProfile.ChangePhone.FragmentChangePhone;
+import org.nearbyshops.serviceprovider.EditProfile.ChangePhone.FragmentVerifyPhone;
+import org.nearbyshops.serviceprovider.EditProfile.FragmentEditProfile;
 import org.nearbyshops.serviceprovider.EditProfileAdmin.EditAdminFragment;
 import org.nearbyshops.serviceprovider.FilterItemsBySpecifications.FilterItemsFragment;
 import org.nearbyshops.serviceprovider.Home;
@@ -170,6 +176,18 @@ public interface NetComponent {
     void Inject(ItemUpdatesFragment itemUpdatesFragment);
 
     void Inject(ImageUpdatesFragment imageUpdatesFragment);
+
+    void Inject(FragmentChangeEmail fragmentChangeEmail);
+
+    void Inject(FragmentVerifyEmailChange fragmentVerifyEmailChange);
+
+    void Inject(FragmentChangePassword fragmentChangePassword);
+
+    void Inject(FragmentChangePhone fragmentChangePhone);
+
+    void Inject(FragmentVerifyPhone fragmentVerifyPhone);
+
+    void Inject(FragmentEditProfile fragmentEditProfile);
 
 
 //    void Inject(LoginDialog loginDialog);

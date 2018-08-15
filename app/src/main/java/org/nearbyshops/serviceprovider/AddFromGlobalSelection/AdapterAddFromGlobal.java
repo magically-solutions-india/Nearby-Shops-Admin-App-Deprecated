@@ -31,7 +31,7 @@ import org.nearbyshops.serviceprovider.Model.Item;
 import org.nearbyshops.serviceprovider.Model.ItemCategory;
 import org.nearbyshops.serviceprovider.ModelStats.ItemStats;
 import org.nearbyshops.serviceprovider.R;
-import org.nearbyshops.serviceprovider.Utility.UtilityGeneral;
+import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
 
 import java.util.HashMap;
 import java.util.List;
@@ -201,7 +201,7 @@ public class AdapterAddFromGlobal extends RecyclerView.Adapter<RecyclerView.View
 
 
 
-            String imagePath = UtilityGeneral.getServiceURL_GIDB(context) + "/api/v1/ItemCategory/Image/five_hundred_"
+            String imagePath = PrefGeneral.getServiceURL_GIDB(context) + "/api/v1/ItemCategory/Image/five_hundred_"
                     + itemCategory.getImagePath() + ".jpg";
 
             Drawable placeholder = VectorDrawableCompat
@@ -406,7 +406,7 @@ public class AdapterAddFromGlobal extends RecyclerView.Adapter<RecyclerView.View
 
 
 
-        String imagePath = UtilityGeneral.getServiceURL_GIDB(context)
+        String imagePath = PrefGeneral.getServiceURL_GIDB(context)
                 + "/api/v1/Item/Image/three_hundred_" + item.getItemImageURL() + ".jpg";
 
 

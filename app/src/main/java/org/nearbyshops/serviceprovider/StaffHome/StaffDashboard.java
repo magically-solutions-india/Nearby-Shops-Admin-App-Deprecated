@@ -2,8 +2,6 @@ package org.nearbyshops.serviceprovider.StaffHome;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -17,7 +15,7 @@ import org.nearbyshops.serviceprovider.ModelRoles.Staff;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.ShopAdminApprovals.ShopAdminApprovals;
 import org.nearbyshops.serviceprovider.ShopApprovals.ShopApprovals;
-import org.nearbyshops.serviceprovider.Utility.UtilityLogin;
+import org.nearbyshops.serviceprovider.Utility.PrefLogin;
 
 
 import butterknife.BindView;
@@ -62,7 +60,7 @@ public class StaffDashboard extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        staff = UtilityLogin.getStaff(this);
+        staff = PrefLogin.getStaff(this);
         setupDashboard();
     }
 

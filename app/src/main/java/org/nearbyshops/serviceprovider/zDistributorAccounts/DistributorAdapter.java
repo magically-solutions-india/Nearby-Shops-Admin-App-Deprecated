@@ -21,7 +21,7 @@ import com.squareup.picasso.Picasso;
 import org.nearbyshops.serviceprovider.zDistributorAccounts.DistributorDetail.DistributorDetail;
 import org.nearbyshops.serviceprovider.ModelRoles.Distributor;
 import org.nearbyshops.serviceprovider.R;
-import org.nearbyshops.serviceprovider.Utility.UtilityGeneral;
+import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
 
 import java.util.ArrayList;
 
@@ -64,7 +64,7 @@ public class DistributorAdapter extends RecyclerView.Adapter<DistributorAdapter.
         holder.aboutDistributor.setText(distributor.getAbout());
 
 
-        String imagePath = UtilityGeneral.getImageEndpointURL(context)
+        String imagePath = PrefGeneral.getImageEndpointURL(context)
                 + dataset.get(position).getProfileImageURL();
 
         Drawable drawable = VectorDrawableCompat

@@ -18,7 +18,7 @@ import com.squareup.picasso.Picasso;
 
 import org.nearbyshops.serviceprovider.Model.Shop;
 import org.nearbyshops.serviceprovider.R;
-import org.nearbyshops.serviceprovider.Utility.UtilityGeneral;
+import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
 
 import java.util.List;
 
@@ -135,7 +135,7 @@ class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 //                String imagePath = UtilityGeneral.getImageEndpointURL(MyApplication.getAppContext())
 //                        + shop.getLogoImagePath();
 
-                String imagePath = UtilityGeneral.getServiceURL(context) + "/api/v1/Shop/Image/three_hundred_"
+                String imagePath = PrefGeneral.getServiceURL(context) + "/api/v1/Shop/Image/three_hundred_"
                         + shop.getLogoImagePath() + ".jpg";
 
                 Drawable placeholder = VectorDrawableCompat
@@ -172,7 +172,7 @@ class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
             }
 
             Drawable drawable = ContextCompat.getDrawable(context,R.drawable.ic_nature_people_white_48px);
-            String imagePath = UtilityGeneral.getServiceURL(context) + "/api/v1/Shop/Image/" + "three_hundred_"+ shop.getLogoImagePath() + ".jpg";
+            String imagePath = PrefGeneral.getServiceURL(context) + "/api/v1/Shop/Image/" + "three_hundred_"+ shop.getLogoImagePath() + ".jpg";
 
             System.out.println(imagePath);
 

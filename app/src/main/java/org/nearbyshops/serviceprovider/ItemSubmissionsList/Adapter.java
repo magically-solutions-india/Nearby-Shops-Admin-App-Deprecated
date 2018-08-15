@@ -19,7 +19,7 @@ import com.squareup.picasso.Picasso;
 import org.nearbyshops.serviceprovider.Model.Item;
 import org.nearbyshops.serviceprovider.ModelItemSubmission.ItemSubmission;
 import org.nearbyshops.serviceprovider.R;
-import org.nearbyshops.serviceprovider.Utility.UtilityGeneral;
+import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
 
 import java.util.List;
 
@@ -212,7 +212,7 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
             holder.itemDescription.setText(item.getItemDescription());
 
             Drawable drawable = ContextCompat.getDrawable(context,R.drawable.ic_nature_people_white_48px);
-            String imagePath = UtilityGeneral.getServiceURL(context) + "/api/v1/Item/Image/" + "three_hundred_"+ item.getItemImageURL() + ".jpg";
+            String imagePath = PrefGeneral.getServiceURL(context) + "/api/v1/Item/Image/" + "three_hundred_"+ item.getItemImageURL() + ".jpg";
 
             Picasso.with(context)
                     .load(imagePath)
@@ -259,7 +259,7 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
         holder.updatesCount.setText("Updates Count : " + String.valueOf(item.getItemStats().getSubmissionsCount()));
 
 
-        String imagePath = UtilityGeneral.getServiceURL(context)
+        String imagePath = PrefGeneral.getServiceURL(context)
                 + "/api/v1/Item/Image/three_hundred_" + item.getItemImageURL() + ".jpg";
 
 

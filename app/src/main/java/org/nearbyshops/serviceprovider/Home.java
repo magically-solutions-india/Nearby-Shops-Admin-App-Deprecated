@@ -10,6 +10,8 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import org.nearbyshops.serviceprovider.DetachedTabs.DetachedTabs;
+import org.nearbyshops.serviceprovider.EditProfile.EditProfile;
+import org.nearbyshops.serviceprovider.EditProfile.FragmentEditProfile;
 import org.nearbyshops.serviceprovider.EditProfileAdmin.EditAdminFragment;
 import org.nearbyshops.serviceprovider.EditProfileAdmin.EditProfileAdmin;
 import org.nearbyshops.serviceprovider.ItemSpecName.ItemSpecName;
@@ -278,12 +280,18 @@ public class Home extends AppCompatActivity {
 
 
 
+
     @OnClick(R.id.edit_profile)
     void editProfileClick()
     {
-        Intent intent = new Intent(this, EditProfileAdmin.class);
-        intent.putExtra(EditAdminFragment.EDIT_MODE_INTENT_KEY,EditAdminFragment.MODE_UPDATE);
+//        Intent intent = new Intent(this, EditProfileAdmin.class);
+//        intent.putExtra(EditAdminFragment.EDIT_MODE_INTENT_KEY,EditAdminFragment.MODE_UPDATE);
+//        startActivity(intent);
+
+        Intent intent = new Intent(this, EditProfile.class);
+        intent.putExtra(FragmentEditProfile.EDIT_MODE_INTENT_KEY, FragmentEditProfile.MODE_UPDATE);
         startActivity(intent);
+
     }
 
 

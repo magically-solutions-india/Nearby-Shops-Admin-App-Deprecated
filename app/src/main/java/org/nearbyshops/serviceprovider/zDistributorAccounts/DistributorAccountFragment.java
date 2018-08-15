@@ -23,7 +23,7 @@ import org.nearbyshops.serviceprovider.ModelRoles.Distributor;
 import org.nearbyshops.serviceprovider.ModelRoles.DistributorEndPoint;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.DistributorAccountService;
-import org.nearbyshops.serviceprovider.Utility.UtilityLogin;
+import org.nearbyshops.serviceprovider.Utility.PrefLogin;
 import org.nearbyshops.serviceprovider.Utility.UtilitySortDistributor;
 
 import java.util.ArrayList;
@@ -287,7 +287,7 @@ public class DistributorAccountFragment extends Fragment implements SwipeRefresh
 
         Call<DistributorEndPoint> call = distributorAccountService
                 .getDistributor(
-                    UtilityLogin.baseEncoding(UtilityLogin.getUsername(getActivity()),UtilityLogin.getPassword(getActivity())),
+                    PrefLogin.baseEncoding(PrefLogin.getUsername(getActivity()), PrefLogin.getPassword(getActivity())),
                         null,isEnabled,isWaitlisted,current_sort,limit,offset,null);
 
 

@@ -23,7 +23,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -52,8 +51,8 @@ import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContractItem.ItemImageService;
 import org.nearbyshops.serviceprovider.RetrofitRESTContractItem.ItemService;
 import org.nearbyshops.serviceprovider.RetrofitRESTContractItem.ItemSpecNameService;
-import org.nearbyshops.serviceprovider.Utility.UtilityGeneral;
-import org.nearbyshops.serviceprovider.Utility.UtilityLogin;
+import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
+import org.nearbyshops.serviceprovider.Utility.PrefLogin;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -438,7 +437,7 @@ public class EditItemFragmentNew extends Fragment implements AdapterItemImages.n
 
     void loadImage(String imagePath) {
 
-        String iamgepath = UtilityGeneral.getServiceURL(getContext()) + "/api/v1/Item/Image/" + imagePath;
+        String iamgepath = PrefGeneral.getServiceURL(getContext()) + "/api/v1/Item/Image/" + imagePath;
 
         System.out.println(iamgepath);
 
@@ -643,7 +642,7 @@ public class EditItemFragmentNew extends Fragment implements AdapterItemImages.n
 
 
         Call<ResponseBody> call = itemService.updateItem(
-                UtilityLogin.getAuthorizationHeaders(getContext()),
+                PrefLogin.getAuthorizationHeaders(getContext()),
                 item,item.getItemID()
         );
 
@@ -697,7 +696,7 @@ public class EditItemFragmentNew extends Fragment implements AdapterItemImages.n
 
         System.out.println("Item Category ID (POST) : " + item.getItemCategoryID());
 
-        Call<Item> call = itemService.insertItem(UtilityLogin.getAuthorizationHeaders(getContext()), item);
+        Call<Item> call = itemService.insertItem(PrefLogin.getAuthorizationHeaders(getContext()), item);
 
         call.enqueue(new Callback<Item>() {
             @Override
@@ -942,6 +941,8 @@ public class EditItemFragmentNew extends Fragment implements AdapterItemImages.n
 
 
 
+
+
     /*
 
     // Code for Uploading Image
@@ -1039,7 +1040,7 @@ public class EditItemFragmentNew extends Fragment implements AdapterItemImages.n
         progressBar.setVisibility(View.VISIBLE);
 
 
-        Call<Image> imageCall = itemService.uploadImage(UtilityLogin.getAuthorizationHeaders(getContext()),
+        Call<Image> imageCall = itemService.uploadImage(PrefLogin.getAuthorizationHeaders(getContext()),
                 requestBodyBinary);
 
 
@@ -1118,7 +1119,7 @@ public class EditItemFragmentNew extends Fragment implements AdapterItemImages.n
     void deleteImage(String filename)
     {
         Call<ResponseBody> call = itemService.deleteImage(
-                UtilityLogin.getAuthorizationHeaders(getContext()),
+                PrefLogin.getAuthorizationHeaders(getContext()),
                 filename);
 
 
@@ -1217,7 +1218,7 @@ public class EditItemFragmentNew extends Fragment implements AdapterItemImages.n
     void makeRequestDeleteItemImage(ItemImage itemImage, final int position)
     {
         Call<ResponseBody> call = itemImageService.deleteItemImageData(
-                UtilityLogin.getAuthorizationHeaders(getActivity()),
+                PrefLogin.getAuthorizationHeaders(getActivity()),
                 itemImage.getImageID()
         );
 

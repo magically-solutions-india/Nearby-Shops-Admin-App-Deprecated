@@ -47,7 +47,7 @@ import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.ItemCategoryService;
 import org.nearbyshops.serviceprovider.RetrofitRESTContractItem.ItemService;
 import org.nearbyshops.serviceprovider.SelectParent.ItemCategoriesParent;
-import org.nearbyshops.serviceprovider.Utility.UtilityLogin;
+import org.nearbyshops.serviceprovider.Utility.PrefLogin;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -667,7 +667,7 @@ public class ItemCategoriesFragmentSimple extends Fragment implements SwipeRefre
     public void notifyDeleteItemCat(ItemCategory itemCategory, final int position) {
 
         Call<ResponseBody> call = itemCategoryService.deleteItemCategory(
-                UtilityLogin.getAuthorizationHeaders(getActivity()),
+                PrefLogin.getAuthorizationHeaders(getActivity()),
                 itemCategory.getItemCategoryID()
         );
 
@@ -709,7 +709,7 @@ public class ItemCategoriesFragmentSimple extends Fragment implements SwipeRefre
     public void notifyDeleteItem(Item item, final int position) {
 
         Call<ResponseBody> call = itemService.deleteItem(
-                UtilityLogin.getAuthorizationHeaders(getActivity()),
+                PrefLogin.getAuthorizationHeaders(getActivity()),
                 item.getItemID()
         );
 
@@ -1176,7 +1176,7 @@ public class ItemCategoriesFragmentSimple extends Fragment implements SwipeRefre
 
     void makeRequestUpdateItemCat(ItemCategory itemCategory)
     {
-        Call<ResponseBody> call = itemCategoryService.changeParent(UtilityLogin.getAuthorizationHeaders(getContext()),
+        Call<ResponseBody> call = itemCategoryService.changeParent(PrefLogin.getAuthorizationHeaders(getContext()),
                 itemCategory,itemCategory.getItemCategoryID());
 
         call.enqueue(new Callback<ResponseBody>() {
@@ -1229,7 +1229,7 @@ public class ItemCategoriesFragmentSimple extends Fragment implements SwipeRefre
 
     void makeRequestUpdateItemCatBulk(final List<ItemCategory> list)
     {
-        Call<ResponseBody> call = itemCategoryService.changeParentBulk(UtilityLogin.getAuthorizationHeaders(getActivity()),
+        Call<ResponseBody> call = itemCategoryService.changeParentBulk(PrefLogin.getAuthorizationHeaders(getActivity()),
                 list);
 
 
@@ -1328,7 +1328,7 @@ public class ItemCategoriesFragmentSimple extends Fragment implements SwipeRefre
 
 //        Call<ResponseBody> call2 = itemCategoryService.updateItemCategory(itemCategory,itemCategory.getItemCategoryID());
 
-        Call<ResponseBody> call = itemService.changeParent(UtilityLogin.getAuthorizationHeaders(getContext()),
+        Call<ResponseBody> call = itemService.changeParent(PrefLogin.getAuthorizationHeaders(getContext()),
                 item,item.getItemID());
 
         call.enqueue(new Callback<ResponseBody>() {
@@ -1375,7 +1375,7 @@ public class ItemCategoriesFragmentSimple extends Fragment implements SwipeRefre
     {
 //        Call<ResponseBody> call = itemService.updateItemCategoryBulk(list);
 
-        Call<ResponseBody> call = itemService.changeParentBulk(UtilityLogin.getAuthorizationHeaders(getContext()),
+        Call<ResponseBody> call = itemService.changeParentBulk(PrefLogin.getAuthorizationHeaders(getContext()),
                 list);
 //        Call<ResponseBody> call = null;
 //

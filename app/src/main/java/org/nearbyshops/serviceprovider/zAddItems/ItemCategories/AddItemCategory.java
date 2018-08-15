@@ -27,8 +27,8 @@ import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.ItemCategoryService;
 import org.nearbyshops.serviceprovider.Utility.ImageCalls;
 import org.nearbyshops.serviceprovider.Utility.ImageCropUtility;
-import org.nearbyshops.serviceprovider.Utility.UtilityGeneral;
-import org.nearbyshops.serviceprovider.Utility.UtilityLogin;
+import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
+import org.nearbyshops.serviceprovider.Utility.PrefLogin;
 
 import java.io.File;
 
@@ -174,7 +174,7 @@ public class AddItemCategory extends AppCompatActivity implements Callback<Image
 
     void loadImage(String imagePath) {
 
-        Picasso.with(this).load(UtilityGeneral.getServiceURL(null) + IMAGES_END_POINT_URL + imagePath).into(resultView);
+        Picasso.with(this).load(PrefGeneral.getServiceURL(null) + IMAGES_END_POINT_URL + imagePath).into(resultView);
     }
 
 
@@ -195,7 +195,7 @@ public class AddItemCategory extends AppCompatActivity implements Callback<Image
     {
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(UtilityGeneral.getServiceURL(MyApplication.getAppContext()))
+                .baseUrl(PrefGeneral.getServiceURL(MyApplication.getAppContext()))
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -205,7 +205,7 @@ public class AddItemCategory extends AppCompatActivity implements Callback<Image
 
         getDatafromEditText();
 
-        Call<ItemCategory> itemCategoryCall = itemCategoryService.insertItemCategory(UtilityLogin.getAuthorizationHeaders(this),
+        Call<ItemCategory> itemCategoryCall = itemCategoryService.insertItemCategory(PrefLogin.getAuthorizationHeaders(this),
                 itemCategory);
 
         itemCategoryCall.enqueue(new Callback<ItemCategory>() {

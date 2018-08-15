@@ -1,39 +1,21 @@
 package org.nearbyshops.serviceprovider;
 
-import android.content.ClipboardManager;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.TextInputLayout;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 
-import org.apache.commons.validator.routines.UrlValidator;
-import org.nearbyshops.serviceprovider.ModelRoles.Admin;
-import org.nearbyshops.serviceprovider.ModelRoles.Staff;
 import org.nearbyshops.serviceprovider.ModelRoles.User;
-import org.nearbyshops.serviceprovider.ModelServiceConfig.ServiceConfigurationLocal;
-import org.nearbyshops.serviceprovider.RetrofitRESTContract.ServiceConfigurationService;
-import org.nearbyshops.serviceprovider.RetrofitRESTContract.StaffService;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.UserService;
-import org.nearbyshops.serviceprovider.Services.ServicesActivity;
-import org.nearbyshops.serviceprovider.ShopApprovals.UtilityLocation;
-import org.nearbyshops.serviceprovider.StaffHome.StaffHome;
-import org.nearbyshops.serviceprovider.Utility.UtilityGeneral;
-import org.nearbyshops.serviceprovider.Utility.UtilityLogin;
-import org.nearbyshops.serviceprovider.Utility.UtilityServiceConfig;
+import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
+import org.nearbyshops.serviceprovider.Utility.PrefLogin;
 
 import javax.inject.Inject;
 
@@ -74,8 +56,8 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
         ButterKnife.bind(this);
 
 
-        username.setText(UtilityLogin.getUsername(this));
-        password.setText(UtilityLogin.getPassword(this));
+        username.setText(PrefLogin.getUsername(this));
+        password.setText(PrefLogin.getPassword(this));
 
     }
 
@@ -101,7 +83,7 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
     public void login()
     {
 
-        UtilityLogin.saveCredentials(this,username.getText().toString(),password.getText().toString());
+        PrefLogin.saveCredentials(this,username.getText().toString(),password.getText().toString());
 
         networkCallLoginAdminSimple();
     }
@@ -125,12 +107,12 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
 
         Retrofit retrofit = new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create(gson))
-                .baseUrl(UtilityGeneral.getServiceURL(MyApplication.getAppContext()))
+                .baseUrl(PrefGeneral.getServiceURL(MyApplication.getAppContext()))
                 .build();
 
         UserService userService = retrofit.create(UserService.class);
 
-        Call<User> call = userService.getProfileWithLogin(UtilityLogin.baseEncoding(username,password));
+        Call<User> call = userService.getProfileWithLogin(PrefLogin.baseEncoding(username,password));
 
 
         call.enqueue(new Callback<User>() {
@@ -140,7 +122,7 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
                 if(response.code()==200)
                 {
 
-                    UtilityLogin.saveUserProfile(response.body(),LoginScreen.this);
+                    PrefLogin.saveUserProfile(response.body(),LoginScreen.this);
                     startActivity(new Intent(LoginScreen.this,Home.class));
                 }
                 else

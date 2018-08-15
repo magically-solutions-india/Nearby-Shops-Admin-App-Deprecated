@@ -10,7 +10,6 @@ import android.util.Log;
 import org.nearbyshops.serviceprovider.Model.Image;
 import org.nearbyshops.serviceprovider.MyApplication;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.ConfigImageService;
-import org.nearbyshops.serviceprovider.RetrofitRESTContract.ImageService;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -38,7 +37,7 @@ public class ConfigImageCalls {
     private ConfigImageCalls(Context context) {
 
         retrofit = new Retrofit.Builder()
-                .baseUrl(UtilityGeneral.getServiceURL(context))
+                .baseUrl(PrefGeneral.getServiceURL(context))
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

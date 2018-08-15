@@ -29,8 +29,8 @@ import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.ServiceConfigurationService;
 import org.nearbyshops.serviceprovider.Utility.ConfigImageCalls;
 import org.nearbyshops.serviceprovider.Utility.ConfigImageCropUtility;
-import org.nearbyshops.serviceprovider.Utility.UtilityGeneral;
-import org.nearbyshops.serviceprovider.Utility.UtilityLogin;
+import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
+import org.nearbyshops.serviceprovider.Utility.PrefLogin;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -259,7 +259,7 @@ public class EditServiceConfiguration extends AppCompatActivity implements Callb
 
     void loadImage(String imagePath) {
 
-        Picasso.with(this).load(UtilityGeneral.getConfigImageEndpointURL(this) + imagePath).into(resultView);
+        Picasso.with(this).load(PrefGeneral.getConfigImageEndpointURL(this) + imagePath).into(resultView);
     }
 
 
@@ -397,7 +397,7 @@ public class EditServiceConfiguration extends AppCompatActivity implements Callb
 
 
         Call<ResponseBody> itemCall = configurationService.putServiceConfiguration(
-                UtilityLogin.getAuthorizationHeaders(this)
+                PrefLogin.getAuthorizationHeaders(this)
                 ,serviceConfigurationForEdit);
 
         itemCall.enqueue(new Callback<ResponseBody>() {

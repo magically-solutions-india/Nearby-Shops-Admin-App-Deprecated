@@ -2,7 +2,6 @@ package org.nearbyshops.serviceprovider.ItemSubmissionsList.ImageUpdates;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.graphics.drawable.VectorDrawableCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
@@ -17,19 +16,17 @@ import android.widget.Toast;
 import com.squareup.picasso.Picasso;
 
 import org.nearbyshops.serviceprovider.ItemSubmissionsList.HeaderTitle;
-import org.nearbyshops.serviceprovider.Model.Item;
 import org.nearbyshops.serviceprovider.Model.ItemImage;
 import org.nearbyshops.serviceprovider.ModelItemSubmission.ItemImageSubmission;
 import org.nearbyshops.serviceprovider.ModelItemSubmission.ItemSubmission;
 import org.nearbyshops.serviceprovider.R;
-import org.nearbyshops.serviceprovider.Utility.UtilityGeneral;
+import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
 
 import java.util.List;
 
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 /**
  * Created by sumeet on 19/12/15.
@@ -201,7 +198,7 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
 
             Drawable drawable = ContextCompat.getDrawable(context,R.drawable.ic_nature_people_white_48px);
-            String imagePath = UtilityGeneral.getServiceURL(context) + "/api/v1/ItemImage/Image/" + "three_hundred_"+ itemImageSubmission.getItemImage().getImageFilename() + ".jpg";
+            String imagePath = PrefGeneral.getServiceURL(context) + "/api/v1/ItemImage/Image/" + "three_hundred_"+ itemImageSubmission.getItemImage().getImageFilename() + ".jpg";
 
             Picasso.with(context)
                     .load(imagePath)
@@ -268,7 +265,7 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
 
             Drawable drawable = ContextCompat.getDrawable(context,R.drawable.ic_nature_people_white_48px);
-            String imagePath = UtilityGeneral.getServiceURL(context) + "/api/v1/ItemImage/Image/" + "three_hundred_"+ itemImage.getImageFilename() + ".jpg";
+            String imagePath = PrefGeneral.getServiceURL(context) + "/api/v1/ItemImage/Image/" + "three_hundred_"+ itemImage.getImageFilename() + ".jpg";
 
             Picasso.with(context)
                     .load(imagePath)

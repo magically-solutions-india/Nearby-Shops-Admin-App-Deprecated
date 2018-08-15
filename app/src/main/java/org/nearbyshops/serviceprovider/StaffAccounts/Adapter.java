@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import org.nearbyshops.serviceprovider.ModelRoles.Staff;
 import org.nearbyshops.serviceprovider.R;
-import org.nearbyshops.serviceprovider.Utility.UtilityGeneral;
+import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
 
 import java.util.List;
 
@@ -62,7 +62,7 @@ class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
 //        holder.shopName.setText(shop.getShopName());
 
         Drawable drawable = ContextCompat.getDrawable(context,R.drawable.ic_nature_people_white_48px);
-        String imagePath = UtilityGeneral.getServiceURL(context) + "/api/v1/Staff/Image/" + "three_hundred_"+ staff.getProfileImageURL() + ".jpg";
+        String imagePath = PrefGeneral.getServiceURL(context) + "/api/v1/Staff/Image/" + "three_hundred_"+ staff.getProfileImageURL() + ".jpg";
 
         Picasso.with(context)
                 .load(imagePath)

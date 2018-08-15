@@ -11,7 +11,7 @@ import org.nearbyshops.serviceprovider.R;
 /**
  * Created by sumeet on 5/5/16.
  */
-public class UtilityGeneral {
+public class PrefGeneral {
 
 
 
@@ -128,13 +128,13 @@ public class UtilityGeneral {
 
     public static String getImageEndpointURL(Context context)
     {
-        return UtilityGeneral.getServiceURL(context) + "/api/Images";
+        return PrefGeneral.getServiceURL(context) + "/api/Images";
     }
 
 
     public static String getConfigImageEndpointURL(Context context)
     {
-        return UtilityGeneral.getServiceURL(context) + "/api/ServiceConfigImages";
+        return PrefGeneral.getServiceURL(context) + "/api/ServiceConfigImages";
     }
 
 

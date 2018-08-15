@@ -33,8 +33,8 @@ import org.nearbyshops.serviceprovider.Model.Image;
 import org.nearbyshops.serviceprovider.ModelRoles.Admin;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.AdminService;
-import org.nearbyshops.serviceprovider.Utility.UtilityGeneral;
-import org.nearbyshops.serviceprovider.Utility.UtilityLogin;
+import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
+import org.nearbyshops.serviceprovider.Utility.PrefLogin;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -247,7 +247,7 @@ public class EditAdminFragment extends Fragment {
 
     void loadImage(String imagePath) {
 
-        String iamgepath = UtilityGeneral.getServiceURL(getContext()) + "/api/v1/Admin/Image/" + imagePath;
+        String iamgepath = PrefGeneral.getServiceURL(getContext()) + "/api/v1/Admin/Image/" + imagePath;
 
         Picasso.with(getContext())
                 .load(iamgepath)
@@ -530,7 +530,7 @@ public class EditAdminFragment extends Fragment {
 
 
 //        final Staff admin = UtilityStaff.getStaff(getContext());
-        Call<ResponseBody> call = adminService.putAdmin(UtilityLogin.getAuthorizationHeaders(
+        Call<ResponseBody> call = adminService.putAdmin(PrefLogin.getAuthorizationHeaders(
                                                         getContext()), admin);
 
         call.enqueue(new Callback<ResponseBody>() {
@@ -540,8 +540,8 @@ public class EditAdminFragment extends Fragment {
                 if(response.code()==200)
                 {
                     showToastMessage("Update Successful !");
-                    UtilityLogin.saveAdmin(admin,getContext());
-                    UtilityLogin.saveCredentials(getActivity(),admin.getUsername(),admin.getPassword());
+                    PrefLogin.saveAdmin(admin,getContext());
+                    PrefLogin.saveCredentials(getActivity(),admin.getUsername(),admin.getPassword());
                 }
                 else
                 {
@@ -853,7 +853,7 @@ public class EditAdminFragment extends Fragment {
 
 
 
-        Call<Image> imageCall = adminService.uploadImage(UtilityLogin.getAuthorizationHeaders(getContext()),
+        Call<Image> imageCall = adminService.uploadImage(PrefLogin.getAuthorizationHeaders(getContext()),
                 requestBodyBinary);
 
 
@@ -922,7 +922,7 @@ public class EditAdminFragment extends Fragment {
 
     void deleteImage(String filename)
     {
-        Call<ResponseBody> call = adminService.deleteImage(UtilityLogin.getAuthorizationHeaders(getContext()),filename);
+        Call<ResponseBody> call = adminService.deleteImage(PrefLogin.getAuthorizationHeaders(getContext()),filename);
 
         call.enqueue(new Callback<ResponseBody>() {
             @Override

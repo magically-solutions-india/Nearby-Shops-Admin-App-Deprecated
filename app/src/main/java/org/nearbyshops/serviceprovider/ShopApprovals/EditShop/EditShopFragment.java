@@ -19,7 +19,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -47,8 +46,8 @@ import org.nearbyshops.serviceprovider.Model.Image;
 import org.nearbyshops.serviceprovider.Model.Shop;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.ShopService;
-import org.nearbyshops.serviceprovider.Utility.UtilityGeneral;
-import org.nearbyshops.serviceprovider.Utility.UtilityLogin;
+import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
+import org.nearbyshops.serviceprovider.Utility.PrefLogin;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -251,7 +250,7 @@ public class EditShopFragment extends Fragment implements OnMapReadyCallback {
 
     void loadImage(String imagePath) {
 
-        String iamgepath = UtilityGeneral.getServiceURL(getContext()) + "/api/v1/Shop/Image/" + imagePath;
+        String iamgepath = PrefGeneral.getServiceURL(getContext()) + "/api/v1/Shop/Image/" + imagePath;
 
         Picasso.with(getContext())
                 .load(iamgepath)
@@ -527,7 +526,7 @@ public class EditShopFragment extends Fragment implements OnMapReadyCallback {
 
 
         Call<ResponseBody> call = shopService.updateShop(
-                UtilityLogin.getAuthorizationHeaders(getContext()),
+                PrefLogin.getAuthorizationHeaders(getContext()),
                 shop,shop.getShopID()
         );
 
@@ -579,7 +578,7 @@ public class EditShopFragment extends Fragment implements OnMapReadyCallback {
         buttonUpdateItem.setVisibility(View.INVISIBLE);
         progressBar.setVisibility(View.VISIBLE);
 
-        Call<Shop> call = shopService.postShop(UtilityLogin.getAuthorizationHeaders(getContext()),shop);
+        Call<Shop> call = shopService.postShop(PrefLogin.getAuthorizationHeaders(getContext()),shop);
 
         call.enqueue(new Callback<Shop>() {
             @Override
@@ -900,7 +899,7 @@ public class EditShopFragment extends Fragment implements OnMapReadyCallback {
 
 
 
-        Call<Image> imageCall = shopService.uploadImage(UtilityLogin.getAuthorizationHeaders(getContext()),
+        Call<Image> imageCall = shopService.uploadImage(PrefLogin.getAuthorizationHeaders(getContext()),
                 requestBodyBinary);
 
 
@@ -1001,7 +1000,7 @@ public class EditShopFragment extends Fragment implements OnMapReadyCallback {
 
 
         Call<ResponseBody> call = shopService.deleteImage(
-                UtilityLogin.getAuthorizationHeaders(getContext()),
+                PrefLogin.getAuthorizationHeaders(getContext()),
                 filename);
 
 

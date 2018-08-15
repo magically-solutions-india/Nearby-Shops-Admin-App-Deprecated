@@ -14,7 +14,7 @@ import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.StaffService;
 import org.nearbyshops.serviceprovider.StaffHome.EditStaffSelf.EditStaffSelf;
 import org.nearbyshops.serviceprovider.StaffHome.EditStaffSelf.EditStaffSelfFragment;
-import org.nearbyshops.serviceprovider.Utility.UtilityLogin;
+import org.nearbyshops.serviceprovider.Utility.PrefLogin;
 
 import javax.inject.Inject;
 
@@ -52,7 +52,7 @@ public class StaffHome extends AppCompatActivity {
     {
         // if account is deactivated notify User
 
-        Staff staff = UtilityLogin.getStaff(this);
+        Staff staff = PrefLogin.getStaff(this);
 
         if(staff!=null && !staff.getEnabled())
         {
@@ -81,7 +81,7 @@ public class StaffHome extends AppCompatActivity {
     @OnClick(R.id.dashboard)
     void dashboardClick()
     {
-        Call<Staff> call = staffService.getLogin(UtilityLogin.getAuthorizationHeaders(this));
+        Call<Staff> call = staffService.getLogin(PrefLogin.getAuthorizationHeaders(this));
 
         call.enqueue(new Callback<Staff>() {
             @Override
@@ -92,7 +92,7 @@ public class StaffHome extends AppCompatActivity {
                     // permitted
                     if(response.body().getEnabled())
                     {
-                        UtilityLogin.saveStaff(response.body(),StaffHome.this);
+                        PrefLogin.saveStaff(response.body(),StaffHome.this);
                         startActivity(new Intent(StaffHome.this,StaffDashboard.class));
                     }
                     else

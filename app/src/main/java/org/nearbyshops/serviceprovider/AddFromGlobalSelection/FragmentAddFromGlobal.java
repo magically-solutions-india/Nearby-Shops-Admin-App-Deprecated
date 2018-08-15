@@ -30,8 +30,8 @@ import org.nearbyshops.serviceprovider.RetrofitRESTContract.ItemCategoryService;
 import org.nearbyshops.serviceprovider.RetrofitRESTContractItem.ItemService;
 import org.nearbyshops.serviceprovider.RetrofitRESTContractGIDB.ItemCategoryServiceGIDB;
 import org.nearbyshops.serviceprovider.RetrofitRESTContractGIDB.ItemServiceGIDB;
-import org.nearbyshops.serviceprovider.Utility.UtilityGeneral;
-import org.nearbyshops.serviceprovider.Utility.UtilityLogin;
+import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
+import org.nearbyshops.serviceprovider.Utility.PrefLogin;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -734,7 +734,7 @@ public class FragmentAddFromGlobal extends Fragment implements SwipeRefreshLayou
             }
 
 //            entry.getValue().setRt_gidb_service_url(UtilityGeneral.getServiceURL_GIDB(getActivity()));
-            entry.getValue().setGidbServiceURL(UtilityGeneral.getServiceURL_GIDB(getActivity()));
+            entry.getValue().setGidbServiceURL(PrefGeneral.getServiceURL_GIDB(getActivity()));
             entry.getValue().setGidbItemCatID(entry.getValue().getItemCategoryID());
 
 
@@ -742,7 +742,7 @@ public class FragmentAddFromGlobal extends Fragment implements SwipeRefreshLayou
         }
 
 
-        Call<ResponseBody> call = itemCatService.addItemCatFromGlobal(UtilityLogin.getAuthorizationHeaders(getActivity()), tempList);
+        Call<ResponseBody> call = itemCatService.addItemCatFromGlobal(PrefLogin.getAuthorizationHeaders(getActivity()), tempList);
 
 
         call.enqueue(new Callback<ResponseBody>() {
@@ -795,14 +795,14 @@ public class FragmentAddFromGlobal extends Fragment implements SwipeRefreshLayou
             }
 
 //            entry.getValue().setRt_gidb_service_url(UtilityGeneral.getServiceURL_GIDB(getActivity()));
-            entry.getValue().setGidbServiceURL(UtilityGeneral.getServiceURL_GIDB(getActivity()));
+            entry.getValue().setGidbServiceURL(PrefGeneral.getServiceURL_GIDB(getActivity()));
             entry.getValue().setGidbItemID(entry.getValue().getItemID());
 
             tempList.add(entry.getValue());
         }
 
 
-        Call<ResponseBody> call = itemService.addItemFromGlobal(UtilityLogin.getAuthorizationHeaders(getActivity()),tempList);
+        Call<ResponseBody> call = itemService.addItemFromGlobal(PrefLogin.getAuthorizationHeaders(getActivity()),tempList);
 
         call.enqueue(new Callback<ResponseBody>() {
             @Override

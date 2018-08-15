@@ -36,8 +36,8 @@ import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.ServiceConfigurationService;
 import org.nearbyshops.serviceprovider.ServiceConfiguration.Utility.PickLocationActivity;
 import org.nearbyshops.serviceprovider.Utility.ImageCropUtility;
-import org.nearbyshops.serviceprovider.Utility.UtilityGeneral;
-import org.nearbyshops.serviceprovider.Utility.UtilityLogin;
+import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
+import org.nearbyshops.serviceprovider.Utility.PrefLogin;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -259,7 +259,7 @@ public class EditConfigurationFragment extends Fragment{
 
     void loadImage(String imagePath) {
 
-        String iamgepath = UtilityGeneral.getServiceURL(getContext()) + "/api/ServiceConfiguration/Image/" + imagePath;
+        String iamgepath = PrefGeneral.getServiceURL(getContext()) + "/api/ServiceConfiguration/Image/" + imagePath;
 
         Picasso.with(getContext())
                 .load(iamgepath)
@@ -512,7 +512,7 @@ public class EditConfigurationFragment extends Fragment{
 
 //        final Staff staff = UtilityStaff.getStaff(getContext());
         Call<ResponseBody> call = configurationService.putServiceConfiguration(
-                                            UtilityLogin.getAuthorizationHeaders(
+                                            PrefLogin.getAuthorizationHeaders(
                                                         getContext()), serviceConfiguration);
 
         call.enqueue(new Callback<ResponseBody>() {
@@ -844,7 +844,7 @@ public class EditConfigurationFragment extends Fragment{
 
 
 
-        Call<Image> imageCall = configurationService.uploadImage(UtilityLogin.getAuthorizationHeaders(getContext()),
+        Call<Image> imageCall = configurationService.uploadImage(PrefLogin.getAuthorizationHeaders(getContext()),
                 requestBodyBinary);
 
 
@@ -913,7 +913,7 @@ public class EditConfigurationFragment extends Fragment{
 
     void deleteImage(String filename)
     {
-        Call<ResponseBody> call = configurationService.deleteImage(UtilityLogin.getAuthorizationHeaders(getContext()),filename);
+        Call<ResponseBody> call = configurationService.deleteImage(PrefLogin.getAuthorizationHeaders(getContext()),filename);
 
         call.enqueue(new Callback<ResponseBody>() {
             @Override

@@ -38,7 +38,7 @@ public class ImageCalls {
     private ImageCalls(Context context) {
 
         retrofit = new Retrofit.Builder()
-                .baseUrl(UtilityGeneral.getServiceURL(context))
+                .baseUrl(PrefGeneral.getServiceURL(context))
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

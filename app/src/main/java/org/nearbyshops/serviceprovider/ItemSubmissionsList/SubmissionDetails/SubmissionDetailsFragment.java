@@ -18,8 +18,8 @@ import org.nearbyshops.serviceprovider.Model.Item;
 import org.nearbyshops.serviceprovider.ModelItemSubmission.ItemSubmission;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContractItem.ItemSubmissionService;
-import org.nearbyshops.serviceprovider.Utility.UtilityGeneral;
-import org.nearbyshops.serviceprovider.Utility.UtilityLogin;
+import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
+import org.nearbyshops.serviceprovider.Utility.PrefLogin;
 
 import javax.inject.Inject;
 
@@ -118,7 +118,7 @@ public class SubmissionDetailsFragment extends Fragment {
         }
 
 
-            String iamgepath = UtilityGeneral.getServiceURL(getContext()) + "/api/v1/Item/Image/" + item.getItemImageURL();
+            String iamgepath = PrefGeneral.getServiceURL(getContext()) + "/api/v1/Item/Image/" + item.getItemImageURL();
 
             Picasso.with(getContext())
                     .load(iamgepath)
@@ -166,7 +166,7 @@ public class SubmissionDetailsFragment extends Fragment {
 
     void makeNetworkCallApproveInsert()
     {
-        Call<ResponseBody> call = itemSubmissionService.approveInsert(UtilityLogin.getAuthorizationHeaders(getActivity()),
+        Call<ResponseBody> call = itemSubmissionService.approveInsert(PrefLogin.getAuthorizationHeaders(getActivity()),
                 itemSubmission.getItemSubmissionID());
 
         call.enqueue(new Callback<ResponseBody>() {
@@ -193,7 +193,7 @@ public class SubmissionDetailsFragment extends Fragment {
 
     void makeNetworkCallUpdate()
     {
-        Call<ResponseBody> call = itemSubmissionService.approveUpdate(UtilityLogin.getAuthorizationHeaders(getActivity()),
+        Call<ResponseBody> call = itemSubmissionService.approveUpdate(PrefLogin.getAuthorizationHeaders(getActivity()),
                 itemSubmission.getItemSubmissionID());
 
         call.enqueue(new Callback<ResponseBody>() {
@@ -228,7 +228,7 @@ public class SubmissionDetailsFragment extends Fragment {
     void rejectSubmission()
     {
 
-        Call<ResponseBody> call = itemSubmissionService.rejectSubmission(UtilityLogin.getAuthorizationHeaders(getActivity()),
+        Call<ResponseBody> call = itemSubmissionService.rejectSubmission(PrefLogin.getAuthorizationHeaders(getActivity()),
                 itemSubmission.getItemSubmissionID());
 
         call.enqueue(new Callback<ResponseBody>() {

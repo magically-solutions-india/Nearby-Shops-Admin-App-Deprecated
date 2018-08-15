@@ -12,6 +12,7 @@ import org.nearbyshops.serviceprovider.MyApplication;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.AdminService;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.DistributorAccountService;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.ItemCategoryService;
+import org.nearbyshops.serviceprovider.RetrofitRESTContract.StaffLoginService;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.UserService;
 import org.nearbyshops.serviceprovider.RetrofitRESTContractItem.ItemImageService;
 import org.nearbyshops.serviceprovider.RetrofitRESTContractItem.ItemImageSubmissionService;
@@ -28,7 +29,7 @@ import org.nearbyshops.serviceprovider.RetrofitRESTContractGIDB.ItemCategoryServ
 import org.nearbyshops.serviceprovider.RetrofitRESTContractGIDB.ItemServiceGIDB;
 import org.nearbyshops.serviceprovider.RetrofitRESTContractItem.ItemSubmissionService;
 import org.nearbyshops.serviceprovider.RetrofitRESTContractSDS.ServiceConfigService;
-import org.nearbyshops.serviceprovider.Utility.UtilityGeneral;
+import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
 
 import javax.inject.Named;
 import javax.inject.Singleton;
@@ -116,12 +117,12 @@ public class NetModule {
 
         Retrofit retrofit = new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create(gson))
-                .baseUrl(UtilityGeneral.getServiceURL(MyApplication.getAppContext()))
+                .baseUrl(PrefGeneral.getServiceURL(MyApplication.getAppContext()))
                 .build();
 
         //        .client(okHttpClient)
 
-        Log.d("applog","Retrofit : " + UtilityGeneral.getServiceURL(MyApplication.getAppContext()));
+        Log.d("applog","Retrofit : " + PrefGeneral.getServiceURL(MyApplication.getAppContext()));
 
 
         return retrofit;
@@ -134,12 +135,12 @@ public class NetModule {
 
         Retrofit retrofit = new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create(gson))
-                .baseUrl(UtilityGeneral.getServiceURL_GIDB(MyApplication.getAppContext()))
+                .baseUrl(PrefGeneral.getServiceURL_GIDB(MyApplication.getAppContext()))
                 .build();
 
         //        .client(okHttpClient)
 
-        Log.d("applog","Retrofit : " + UtilityGeneral.getServiceURL_GIDB(MyApplication.getAppContext()));
+        Log.d("applog","Retrofit : " + PrefGeneral.getServiceURL_GIDB(MyApplication.getAppContext()));
 
 
         return retrofit;
@@ -158,13 +159,13 @@ public class NetModule {
 
         Retrofit retrofit = new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create(gson))
-                .baseUrl(UtilityGeneral.getServiceURL(MyApplication.getAppContext()))
+                .baseUrl(PrefGeneral.getServiceURL(MyApplication.getAppContext()))
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
 
         //        .client(okHttpClient)
 
-        Log.d("applog","Retrofit : " + UtilityGeneral.getServiceURL(MyApplication.getAppContext()));
+        Log.d("applog","Retrofit : " + PrefGeneral.getServiceURL(MyApplication.getAppContext()));
 
 
         return retrofit;
@@ -180,7 +181,7 @@ public class NetModule {
 
         return new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create(gson))
-                .baseUrl(UtilityGeneral.getServiceURL_SDS(MyApplication.getAppContext()))
+                .baseUrl(PrefGeneral.getServiceURL_SDS(MyApplication.getAppContext()))
                 .build();
     }
 
@@ -276,6 +277,12 @@ public class NetModule {
     UserService provideUserService(@Named("normal")Retrofit retrofit)
     {
         return retrofit.create(UserService.class);
+    }
+
+    @Provides
+    StaffLoginService provideStaffLogin(@Named("normal")Retrofit retrofit)
+    {
+        return retrofit.create(StaffLoginService.class);
     }
 
 

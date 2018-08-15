@@ -6,10 +6,8 @@ package org.nearbyshops.serviceprovider.ModelRoles;
 
 public class StaffPermissions {
 
-
     // Table Name for User
     public static final String TABLE_NAME = "STAFF_PERMISSIONS";
-
 
     // Column names
     public static final String PERMISSION_ID = "PERMISSION_ID";
@@ -17,14 +15,20 @@ public class StaffPermissions {
     public static final String DESIGNATION = "DESIGNATION";
     public static final String LAT_CURRENT = "LAT_CURRENT";
     public static final String LON_CURRENT = "LON_CURRENT";
-    public static final String PERMIT_TAXI_REGISTRATION_AND_RENEWAL = "PERMIT_TAXI_REGISTRATION_AND_RENEWAL";
-    public static final String PERMIT_TAXI_PROFILE_UPDATE = "PERMIT_TAXI_PROFILE_UPDATE";
-    public static final String PERMIT_ACCEPT_PAYMENTS = "PERMIT_ACCEPT_PAYMENTS";
-    public static final String PERMIT_ADD_EDIT_TAXI_IMAGES = "PERMIT_ADD_EDIT_TAXI_IMAGES";
+    public static final String PERMIT_CREATE_UPDATE_ITEM_CATEGORIES = "PERMIT_CREATE_UPDATE_ITEM_CATEGORIES";
+    public static final String PERMIT_CREATE_UPDATE_ITEMS = "PERMIT_CREATE_UPDATE_ITEMS";
+    public static final String PERMIT_APPROVE_SHOPS = "PERMIT_APPROVE_SHOPS";
 
     public static final String STAFF_EARNINGS = "STAFF_EARNINGS";
     public static final String MAX_EARNINGS_LIMIT = "MAX_EARNINGS_LIMIT";
 
+
+
+//    public static final String PERMIT_TAXI_REGISTRATION_AND_RENEWAL = "PERMIT_TAXI_REGISTRATION_AND_RENEWAL";
+//    public static final String PERMIT_TAXI_PROFILE_UPDATE = "PERMIT_TAXI_PROFILE_UPDATE";
+//    public static final String PERMIT_ACCEPT_PAYMENTS = "PERMIT_ACCEPT_PAYMENTS";
+//    public static final String PERMIT_ADD_EDIT_TAXI_IMAGES = "PERMIT_ADD_EDIT_TAXI_IMAGES";
+//    public static final String PERMIT_APPROVE_TAXI_IMAGES = "PERMIT_APPROVE_TAXI_IMAGES";
 
 
 
@@ -38,27 +42,21 @@ public class StaffPermissions {
                     + " " + StaffPermissions.DESIGNATION + " text,"
                     + " " + StaffPermissions.LAT_CURRENT + " float not null default 0,"
                     + " " + StaffPermissions.LON_CURRENT + " float not null default 0,"
-                    + " " + StaffPermissions.PERMIT_TAXI_REGISTRATION_AND_RENEWAL + " boolean NOT NULL default 'f',"
-                    + " " + StaffPermissions.PERMIT_TAXI_PROFILE_UPDATE + " boolean NOT NULL default 'f',"
-                    + " " + StaffPermissions.PERMIT_ACCEPT_PAYMENTS + " boolean NOT NULL default 'f',"
-                    + " " + StaffPermissions.PERMIT_ADD_EDIT_TAXI_IMAGES + " boolean NOT NULL default 'f',"
+                    + " " + StaffPermissions.PERMIT_CREATE_UPDATE_ITEM_CATEGORIES + " boolean NOT NULL default 'f',"
+                    + " " + StaffPermissions.PERMIT_CREATE_UPDATE_ITEMS + " boolean NOT NULL default 'f',"
+                    + " " + StaffPermissions.PERMIT_APPROVE_SHOPS + " boolean NOT NULL default 'f',"
 
                     + " " + StaffPermissions.STAFF_EARNINGS + " float NOT NULL default 0,"
                     + " " + StaffPermissions.MAX_EARNINGS_LIMIT + " float NOT NULL default 0,"
 
+
+//                    + " " + StaffPermissions.PERMIT_TAXI_PROFILE_UPDATE + " boolean NOT NULL default 'f',"
+//                    + " " + StaffPermissions.PERMIT_ACCEPT_PAYMENTS + " boolean NOT NULL default 'f',"
+//                    + " " + StaffPermissions.PERMIT_ADD_EDIT_TAXI_IMAGES + " boolean NOT NULL default 'f',"
+//                    + " " + StaffPermissions.PERMIT_APPROVE_TAXI_IMAGES + " boolean NOT NULL default 'f',"
+
                     + " FOREIGN KEY(" + StaffPermissions.STAFF_ID +") REFERENCES " + User.TABLE_NAME + "(" + User.USER_ID + ") ON DELETE CASCADE "
                     + ")";
-
-
-
-
-
-    public static final String upgradeTableSchema =
-            " ALTER TABLE IF EXISTS " + StaffPermissions.TABLE_NAME +
-                    " ADD COLUMN IF NOT EXISTS " + StaffPermissions.STAFF_EARNINGS + " float NOT NULL default 0," +
-                    " ADD COLUMN IF NOT EXISTS " + StaffPermissions.MAX_EARNINGS_LIMIT + " float NOT NULL default 0";
-
-
 
 
 
@@ -69,11 +67,10 @@ public class StaffPermissions {
     private String designation;
     private double latCurrent;
     private double lonCurrent;
-    private boolean permitTaxiRegistrationAndRenewal;
-    private boolean permitTaxiProfileUpdate;
-    private boolean permitAcceptPayments;
-    private boolean permitAddEditTaxiImages;
-    private boolean permitApproveTaxiImages;
+    private boolean permitCreateUpdateItemCat;
+    private boolean permitCreateUpdateItems;
+    private boolean permitApproveShops;
+
     private double staffEarnings;
     private double maxEarnings;
     private double rt_distance;
@@ -85,53 +82,7 @@ public class StaffPermissions {
     // getter and setters
 
 
-    public double getStaffEarnings() {
-        return staffEarnings;
-    }
 
-    public void setStaffEarnings(double staffEarnings) {
-        this.staffEarnings = staffEarnings;
-    }
-
-    public double getMaxEarnings() {
-        return maxEarnings;
-    }
-
-    public void setMaxEarnings(double maxEarnings) {
-        this.maxEarnings = maxEarnings;
-    }
-
-    public boolean isPermitAddEditTaxiImages() {
-        return permitAddEditTaxiImages;
-    }
-
-    public void setPermitAddEditTaxiImages(boolean permitAddEditTaxiImages) {
-        this.permitAddEditTaxiImages = permitAddEditTaxiImages;
-    }
-
-    public boolean isPermitApproveTaxiImages() {
-        return permitApproveTaxiImages;
-    }
-
-    public void setPermitApproveTaxiImages(boolean permitApproveTaxiImages) {
-        this.permitApproveTaxiImages = permitApproveTaxiImages;
-    }
-
-    public boolean isPermitAcceptPayments() {
-        return permitAcceptPayments;
-    }
-
-    public void setPermitAcceptPayments(boolean permitAcceptPayments) {
-        this.permitAcceptPayments = permitAcceptPayments;
-    }
-
-    public boolean isPermitTaxiProfileUpdate() {
-        return permitTaxiProfileUpdate;
-    }
-
-    public void setPermitTaxiProfileUpdate(boolean permitTaxiProfileUpdate) {
-        this.permitTaxiProfileUpdate = permitTaxiProfileUpdate;
-    }
 
     public double getRt_distance() {
         return rt_distance;
@@ -181,11 +132,43 @@ public class StaffPermissions {
         this.designation = designation;
     }
 
-    public boolean isPermitTaxiRegistrationAndRenewal() {
-        return permitTaxiRegistrationAndRenewal;
+    public boolean isPermitCreateUpdateItemCat() {
+        return permitCreateUpdateItemCat;
     }
 
-    public void setPermitTaxiRegistrationAndRenewal(boolean permitTaxiRegistrationAndRenewal) {
-        this.permitTaxiRegistrationAndRenewal = permitTaxiRegistrationAndRenewal;
+    public void setPermitCreateUpdateItemCat(boolean permitCreateUpdateItemCat) {
+        this.permitCreateUpdateItemCat = permitCreateUpdateItemCat;
+    }
+
+    public boolean isPermitCreateUpdateItems() {
+        return permitCreateUpdateItems;
+    }
+
+    public void setPermitCreateUpdateItems(boolean permitCreateUpdateItems) {
+        this.permitCreateUpdateItems = permitCreateUpdateItems;
+    }
+
+    public boolean isPermitApproveShops() {
+        return permitApproveShops;
+    }
+
+    public void setPermitApproveShops(boolean permitApproveShops) {
+        this.permitApproveShops = permitApproveShops;
+    }
+
+    public double getStaffEarnings() {
+        return staffEarnings;
+    }
+
+    public void setStaffEarnings(double staffEarnings) {
+        this.staffEarnings = staffEarnings;
+    }
+
+    public double getMaxEarnings() {
+        return maxEarnings;
+    }
+
+    public void setMaxEarnings(double maxEarnings) {
+        this.maxEarnings = maxEarnings;
     }
 }

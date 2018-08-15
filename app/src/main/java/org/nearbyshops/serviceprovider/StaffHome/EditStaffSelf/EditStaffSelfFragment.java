@@ -35,8 +35,8 @@ import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.StaffService;
 import org.nearbyshops.serviceprovider.StaffAccounts.UtilityStaff;
 import org.nearbyshops.serviceprovider.Utility.ImageCropUtility;
-import org.nearbyshops.serviceprovider.Utility.UtilityGeneral;
-import org.nearbyshops.serviceprovider.Utility.UtilityLogin;
+import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
+import org.nearbyshops.serviceprovider.Utility.PrefLogin;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -155,7 +155,7 @@ public class EditStaffSelfFragment extends Fragment {
 
             if(current_mode == MODE_UPDATE)
             {
-                staff = UtilityLogin.getStaff(getContext());
+                staff = PrefLogin.getStaff(getContext());
             }
 
 
@@ -247,7 +247,7 @@ public class EditStaffSelfFragment extends Fragment {
 
     void loadImage(String imagePath) {
 
-        String iamgepath = UtilityGeneral.getServiceURL(getContext()) + "/api/v1/Staff/Image/" + imagePath;
+        String iamgepath = PrefGeneral.getServiceURL(getContext()) + "/api/v1/Staff/Image/" + imagePath;
 
         Picasso.with(getContext())
                 .load(iamgepath)
@@ -526,7 +526,7 @@ public class EditStaffSelfFragment extends Fragment {
 
 //        final Staff staff = UtilityStaff.getStaff(getContext());
         Call<ResponseBody> call = staffService.updateBySelfStaff(
-                UtilityLogin.getAuthorizationHeaders(getContext()),
+                PrefLogin.getAuthorizationHeaders(getContext()),
                         staff.getUserID(),
                         staff
                 );
@@ -542,7 +542,7 @@ public class EditStaffSelfFragment extends Fragment {
 
 //                    UtilityStaff.saveStaff(staff,getContext());
 
-                    UtilityLogin.saveStaff(staff,getActivity());
+                    PrefLogin.saveStaff(staff,getActivity());
 
                 }
                 else
@@ -566,7 +566,7 @@ public class EditStaffSelfFragment extends Fragment {
         getDataFromViews();
 
 //        final Staff staffTemp = UtilityStaff.getStaff(getContext());
-        Call<Staff> call = staffService.postStaff(UtilityLogin.getAuthorizationHeaders(getContext()),staff);
+        Call<Staff> call = staffService.postStaff(PrefLogin.getAuthorizationHeaders(getContext()),staff);
 
         call.enqueue(new Callback<Staff>() {
             @Override
@@ -856,7 +856,7 @@ public class EditStaffSelfFragment extends Fragment {
 
 
 
-        Call<Image> imageCall = staffService.uploadImage(UtilityLogin.getAuthorizationHeaders(getContext()),
+        Call<Image> imageCall = staffService.uploadImage(PrefLogin.getAuthorizationHeaders(getContext()),
                 requestBodyBinary);
 
 
@@ -925,7 +925,7 @@ public class EditStaffSelfFragment extends Fragment {
 
     void deleteImage(String filename)
     {
-        Call<ResponseBody> call = staffService.deleteImage(UtilityLogin.getAuthorizationHeaders(getContext()),filename);
+        Call<ResponseBody> call = staffService.deleteImage(PrefLogin.getAuthorizationHeaders(getContext()),filename);
 
         call.enqueue(new Callback<ResponseBody>() {
             @Override

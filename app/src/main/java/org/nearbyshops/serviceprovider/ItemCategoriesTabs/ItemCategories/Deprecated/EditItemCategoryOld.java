@@ -27,8 +27,8 @@ import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.ItemCategoryService;
 import org.nearbyshops.serviceprovider.Utility.ImageCalls;
 import org.nearbyshops.serviceprovider.Utility.ImageCropUtility;
-import org.nearbyshops.serviceprovider.Utility.UtilityGeneral;
-import org.nearbyshops.serviceprovider.Utility.UtilityLogin;
+import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
+import org.nearbyshops.serviceprovider.Utility.PrefLogin;
 
 import java.io.File;
 
@@ -188,7 +188,7 @@ public class EditItemCategoryOld extends AppCompatActivity implements Callback<I
     void loadImage(String imagePath) {
 
         Picasso.with(this)
-                .load(UtilityGeneral.getImageEndpointURL(this) + imagePath)
+                .load(PrefGeneral.getImageEndpointURL(this) + imagePath)
                 .into(resultView);
 
     }
@@ -309,7 +309,7 @@ public class EditItemCategoryOld extends AppCompatActivity implements Callback<I
 
 
         Call<ResponseBody> itemCategoryCall = itemCategoryService
-                                                    .updateItemCategory(UtilityLogin.getAuthorizationHeaders(this),
+                                                    .updateItemCategory(PrefLogin.getAuthorizationHeaders(this),
                                                             itemCategoryForEdit,
                                                             itemCategoryForEdit.getItemCategoryID());
 

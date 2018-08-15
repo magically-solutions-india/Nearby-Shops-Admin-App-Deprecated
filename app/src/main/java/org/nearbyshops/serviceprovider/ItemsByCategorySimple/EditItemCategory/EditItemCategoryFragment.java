@@ -35,8 +35,8 @@ import org.nearbyshops.serviceprovider.Model.Image;
 import org.nearbyshops.serviceprovider.Model.ItemCategory;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.ItemCategoryService;
-import org.nearbyshops.serviceprovider.Utility.UtilityGeneral;
-import org.nearbyshops.serviceprovider.Utility.UtilityLogin;
+import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
+import org.nearbyshops.serviceprovider.Utility.PrefLogin;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -233,7 +233,7 @@ public class EditItemCategoryFragment extends Fragment {
 
     void loadImage(String imagePath) {
 
-        String iamgepath = UtilityGeneral.getServiceURL(getContext()) + "/api/v1/ItemCategory/Image/" + imagePath;
+        String iamgepath = PrefGeneral.getServiceURL(getContext()) + "/api/v1/ItemCategory/Image/" + imagePath;
 
         System.out.println(iamgepath);
 
@@ -434,7 +434,7 @@ public class EditItemCategoryFragment extends Fragment {
 
 
         Call<ResponseBody> call = itemCategoryService.updateItemCategory(
-                UtilityLogin.getAuthorizationHeaders(getContext()),
+                PrefLogin.getAuthorizationHeaders(getContext()),
                 itemCategory,itemCategory.getItemCategoryID()
         );
 
@@ -502,7 +502,7 @@ public class EditItemCategoryFragment extends Fragment {
         progressBar.setVisibility(View.VISIBLE);
 
 
-        Call<ItemCategory> call = itemCategoryService.insertItemCategory(UtilityLogin.getAuthorizationHeaders(getContext()), itemCategory);
+        Call<ItemCategory> call = itemCategoryService.insertItemCategory(PrefLogin.getAuthorizationHeaders(getContext()), itemCategory);
 
         call.enqueue(new Callback<ItemCategory>() {
             @Override
@@ -819,7 +819,7 @@ public class EditItemCategoryFragment extends Fragment {
 
 
 
-        Call<Image> imageCall = itemCategoryService.uploadImage(UtilityLogin.getAuthorizationHeaders(getContext()),
+        Call<Image> imageCall = itemCategoryService.uploadImage(PrefLogin.getAuthorizationHeaders(getContext()),
                 requestBodyBinary);
 
 
@@ -910,7 +910,7 @@ public class EditItemCategoryFragment extends Fragment {
     void deleteImage(String filename)
     {
         Call<ResponseBody> call = itemCategoryService.deleteImage(
-                UtilityLogin.getAuthorizationHeaders(getContext()),
+                PrefLogin.getAuthorizationHeaders(getContext()),
                 filename);
 
 

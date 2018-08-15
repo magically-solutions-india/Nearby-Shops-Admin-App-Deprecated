@@ -35,9 +35,8 @@ import org.nearbyshops.serviceprovider.ModelRoles.Staff;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.StaffService;
 import org.nearbyshops.serviceprovider.StaffAccounts.UtilityStaff;
-import org.nearbyshops.serviceprovider.Utility.ImageCropUtility;
-import org.nearbyshops.serviceprovider.Utility.UtilityGeneral;
-import org.nearbyshops.serviceprovider.Utility.UtilityLogin;
+import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
+import org.nearbyshops.serviceprovider.Utility.PrefLogin;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -248,7 +247,7 @@ public class EditStaffFragment extends Fragment {
 
     void loadImage(String imagePath) {
 
-        String iamgepath = UtilityGeneral.getServiceURL(getContext()) + "/api/v1/Staff/Image/" + imagePath;
+        String iamgepath = PrefGeneral.getServiceURL(getContext()) + "/api/v1/Staff/Image/" + imagePath;
 
         Picasso.with(getContext())
                 .load(iamgepath)
@@ -526,7 +525,7 @@ public class EditStaffFragment extends Fragment {
 
 
 //        final Staff staff = UtilityStaff.getStaff(getContext());
-        Call<ResponseBody> call = staffService.putStaff(UtilityLogin.getAuthorizationHeaders(
+        Call<ResponseBody> call = staffService.putStaff(PrefLogin.getAuthorizationHeaders(
                                                         getContext()),staff.getUserID(), staff);
 
         call.enqueue(new Callback<ResponseBody>() {
@@ -560,7 +559,7 @@ public class EditStaffFragment extends Fragment {
         getDataFromViews();
 
 //        final Staff staffTemp = UtilityStaff.getStaff(getContext());
-        Call<Staff> call = staffService.postStaff(UtilityLogin.getAuthorizationHeaders(getContext()),staff);
+        Call<Staff> call = staffService.postStaff(PrefLogin.getAuthorizationHeaders(getContext()),staff);
 
         call.enqueue(new Callback<Staff>() {
             @Override
@@ -850,7 +849,7 @@ public class EditStaffFragment extends Fragment {
 
 
 
-        Call<Image> imageCall = staffService.uploadImage(UtilityLogin.getAuthorizationHeaders(getContext()),
+        Call<Image> imageCall = staffService.uploadImage(PrefLogin.getAuthorizationHeaders(getContext()),
                 requestBodyBinary);
 
 
@@ -919,7 +918,7 @@ public class EditStaffFragment extends Fragment {
 
     void deleteImage(String filename)
     {
-        Call<ResponseBody> call = staffService.deleteImage(UtilityLogin.getAuthorizationHeaders(getContext()),filename);
+        Call<ResponseBody> call = staffService.deleteImage(PrefLogin.getAuthorizationHeaders(getContext()),filename);
 
         call.enqueue(new Callback<ResponseBody>() {
             @Override

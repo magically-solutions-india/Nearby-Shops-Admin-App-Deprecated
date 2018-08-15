@@ -32,7 +32,7 @@ import org.nearbyshops.serviceprovider.ModelEndPoints.ItemEndPoint;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContractItem.ItemService;
 import org.nearbyshops.serviceprovider.SelectParent.ItemCategoriesParent;
-import org.nearbyshops.serviceprovider.Utility.UtilityLogin;
+import org.nearbyshops.serviceprovider.Utility.PrefLogin;
 import org.nearbyshops.serviceprovider.Utility.UtilitySortItem;
 
 import java.util.ArrayList;
@@ -499,7 +499,7 @@ public class ItemFragmentTwo extends Fragment
 
 //        Call<ResponseBody> call2 = itemCategoryService.updateItemCategory(itemCategory,itemCategory.getItemCategoryID());
 
-        Call<ResponseBody> call = itemService.changeParent(UtilityLogin.getAuthorizationHeaders(getContext()),
+        Call<ResponseBody> call = itemService.changeParent(PrefLogin.getAuthorizationHeaders(getContext()),
                 item,item.getItemID());
 
         call.enqueue(new Callback<ResponseBody>() {
@@ -562,7 +562,7 @@ public class ItemFragmentTwo extends Fragment
     {
 //        Call<ResponseBody> call = itemService.updateItemCategoryBulk(list);
 
-        Call<ResponseBody> call = itemService.changeParentBulk(UtilityLogin.getAuthorizationHeaders(getContext()),
+        Call<ResponseBody> call = itemService.changeParentBulk(PrefLogin.getAuthorizationHeaders(getContext()),
                 list);
 //        Call<ResponseBody> call = null;
 //

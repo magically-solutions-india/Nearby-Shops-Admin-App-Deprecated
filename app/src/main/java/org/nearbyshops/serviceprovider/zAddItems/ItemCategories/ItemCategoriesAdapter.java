@@ -24,8 +24,8 @@ import org.nearbyshops.serviceprovider.Model.ItemCategory;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.ItemCategoryService;
 import org.nearbyshops.serviceprovider.SelectParent.ItemCategoriesParent;
-import org.nearbyshops.serviceprovider.Utility.UtilityGeneral;
-import org.nearbyshops.serviceprovider.Utility.UtilityLogin;
+import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
+import org.nearbyshops.serviceprovider.Utility.PrefLogin;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -116,7 +116,7 @@ public class ItemCategoriesAdapter extends RecyclerView.Adapter<ItemCategoriesAd
 
 
 
-        String imagePath = UtilityGeneral.getImageEndpointURL(context)
+        String imagePath = PrefGeneral.getImageEndpointURL(context)
                 + dataset.get(position).getImagePath();
 
         if(!dataset.get(position).getImagePath().equals(""))
@@ -236,7 +236,7 @@ public class ItemCategoriesAdapter extends RecyclerView.Adapter<ItemCategoriesAd
         {
 
 
-            Call<ResponseBody> call = itemCategoryService.deleteItemCategory(UtilityLogin.getAuthorizationHeaders(context),
+            Call<ResponseBody> call = itemCategoryService.deleteItemCategory(PrefLogin.getAuthorizationHeaders(context),
                     dataset.get(getLayoutPosition()).getItemCategoryID());
 
             call.enqueue(new Callback<ResponseBody>() {

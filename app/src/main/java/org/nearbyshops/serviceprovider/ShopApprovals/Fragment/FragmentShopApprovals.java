@@ -27,9 +27,6 @@ import org.nearbyshops.serviceprovider.ShopApprovals.EditShop.EditShop;
 import org.nearbyshops.serviceprovider.ShopApprovals.EditShop.EditShopFragment;
 import org.nearbyshops.serviceprovider.ShopApprovals.EditShop.UtilityShop;
 import org.nearbyshops.serviceprovider.ShopApprovals.SlidingLayerSort.UtilitySortShops;
-import org.nearbyshops.serviceprovider.ShopApprovals.UtilityLocation;
-import org.nearbyshops.serviceprovider.Utility.DividerItemDecoration;
-import org.nearbyshops.serviceprovider.Utility.UtilityLogin;
 
 import java.util.ArrayList;
 import java.util.List;

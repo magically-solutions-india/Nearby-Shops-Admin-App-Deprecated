@@ -35,8 +35,8 @@ import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.ShopAdminService;
 import org.nearbyshops.serviceprovider.ShopAdminApprovals.UtilityShopAdmin;
 import org.nearbyshops.serviceprovider.Utility.ImageCropUtility;
-import org.nearbyshops.serviceprovider.Utility.UtilityGeneral;
-import org.nearbyshops.serviceprovider.Utility.UtilityLogin;
+import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
+import org.nearbyshops.serviceprovider.Utility.PrefLogin;
 
 
 import java.io.File;
@@ -203,7 +203,7 @@ public class EditShopAdminFragment extends Fragment {
 
     void loadImage(String imagePath) {
 
-        String iamgepath = UtilityGeneral.getServiceURL(getContext()) + "/api/ShopAdmin/Image/" + imagePath;
+        String iamgepath = PrefGeneral.getServiceURL(getContext()) + "/api/ShopAdmin/Image/" + imagePath;
 
         Picasso.with(getContext())
                 .load(iamgepath)
@@ -475,7 +475,7 @@ public class EditShopAdminFragment extends Fragment {
         getDataFromViews();
 
         // update Item Call
-        Call<ResponseBody> call = shopAdminService.putShopAdmin(UtilityLogin.getAuthorizationHeaders(getContext()),
+        Call<ResponseBody> call = shopAdminService.putShopAdmin(PrefLogin.getAuthorizationHeaders(getContext()),
                 shopAdmin,shopAdmin.getShopAdminID());
 
         call.enqueue(new Callback<ResponseBody>() {
@@ -510,7 +510,7 @@ public class EditShopAdminFragment extends Fragment {
         getDataFromViews();
 
 
-        Call<ShopAdmin> call = shopAdminService.postShopAdmin(UtilityLogin.getAuthorizationHeaders(getContext()),
+        Call<ShopAdmin> call = shopAdminService.postShopAdmin(PrefLogin.getAuthorizationHeaders(getContext()),
                 shopAdmin);
 
         call.enqueue(new Callback<ShopAdmin>() {
@@ -797,7 +797,7 @@ public class EditShopAdminFragment extends Fragment {
 
 
 
-        Call<Image> imageCall = shopAdminService.uploadImage(UtilityLogin.getAuthorizationHeaders(getContext()),
+        Call<Image> imageCall = shopAdminService.uploadImage(PrefLogin.getAuthorizationHeaders(getContext()),
                 requestBodyBinary);
 
 
@@ -866,7 +866,7 @@ public class EditShopAdminFragment extends Fragment {
 
     void deleteImage(String filename)
     {
-        Call<ResponseBody> call = shopAdminService.deleteImage(UtilityLogin.getAuthorizationHeaders(getContext()),filename);
+        Call<ResponseBody> call = shopAdminService.deleteImage(PrefLogin.getAuthorizationHeaders(getContext()),filename);
 
         call.enqueue(new Callback<ResponseBody>() {
             @Override

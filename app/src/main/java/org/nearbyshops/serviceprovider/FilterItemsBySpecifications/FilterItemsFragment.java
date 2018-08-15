@@ -20,7 +20,7 @@ import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContractItem.ItemSpecItemService;
 import org.nearbyshops.serviceprovider.RetrofitRESTContractItem.ItemSpecNameService;
 import org.nearbyshops.serviceprovider.RetrofitRESTContractItem.ItemSpecValueService;
-import org.nearbyshops.serviceprovider.Utility.UtilityLogin;
+import org.nearbyshops.serviceprovider.Utility.PrefLogin;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -500,7 +500,7 @@ public class FilterItemsFragment extends Fragment implements AdapterItemSpecName
 
         int itemID = getActivity().getIntent().getIntExtra(ITEM_ID_INTENT_KEY,0);
 
-        Call<ResponseBody> call = itemSpecItemService.deleteItemSpecItem(UtilityLogin.getAuthorizationHeaders(getActivity()),itemSpecValueID,itemID);
+        Call<ResponseBody> call = itemSpecItemService.deleteItemSpecItem(PrefLogin.getAuthorizationHeaders(getActivity()),itemSpecValueID,itemID);
 
         call.enqueue(new Callback<ResponseBody>() {
             @Override
@@ -531,7 +531,7 @@ public class FilterItemsFragment extends Fragment implements AdapterItemSpecName
 
 
         Call<ResponseBody> call = itemSpecItemService.saveItemSpecName(
-                UtilityLogin.getAuthorizationHeaders(getActivity()),
+                PrefLogin.getAuthorizationHeaders(getActivity()),
                 itemSpecificationItem
         );
 

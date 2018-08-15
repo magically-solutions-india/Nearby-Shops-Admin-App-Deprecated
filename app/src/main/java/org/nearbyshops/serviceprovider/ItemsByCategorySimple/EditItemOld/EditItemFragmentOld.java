@@ -32,8 +32,8 @@ import org.nearbyshops.serviceprovider.Model.Item;
 import org.nearbyshops.serviceprovider.Model.ItemCategory;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContractItem.ItemService;
-import org.nearbyshops.serviceprovider.Utility.UtilityGeneral;
-import org.nearbyshops.serviceprovider.Utility.UtilityLogin;
+import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
+import org.nearbyshops.serviceprovider.Utility.PrefLogin;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -242,7 +242,7 @@ public class EditItemFragmentOld extends Fragment {
 
     void loadImage(String imagePath) {
 
-        String iamgepath = UtilityGeneral.getServiceURL(getContext()) + "/api/v1/Item/Image/" + imagePath;
+        String iamgepath = PrefGeneral.getServiceURL(getContext()) + "/api/v1/Item/Image/" + imagePath;
 
         System.out.println(iamgepath);
 
@@ -416,7 +416,7 @@ public class EditItemFragmentOld extends Fragment {
 
 
         Call<ResponseBody> call = itemService.updateItem(
-                UtilityLogin.getAuthorizationHeaders(getContext()),
+                PrefLogin.getAuthorizationHeaders(getContext()),
                 item,item.getItemID()
         );
 
@@ -456,7 +456,7 @@ public class EditItemFragmentOld extends Fragment {
 
         System.out.println("Item Category ID (POST) : " + item.getItemCategoryID());
 
-        Call<Item> call = itemService.insertItem(UtilityLogin.getAuthorizationHeaders(getContext()), item);
+        Call<Item> call = itemService.insertItem(PrefLogin.getAuthorizationHeaders(getContext()), item);
 
         call.enqueue(new Callback<Item>() {
             @Override
@@ -742,7 +742,7 @@ public class EditItemFragmentOld extends Fragment {
 
 
 
-        Call<Image> imageCall = itemService.uploadImage(UtilityLogin.getAuthorizationHeaders(getContext()),
+        Call<Image> imageCall = itemService.uploadImage(PrefLogin.getAuthorizationHeaders(getContext()),
                 requestBodyBinary);
 
 
@@ -813,7 +813,7 @@ public class EditItemFragmentOld extends Fragment {
     void deleteImage(String filename)
     {
         Call<ResponseBody> call = itemService.deleteImage(
-                UtilityLogin.getAuthorizationHeaders(getContext()),
+                PrefLogin.getAuthorizationHeaders(getContext()),
                 filename);
 
 

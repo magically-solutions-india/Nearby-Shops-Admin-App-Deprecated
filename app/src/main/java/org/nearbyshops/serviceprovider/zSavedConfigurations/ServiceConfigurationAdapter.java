@@ -22,7 +22,7 @@ import com.squareup.picasso.Picasso;
 import org.nearbyshops.serviceprovider.ModelServiceConfig.ServiceConfigurationLocal;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.ServiceConfiguration.EditServiceConfiguration;
-import org.nearbyshops.serviceprovider.Utility.UtilityGeneral;
+import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
 
 import java.util.List;
 
@@ -85,7 +85,7 @@ public class ServiceConfigurationAdapter extends RecyclerView.Adapter<ServiceCon
 
             holder.serviceTypeBadge.setText( Constants.getServiceType(serviceConfiguration.getServiceType()) + " | " +  Constants.getServiceLevel(serviceConfiguration.getServiceLevel()));
 
-            Picasso.with(context).load(UtilityGeneral
+            Picasso.with(context).load(PrefGeneral
                     .getConfigImageEndpointURL(context) + serviceConfiguration.getLogoImagePath())
                     .into(holder.serviceImage);
 

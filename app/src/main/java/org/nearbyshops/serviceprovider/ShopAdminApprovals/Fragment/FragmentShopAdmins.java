@@ -24,8 +24,7 @@ import org.nearbyshops.serviceprovider.ShopAdminApprovals.EditShopAdmin.EditShop
 import org.nearbyshops.serviceprovider.ShopAdminApprovals.EditShopAdmin.EditShopAdminFragment;
 import org.nearbyshops.serviceprovider.ShopAdminApprovals.SlidingLayerSort.UtilitySortShopAdmin;
 import org.nearbyshops.serviceprovider.ShopAdminApprovals.UtilityShopAdmin;
-import org.nearbyshops.serviceprovider.ShopApprovals.SlidingLayerSort.UtilitySortShops;
-import org.nearbyshops.serviceprovider.Utility.UtilityLogin;
+import org.nearbyshops.serviceprovider.Utility.PrefLogin;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -220,7 +219,7 @@ public class FragmentShopAdmins extends Fragment implements Adapter.NotifyConfir
         if(getArguments().getInt(ARG_SECTION_NUMBER) == MODE_ACCOUNTS_DISABLED)
         {
             call = shopAdminService
-                    .getShopAdmin(UtilityLogin.getAuthorizationHeaders(getContext()),
+                    .getShopAdmin(PrefLogin.getAuthorizationHeaders(getContext()),
                             false,false,
                             searchQuery,current_sort,limit,offset,null);
 
@@ -229,7 +228,7 @@ public class FragmentShopAdmins extends Fragment implements Adapter.NotifyConfir
         else if (getArguments().getInt(ARG_SECTION_NUMBER) == MODE_ACCOUNTS_WAITLISTED)
         {
             call = shopAdminService
-                    .getShopAdmin(UtilityLogin.getAuthorizationHeaders(getContext()),
+                    .getShopAdmin(PrefLogin.getAuthorizationHeaders(getContext()),
                             false,true,
                             searchQuery,current_sort,limit,offset,null);
 
@@ -238,7 +237,7 @@ public class FragmentShopAdmins extends Fragment implements Adapter.NotifyConfir
         else if(getArguments().getInt(ARG_SECTION_NUMBER)==MODE_ACCOUNTS_ENABLED)
         {
             call = shopAdminService
-                    .getShopAdmin(UtilityLogin.getAuthorizationHeaders(getContext()),
+                    .getShopAdmin(PrefLogin.getAuthorizationHeaders(getContext()),
                             true,null,
                             searchQuery,current_sort,limit,offset,null);
 

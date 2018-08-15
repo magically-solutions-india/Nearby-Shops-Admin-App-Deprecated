@@ -18,7 +18,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -34,8 +33,8 @@ import org.nearbyshops.serviceprovider.Model.Image;
 import org.nearbyshops.serviceprovider.Model.ItemImage;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContractItem.ItemImageService;
-import org.nearbyshops.serviceprovider.Utility.UtilityGeneral;
-import org.nearbyshops.serviceprovider.Utility.UtilityLogin;
+import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
+import org.nearbyshops.serviceprovider.Utility.PrefLogin;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -223,7 +222,7 @@ public class EditItemImageFragment extends Fragment {
 //        String iamgepath = UtilityGeneral.getServiceURL(getContext()) + "/api/v1/ItemImage/five_hundred_" + imagePath + ".jpg";
 
 
-        String imagePath = UtilityGeneral.getServiceURL(getActivity()) + "/api/v1/ItemImage/Image/five_hundred_"
+        String imagePath = PrefGeneral.getServiceURL(getActivity()) + "/api/v1/ItemImage/Image/five_hundred_"
                 + filename + ".jpg";
 
         System.out.println(imagePath);
@@ -417,7 +416,7 @@ public class EditItemImageFragment extends Fragment {
 
 
         Call<ResponseBody> call = itemImageService.updateItemImage(
-                UtilityLogin.getAuthorizationHeaders(getContext()),
+                PrefLogin.getAuthorizationHeaders(getContext()),
                 itemImage,itemImage.getImageID()
         );
 
@@ -487,7 +486,7 @@ public class EditItemImageFragment extends Fragment {
         buttonUpdateItem.setVisibility(View.INVISIBLE);
         progressBar.setVisibility(View.VISIBLE);
 
-        Call<ItemImage> call = itemImageService.saveItemImage(UtilityLogin.getAuthorizationHeaders(getContext()), itemImage);
+        Call<ItemImage> call = itemImageService.saveItemImage(PrefLogin.getAuthorizationHeaders(getContext()), itemImage);
 
         call.enqueue(new Callback<ItemImage>() {
             @Override
@@ -808,7 +807,7 @@ public class EditItemImageFragment extends Fragment {
         progressBar.setVisibility(View.VISIBLE);
 
 
-        Call<Image> imageCall = itemImageService.uploadItemImage(UtilityLogin.getAuthorizationHeaders(getContext()),
+        Call<Image> imageCall = itemImageService.uploadItemImage(PrefLogin.getAuthorizationHeaders(getContext()),
                 requestBodyBinary);
 
 
@@ -904,7 +903,7 @@ public class EditItemImageFragment extends Fragment {
     void deleteImage(String filename)
     {
         Call<ResponseBody> call = itemImageService.deleteItemImage(
-                UtilityLogin.getAuthorizationHeaders(getContext()),
+                PrefLogin.getAuthorizationHeaders(getContext()),
                 filename);
 
 
