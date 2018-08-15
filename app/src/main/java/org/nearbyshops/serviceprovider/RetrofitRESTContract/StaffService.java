@@ -1,7 +1,7 @@
 package org.nearbyshops.serviceprovider.RetrofitRESTContract;
 
 import org.nearbyshops.serviceprovider.Model.Image;
-import org.nearbyshops.serviceprovider.ModelRoles.Staff;
+import org.nearbyshops.serviceprovider.ModelRoles.OldFiles.Staff;
 
 import java.util.List;
 

@@ -35,8 +35,13 @@ import org.nearbyshops.serviceprovider.ServiceConfiguration.EditConfiguration.Ed
 import org.nearbyshops.serviceprovider.Services.ServiceFragment.ServicesFragment;
 import org.nearbyshops.serviceprovider.Services.SubmitURLDialog.SubmitURLDialog;
 import org.nearbyshops.serviceprovider.ShopApprovals.EditShop.EditShopFragment;
+import org.nearbyshops.serviceprovider.SignUp.FragmentEmailOrPhone;
+import org.nearbyshops.serviceprovider.SignUp.FragmentEnterPassword;
+import org.nearbyshops.serviceprovider.SignUp.FragmentVerifyEmailSignUp;
 import org.nearbyshops.serviceprovider.StaffHome.EditStaffSelf.EditStaffSelfFragment;
 import org.nearbyshops.serviceprovider.StaffHome.StaffHome;
+import org.nearbyshops.serviceprovider.StaffList.EditProfileStaff.FragmentEditProfileStaff;
+import org.nearbyshops.serviceprovider.StaffList.StaffListFragment;
 import org.nearbyshops.serviceprovider.zDistributorAccounts.DistributorAccountFragment;
 import org.nearbyshops.serviceprovider.zDistributorAccounts.DistributorDetail.DistributorDetail;
 import org.nearbyshops.serviceprovider.ItemCategoriesTabs.ItemCategories.ItemCategoriesFragment;
@@ -188,6 +193,16 @@ public interface NetComponent {
     void Inject(FragmentVerifyPhone fragmentVerifyPhone);
 
     void Inject(FragmentEditProfile fragmentEditProfile);
+
+    void Inject(FragmentEditProfileStaff fragmentEditProfileStaff);
+
+    void Inject(FragmentEmailOrPhone fragmentEmailOrPhone);
+
+    void Inject(FragmentEnterPassword fragmentEnterPassword);
+
+    void Inject(FragmentVerifyEmailSignUp fragmentVerifyEmailSignUp);
+
+    void Inject(StaffListFragment staffListFragment);
 
 
 //    void Inject(LoginDialog loginDialog);

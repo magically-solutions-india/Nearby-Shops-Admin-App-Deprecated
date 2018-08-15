@@ -1,8 +1,7 @@
 package org.nearbyshops.serviceprovider.RetrofitRESTContract;
 
 import org.nearbyshops.serviceprovider.Model.Image;
-import org.nearbyshops.serviceprovider.Model.Shop;
-import org.nearbyshops.serviceprovider.ModelRoles.Admin;
+import org.nearbyshops.serviceprovider.ModelRoles.OldFiles.Admin;
 
 
 import okhttp3.RequestBody;
@@ -12,12 +11,9 @@ import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
-import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
-import retrofit2.http.Query;
-import rx.Observable;
 
 /**
  * Created by sumeet on 12/3/16.

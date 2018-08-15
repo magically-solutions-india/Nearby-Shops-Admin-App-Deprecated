@@ -9,7 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.nearbyshops.serviceprovider.DaggerComponentBuilder;
-import org.nearbyshops.serviceprovider.ModelRoles.Staff;
+import org.nearbyshops.serviceprovider.ModelRoles.OldFiles.Staff;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.StaffService;
 import org.nearbyshops.serviceprovider.StaffHome.EditStaffSelf.EditStaffSelf;

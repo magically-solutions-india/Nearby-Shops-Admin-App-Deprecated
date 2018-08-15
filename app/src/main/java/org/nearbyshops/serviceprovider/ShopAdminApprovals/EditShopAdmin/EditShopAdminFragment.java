@@ -30,7 +30,7 @@ import com.yalantis.ucrop.UCropActivity;
 
 import org.nearbyshops.serviceprovider.DaggerComponentBuilder;
 import org.nearbyshops.serviceprovider.Model.Image;
-import org.nearbyshops.serviceprovider.ModelRoles.ShopAdmin;
+import org.nearbyshops.serviceprovider.ModelRoles.OldFiles.ShopAdmin;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.ShopAdminService;
 import org.nearbyshops.serviceprovider.ShopAdminApprovals.UtilityShopAdmin;

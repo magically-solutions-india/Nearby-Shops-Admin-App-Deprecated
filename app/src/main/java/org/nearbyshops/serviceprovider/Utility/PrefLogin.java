@@ -6,8 +6,8 @@ import android.util.Base64;
 
 import com.google.gson.Gson;
 
-import org.nearbyshops.serviceprovider.ModelRoles.Admin;
-import org.nearbyshops.serviceprovider.ModelRoles.Staff;
+import org.nearbyshops.serviceprovider.ModelRoles.OldFiles.Admin;
+import org.nearbyshops.serviceprovider.ModelRoles.OldFiles.Staff;
 import org.nearbyshops.serviceprovider.ModelRoles.User;
 import org.nearbyshops.serviceprovider.MyApplication;
 import org.nearbyshops.serviceprovider.R;

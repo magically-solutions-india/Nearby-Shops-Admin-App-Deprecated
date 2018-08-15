@@ -17,7 +17,7 @@ import org.nearbyshops.serviceprovider.Interfaces.NotifySearch;
 import org.nearbyshops.serviceprovider.ItemCategoriesTabs.Interfaces.NotifySort;
 import org.nearbyshops.serviceprovider.ItemCategoriesTabs.Interfaces.NotifyTitleChanged;
 import org.nearbyshops.serviceprovider.ModelRoles.Endpoints.ShopAdminEndPoint;
-import org.nearbyshops.serviceprovider.ModelRoles.ShopAdmin;
+import org.nearbyshops.serviceprovider.ModelRoles.OldFiles.ShopAdmin;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.ShopAdminService;
 import org.nearbyshops.serviceprovider.ShopAdminApprovals.EditShopAdmin.EditShopAdmin;

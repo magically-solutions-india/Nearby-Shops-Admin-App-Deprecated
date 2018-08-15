@@ -1,4 +1,4 @@
-package org.nearbyshops.serviceprovider.ModelRoles;
+package org.nearbyshops.serviceprovider.ModelRoles.OldFiles;
 
 /**
  * Created by sumeet on 29/5/16.
@@ -19,6 +19,8 @@ public class Usernames {
             "CREATE TABLE IF NOT EXISTS " + Usernames.TABLE_NAME + "("
             + " " + Usernames.USER_ID + " SERIAL PRIMARY KEY,"
             + " " + Usernames.USERNAME + " text UNIQUE NOT NULL" + ")";
+
+
 
 
     // Instance Variables

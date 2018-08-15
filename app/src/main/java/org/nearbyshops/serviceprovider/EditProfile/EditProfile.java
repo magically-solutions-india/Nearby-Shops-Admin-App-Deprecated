@@ -30,7 +30,7 @@ public class EditProfile extends AppCompatActivity implements NotifyChangePasswo
 
 
         overridePendingTransition(R.anim.enter_from_right,R.anim.exit_to_left);
-        setContentView(R.layout.activity_edit_profile_driver);
+        setContentView(R.layout.activity_edit_profile);
         ButterKnife.bind(this);
 
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

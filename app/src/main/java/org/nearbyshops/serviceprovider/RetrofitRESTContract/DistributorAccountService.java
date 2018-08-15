@@ -1,8 +1,7 @@
 package org.nearbyshops.serviceprovider.RetrofitRESTContract;
 
-import org.nearbyshops.serviceprovider.ModelRoles.Distributor;
-import org.nearbyshops.serviceprovider.ModelRoles.DistributorEndPoint;
-import org.nearbyshops.serviceprovider.ModelRoles.Staff;
+import org.nearbyshops.serviceprovider.ModelRoles.OldFiles.Distributor;
+import org.nearbyshops.serviceprovider.ModelRoles.OldFiles.DistributorEndPoint;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;

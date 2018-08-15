@@ -2,7 +2,7 @@ package org.nearbyshops.serviceprovider.RetrofitRESTContract;
 
 import org.nearbyshops.serviceprovider.Model.Image;
 import org.nearbyshops.serviceprovider.ModelRoles.Endpoints.ShopAdminEndPoint;
-import org.nearbyshops.serviceprovider.ModelRoles.ShopAdmin;
+import org.nearbyshops.serviceprovider.ModelRoles.OldFiles.ShopAdmin;
 
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;

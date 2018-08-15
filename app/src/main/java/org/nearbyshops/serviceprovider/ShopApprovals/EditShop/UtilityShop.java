@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import com.google.gson.Gson;
 
 import org.nearbyshops.serviceprovider.Model.Shop;
-import org.nearbyshops.serviceprovider.ModelRoles.ShopAdmin;
 import org.nearbyshops.serviceprovider.R;
 
 import static android.content.Context.MODE_PRIVATE;

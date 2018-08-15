@@ -1,4 +1,4 @@
-package org.nearbyshops.serviceprovider.ModelRoles;
+package org.nearbyshops.serviceprovider.ModelRoles.OldFiles;
 
 import java.util.List;
 

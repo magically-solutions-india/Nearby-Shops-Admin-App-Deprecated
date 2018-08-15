@@ -1,7 +1,7 @@
 package org.nearbyshops.serviceprovider.ModelRoles.Endpoints;
 
 
-import org.nearbyshops.serviceprovider.ModelRoles.ShopAdmin;
+import org.nearbyshops.serviceprovider.ModelRoles.OldFiles.ShopAdmin;
 
 import java.util.List;
 

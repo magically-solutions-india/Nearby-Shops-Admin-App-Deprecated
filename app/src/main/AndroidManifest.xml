@@ -507,6 +507,41 @@
         </activity>
 
 
+
+
+        <activity
+            android:name=".SignUp.SignUp"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan" />
+
+
+
+
+        <activity
+            android:name=".StaffList.EditProfileStaff.EditProfileStaff"
+            android:label="Edit Profile"
+            android:parentActivityName=".Home"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Home" />
+        </activity>
+
+
+
+        <activity
+            android:name=".StaffList.StaffList"
+            android:label="Staff List"
+            android:parentActivityName=".Home"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Home" />
+        </activity>
+
+
+
+
     </application>
 
 </manifest>

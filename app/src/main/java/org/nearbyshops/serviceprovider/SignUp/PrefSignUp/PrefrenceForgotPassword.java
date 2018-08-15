@@ -1,4 +1,4 @@
-package org.nearbyshops.serviceprovider.ShopAdminApprovals;
+package org.nearbyshops.serviceprovider.SignUp.PrefSignUp;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -6,20 +6,22 @@ import android.content.SharedPreferences;
 import com.google.gson.Gson;
 
 
-import org.nearbyshops.serviceprovider.ModelRoles.OldFiles.ShopAdmin;
+import org.nearbyshops.serviceprovider.ModelRoles.User;
 import org.nearbyshops.serviceprovider.R;
 
 import static android.content.Context.MODE_PRIVATE;
 
 /**
- * Created by sumeet on 25/9/16.
+ * Created by sumeet on 6/8/17.
  */
 
-public class UtilityShopAdmin {
+public class PrefrenceForgotPassword {
 
 
+    public static final String TAG_SIGN_UP = "tag_forgot_password";
 
-    public static void saveShopAdmin(ShopAdmin shopAdmin, Context context)
+
+    public static void saveUser(User user, Context context)
     {
 
         //Creating a shared preference
@@ -27,30 +29,23 @@ public class UtilityShopAdmin {
         SharedPreferences sharedPref = context.getSharedPreferences(context.getString(R.string.preference_file_name), MODE_PRIVATE);
 
         SharedPreferences.Editor prefsEditor = sharedPref.edit();
+
         Gson gson = new Gson();
-        String json = gson.toJson(shopAdmin);
-        prefsEditor.putString("shopAdmin", json);
+        String json = gson.toJson(user);
+        prefsEditor.putString(TAG_SIGN_UP, json);
+
         prefsEditor.apply();
     }
 
 
-    public static ShopAdmin getShopAdmin(Context context)
+    public static User getUser(Context context)
     {
         SharedPreferences sharedPref = context.getSharedPreferences(context.getString(R.string.preference_file_name), MODE_PRIVATE);
 
         Gson gson = new Gson();
-        String json = sharedPref.getString("shopAdmin", "null");
+        String json = sharedPref.getString(TAG_SIGN_UP, null);
 
-        if(json.equals("null"))
-        {
-
-            return null;
-
-        }else
-        {
-            return gson.fromJson(json, ShopAdmin.class);
-        }
+        return gson.fromJson(json, User.class);
     }
-
 
 }

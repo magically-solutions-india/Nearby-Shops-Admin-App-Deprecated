@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import org.nearbyshops.serviceprovider.ModelRoles.ShopAdmin;
+import org.nearbyshops.serviceprovider.ModelRoles.OldFiles.ShopAdmin;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
 
