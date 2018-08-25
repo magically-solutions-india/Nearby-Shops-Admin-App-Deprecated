@@ -12,6 +12,9 @@
          location permissions for the 'MyLocation' functionality. 
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+
 
     <application
         android:name=".MyApplication"
@@ -472,9 +475,6 @@
         </activity>
 
 
-
-
-
         <activity
             android:name=".EditProfile.EditProfile"
             android:label="Edit Profile"
@@ -489,6 +489,7 @@
 
 
         <activity
+            android:theme="@style/AppTheme.NoActionBar"
             android:name=".EditProfile.ChangeEmail.ChangeEmail"
             android:label="Change E-mail"
             android:parentActivityName=".EditProfile.EditProfile">
@@ -497,7 +498,12 @@
                 android:value=".EditProfile.EditProfile" />
         </activity>
 
+
+
+
+
         <activity
+            android:theme="@style/AppTheme.NoActionBar"
             android:name=".EditProfile.ChangePhone.ChangePhone"
             android:label="Change Phone"
             android:parentActivityName=".EditProfile.EditProfile">

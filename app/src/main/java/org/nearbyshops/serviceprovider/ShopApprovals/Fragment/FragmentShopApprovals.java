@@ -38,6 +38,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+
+
 /**
  * Created by sumeet on 24/11/16.
  */
@@ -205,7 +207,7 @@ public class FragmentShopApprovals extends Fragment implements SwipeRefreshLayou
 
 
 
-    void makeNetworkCall(final boolean clearDataset,boolean resetOffset)
+    void makeNetworkCall(final boolean clearDataset, final boolean resetOffset)
     {
         if(resetOffset)
         {
@@ -293,20 +295,27 @@ public class FragmentShopApprovals extends Fragment implements SwipeRefreshLayou
                     return;
                 }
 
-                if(response.body()!= null)
-                {
-                    item_count = response.body().getItemCount();
+//                if(response.body()!= null)
+//                {
 
-                    if(clearDataset)
+
+                    if(response.code()==200)
                     {
-                        dataset.clear();
+                        item_count = response.body().getItemCount();
+
+                        if(clearDataset)
+                        {
+                            dataset.clear();
+                        }
+
+                        dataset.addAll(response.body().getResults());
+                        adapter.notifyDataSetChanged();
+                        notifyTitleChanged();
                     }
-
-                    dataset.addAll(response.body().getResults());
-                    adapter.notifyDataSetChanged();
-                    notifyTitleChanged();
-
-                }
+                    else
+                    {
+                        showToastMessage("Failed code : " + String.valueOf(response.code()));
+                    }
 
 //                showToastMessage("Status Code : " + String.valueOf(response.code())
 //                + "\nDataset Size : " + dataset.size() + " Item Count : " + response.body().getItemCount());

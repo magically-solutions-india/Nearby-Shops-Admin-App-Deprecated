@@ -31,7 +31,7 @@ public class SignUp extends AppCompatActivity implements ShowFragmentSignUp {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitleTextColor(ContextCompat.getColor(this,R.color.white));
-        toolbar.setTitle("Add Credit");
+//        toolbar.setTitle("Add Credit");
         setSupportActionBar(toolbar);
 
 //        if(getSupportFragmentManager().findFragmentByTag(TAG_STEP_ONE)==null)

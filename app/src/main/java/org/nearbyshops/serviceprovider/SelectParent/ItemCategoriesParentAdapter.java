@@ -43,6 +43,7 @@ import retrofit2.Response;
  */
 
 
+
 public class ItemCategoriesParentAdapter extends RecyclerView.Adapter<ItemCategoriesParentAdapter.ViewHolder>{
 
 
@@ -101,6 +102,10 @@ public class ItemCategoriesParentAdapter extends RecyclerView.Adapter<ItemCatego
 
                 notificationReceiver.notifyItemSelected();
 
+            }
+            else
+            {
+                holder.itemCategoryListItem.setBackgroundColor(context.getResources().getColor(R.color.white));
             }
 
 //            holder.itemCategoryListItem.animate().rotation(90);
@@ -196,10 +201,11 @@ public class ItemCategoriesParentAdapter extends RecyclerView.Adapter<ItemCatego
             if(previousPosition!=selectedPosition)
             {
 
-                notifyItemChanged(previousPosition);
-                notifyItemChanged(selectedPosition);
+//                notifyItemChanged(previousPosition);
+//                notifyItemChanged(selectedPosition);
 
                 // item Selected
+                notifyDataSetChanged();
 
 
             }

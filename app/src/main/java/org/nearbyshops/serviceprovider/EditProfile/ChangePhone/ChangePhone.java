@@ -17,6 +17,9 @@ public class ChangePhone extends AppCompatActivity implements ShowFragmentChange
 
 
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +34,6 @@ public class ChangePhone extends AppCompatActivity implements ShowFragmentChange
         setSupportActionBar(toolbar);
 
 
-
         if(savedInstanceState==null)
         {
             getSupportFragmentManager()
@@ -39,9 +41,9 @@ public class ChangePhone extends AppCompatActivity implements ShowFragmentChange
                     .replace(R.id.fragment_container,new FragmentChangePhone(),TAG_STEP_ONE)
                     .commitNow();
         }
-
-
     }
+
+
 
 
 
