@@ -1,4 +1,4 @@
-package org.nearbyshops.serviceprovider.ShopApprovals.SlidingLayerSort;
+package org.nearbyshops.serviceprovider.ShopsList.SlidingLayerSort;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

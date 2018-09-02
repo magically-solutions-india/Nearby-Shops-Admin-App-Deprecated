@@ -41,6 +41,7 @@ import org.nearbyshops.serviceprovider.FilterItemsBySpecifications.FilterItemsFr
 import org.nearbyshops.serviceprovider.ItemsByCategorySimple.EditItemImage.EditItemImage;
 import org.nearbyshops.serviceprovider.ItemsByCategorySimple.EditItemImage.EditItemImageFragment;
 import org.nearbyshops.serviceprovider.ItemsByCategorySimple.EditItemImage.UtilityItemImage;
+import org.nearbyshops.serviceprovider.ItemsByCategorySimple.ItemImageList.ImageList;
 import org.nearbyshops.serviceprovider.Model.Image;
 import org.nearbyshops.serviceprovider.Model.Item;
 import org.nearbyshops.serviceprovider.Model.ItemCategory;
@@ -240,6 +241,17 @@ public class EditItemFragmentNew extends Fragment implements AdapterItemImages.n
     }
 
 
+
+
+
+
+    @OnClick(R.id.uploadImage)
+    void imageClick()
+    {
+        Intent intent = new Intent(getActivity(), ImageList.class);
+        intent.putExtra("item_id",item.getItemID());
+        startActivity(intent);
+    }
 
 
 

@@ -31,10 +31,11 @@ import org.nearbyshops.serviceprovider.ItemsByCategorySimple.EditItemOld.EditIte
 import org.nearbyshops.serviceprovider.ItemCategoriesTabs.Items.Deprecated.EditItemOld;
 import org.nearbyshops.serviceprovider.ItemCategoriesTabs.Items.ItemFragmentTwo;
 import org.nearbyshops.serviceprovider.ItemsByCategorySimple.ItemCategoriesFragmentSimple;
+import org.nearbyshops.serviceprovider.ItemsByCategorySimple.ItemImageList.ImageListFragment;
 import org.nearbyshops.serviceprovider.ServiceConfiguration.EditConfiguration.EditConfigurationFragment;
 import org.nearbyshops.serviceprovider.Services.ServiceFragment.ServicesFragment;
 import org.nearbyshops.serviceprovider.Services.SubmitURLDialog.SubmitURLDialog;
-import org.nearbyshops.serviceprovider.ShopApprovals.EditShop.EditShopFragment;
+import org.nearbyshops.serviceprovider.ShopsList.EditShop.EditShopFragment;
 import org.nearbyshops.serviceprovider.SignUp.FragmentEmailOrPhone;
 import org.nearbyshops.serviceprovider.SignUp.FragmentEnterPassword;
 import org.nearbyshops.serviceprovider.SignUp.FragmentVerifyEmailSignUp;
@@ -56,9 +57,9 @@ import org.nearbyshops.serviceprovider.ItemCategoriesTabs.ItemCategories.ItemCat
 import org.nearbyshops.serviceprovider.DaggerModules.AppModule;
 import org.nearbyshops.serviceprovider.DaggerModules.NetModule;
 import org.nearbyshops.serviceprovider.Settings.SettingsActivity;
-import org.nearbyshops.serviceprovider.ShopAdminApprovals.EditShopAdmin.EditShopAdminFragment;
-import org.nearbyshops.serviceprovider.ShopAdminApprovals.Fragment.FragmentShopAdmins;
-import org.nearbyshops.serviceprovider.ShopApprovals.Fragment.FragmentShopApprovals;
+import org.nearbyshops.serviceprovider.ShopAdminList.EditShopAdmin.EditShopAdminFragment;
+import org.nearbyshops.serviceprovider.ShopAdminList.Fragment.FragmentShopAdmins;
+import org.nearbyshops.serviceprovider.ShopsList.Fragment.FragmentShopApprovals;
 import org.nearbyshops.serviceprovider.StaffAccounts.EditStaff.EditStaffFragment;
 import org.nearbyshops.serviceprovider.StaffAccounts.FragmentStaffAccounts;
 import org.nearbyshops.serviceprovider.zSavedConfigurations.AddService;
@@ -203,6 +204,8 @@ public interface NetComponent {
     void Inject(FragmentVerifyEmailSignUp fragmentVerifyEmailSignUp);
 
     void Inject(StaffListFragment staffListFragment);
+
+    void Inject(ImageListFragment imageListFragment);
 
 
 //    void Inject(LoginDialog loginDialog);

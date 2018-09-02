@@ -1,7 +1,6 @@
-package org.nearbyshops.serviceprovider.ShopApprovals.Fragment;
+package org.nearbyshops.serviceprovider.ShopAdminList.Fragment;
 
 import android.content.Intent;
-import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -14,19 +13,18 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import org.nearbyshops.serviceprovider.DaggerComponentBuilder;
-import org.nearbyshops.serviceprovider.Interfaces.GetLocation;
-import org.nearbyshops.serviceprovider.Interfaces.NotifyLocation;
 import org.nearbyshops.serviceprovider.Interfaces.NotifySearch;
 import org.nearbyshops.serviceprovider.ItemCategoriesTabs.Interfaces.NotifySort;
 import org.nearbyshops.serviceprovider.ItemCategoriesTabs.Interfaces.NotifyTitleChanged;
-import org.nearbyshops.serviceprovider.Model.Shop;
-import org.nearbyshops.serviceprovider.ModelEndPoints.ShopEndPoint;
+import org.nearbyshops.serviceprovider.ModelRoles.Endpoints.ShopAdminEndPoint;
+import org.nearbyshops.serviceprovider.ModelRoles.OldFiles.ShopAdmin;
 import org.nearbyshops.serviceprovider.R;
-import org.nearbyshops.serviceprovider.RetrofitRESTContract.ShopService;
-import org.nearbyshops.serviceprovider.ShopApprovals.EditShop.EditShop;
-import org.nearbyshops.serviceprovider.ShopApprovals.EditShop.EditShopFragment;
-import org.nearbyshops.serviceprovider.ShopApprovals.EditShop.UtilityShop;
-import org.nearbyshops.serviceprovider.ShopApprovals.SlidingLayerSort.UtilitySortShops;
+import org.nearbyshops.serviceprovider.RetrofitRESTContract.ShopAdminService;
+import org.nearbyshops.serviceprovider.ShopAdminList.EditShopAdmin.EditShopAdmin;
+import org.nearbyshops.serviceprovider.ShopAdminList.EditShopAdmin.EditShopAdminFragment;
+import org.nearbyshops.serviceprovider.ShopAdminList.SlidingLayerSort.UtilitySortShopAdmin;
+import org.nearbyshops.serviceprovider.ShopAdminList.UtilityShopAdmin;
+import org.nearbyshops.serviceprovider.Utility.PrefLogin;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,26 +36,20 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
-
 /**
- * Created by sumeet on 24/11/16.
+ * Created by sumeet on 22/11/16.
  */
 
+public class FragmentShopAdmins extends Fragment implements Adapter.NotifyConfirmOrder, SwipeRefreshLayout.OnRefreshListener ,NotifySort,NotifySearch{
 
-public class FragmentShopApprovals extends Fragment implements SwipeRefreshLayout.OnRefreshListener, Adapter.NotifyByShopAdapter ,NotifySearch, NotifySort,NotifyLocation{
-
-    private static final String ARG_SECTION_NUMBER = "section_number";
-
-    Location location;
 
     @Inject
-    ShopService shopService;
+    ShopAdminService shopAdminService;
 
     RecyclerView recyclerView;
     Adapter adapter;
 
-    public List<Shop> dataset = new ArrayList<>();
+    public List<ShopAdmin> dataset = new ArrayList<>();
 
     GridLayoutManager layoutManager;
     SwipeRefreshLayout swipeContainer;
@@ -69,21 +61,26 @@ public class FragmentShopApprovals extends Fragment implements SwipeRefreshLayou
 
     boolean isDestroyed;
 
-    public static final int MODE_ENABLED = 1;
-    public static final int MODE_DISABLED = 2;
-    public static final int MODE_WAITLISTED = 3;
+
+//    private static final String ARG_ACCOUNTS_MODE = "arg_accounts_mode";
+    public static final int MODE_ACCOUNTS_ENABLED = 1;
+    public static final int MODE_ACCOUNTS_DISABLED = 2;
+    public static final int MODE_ACCOUNTS_WAITLISTED = 3;
 
 
 
-    public FragmentShopApprovals() {
+    private static final String ARG_SECTION_NUMBER = "section_number";
+
+    public FragmentShopAdmins() {
 
         DaggerComponentBuilder.getInstance()
                 .getNetComponent()
                 .Inject(this);
     }
 
-    public static FragmentShopApprovals newInstance(int sectionNumber) {
-        FragmentShopApprovals fragment = new FragmentShopApprovals();
+
+    public static FragmentShopAdmins newInstance(int sectionNumber) {
+        FragmentShopAdmins fragment = new FragmentShopAdmins();
         Bundle args = new Bundle();
         args.putInt(ARG_SECTION_NUMBER, sectionNumber);
         fragment.setArguments(args);
@@ -95,7 +92,7 @@ public class FragmentShopApprovals extends Fragment implements SwipeRefreshLayou
                              Bundle savedInstanceState) {
 
         setRetainInstance(true);
-        View rootView = inflater.inflate(R.layout.fragment_shop_approvals, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_shop_admin_approvals, container, false);
 
 
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
@@ -115,6 +112,7 @@ public class FragmentShopApprovals extends Fragment implements SwipeRefreshLayou
     }
 
 
+
     void setupSwipeContainer()
     {
         if(swipeContainer!=null) {
@@ -132,7 +130,7 @@ public class FragmentShopApprovals extends Fragment implements SwipeRefreshLayou
     void setupRecyclerView()
     {
 
-        adapter = new Adapter(dataset,this,getContext(),this);
+        adapter = new Adapter(dataset,this,getContext());
 
         recyclerView.setAdapter(adapter);
 
@@ -145,7 +143,6 @@ public class FragmentShopApprovals extends Fragment implements SwipeRefreshLayou
 //        layoutManager.setSpanCount(metrics.widthPixels/400);
 
 
-//        recyclerView.addItemDecoration(new DividerItemDecoration(getContext(),DividerItemDecoration.VERTICAL_LIST));
 
         int spanCount = (int) (metrics.widthPixels/(230 * metrics.density));
 
@@ -161,22 +158,24 @@ public class FragmentShopApprovals extends Fragment implements SwipeRefreshLayou
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
 
-
-
-                if(offset + limit > layoutManager.findLastVisibleItemPosition()+1-1)
-                {
-                    return;
-                }
-
-                if(layoutManager.findLastVisibleItemPosition()==dataset.size()-1+1)
+                if(layoutManager.findLastVisibleItemPosition()==dataset.size()-1)
                 {
                     // trigger fetch next page
+
+                    if(layoutManager.findLastVisibleItemPosition() == previous_position)
+                    {
+                        return;
+                    }
+
 
                     if((offset+limit)<=item_count)
                     {
                         offset = offset + limit;
-                        makeNetworkCall(false,false);
+                        makeNetworkCall(false);
                     }
+
+                    previous_position = layoutManager.findLastVisibleItemPosition();
+
                 }
 
             }
@@ -184,10 +183,14 @@ public class FragmentShopApprovals extends Fragment implements SwipeRefreshLayou
     }
 
 
+    int previous_position = -1;
+
 
     @Override
     public void onRefresh() {
-        makeNetworkCall(true,true);
+
+        offset = 0;
+        makeNetworkCall(true);
     }
 
     void makeRefreshNetworkCall()
@@ -204,76 +207,40 @@ public class FragmentShopApprovals extends Fragment implements SwipeRefreshLayou
 
     }
 
-
-
-
-    void makeNetworkCall(final boolean clearDataset, final boolean resetOffset)
+    void makeNetworkCall(final boolean clearDataset)
     {
-        if(resetOffset)
-        {
-            offset = 0;
-        }
 
-
-        Call<ShopEndPoint> call = null;
+        Call<ShopAdminEndPoint> call = null;
 
         String current_sort = "";
-        current_sort = UtilitySortShops.getSort(getContext()) + " " + UtilitySortShops.getAscending(getContext());
+        current_sort = UtilitySortShopAdmin.getSort(getContext()) + " " + UtilitySortShopAdmin.getAscending(getContext());
 
 
-        Double latitude = null;
-        Double longitude = null;
-
-
-        if(getActivity() instanceof GetLocation)
+        if(getArguments().getInt(ARG_SECTION_NUMBER) == MODE_ACCOUNTS_DISABLED)
         {
-            this.location = ((GetLocation)getActivity()).getLocation();
-        }
+            call = shopAdminService
+                    .getShopAdmin(PrefLogin.getAuthorizationHeaders(getContext()),
+                            false,false,
+                            searchQuery,current_sort,limit,offset,null);
 
-        if(location!=null)
-        {
-            showToastMessage("Location" + String.valueOf(this.location.getLongitude()) + " : " + String.valueOf(this.location.getLatitude()));
-            latitude = location.getLatitude();
-            longitude = location.getLongitude();
-        }
-
-
-//        latitude = UtilityLocationServices.getLatitude(getActivity());
-//        longitude = UtilityLocationServices.getLongitude(getActivity());
-
-//        showToastMessage("Latitude : " + UtilityLocationServices.getLatitude(getActivity()) + " : Longitude " + UtilityLocationServices.getLongitude(getActivity()));
-
-
-        if(getArguments().getInt(ARG_SECTION_NUMBER) == MODE_DISABLED)
-        {
-            call = shopService.getShopListSimple(
-                    false,false,
-                    null,
-                    latitude,longitude,
-                    null,null,null,
-                    searchQuery,current_sort,limit,offset);
 
         }
-        else if (getArguments().getInt(ARG_SECTION_NUMBER) == MODE_WAITLISTED)
+        else if (getArguments().getInt(ARG_SECTION_NUMBER) == MODE_ACCOUNTS_WAITLISTED)
         {
+            call = shopAdminService
+                    .getShopAdmin(PrefLogin.getAuthorizationHeaders(getContext()),
+                            false,true,
+                            searchQuery,current_sort,limit,offset,null);
 
-            call = shopService.getShopListSimple(
-                    false,true,
-                    null,
-                    latitude,longitude,
-                    null,null,null,
-                    searchQuery,current_sort,limit,offset);
 
         }
-        else if(getArguments().getInt(ARG_SECTION_NUMBER)==MODE_ENABLED)
+        else if(getArguments().getInt(ARG_SECTION_NUMBER)==MODE_ACCOUNTS_ENABLED)
         {
+            call = shopAdminService
+                    .getShopAdmin(PrefLogin.getAuthorizationHeaders(getContext()),
+                            true,null,
+                            searchQuery,current_sort,limit,offset,null);
 
-            call = shopService.getShopListSimple(
-                    true,null,
-                    null,
-                    latitude,longitude,
-                    null,null, null,
-                    searchQuery,current_sort,limit,offset);
         }
 
 
@@ -285,9 +252,9 @@ public class FragmentShopApprovals extends Fragment implements SwipeRefreshLayou
         }
 
 
-        call.enqueue(new Callback<ShopEndPoint>() {
+        call.enqueue(new Callback<ShopAdminEndPoint>() {
             @Override
-            public void onResponse(Call<ShopEndPoint> call, Response<ShopEndPoint> response) {
+            public void onResponse(Call<ShopAdminEndPoint> call, Response<ShopAdminEndPoint> response) {
 
 
                 if(isDestroyed)
@@ -295,27 +262,20 @@ public class FragmentShopApprovals extends Fragment implements SwipeRefreshLayou
                     return;
                 }
 
-//                if(response.body()!= null)
-//                {
+                if(response.body()!= null)
+                {
+                    item_count = response.body().getItemCount();
 
-
-                    if(response.code()==200)
+                    if(clearDataset)
                     {
-                        item_count = response.body().getItemCount();
-
-                        if(clearDataset)
-                        {
-                            dataset.clear();
-                        }
-
-                        dataset.addAll(response.body().getResults());
-                        adapter.notifyDataSetChanged();
-                        notifyTitleChanged();
+                        dataset.clear();
                     }
-                    else
-                    {
-                        showToastMessage("Failed code : " + String.valueOf(response.code()));
-                    }
+
+                    dataset.addAll(response.body().getResults());
+                    adapter.notifyDataSetChanged();
+                    notifyTitleChanged();
+
+                }
 
 //                showToastMessage("Status Code : " + String.valueOf(response.code())
 //                + "\nDataset Size : " + dataset.size() + " Item Count : " + response.body().getItemCount());
@@ -324,7 +284,7 @@ public class FragmentShopApprovals extends Fragment implements SwipeRefreshLayou
             }
 
             @Override
-            public void onFailure(Call<ShopEndPoint> call, Throwable t) {
+            public void onFailure(Call<ShopAdminEndPoint> call, Throwable t) {
 
                 if(isDestroyed)
                 {
@@ -338,6 +298,7 @@ public class FragmentShopApprovals extends Fragment implements SwipeRefreshLayou
         });
 
     }
+
 
 
     @Override
@@ -371,14 +332,14 @@ public class FragmentShopApprovals extends Fragment implements SwipeRefreshLayou
         if(getActivity() instanceof NotifyTitleChanged)
         {
 
-            if(getArguments().getInt(ARG_SECTION_NUMBER)==MODE_DISABLED)
+            if(getArguments().getInt(ARG_SECTION_NUMBER)==MODE_ACCOUNTS_DISABLED)
             {
                 ((NotifyTitleChanged)getActivity())
                         .NotifyTitleChanged(
                                 "Disabled (" + String.valueOf(dataset.size())
                                         + "/" + String.valueOf(item_count) + ")",0);
             }
-            else if(getArguments().getInt(ARG_SECTION_NUMBER)==MODE_WAITLISTED)
+            else if(getArguments().getInt(ARG_SECTION_NUMBER)==MODE_ACCOUNTS_WAITLISTED)
             {
                 ((NotifyTitleChanged)getActivity())
                         .NotifyTitleChanged(
@@ -386,7 +347,7 @@ public class FragmentShopApprovals extends Fragment implements SwipeRefreshLayou
                                         + "/" + String.valueOf(item_count) + ")",1);
 
             }
-            else if(getArguments().getInt(ARG_SECTION_NUMBER)==MODE_ENABLED)
+            else if(getArguments().getInt(ARG_SECTION_NUMBER)==MODE_ACCOUNTS_ENABLED)
             {
                 ((NotifyTitleChanged)getActivity())
                         .NotifyTitleChanged(
@@ -409,18 +370,23 @@ public class FragmentShopApprovals extends Fragment implements SwipeRefreshLayou
 
 
     @Override
-    public void notifyEditClick(Shop shop) {
+    public void notifyEditClick(ShopAdmin shopAdmin) {
 
-        UtilityShop.saveShop(shop,getActivity());
-        Intent intent = new Intent(getActivity(), EditShop.class);
-        intent.putExtra(EditShopFragment.EDIT_MODE_INTENT_KEY,EditShopFragment.MODE_UPDATE);
+        UtilityShopAdmin.saveShopAdmin(shopAdmin,getContext());
+
+        Intent intent = new Intent(getContext(),EditShopAdmin.class);
+        intent.putExtra(EditShopAdminFragment.EDIT_MODE_INTENT_KEY,EditShopAdminFragment.MODE_UPDATE);
         startActivity(intent);
+    }
+
+    @Override
+    public void notifyListItemClick(ShopAdmin shopAdmin) {
 
     }
 
     @Override
-    public void notifyListItemClick(Shop shop) {
-
+    public void notifySortChanged() {
+        makeRefreshNetworkCall();
     }
 
 
@@ -438,17 +404,4 @@ public class FragmentShopApprovals extends Fragment implements SwipeRefreshLayou
         makeRefreshNetworkCall();
     }
 
-
-    @Override
-    public void notifySortChanged() {
-        makeRefreshNetworkCall();
-    }
-
-
-
-    @Override
-    public void fetchedLocation(Location location) {
-//        this.location = location;
-        makeRefreshNetworkCall();
-    }
 }

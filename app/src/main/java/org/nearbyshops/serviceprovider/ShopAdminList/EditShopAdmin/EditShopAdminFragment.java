@@ -1,4 +1,4 @@
-package org.nearbyshops.serviceprovider.ShopAdminApprovals.EditShopAdmin;
+package org.nearbyshops.serviceprovider.ShopAdminList.EditShopAdmin;
 
 
 import android.Manifest;
@@ -33,7 +33,7 @@ import org.nearbyshops.serviceprovider.Model.Image;
 import org.nearbyshops.serviceprovider.ModelRoles.OldFiles.ShopAdmin;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.ShopAdminService;
-import org.nearbyshops.serviceprovider.ShopAdminApprovals.UtilityShopAdmin;
+import org.nearbyshops.serviceprovider.ShopAdminList.UtilityShopAdmin;
 import org.nearbyshops.serviceprovider.Utility.ImageCropUtility;
 import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
 import org.nearbyshops.serviceprovider.Utility.PrefLogin;

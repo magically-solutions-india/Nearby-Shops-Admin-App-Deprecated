@@ -22,8 +22,8 @@ import org.nearbyshops.serviceprovider.RetrofitRESTContract.ServiceConfiguration
 import org.nearbyshops.serviceprovider.ServiceConfiguration.EditConfiguration.EditConfiguration;
 import org.nearbyshops.serviceprovider.ServiceConfiguration.EditConfiguration.EditConfigurationFragment;
 import org.nearbyshops.serviceprovider.ServiceConfiguration.EditConfiguration.UtilityServiceConfiguration;
-import org.nearbyshops.serviceprovider.ShopAdminApprovals.ShopAdminApprovals;
-import org.nearbyshops.serviceprovider.ShopApprovals.ShopApprovals;
+import org.nearbyshops.serviceprovider.ShopAdminList.ShopAdminApprovals;
+import org.nearbyshops.serviceprovider.ShopsList.ShopApprovals;
 import org.nearbyshops.serviceprovider.StaffAccounts.StaffAccounts;
 import org.nearbyshops.serviceprovider.StaffList.StaffList;
 

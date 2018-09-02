@@ -15,8 +15,8 @@ import org.nearbyshops.serviceprovider.ModelRoles.OldFiles.Staff;
 import org.nearbyshops.serviceprovider.ModelRoles.StaffPermissions;
 import org.nearbyshops.serviceprovider.ModelRoles.User;
 import org.nearbyshops.serviceprovider.R;
-import org.nearbyshops.serviceprovider.ShopAdminApprovals.ShopAdminApprovals;
-import org.nearbyshops.serviceprovider.ShopApprovals.ShopApprovals;
+import org.nearbyshops.serviceprovider.ShopAdminList.ShopAdminApprovals;
+import org.nearbyshops.serviceprovider.ShopsList.ShopApprovals;
 import org.nearbyshops.serviceprovider.Utility.PrefLogin;
 
 

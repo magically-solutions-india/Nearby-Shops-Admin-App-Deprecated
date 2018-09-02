@@ -1,4 +1,4 @@
-package org.nearbyshops.serviceprovider.ShopApprovals.Fragment;
+package org.nearbyshops.serviceprovider.ShopsList.Fragment;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;

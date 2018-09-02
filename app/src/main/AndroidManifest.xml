@@ -186,7 +186,7 @@
         <!-- </activity> -->
 
         <activity
-            android:name=".ShopAdminApprovals.ShopAdminApprovals"
+            android:name=".ShopAdminList.ShopAdminApprovals"
             android:label="Shop Admin Approvals"
             android:launchMode="singleTop"
             android:parentActivityName=".Home"
@@ -203,7 +203,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ShopAdminApprovals.EditShopAdmin.EditShopAdmin"
+            android:name=".ShopAdminList.EditShopAdmin.EditShopAdmin"
             android:label="@string/title_activity_shop_admin_approvals"
             android:parentActivityName=".Home"
             android:theme="@style/AppTheme.NoActionBar">
@@ -223,7 +223,7 @@
         <!-- </activity> -->
 
         <activity
-            android:name=".ShopApprovals.ShopApprovals"
+            android:name=".ShopsList.ShopApprovals"
             android:label="Shop approvals"
             android:launchMode="singleTop"
             android:parentActivityName=".Home"
@@ -329,13 +329,13 @@
                 android:value=".Home" />
         </activity>
         <activity
-            android:name=".ShopApprovals.EditShop.EditShop"
+            android:name=".ShopsList.EditShop.EditShop"
             android:label="Edit Shop"
-            android:parentActivityName=".ShopApprovals.ShopApprovals"
+            android:parentActivityName=".ShopsList.ShopApprovals"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ShopApprovals.ShopApprovals" />
+                android:value=".ShopsList.ShopApprovals" />
         </activity>
         <activity
             android:name=".Services.ServicesActivity"
@@ -544,6 +544,19 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Home" />
         </activity>
+
+
+
+        <activity
+            android:name=".ItemsByCategorySimple.ItemImageList.ImageList"
+            android:label="Item Images"
+            android:parentActivityName=".Home"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Home" />
+        </activity>
+
 
 
 

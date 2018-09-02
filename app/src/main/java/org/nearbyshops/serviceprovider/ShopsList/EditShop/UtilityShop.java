@@ -1,12 +1,11 @@
-package org.nearbyshops.serviceprovider.ShopAdminApprovals;
+package org.nearbyshops.serviceprovider.ShopsList.EditShop;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
 
-
-import org.nearbyshops.serviceprovider.ModelRoles.OldFiles.ShopAdmin;
+import org.nearbyshops.serviceprovider.Model.Shop;
 import org.nearbyshops.serviceprovider.R;
 
 import static android.content.Context.MODE_PRIVATE;
@@ -15,11 +14,11 @@ import static android.content.Context.MODE_PRIVATE;
  * Created by sumeet on 25/9/16.
  */
 
-public class UtilityShopAdmin {
+public class UtilityShop {
 
+    private static final String TAG_PREF_SHOP = "shop";
 
-
-    public static void saveShopAdmin(ShopAdmin shopAdmin, Context context)
+    public static void saveShop(Shop shopAdmin, Context context)
     {
 
         //Creating a shared preference
@@ -29,17 +28,17 @@ public class UtilityShopAdmin {
         SharedPreferences.Editor prefsEditor = sharedPref.edit();
         Gson gson = new Gson();
         String json = gson.toJson(shopAdmin);
-        prefsEditor.putString("shopAdmin", json);
+        prefsEditor.putString(TAG_PREF_SHOP, json);
         prefsEditor.apply();
     }
 
 
-    public static ShopAdmin getShopAdmin(Context context)
+    public static Shop getShop(Context context)
     {
         SharedPreferences sharedPref = context.getSharedPreferences(context.getString(R.string.preference_file_name), MODE_PRIVATE);
 
         Gson gson = new Gson();
-        String json = sharedPref.getString("shopAdmin", "null");
+        String json = sharedPref.getString(TAG_PREF_SHOP, "null");
 
         if(json.equals("null"))
         {
@@ -48,9 +47,8 @@ public class UtilityShopAdmin {
 
         }else
         {
-            return gson.fromJson(json, ShopAdmin.class);
+            return gson.fromJson(json, Shop.class);
         }
     }
-
 
 }

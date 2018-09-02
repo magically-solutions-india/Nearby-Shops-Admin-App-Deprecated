@@ -1,4 +1,4 @@
-package org.nearbyshops.serviceprovider.ShopApprovals.EditShop;
+package org.nearbyshops.serviceprovider.ShopsList.EditShop;
 
 
 import android.Manifest;

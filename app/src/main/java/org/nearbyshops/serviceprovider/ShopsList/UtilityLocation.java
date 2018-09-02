@@ -1,4 +1,4 @@
-package org.nearbyshops.serviceprovider.ShopApprovals;
+package org.nearbyshops.serviceprovider.ShopsList;
 
 import android.content.Context;
 import android.content.SharedPreferences;

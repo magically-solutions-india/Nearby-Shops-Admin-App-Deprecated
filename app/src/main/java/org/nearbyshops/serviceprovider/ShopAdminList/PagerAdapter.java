@@ -1,13 +1,13 @@
-package org.nearbyshops.serviceprovider.ShopApprovals;
+package org.nearbyshops.serviceprovider.ShopAdminList;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import org.nearbyshops.serviceprovider.ShopApprovals.Fragment.FragmentShopApprovals;
+import org.nearbyshops.serviceprovider.ShopAdminList.Fragment.FragmentShopAdmins;
 
 /**
- * Created by sumeet on 24/11/16.
+ * Created by sumeet on 22/11/16.
  */
 
 
@@ -19,24 +19,25 @@ public class PagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
+
         // getItem is called to instantiate the fragment for the given page.
-        // Return a FragmentShopApprovals (defined as a static inner class below).
+        // Return a FragmentShopAdmins (defined as a static inner class below).
 
         if(position==0)
         {
-            return FragmentShopApprovals.newInstance(FragmentShopApprovals.MODE_DISABLED);
+            return FragmentShopAdmins.newInstance(FragmentShopAdmins.MODE_ACCOUNTS_DISABLED);
         }
         else if(position==1)
         {
-            return FragmentShopApprovals.newInstance(FragmentShopApprovals.MODE_WAITLISTED);
+            return FragmentShopAdmins.newInstance(FragmentShopAdmins.MODE_ACCOUNTS_WAITLISTED);
+
         }
         else if(position==2)
         {
-            return FragmentShopApprovals.newInstance(FragmentShopApprovals.MODE_ENABLED);
+            return FragmentShopAdmins.newInstance(FragmentShopAdmins.MODE_ACCOUNTS_ENABLED);
         }
 
-
-        return FragmentShopApprovals.newInstance(position + 1);
+        return FragmentShopAdmins.newInstance(FragmentShopAdmins.MODE_ACCOUNTS_ENABLED);
     }
 
     @Override
@@ -60,8 +61,10 @@ public class PagerAdapter extends FragmentPagerAdapter {
 
 
 
-    private String titleDisabled = "Disabled (0/0)";
-    private String titleWaitlisted = "Waitlisted (0/0)";
+
+
+    private String titleDisabled = "Disabled ( 0 / 0 )";
+    private String titleWaitlisted = "Waitlisted ( 0 / 0 )";
     private String titleEnabled = "Enabled (0/0)";
 //    private String titleDetachedItems = "Detached Items (0/0)";
 
@@ -76,7 +79,6 @@ public class PagerAdapter extends FragmentPagerAdapter {
         {
 
             titleWaitlisted = title;
-
         }else if(tabPosition == 2)
         {
             titleEnabled = title;

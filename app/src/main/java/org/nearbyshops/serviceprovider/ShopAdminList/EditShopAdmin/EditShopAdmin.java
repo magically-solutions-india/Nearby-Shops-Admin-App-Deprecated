@@ -1,4 +1,4 @@
-package org.nearbyshops.serviceprovider.ShopApprovals.EditShop;
+package org.nearbyshops.serviceprovider.ShopAdminList.EditShopAdmin;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,22 +6,24 @@ import android.support.v7.widget.Toolbar;
 
 import org.nearbyshops.serviceprovider.R;
 
-
-public class EditShop extends AppCompatActivity {
+public class EditShopAdmin extends AppCompatActivity {
 
     public static final String TAG_FRAGMENT_EDIT = "fragment_edit";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_shop_new);
+        setContentView(R.layout.activity_edit_shop_admin);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         if(getSupportFragmentManager().findFragmentByTag(TAG_FRAGMENT_EDIT)==null)
         {
             getSupportFragmentManager()
                     .beginTransaction()
-                    .add(R.id.fragment_container,new EditShopFragment(),TAG_FRAGMENT_EDIT)
+                    .add(R.id.fragment_container,new EditShopAdminFragment(),TAG_FRAGMENT_EDIT)
                     .commit();
         }
     }

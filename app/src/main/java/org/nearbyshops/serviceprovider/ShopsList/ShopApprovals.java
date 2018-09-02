@@ -1,4 +1,4 @@
-package org.nearbyshops.serviceprovider.ShopApprovals;
+package org.nearbyshops.serviceprovider.ShopsList;
 
 import android.Manifest;
 import android.app.SearchManager;
@@ -44,7 +44,7 @@ import org.nearbyshops.serviceprovider.Interfaces.NotifySearch;
 import org.nearbyshops.serviceprovider.ItemCategoriesTabs.Interfaces.NotifySort;
 import org.nearbyshops.serviceprovider.ItemCategoriesTabs.Interfaces.NotifyTitleChanged;
 import org.nearbyshops.serviceprovider.R;
-import org.nearbyshops.serviceprovider.ShopApprovals.SlidingLayerSort.SlidingLayerSortShops;
+import org.nearbyshops.serviceprovider.ShopsList.SlidingLayerSort.SlidingLayerSortShops;
 
 
 import butterknife.BindView;

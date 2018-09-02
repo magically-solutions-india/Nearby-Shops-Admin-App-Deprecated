@@ -1,4 +1,4 @@
-package org.nearbyshops.serviceprovider.ShopApprovals.SlidingLayerSort;
+package org.nearbyshops.serviceprovider.ShopAdminList.SlidingLayerSort;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -11,7 +11,7 @@ import static android.content.Context.MODE_PRIVATE;
  * Created by sumeet on 29/9/16.
  */
 
-public class UtilitySortShops {
+public class UtilitySortShopAdmin {
 
 
 
@@ -26,7 +26,7 @@ public class UtilitySortShops {
 
         // write to the shared preference
         SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString("sort_shops", sort_by);
+        editor.putString("sort_shop_admin", sort_by);
         editor.apply();
     }
 
@@ -34,7 +34,7 @@ public class UtilitySortShops {
     public static String getSort(Context context)
     {
         SharedPreferences sharedPref = context.getSharedPreferences(context.getString(R.string.preference_file_name), MODE_PRIVATE);
-        String sort_by = sharedPref.getString("sort_shops", SlidingLayerSortShops.SORT_BY_DISTANCE);
+        String sort_by = sharedPref.getString("sort_shop_admin", SlidingLayerSortShopAdmin.SORT_BY_REGISTRATION_DATE);
 
         return sort_by;
     }
@@ -53,7 +53,7 @@ public class UtilitySortShops {
 
         // write to the shared preference
         SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString("sort_descending_shops",descending);
+        editor.putString("sort_descending_shop_admin",descending);
         editor.apply();
     }
 
@@ -63,7 +63,7 @@ public class UtilitySortShops {
     {
 
         SharedPreferences sharedPref = context.getSharedPreferences(context.getString(R.string.preference_file_name), MODE_PRIVATE);
-        String descending = sharedPref.getString("sort_descending_shops", SlidingLayerSortShops.SORT_ASCENDING);
+        String descending = sharedPref.getString("sort_descending_shop_admin", SlidingLayerSortShopAdmin.SORT_ASCENDING);
 
         return descending;
     }

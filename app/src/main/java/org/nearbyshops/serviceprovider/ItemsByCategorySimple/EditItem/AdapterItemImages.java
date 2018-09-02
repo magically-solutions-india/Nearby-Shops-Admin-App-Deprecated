@@ -2,6 +2,7 @@ package org.nearbyshops.serviceprovider.ItemsByCategorySimple.EditItem;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.support.constraint.ConstraintLayout;
 import android.support.graphics.drawable.VectorDrawableCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;

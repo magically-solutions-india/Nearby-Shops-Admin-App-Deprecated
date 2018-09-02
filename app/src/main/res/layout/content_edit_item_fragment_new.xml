@@ -267,11 +267,12 @@
             </LinearLayout>
 
 
+
             <android.support.v7.widget.RecyclerView
                 android:layout_marginTop="10dp"
                 android:id="@+id/recyclerview_item_images"
                 android:layout_width="match_parent"
-                android:layout_height="200dp" />
+                android:layout_height="150dp" />
 
 
 
