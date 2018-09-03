@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.ProgressBar;
@@ -39,9 +38,6 @@ import butterknife.OnLongClick;
 
 
 public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-
-
-
 
 
 
@@ -86,7 +82,7 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             view = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.list_item_item_image_new, parent, false);
 
-            return new ViewHolderTripRequest(view);
+            return new ViewHolderItemImage(view);
         }
         else if (viewType == VIEW_TYPE_HEADER) {
 
@@ -111,9 +107,9 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
 
-        if (holder instanceof ViewHolderTripRequest) {
+        if (holder instanceof ViewHolderItemImage) {
 
-            bindTripRequest((ViewHolderTripRequest) holder, position);
+            bindTripRequest((ViewHolderItemImage) holder, position);
         }
         else if (holder instanceof ViewHolderHeader) {
 
@@ -176,7 +172,7 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
 
 
-    void bindTripRequest(ViewHolderTripRequest holder, int position)
+    void bindTripRequest(ViewHolderItemImage holder, int position)
     {
 
         if(dataset.get(position) instanceof ItemImage)
@@ -231,7 +227,7 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
 
 
-    class ViewHolderTripRequest extends RecyclerView.ViewHolder{
+    class ViewHolderItemImage extends RecyclerView.ViewHolder{
 
 
         @BindView(R.id.title)
@@ -246,26 +242,16 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         ConstraintLayout listItem;
         @BindView(R.id.check_icon)
         ImageView checkIcon;
-        @BindView(R.id.is_enabled)
-        CheckBox isEnabled;
+//        @BindView(R.id.is_enabled)
+//        CheckBox isEnabled;
 
 
 
 
 
-        public ViewHolderTripRequest(View itemView) {
+        public ViewHolderItemImage(View itemView) {
             super(itemView);
             ButterKnife.bind(this,itemView);
-
-//            itemView.setOnLongClickListener(new View.OnLongClickListener() {
-//                @Override
-//                public boolean onLongClick(View v) {
-//
-//
-//
-//
-//                }
-//            });
         }
 
 

@@ -223,7 +223,7 @@
         <!-- </activity> -->
 
         <activity
-            android:name=".ShopsList.ShopApprovals"
+            android:name=".ShopsList.ShopsDatabase"
             android:label="Shop approvals"
             android:launchMode="singleTop"
             android:parentActivityName=".Home"
@@ -331,11 +331,11 @@
         <activity
             android:name=".ShopsList.EditShop.EditShop"
             android:label="Edit Shop"
-            android:parentActivityName=".ShopsList.ShopApprovals"
+            android:parentActivityName=".ShopsList.ShopsDatabase"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ShopsList.ShopApprovals" />
+                android:value=".ShopsList.ShopsDatabase" />
         </activity>
         <activity
             android:name=".Services.ServicesActivity"

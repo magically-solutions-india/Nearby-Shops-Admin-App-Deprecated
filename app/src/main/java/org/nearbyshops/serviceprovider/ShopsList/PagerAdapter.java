@@ -28,11 +28,11 @@ public class PagerAdapter extends FragmentPagerAdapter {
         }
         else if(position==1)
         {
-            return FragmentShopApprovals.newInstance(FragmentShopApprovals.MODE_WAITLISTED);
+            return FragmentShopApprovals.newInstance(FragmentShopApprovals.MODE_ENABLED);
         }
         else if(position==2)
         {
-            return FragmentShopApprovals.newInstance(FragmentShopApprovals.MODE_ENABLED);
+            return FragmentShopApprovals.newInstance(FragmentShopApprovals.MODE_WAITLISTED);
         }
 
 
@@ -51,9 +51,9 @@ public class PagerAdapter extends FragmentPagerAdapter {
             case 0:
                 return titleDisabled;
             case 1:
-                return titleWaitlisted;
-            case 2:
                 return titleEnabled;
+            case 2:
+                return titleWaitlisted;
         }
         return null;
     }

@@ -8,15 +8,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.nearbyshops.serviceprovider.DetachedTabs.DetachedTabs;
-import org.nearbyshops.serviceprovider.ItemCategoriesTabs.ItemCategoriesTabs;
 import org.nearbyshops.serviceprovider.ItemsByCategorySimple.ItemCategoriesSimple;
-import org.nearbyshops.serviceprovider.ModelRoles.OldFiles.Staff;
 import org.nearbyshops.serviceprovider.ModelRoles.StaffPermissions;
 import org.nearbyshops.serviceprovider.ModelRoles.User;
 import org.nearbyshops.serviceprovider.R;
-import org.nearbyshops.serviceprovider.ShopAdminList.ShopAdminApprovals;
-import org.nearbyshops.serviceprovider.ShopsList.ShopApprovals;
+import org.nearbyshops.serviceprovider.ShopsList.ShopsDatabase;
 import org.nearbyshops.serviceprovider.Utility.PrefLogin;
 
 
@@ -156,7 +152,7 @@ public class StaffDashboard extends AppCompatActivity {
     @OnClick(R.id.shop_approvals)
     void optionAdminClick(View view)
     {
-        Intent intent = new Intent(this, ShopApprovals.class);
+        Intent intent = new Intent(this, ShopsDatabase.class);
         startActivity(intent);
     }
 

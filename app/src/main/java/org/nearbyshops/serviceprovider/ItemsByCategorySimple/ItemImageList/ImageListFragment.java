@@ -230,19 +230,7 @@ public class ImageListFragment extends Fragment implements SwipeRefreshLayout.On
 
 
 
-    /* Token renewal variables : BEGIN */
 
-    // constants - request codes for token renewal
-    public static final int REQUEST_CODE_GET_REQUESTS = 1;
-    public static final int REQUEST_CODE_UPDATE_ENABLE_STATUS = 2;
-    private static final int REQUEST_CODE_GET_CURRENT_TRIP = 3;
-    private static final int REQUEST_CODE_DELETE_IMAGE = 4;
-
-    // housekeeping for token renewal
-    int token_renewal_attempts = 0;  // variable to keep record of renewal attempts
-    int token_renewal_request_code = -1; // variable to store the request code;
-
-    /* Token renewal variables : END */
 
 
     void getTripHistory() {
@@ -526,6 +514,9 @@ public class ImageListFragment extends Fragment implements SwipeRefreshLayout.On
         }
     }
 
+
+
+
     @Override
     public void listItemClick(ItemImage itemImage, int position) {
 
@@ -542,9 +533,11 @@ public class ImageListFragment extends Fragment implements SwipeRefreshLayout.On
 
 
 
+
+
     @Override
     public boolean listItemLongClick(View view, ItemImage taxiImage, int position) {
-        return false;
+        return true;
     }
 
 

@@ -101,6 +101,8 @@ public class EditItemImageFragment extends Fragment {
 //    Item item = new Item();
     ItemImage itemImage = new ItemImage();
 
+
+
     public EditItemImageFragment() {
 
         DaggerComponentBuilder.getInstance()

@@ -51,7 +51,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class ShopApprovals extends AppCompatActivity implements NotifyTitleChanged,NotifySort, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener ,LocationListener,GetLocation{
+public class ShopsDatabase extends AppCompatActivity implements NotifyTitleChanged,NotifySort, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener ,LocationListener,GetLocation{
 
 
 
@@ -415,7 +415,7 @@ public class ShopApprovals extends AppCompatActivity implements NotifyTitleChang
                             // Show the dialog by calling startResolutionForResult(),
                             // and check the result in onActivityResult().
                             status.startResolutionForResult(
-                                    ShopApprovals.this,
+                                    ShopsDatabase.this,
                                     REQUEST_CHECK_SETTINGS);
 
                         } catch (IntentSender.SendIntentException e) {

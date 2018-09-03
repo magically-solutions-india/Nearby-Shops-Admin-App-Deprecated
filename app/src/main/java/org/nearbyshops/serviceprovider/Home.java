@@ -9,32 +9,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import org.nearbyshops.serviceprovider.DetachedTabs.DetachedTabs;
 import org.nearbyshops.serviceprovider.EditProfile.EditProfile;
 import org.nearbyshops.serviceprovider.EditProfile.FragmentEditProfile;
-import org.nearbyshops.serviceprovider.EditProfileAdmin.EditAdminFragment;
-import org.nearbyshops.serviceprovider.EditProfileAdmin.EditProfileAdmin;
 import org.nearbyshops.serviceprovider.ItemSpecName.ItemSpecName;
-import org.nearbyshops.serviceprovider.ItemSubmissionsMenu.ItemSubmissionMenu;
 import org.nearbyshops.serviceprovider.ItemsByCategorySimple.ItemCategoriesSimple;
-import org.nearbyshops.serviceprovider.ModelServiceConfig.ServiceConfigurationLocal;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.ServiceConfigurationService;
-import org.nearbyshops.serviceprovider.ServiceConfiguration.EditConfiguration.EditConfiguration;
-import org.nearbyshops.serviceprovider.ServiceConfiguration.EditConfiguration.EditConfigurationFragment;
-import org.nearbyshops.serviceprovider.ServiceConfiguration.EditConfiguration.UtilityServiceConfiguration;
 import org.nearbyshops.serviceprovider.ShopAdminList.ShopAdminApprovals;
-import org.nearbyshops.serviceprovider.ShopsList.ShopApprovals;
-import org.nearbyshops.serviceprovider.StaffAccounts.StaffAccounts;
+import org.nearbyshops.serviceprovider.ShopsList.ShopsDatabase;
 import org.nearbyshops.serviceprovider.StaffList.StaffList;
 
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
 
 
 public class Home extends AppCompatActivity {
@@ -253,7 +240,7 @@ public class Home extends AppCompatActivity {
     @OnClick(R.id.shop_approvals)
     void optionAdminClick(View view)
     {
-        Intent intent = new Intent(this, ShopApprovals.class);
+        Intent intent = new Intent(this, ShopsDatabase.class);
         startActivity(intent);
     }
 
