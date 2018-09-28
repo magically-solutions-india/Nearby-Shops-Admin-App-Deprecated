@@ -230,6 +230,8 @@ public class FragmentShopApprovals extends Fragment implements SwipeRefreshLayou
             this.location = ((GetLocation)getActivity()).getLocation();
         }
 
+
+
         if(location!=null)
         {
             showToastMessage("Location" + String.valueOf(this.location.getLongitude()) + " : " + String.valueOf(this.location.getLatitude()));
@@ -308,9 +310,14 @@ public class FragmentShopApprovals extends Fragment implements SwipeRefreshLayou
                             dataset.clear();
                         }
 
-                        dataset.addAll(response.body().getResults());
-                        adapter.notifyDataSetChanged();
-                        notifyTitleChanged();
+                        if(response.body().getResults()!=null)
+                        {
+                            dataset.addAll(response.body().getResults());
+                            adapter.notifyDataSetChanged();
+                            notifyTitleChanged();
+                        }
+
+
                     }
                     else
                     {
@@ -338,6 +345,8 @@ public class FragmentShopApprovals extends Fragment implements SwipeRefreshLayou
         });
 
     }
+
+
 
 
     @Override

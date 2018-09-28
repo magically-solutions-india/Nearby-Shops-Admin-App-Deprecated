@@ -30,8 +30,8 @@ public class SlidingLayerSortShops extends Fragment {
     @BindView(R.id.sort_rating)
     TextView sort_by_rating;
 
-    @BindView(R.id.popularity)
-    TextView sort_by_popularity;
+//    @BindView(R.id.popularity)
+//    TextView sort_by_popularity;
 
 //    @BindView(R.id.available)
 //    TextView sort_by_items_available;
@@ -95,12 +95,12 @@ public class SlidingLayerSortShops extends Fragment {
             sort_by_rating.setTextColor(ContextCompat.getColor(getActivity(),R.color.white));
             sort_by_rating.setBackgroundColor(ContextCompat.getColor(getActivity(),colorSelected));
         }
-        else if(currentSort.equals(SORT_BY_POPULARITY))
-        {
-            sort_by_popularity.setTextColor(ContextCompat.getColor(getActivity(),R.color.white));
-            sort_by_popularity.setBackgroundColor(ContextCompat.getColor(getActivity(),colorSelected));
-
-        }
+//        else if(currentSort.equals(SORT_BY_POPULARITY))
+//        {
+//            sort_by_popularity.setTextColor(ContextCompat.getColor(getActivity(),R.color.white));
+//            sort_by_popularity.setBackgroundColor(ContextCompat.getColor(getActivity(),colorSelected));
+//
+//        }
 
 
         if(currentAscending.equals(SORT_ASCENDING))
@@ -153,20 +153,20 @@ public class SlidingLayerSortShops extends Fragment {
 
 
 
-    @OnClick(R.id.popularity)
-    void sortByShopCount(View view)
-    {
-        clearSelectionSort();
-        sort_by_popularity.setTextColor(ContextCompat.getColor(getActivity(),R.color.white));
-        sort_by_popularity.setBackgroundColor(ContextCompat.getColor(getActivity(),colorSelected));
-
-        UtilitySortShops.saveSort(getActivity(),SORT_BY_POPULARITY);
-
-        if(getActivity() instanceof NotifySort)
-        {
-            ((NotifySort)getActivity()).notifySortChanged();
-        }
-    }
+//    @OnClick(R.id.popularity)
+//    void sortByShopCount(View view)
+//    {
+//        clearSelectionSort();
+//        sort_by_popularity.setTextColor(ContextCompat.getColor(getActivity(),R.color.white));
+//        sort_by_popularity.setBackgroundColor(ContextCompat.getColor(getActivity(),colorSelected));
+//
+//        UtilitySortShops.saveSort(getActivity(),SORT_BY_POPULARITY);
+//
+//        if(getActivity() instanceof NotifySort)
+//        {
+//            ((NotifySort)getActivity()).notifySortChanged();
+//        }
+//    }
 
 
 
@@ -214,11 +214,11 @@ public class SlidingLayerSortShops extends Fragment {
     {
         sort_by_distance.setTextColor(ContextCompat.getColor(getActivity(),R.color.blueGrey800));
         sort_by_rating.setTextColor(ContextCompat.getColor(getActivity(),R.color.blueGrey800));
-        sort_by_popularity.setTextColor(ContextCompat.getColor(getActivity(),R.color.blueGrey800));
+//        sort_by_popularity.setTextColor(ContextCompat.getColor(getActivity(),R.color.blueGrey800));
 
         sort_by_distance.setBackgroundColor(ContextCompat.getColor(getActivity(),R.color.light_grey));
         sort_by_rating.setBackgroundColor(ContextCompat.getColor(getActivity(),R.color.light_grey));
-        sort_by_popularity.setBackgroundColor(ContextCompat.getColor(getActivity(),R.color.light_grey));
+//        sort_by_popularity.setBackgroundColor(ContextCompat.getColor(getActivity(),R.color.light_grey));
     }
 
 

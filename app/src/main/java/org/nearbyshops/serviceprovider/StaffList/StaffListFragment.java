@@ -1,13 +1,9 @@
 package org.nearbyshops.serviceprovider.StaffList;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
@@ -99,7 +95,7 @@ public class StaffListFragment extends Fragment implements SwipeRefreshLayout.On
         super.onCreateView(inflater, container, savedInstanceState);
 
         setRetainInstance(true);
-        View rootView = inflater.inflate(R.layout.fragment_trip_history, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_staff_list, container, false);
         ButterKnife.bind(this,rootView);
 
 

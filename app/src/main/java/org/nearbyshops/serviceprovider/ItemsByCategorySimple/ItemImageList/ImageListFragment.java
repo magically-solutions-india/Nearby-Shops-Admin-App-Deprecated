@@ -1,14 +1,10 @@
 package org.nearbyshops.serviceprovider.ItemsByCategorySimple.ItemImageList;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -25,8 +21,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
-
 
 import org.nearbyshops.serviceprovider.DaggerComponentBuilder;
 import org.nearbyshops.serviceprovider.ItemSubmissionsList.HeaderTitle;
@@ -37,10 +31,8 @@ import org.nearbyshops.serviceprovider.Model.ItemImage;
 import org.nearbyshops.serviceprovider.ModelItemSpecification.EndPoints.ItemImageEndPoint;
 import org.nearbyshops.serviceprovider.ModelRoles.User;
 import org.nearbyshops.serviceprovider.R;
-import org.nearbyshops.serviceprovider.RetrofitRESTContract.UserService;
 import org.nearbyshops.serviceprovider.RetrofitRESTContractItem.ItemImageService;
 import org.nearbyshops.serviceprovider.Utility.PrefLogin;
-import org.nearbyshops.serviceprovider.Utility.UtilityFunctions;
 
 import java.util.ArrayList;
 
@@ -104,7 +96,7 @@ public class ImageListFragment extends Fragment implements SwipeRefreshLayout.On
         super.onCreateView(inflater, container, savedInstanceState);
 
         setRetainInstance(true);
-        View rootView = inflater.inflate(R.layout.fragment_trip_history, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_item_image_list, container, false);
         ButterKnife.bind(this, rootView);
 
 
