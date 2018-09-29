@@ -23,6 +23,35 @@ import retrofit2.http.Query;
 
 public interface UserService {
 
+
+
+
+    /* Password Reset : Begin */
+
+
+
+
+    @PUT ("/api/v1/User/ResetPassword/GenerateResetCode")
+    Call<ResponseBody> generateResetCode(@Body User user);
+
+
+
+    @GET ("/api/v1/User/ResetPassword/CheckPasswordResetCode/{emailOrPhone}")
+    Call<ResponseBody> checkPasswordResetCode(
+            @Path("emailOrPhone") String emailOrPhone,
+            @Query("ResetCode") String resetCode
+    );
+
+
+    @PUT ("/api/v1/User/ResetPassword")
+    Call<ResponseBody> resetPassword(@Body User user);
+
+
+    /* Password Reset : Ends */
+
+
+
+
     /* Staff Login : Begin */
 
 

@@ -2,6 +2,8 @@ package org.nearbyshops.serviceprovider.DaggerComponents;
 
 
 import org.nearbyshops.serviceprovider.AddFromGlobalSelection.FragmentAddFromGlobal;
+import org.nearbyshops.serviceprovider.AdminDashboard.AdminDashboardFragment;
+import org.nearbyshops.serviceprovider.AdminDashboard.AdminHome;
 import org.nearbyshops.serviceprovider.DetachedTabs.ItemCategories.DetachedItemCatAdapter;
 import org.nearbyshops.serviceprovider.DetachedTabs.ItemCategories.DetachedItemCatFragment;
 import org.nearbyshops.serviceprovider.DetachedTabs.Items.DetachedItemAdapter;
@@ -14,7 +16,6 @@ import org.nearbyshops.serviceprovider.EditProfile.ChangePhone.FragmentVerifyPho
 import org.nearbyshops.serviceprovider.EditProfile.FragmentEditProfile;
 import org.nearbyshops.serviceprovider.EditProfileAdmin.EditAdminFragment;
 import org.nearbyshops.serviceprovider.FilterItemsBySpecifications.FilterItemsFragment;
-import org.nearbyshops.serviceprovider.Home;
 import org.nearbyshops.serviceprovider.ItemSpecName.EditItemSpecName.EditItemSpecNameFragment;
 import org.nearbyshops.serviceprovider.ItemSpecName.ItemSpecNameFragment;
 import org.nearbyshops.serviceprovider.ItemSpecValue.EditItemSpecValue.EditItemSpecValueFragment;
@@ -32,15 +33,21 @@ import org.nearbyshops.serviceprovider.ItemCategoriesTabs.Items.Deprecated.EditI
 import org.nearbyshops.serviceprovider.ItemCategoriesTabs.Items.ItemFragmentTwo;
 import org.nearbyshops.serviceprovider.ItemsByCategorySimple.ItemCategoriesFragmentSimple;
 import org.nearbyshops.serviceprovider.ItemsByCategorySimple.ItemImageList.ImageListFragment;
+import org.nearbyshops.serviceprovider.Login.LoginFragment;
 import org.nearbyshops.serviceprovider.ServiceConfiguration.EditConfiguration.EditConfigurationFragment;
 import org.nearbyshops.serviceprovider.Services.ServiceFragment.ServicesFragment;
 import org.nearbyshops.serviceprovider.Services.SubmitURLDialog.SubmitURLDialog;
 import org.nearbyshops.serviceprovider.ShopsList.EditShop.EditShopFragment;
+import org.nearbyshops.serviceprovider.ShopsList.Fragment.FragmentShopList;
+import org.nearbyshops.serviceprovider.SignUp.ForgotPassword.FragmentCheckResetCode;
+import org.nearbyshops.serviceprovider.SignUp.ForgotPassword.FragmentEnterCredentials;
+import org.nearbyshops.serviceprovider.SignUp.ForgotPassword.FragmentResetPassword;
 import org.nearbyshops.serviceprovider.SignUp.FragmentEmailOrPhone;
 import org.nearbyshops.serviceprovider.SignUp.FragmentEnterPassword;
 import org.nearbyshops.serviceprovider.SignUp.FragmentVerifyEmailSignUp;
 import org.nearbyshops.serviceprovider.StaffHome.EditStaffSelf.EditStaffSelfFragment;
 import org.nearbyshops.serviceprovider.StaffHome.StaffHome;
+import org.nearbyshops.serviceprovider.StaffHome.StaffHomeFragment;
 import org.nearbyshops.serviceprovider.StaffList.EditProfileStaff.FragmentEditProfileStaff;
 import org.nearbyshops.serviceprovider.StaffList.StaffListFragment;
 import org.nearbyshops.serviceprovider.zDistributorAccounts.DistributorAccountFragment;
@@ -59,7 +66,6 @@ import org.nearbyshops.serviceprovider.DaggerModules.NetModule;
 import org.nearbyshops.serviceprovider.Settings.SettingsActivity;
 import org.nearbyshops.serviceprovider.ShopAdminList.EditShopAdmin.EditShopAdminFragment;
 import org.nearbyshops.serviceprovider.ShopAdminList.Fragment.FragmentShopAdmins;
-import org.nearbyshops.serviceprovider.ShopsList.Fragment.FragmentShopApprovals;
 import org.nearbyshops.serviceprovider.StaffAccounts.EditStaff.EditStaffFragment;
 import org.nearbyshops.serviceprovider.StaffAccounts.FragmentStaffAccounts;
 import org.nearbyshops.serviceprovider.zSavedConfigurations.AddService;
@@ -128,7 +134,7 @@ public interface NetComponent {
 
     void Inject(FragmentShopAdmins fragmentShopAdmins);
 
-    void Inject(FragmentShopApprovals fragmentShopApprovals);
+    void Inject(FragmentShopList fragmentShopApprovals);
 
     void Inject(EditStaffFragment editStaffFragment);
 
@@ -146,7 +152,7 @@ public interface NetComponent {
 
     void Inject(EditConfigurationFragment editConfigurationFragment);
 
-    void Inject(Home home);
+    void Inject(AdminHome home);
 
     void Inject(LoginScreen loginScreen);
 
@@ -206,6 +212,18 @@ public interface NetComponent {
     void Inject(StaffListFragment staffListFragment);
 
     void Inject(ImageListFragment imageListFragment);
+
+    void Inject(AdminDashboardFragment adminDashboardFragment);
+
+    void Inject(LoginFragment loginFragment);
+
+    void Inject(FragmentCheckResetCode fragmentCheckResetCode);
+
+    void Inject(FragmentResetPassword fragmentResetPassword);
+
+    void Inject(FragmentEnterCredentials fragmentEnterCredentials);
+
+    void Inject(StaffHomeFragment staffHomeFragment);
 
 
 //    void Inject(LoginDialog loginDialog);

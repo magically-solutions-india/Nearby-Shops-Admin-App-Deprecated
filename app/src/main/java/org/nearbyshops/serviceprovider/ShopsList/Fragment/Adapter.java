@@ -188,9 +188,9 @@ class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
             LoadingViewHolder viewHolder = (LoadingViewHolder) holderVH;
 
-            if(fragment instanceof FragmentShopApprovals)
+            if(fragment instanceof FragmentShopList)
             {
-                int items_count = ((FragmentShopApprovals) fragment).item_count;
+                int items_count = ((FragmentShopList) fragment).item_count;
 
                 if(dataset.size() == items_count)
                 {

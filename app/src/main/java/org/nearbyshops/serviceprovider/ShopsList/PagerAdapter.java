@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import org.nearbyshops.serviceprovider.ShopsList.Fragment.FragmentShopApprovals;
+import org.nearbyshops.serviceprovider.ShopsList.Fragment.FragmentShopList;
 
 /**
  * Created by sumeet on 24/11/16.
@@ -24,19 +24,19 @@ public class PagerAdapter extends FragmentPagerAdapter {
 
         if(position==0)
         {
-            return FragmentShopApprovals.newInstance(FragmentShopApprovals.MODE_DISABLED);
+            return FragmentShopList.newInstance(FragmentShopList.MODE_DISABLED);
         }
         else if(position==1)
         {
-            return FragmentShopApprovals.newInstance(FragmentShopApprovals.MODE_ENABLED);
+            return FragmentShopList.newInstance(FragmentShopList.MODE_ENABLED);
         }
         else if(position==2)
         {
-            return FragmentShopApprovals.newInstance(FragmentShopApprovals.MODE_WAITLISTED);
+            return FragmentShopList.newInstance(FragmentShopList.MODE_WAITLISTED);
         }
 
 
-        return FragmentShopApprovals.newInstance(position + 1);
+        return FragmentShopList.newInstance(position + 1);
     }
 
     @Override

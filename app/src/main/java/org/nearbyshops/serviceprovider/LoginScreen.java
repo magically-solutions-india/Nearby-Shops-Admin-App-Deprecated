@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 
+import org.nearbyshops.serviceprovider.AdminDashboard.AdminHome;
 import org.nearbyshops.serviceprovider.ModelRoles.User;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.UserService;
 import org.nearbyshops.serviceprovider.StaffHome.StaffHome;
@@ -71,7 +72,7 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
         {
             case R.id.loginButton:
 
-                startActivity(new Intent(this,Home.class));
+                startActivity(new Intent(this,AdminHome.class));
                 break;
         }
 
@@ -88,6 +89,7 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
 
         networkCallLoginAdminSimple();
     }
+
 
 
 
@@ -129,7 +131,7 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
 
                     if(user.getRole()==User.ROLE_ADMIN_CODE)
                     {
-                        startActivity(new Intent(LoginScreen.this,Home.class));
+                        startActivity(new Intent(LoginScreen.this,AdminHome.class));
                     }
                     else if(user.getRole()==User.ROLE_STAFF_CODE)
                     {

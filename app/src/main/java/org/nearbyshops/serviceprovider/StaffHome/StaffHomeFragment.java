@@ -2,9 +2,11 @@ package org.nearbyshops.serviceprovider.StaffHome;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,43 +16,40 @@ import org.nearbyshops.serviceprovider.EditProfile.FragmentEditProfile;
 import org.nearbyshops.serviceprovider.ModelRoles.OldFiles.Staff;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.StaffService;
-import org.nearbyshops.serviceprovider.StaffHome.EditStaffSelf.EditStaffSelf;
-import org.nearbyshops.serviceprovider.StaffHome.EditStaffSelf.EditStaffSelfFragment;
 import org.nearbyshops.serviceprovider.Utility.PrefLogin;
 
 import javax.inject.Inject;
-
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
-public class StaffHome extends AppCompatActivity {
+public class StaffHomeFragment extends Fragment {
 
     @BindView(R.id.notice) TextView notice;
     @Inject StaffService staffService;
 
-    public StaffHome() {
+    public StaffHomeFragment() {
         DaggerComponentBuilder.getInstance().getNetComponent().Inject(this);
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_staff_home);
-        ButterKnife.bind(this);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
+
+        setRetainInstance(true);
+        View rootView = inflater.inflate(R.layout.activity_staff_home, container, false);
+        ButterKnife.bind(this,rootView);
 
         checkAccountActivation();
+
+        return rootView;
     }
-
-
-
 
 
 
@@ -59,7 +58,7 @@ public class StaffHome extends AppCompatActivity {
     {
         // if account is deactivated notify User
 
-        Staff staff = PrefLogin.getStaff(this);
+        Staff staff = PrefLogin.getStaff(getActivity());
 
         if(staff!=null && !staff.getEnabled())
         {
@@ -84,7 +83,7 @@ public class StaffHome extends AppCompatActivity {
 
 
 
-        Intent intent = new Intent(this, EditProfile.class);
+        Intent intent = new Intent(getActivity(), EditProfile.class);
         intent.putExtra(FragmentEditProfile.EDIT_MODE_INTENT_KEY, FragmentEditProfile.MODE_UPDATE);
         startActivity(intent);
     }
@@ -94,7 +93,7 @@ public class StaffHome extends AppCompatActivity {
     @OnClick(R.id.dashboard)
     void dashboardClick()
     {
-        Call<Staff> call = staffService.getLogin(PrefLogin.getAuthorizationHeaders(this));
+        Call<Staff> call = staffService.getLogin(PrefLogin.getAuthorizationHeaders(getActivity()));
 
 //        call.enqueue(new Callback<Staff>() {
 //            @Override
@@ -134,13 +133,13 @@ public class StaffHome extends AppCompatActivity {
 
 
 //        PrefLogin.saveStaff(response.body(),StaffHome.this);
-        startActivity(new Intent(StaffHome.this,StaffDashboard.class));
+        startActivity(new Intent(getActivity(),StaffDashboard.class));
     }
 
 
     void showToastMessage(String message)
     {
-        Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(),message,Toast.LENGTH_SHORT).show();
     }
 
 

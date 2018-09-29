@@ -30,14 +30,60 @@ android:paddingTop="@dimen/activity_vertical_margin"   -->
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+
+        <LinearLayout
+            android:id="@+id/header_strip"
+            android:padding="10dp"
+            android:background="@color/light_grey"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/header"
+                android:textSize="20sp"
+                android:text="Home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+
+            <TextView
+                android:background="@color/blueGrey800"
+                android:layout_width="1dp"
+                android:layout_height="match_parent" />
+
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:id="@+id/logout"
+                android:textSize="20sp"
+                android:text="Log Out"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+
         <TextView
+            android:layout_marginTop="10dp"
             android:id="@+id/border_top"
             android:background="#88000000"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/header_strip"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_width="0dp"
             android:layout_height="1dp" />
+
 
         <TextView
             app:layout_constraintTop_toBottomOf="@+id/border_top"

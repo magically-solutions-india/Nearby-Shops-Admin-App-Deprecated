@@ -45,7 +45,7 @@ import retrofit2.Response;
  */
 
 
-public class FragmentShopApprovals extends Fragment implements SwipeRefreshLayout.OnRefreshListener, Adapter.NotifyByShopAdapter ,NotifySearch, NotifySort,NotifyLocation{
+public class FragmentShopList extends Fragment implements SwipeRefreshLayout.OnRefreshListener, Adapter.NotifyByShopAdapter ,NotifySearch, NotifySort,NotifyLocation{
 
     private static final String ARG_SECTION_NUMBER = "section_number";
 
@@ -75,15 +75,15 @@ public class FragmentShopApprovals extends Fragment implements SwipeRefreshLayou
 
 
 
-    public FragmentShopApprovals() {
+    public FragmentShopList() {
 
         DaggerComponentBuilder.getInstance()
                 .getNetComponent()
                 .Inject(this);
     }
 
-    public static FragmentShopApprovals newInstance(int sectionNumber) {
-        FragmentShopApprovals fragment = new FragmentShopApprovals();
+    public static FragmentShopList newInstance(int sectionNumber) {
+        FragmentShopList fragment = new FragmentShopList();
         Bundle args = new Bundle();
         args.putInt(ARG_SECTION_NUMBER, sectionNumber);
         fragment.setArguments(args);
