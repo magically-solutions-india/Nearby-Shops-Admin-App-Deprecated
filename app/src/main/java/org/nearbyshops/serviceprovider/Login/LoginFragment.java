@@ -288,7 +288,7 @@ TextInputEditText username;
 
 
 
-        Call<User> call = retrofit.create(UserService.class).getProfile(
+        Call<User> call = retrofit.create(UserService.class).getProfileWithLogin(
                 PrefLogin.baseEncoding(phoneWithCode,password.getText().toString())
         );
 

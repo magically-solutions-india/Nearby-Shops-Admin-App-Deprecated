@@ -1,9 +1,11 @@
 package org.nearbyshops.serviceprovider.StaffHome;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,7 @@ import android.widget.Toast;
 import org.nearbyshops.serviceprovider.DaggerComponentBuilder;
 import org.nearbyshops.serviceprovider.EditProfile.EditProfile;
 import org.nearbyshops.serviceprovider.EditProfile.FragmentEditProfile;
+import org.nearbyshops.serviceprovider.Login.Interfaces.NotifyAboutLogin;
 import org.nearbyshops.serviceprovider.ModelRoles.OldFiles.Staff;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.StaffService;
@@ -142,6 +145,57 @@ public class StaffHomeFragment extends Fragment {
         Toast.makeText(getActivity(),message,Toast.LENGTH_SHORT).show();
     }
 
+
+
+
+
+
+
+    @OnClick(R.id.logout)
+    void logoutClick()
+    {
+
+        AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
+
+        dialog.setTitle("Confirm Logout !")
+                .setMessage("Do you want to log out !")
+                .setPositiveButton("Yes",new DialogInterface.OnClickListener(){
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        logout();
+
+                    }
+                })
+                .setNegativeButton("No",new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        showToastMessage("Cancelled !");
+                    }
+                })
+                .show();
+    }
+
+
+
+
+
+
+    void logout()
+    {
+        // log out
+        PrefLogin.saveUserProfile(null,getActivity());
+        PrefLogin.saveCredentials(getActivity(),null,null);
+
+        // stop location update service
+
+        if(getActivity() instanceof NotifyAboutLogin)
+        {
+            ((NotifyAboutLogin) getActivity()).loginSuccess();
+        }
+    }
 
 
 

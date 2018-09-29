@@ -32,8 +32,9 @@
     </string-array>
 
 
-    <string name="sign_in_message">Receive Orders from customers and provide them home delivery.</string>
-    <string name="sign_in_header">Manage your Shop</string>
+
+    <string name="sign_in_message">You are signing as an administrator / staff which will enable you to manage your service.</string>
+    <string name="sign_in_header">Manage your Service</string>
 
     <string name="title_activity_maps">Map</string>
 

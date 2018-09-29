@@ -12,17 +12,60 @@
 
 
 
-    <TextView
+    <LinearLayout
+        android:id="@+id/header_strip"
         android:padding="10dp"
         android:background="@color/light_grey"
-        android:id="@+id/header"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textSize="20sp"
-        android:text="Home"
+        android:orientation="horizontal"
         android:layout_width="0dp"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/header"
+            android:textSize="20sp"
+            android:text="Home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:background="@color/blueGrey800"
+            android:layout_width="1dp"
+            android:layout_height="match_parent" />
+
+
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:id="@+id/logout"
+            android:textSize="20sp"
+            android:text="Log Out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+
+    <!--<TextView-->
+        <!--android:padding="10dp"-->
+        <!--android:background="@color/light_grey"-->
+        <!--android:id="@+id/header"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--android:textSize="20sp"-->
+        <!--android:text="Home"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content" />-->
 
 
     <TextView
@@ -32,7 +75,7 @@
         android:background="#cd201f"
         android:layout_marginTop="10dp"
         android:id="@+id/notice"
-        app:layout_constraintTop_toBottomOf="@id/header"
+        app:layout_constraintTop_toBottomOf="@id/header_strip"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:text="Message"
