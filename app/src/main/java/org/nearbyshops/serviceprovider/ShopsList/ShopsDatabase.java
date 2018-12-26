@@ -214,7 +214,10 @@ public class ShopsDatabase extends AppCompatActivity implements NotifyTitleChang
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
 
 
-        MenuItemCompat.setOnActionExpandListener(menu.findItem(R.id.action_search), new MenuItemCompat.OnActionExpandListener() {
+
+        MenuItem item = menu.findItem(R.id.action_search);
+
+        item.setOnActionExpandListener(new MenuItem.OnActionExpandListener() {
             @Override
             public boolean onMenuItemActionExpand(MenuItem item) {
                 return true;
@@ -222,6 +225,7 @@ public class ShopsDatabase extends AppCompatActivity implements NotifyTitleChang
 
             @Override
             public boolean onMenuItemActionCollapse(MenuItem item) {
+
 
 //                Fragment fragment = getSupportFragmentManager().findFragmentByTag(TAG_FRAGMENT);
 
@@ -241,6 +245,9 @@ public class ShopsDatabase extends AppCompatActivity implements NotifyTitleChang
                 return true;
             }
         });
+
+
+
 
         return true;
     }

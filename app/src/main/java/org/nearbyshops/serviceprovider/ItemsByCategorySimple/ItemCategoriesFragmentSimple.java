@@ -1580,14 +1580,14 @@ public class ItemCategoriesFragmentSimple extends Fragment implements SwipeRefre
 
                     return true;
 
-                case R.id.action_delete:
+//                case R.id.action_delete:
 
 //                    deleteClick();
 
 //                    mode.finish();
 
 
-                    return true;
+//                    return true;
                 default:
                     return false;
             }

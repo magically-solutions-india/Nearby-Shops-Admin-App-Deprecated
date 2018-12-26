@@ -26,16 +26,16 @@ import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.Circle;
-import com.google.android.gms.maps.model.CircleOptions;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
+//
+//import com.google.android.gms.maps.CameraUpdateFactory;
+//import com.google.android.gms.maps.GoogleMap;
+//import com.google.android.gms.maps.OnMapReadyCallback;
+//import com.google.android.gms.maps.SupportMapFragment;
+//import com.google.android.gms.maps.model.Circle;
+//import com.google.android.gms.maps.model.CircleOptions;
+//import com.google.android.gms.maps.model.LatLng;
+//import com.google.android.gms.maps.model.Marker;
+//import com.google.android.gms.maps.model.MarkerOptions;
 import com.squareup.picasso.Picasso;
 import com.yalantis.ucrop.UCrop;
 import com.yalantis.ucrop.UCropActivity;
@@ -44,6 +44,7 @@ import com.yalantis.ucrop.UCropActivity;
 import org.nearbyshops.serviceprovider.DaggerComponentBuilder;
 import org.nearbyshops.serviceprovider.Model.Image;
 import org.nearbyshops.serviceprovider.Model.Shop;
+import org.nearbyshops.serviceprovider.ModelRoles.User;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.ShopService;
 import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
@@ -52,6 +53,9 @@ import org.nearbyshops.serviceprovider.Utility.PrefLogin;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.inject.Inject;
 
@@ -68,7 +72,7 @@ import retrofit2.Response;
 import static android.app.Activity.RESULT_OK;
 
 
-public class EditShopFragment extends Fragment implements OnMapReadyCallback {
+public class EditShopFragment extends Fragment {
 
     public static int PICK_IMAGE_REQUEST = 21;
     // Upload the image after picked up
@@ -94,6 +98,11 @@ public class EditShopFragment extends Fragment implements OnMapReadyCallback {
     // bind views
     @BindView(R.id.uploadImage)
     ImageView resultView;
+
+
+    @BindView(R.id.shop_admin_name) TextView shopAdminName;
+    @BindView(R.id.shop_admin_phone) TextView shopAdminPhone;
+    @BindView(R.id.time_created) TextView timeOfRegistration;
 
 
     @BindView(R.id.shop_open) CheckBox shopOpen;
@@ -215,7 +224,7 @@ public class EditShopFragment extends Fragment implements OnMapReadyCallback {
 
 
         showLogMessage("Inside On Create View !");
-        setupMap();
+//        setupMap();
 
         return rootView;
     }
@@ -433,6 +442,26 @@ public class EditShopFragment extends Fragment implements OnMapReadyCallback {
     void bindDataToViews()
     {
         if(shop!=null) {
+
+            User shopAdminProfile = shop.getShopAdminProfile();
+
+            if(shopAdminProfile!=null)
+            {
+                shopAdminName.setText("Name : " + shopAdminProfile.getName());
+                shopAdminPhone.setText("Phone : " + shopAdminProfile.getPhone());
+
+
+//                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+//                String dateTimeString = sdf.format(new Date(shopAdminProfile.getTimestampCreated().getTime()));
+
+//                timeOfRegistration.setText("Time of Registration : " + shopAdminProfile.getTimestampCreated().toLocaleString());
+
+//                timeOfRegistration.setText("Time of Registration : " + dateTimeString);
+
+
+            }
+
+
 
             shopOpen.setChecked(shop.isOpen());
             shopIDEnter.setText(String.valueOf(shop.getShopID()));
@@ -1072,92 +1101,92 @@ public class EditShopFragment extends Fragment implements OnMapReadyCallback {
 
 
 
-    private GoogleMap mMap;
-    Marker currentMarker;
+//    private GoogleMap mMap;
+//    Marker currentMarker;
 
 
 
-    void setupMap()
-    {
-        SupportMapFragment mapFragment1 = new SupportMapFragment();
-
-        getActivity().getSupportFragmentManager().beginTransaction()
-                .add(R.id.map,mapFragment1).commit();
-
-        mapFragment1.getMapAsync(this);
-    }
-
-
-
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-
-        mMap = googleMap;
-
-        if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-
-
-            ActivityCompat.requestPermissions(getActivity(),
-                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},2);
-
-            return;
-        }
-
-        mMap.setMyLocationEnabled(true);
-        mMap.getUiSettings().setMapToolbarEnabled(true);
-//        mMap.getUiSettings().setAllGesturesEnabled(true);
-        mMap.getUiSettings().setZoomControlsEnabled(true);
-
-
-//        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(,14));
-
-//        Location currentLocation = UtilityLocationOld.getCurrentLocation(this);
-
-        if(shop!=null)
-        {
-            LatLng latLng = new LatLng(shop.getLatCenter(),shop.getLonCenter());
-
-            Circle circle = mMap
-                    .addCircle(
-                            new CircleOptions()
-                                    .center(latLng)
-                                    .radius(shop.getDeliveryRange()*1000)
-                                    .fillColor(0x11000000)
-                                    .strokeWidth(1)
-                                    .strokeColor(R.color.buttonColorDark)
-                    );
-
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,getZoomLevel(circle)));
-            //
-
-            currentMarker = mMap.addMarker(new MarkerOptions().position(latLng).title(shop.getShopName()));
-//                mMap.moveCamera();
-//            mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
-            currentMarker.showInfoWindow();
-
-        }
-    }
+//    void setupMap()
+//    {
+//        SupportMapFragment mapFragment1 = new SupportMapFragment();
+//
+//        getActivity().getSupportFragmentManager().beginTransaction()
+//                .add(R.id.map,mapFragment1).commit();
+//
+//        mapFragment1.getMapAsync(this);
+//    }
 
 
 
-    public int getZoomLevel(Circle circle)
-    {
-        int zoomLevel = 11;
-        if (circle != null)
-        {
-            double radius = circle.getRadius();
-            double scale = radius / 500;
-            zoomLevel = (int) Math.floor((16 - Math.log(scale) / Math.log(2)));
-        }
-        return zoomLevel ;
-    }
+//    @Override
+//    public void onMapReady(GoogleMap googleMap) {
+//
+//        mMap = googleMap;
+//
+//        if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+//            // TODO: Consider calling
+//            //    ActivityCompat#requestPermissions
+//            // here to request the missing permissions, and then overriding
+//            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+//            //                                          int[] grantResults)
+//            // to handle the case where the user grants the permission. See the documentation
+//            // for ActivityCompat#requestPermissions for more details.
+//
+//
+//            ActivityCompat.requestPermissions(getActivity(),
+//                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},2);
+//
+//            return;
+//        }
+//
+//        mMap.setMyLocationEnabled(true);
+//        mMap.getUiSettings().setMapToolbarEnabled(true);
+////        mMap.getUiSettings().setAllGesturesEnabled(true);
+//        mMap.getUiSettings().setZoomControlsEnabled(true);
+//
+//
+////        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(,14));
+//
+////        Location currentLocation = UtilityLocationOld.getCurrentLocation(this);
+//
+//        if(shop!=null)
+//        {
+//            LatLng latLng = new LatLng(shop.getLatCenter(),shop.getLonCenter());
+//
+//            Circle circle = mMap
+//                    .addCircle(
+//                            new CircleOptions()
+//                                    .center(latLng)
+//                                    .radius(shop.getDeliveryRange()*1000)
+//                                    .fillColor(0x11000000)
+//                                    .strokeWidth(1)
+//                                    .strokeColor(R.color.buttonColorDark)
+//                    );
+//
+//            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,getZoomLevel(circle)));
+//            //
+//
+//            currentMarker = mMap.addMarker(new MarkerOptions().position(latLng).title(shop.getShopName()));
+////                mMap.moveCamera();
+////            mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
+//            currentMarker.showInfoWindow();
+//
+//        }
+//    }
+
+
+
+//    public int getZoomLevel(Circle circle)
+//    {
+//        int zoomLevel = 11;
+//        if (circle != null)
+//        {
+//            double radius = circle.getRadius();
+//            double scale = radius / 500;
+//            zoomLevel = (int) Math.floor((16 - Math.log(scale) / Math.log(2)));
+//        }
+//        return zoomLevel ;
+//    }
 
 
 

@@ -20,7 +20,7 @@ public class PrefGeneral {
     public static final String DEFAULT_SERVICE_URL = "http://example.com";
 
 
-    public static final String SERVICE_URL_LOCAL_HOTSPOT = "http://192.168.43.29:5121";
+    public static final String SERVICE_URL_LOCAL_HOTSPOT = "http://192.168.43.73:5121";
     public static final String SERVICE_URL_LOCAL = "http://192.168.0.5:5120";
     public static final String SERVICE_URL_NEARBYSHOPS = "http://api.nearbyshops.org";
 
@@ -74,6 +74,10 @@ public class PrefGeneral {
         editor.apply();
     }
 
+
+
+
+
     public static String getServiceURL(Context context) {
 
         context = MyApplication.getAppContext();
@@ -81,7 +85,7 @@ public class PrefGeneral {
 
         //service_url = "http://localareademo-env.ap-southeast-1.elasticbeanstalk.com";
 
-        return sharedPref.getString(context.getString(R.string.preference_service_url_key), SERVICE_URL_LOCAL_HOTSPOT);
+        return sharedPref.getString(context.getString(R.string.preference_service_url_key), SERVICE_URL_NEARBYSHOPS);
     }
 
 
@@ -162,13 +166,11 @@ public class PrefGeneral {
 //        context = MyApplication.getAppContext();
 
         SharedPreferences sharedPref = context.getSharedPreferences(context.getString(R.string.preference_file_name), Context.MODE_PRIVATE);
-        return sharedPref.getString(context.getString(R.string.preference_service_url_sds_key),"http://sds.nearbyshops.org");
+        return sharedPref.getString(context.getString(R.string.preference_service_url_sds_key), "http://sds.nearbyshops.org");
 
         //http://192.168.1.35:5050
         //"http://sds.nearbyshops.org"
     }
-
-
 
 
 }

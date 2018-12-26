@@ -23,7 +23,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.jakewharton.rxbinding.widget.RxTextView;
+
 import com.squareup.picasso.Picasso;
 import com.yalantis.ucrop.UCrop;
 import com.yalantis.ucrop.UCropActivity;
@@ -53,9 +53,9 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import rx.Subscription;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
+//import rx.Subscription;
+//import rx.android.schedulers.AndroidSchedulers;
+//import rx.functions.Action1;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -132,7 +132,7 @@ public class EditAdminFragment extends Fragment {
     }
 
 
-    Subscription editTextSub;
+//    Subscription editTextSub;
 
 
     @Nullable
@@ -193,26 +193,6 @@ public class EditAdminFragment extends Fragment {
 //                .unsubscribeOn(AndroidSchedulers.mainThread())
 
 //        EditText user = (EditText) rootView.findViewById(R.id.username);
-
-        editTextSub = RxTextView
-                .textChanges(username)
-                .debounce(700, TimeUnit.MILLISECONDS)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Action1<CharSequence>() {
-                    @Override
-                    public void call(CharSequence value) {
-                        // do some work with new text
-                        usernameCheck();
-
-                    }
-                }, new Action1<Throwable>() {
-                    @Override
-                    public void call(Throwable throwable) {
-
-                        System.out.println(throwable.toString());
-
-                    }
-                });
 
 
 
@@ -322,21 +302,6 @@ public class EditAdminFragment extends Fragment {
     }
 
 
-    @Override
-    public void onStop() {
-        super.onStop();
-
-        if(editTextSub!=null && !editTextSub.isUnsubscribed())
-        {
-            editTextSub.unsubscribe();
-        }
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-
-    }
 
 //    @OnTextChanged(R.id.username)
     void usernameCheck()

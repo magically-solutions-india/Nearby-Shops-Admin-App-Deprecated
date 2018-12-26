@@ -34,7 +34,7 @@ import org.nearbyshops.serviceprovider.Model.Image;
 import org.nearbyshops.serviceprovider.ModelServiceConfig.ServiceConfigurationLocal;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.ServiceConfigurationService;
-import org.nearbyshops.serviceprovider.ServiceConfiguration.Utility.PickLocationActivity;
+//import org.nearbyshops.serviceprovider.ServiceConfiguration.Utility.PickLocationActivity;
 import org.nearbyshops.serviceprovider.Utility.ImageCropUtility;
 import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
 import org.nearbyshops.serviceprovider.Utility.PrefLogin;
@@ -56,7 +56,7 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import rx.Subscription;
+//import rx.Subscription;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -122,7 +122,7 @@ public class EditConfigurationFragment extends Fragment{
     }
 
 
-    Subscription editTextSub;
+//    Subscription editTextSub;
 
 
     @Nullable
@@ -951,24 +951,25 @@ public class EditConfigurationFragment extends Fragment{
     @OnClick(R.id.pick_location_button)
     void pickLocationClick()
     {
-        Intent intent = new Intent(getActivity(),PickLocationActivity.class);
 
-        if(!longitude.getText().toString().equals("")&&!latitude.getText().toString().equals(""))
-        {
-            intent.putExtra(PickLocationActivity.INTENT_KEY_CURRENT_LON,Double.parseDouble(longitude.getText().toString()));
-            intent.putExtra(PickLocationActivity.INTENT_KEY_CURRENT_LAT,Double.parseDouble(latitude.getText().toString()));
+//        Intent intent = new Intent(getActivity(),PickLocationActivity.class);
+//
+//        if(!longitude.getText().toString().equals("")&&!latitude.getText().toString().equals(""))
+//        {
+//            intent.putExtra(PickLocationActivity.INTENT_KEY_CURRENT_LON,Double.parseDouble(longitude.getText().toString()));
+//            intent.putExtra(PickLocationActivity.INTENT_KEY_CURRENT_LAT,Double.parseDouble(latitude.getText().toString()));
+//
+//            if(!serviceCoverage.getText().toString().equals(""))
+//            {
+//                intent.putExtra(
+//                        PickLocationActivity.INTENT_KEY_DELIVERY_RANGE,
+//                        Double.parseDouble(serviceCoverage.getText().toString())
+//                );
+//            }
+//        }
 
-            if(!serviceCoverage.getText().toString().equals(""))
-            {
-                intent.putExtra(
-                        PickLocationActivity.INTENT_KEY_DELIVERY_RANGE,
-                        Double.parseDouble(serviceCoverage.getText().toString())
-                );
-            }
-        }
 
-
-        startActivityForResult(intent,REQUEST_CODE_PICK_LAT_LON);
+//        startActivityForResult(intent,REQUEST_CODE_PICK_LAT_LON);
     }
 
 

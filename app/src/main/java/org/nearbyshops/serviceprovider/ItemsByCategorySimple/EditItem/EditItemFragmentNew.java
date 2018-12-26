@@ -697,6 +697,8 @@ public class EditItemFragmentNew extends Fragment implements AdapterItemImages.n
     }
 
 
+
+
     void retrofitPOSTRequest()
     {
         getDataFromViews();

@@ -271,6 +271,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.nearbyshops.serviceprovider.AdminDashboard.AdminHome" />
         </activity>
+
         <activity
             android:name=".ItemsByCategorySimple.ItemCategoriesSimple"
             android:label="Items by Category"
@@ -280,6 +281,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.nearbyshops.serviceprovider.AdminDashboard.AdminHome" />
         </activity>
+
+
         <activity
             android:name=".AddFromGlobalSelection.AddFromGlobal"
             android:label="Add from Global Items DB"
@@ -359,6 +362,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".AdminDashboard.AdminHome" />
         </activity>
+
+
+
+
         <activity
             android:name=".ItemsByCategorySimple.EditItem.EditItem"
             android:label="Edit Item"

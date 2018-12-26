@@ -15,6 +15,13 @@ import org.nearbyshops.serviceprovider.StaffHome.StaffHomeFragment;
 import org.nearbyshops.serviceprovider.Utility.PrefLogin;
 
 
+
+
+
+
+
+
+
 public class Home extends AppCompatActivity implements NotifyAboutLogin {
 
     boolean isDestroyed = false;
@@ -107,6 +114,9 @@ public class Home extends AppCompatActivity implements NotifyAboutLogin {
                     .commit();
         }
     }
+
+
+
 
 
 

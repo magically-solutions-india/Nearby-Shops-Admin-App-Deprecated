@@ -129,14 +129,19 @@ public class AdapterSimple extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
         if(holder instanceof ViewHolderItemCategory)
         {
+
             bindItemCategory((ViewHolderItemCategory) holder,position);
+
         }
         else if(holder instanceof ViewHolderItemSimple)
         {
+
             bindItem((ViewHolderItemSimple) holder,position);
+
         }
         else if(holder instanceof ViewHolderHeader)
         {
+
             if(dataset.get(position) instanceof HeaderItemsList)
             {
                 HeaderItemsList header = (HeaderItemsList) dataset.get(position);
@@ -144,12 +149,14 @@ public class AdapterSimple extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                 ((ViewHolderHeader) holder).header.setText(header.getHeading());
             }
 
+
         }
         else if(holder instanceof LoadingViewHolder)
         {
 
 
             LoadingViewHolder viewHolder = (LoadingViewHolder) holder;
+
 
             if(fragment instanceof ItemCategoriesFragmentSimple)
             {
@@ -167,6 +174,7 @@ public class AdapterSimple extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
                 }
             }
+
         }
 
 

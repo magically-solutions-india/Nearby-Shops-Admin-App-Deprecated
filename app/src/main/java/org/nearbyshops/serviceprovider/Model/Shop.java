@@ -4,6 +4,8 @@ package org.nearbyshops.serviceprovider.Model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import org.nearbyshops.serviceprovider.ModelRoles.User;
+
 import java.sql.Timestamp;
 
 public class Shop implements Parcelable{
@@ -181,6 +183,9 @@ public class Shop implements Parcelable{
 	private float rt_rating_avg;
 	private float rt_rating_count;
 
+	private User shopAdminProfile;
+
+
 
 
 	// deleted columns
@@ -256,6 +261,22 @@ public class Shop implements Parcelable{
 			return new Shop[size];
 		}
 	};
+
+
+
+
+
+
+	// getter and setters
+
+
+	public User getShopAdminProfile() {
+		return shopAdminProfile;
+	}
+
+	public void setShopAdminProfile(User shopAdminProfile) {
+		this.shopAdminProfile = shopAdminProfile;
+	}
 
 	public int getShopAdminID() {
 		return shopAdminID;
