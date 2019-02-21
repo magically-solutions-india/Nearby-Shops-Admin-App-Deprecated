@@ -183,6 +183,10 @@ public class Shop implements Parcelable{
 	private float rt_rating_avg;
 	private float rt_rating_count;
 
+
+	private double accountBalance;
+	private double extendedCreditLimit;
+
 	private User shopAdminProfile;
 
 
@@ -269,6 +273,22 @@ public class Shop implements Parcelable{
 
 	// getter and setters
 
+
+	public double getAccountBalance() {
+		return accountBalance;
+	}
+
+	public void setAccountBalance(double accountBalance) {
+		this.accountBalance = accountBalance;
+	}
+
+	public double getExtendedCreditLimit() {
+		return extendedCreditLimit;
+	}
+
+	public void setExtendedCreditLimit(double extendedCreditLimit) {
+		this.extendedCreditLimit = extendedCreditLimit;
+	}
 
 	public User getShopAdminProfile() {
 		return shopAdminProfile;

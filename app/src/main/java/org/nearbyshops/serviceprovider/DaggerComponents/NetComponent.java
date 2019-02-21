@@ -1,6 +1,7 @@
 package org.nearbyshops.serviceprovider.DaggerComponents;
 
 
+import org.nearbyshops.serviceprovider.AddCredit.FragmentAddCredit;
 import org.nearbyshops.serviceprovider.AddFromGlobalSelection.FragmentAddFromGlobal;
 import org.nearbyshops.serviceprovider.AdminDashboard.AdminDashboardFragment;
 import org.nearbyshops.serviceprovider.AdminDashboard.AdminHome;
@@ -224,6 +225,8 @@ public interface NetComponent {
     void Inject(FragmentEnterCredentials fragmentEnterCredentials);
 
     void Inject(StaffHomeFragment staffHomeFragment);
+
+    void Inject(FragmentAddCredit fragmentAddCredit);
 
 
 //    void Inject(LoginDialog loginDialog);

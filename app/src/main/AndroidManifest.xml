@@ -31,6 +31,16 @@
             android:name=".AdminDashboard.AdminHome"
             android:label="Home"
             android:theme="@style/AppTheme.NoActionBar" />
+
+
+
+        <activity
+            android:name=".AddCredit.AddCredit"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan" />
+
+
+
         <activity
             android:name=".zSavedConfigurations.ServiceConfigurationActivity"
             android:label="Saved Configurations"

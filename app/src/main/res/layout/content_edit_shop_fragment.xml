@@ -192,6 +192,46 @@
 
 
 
+
+        <TextView
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/account_balance"
+            android:text=" - "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+
+        <TextView
+            android:padding="5dp"
+            android:textSize="17sp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/add_credit"
+            android:text="[ Press here to Add Credit ]"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:inputType="numberDecimal"
+                android:id="@+id/extended_credit_limit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Extended Credit Limit"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+
+
+
+
         <TextView
             android:textColor="@color/white"
             android:textSize="17sp"
@@ -643,6 +683,7 @@
             android:textSize="17sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
 
         <!--<Button-->
             <!--android:layout_marginBottom="10dp"-->

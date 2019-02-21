@@ -58,6 +58,19 @@ public interface ShopService {
 
 
 
+
+    @PUT ("/api/v1/Shop/AddBalance/{ShopAdminID}/{AmountToAdd}")
+    Call<ResponseBody> addBalance(
+            @Header("Authorization") String headers,
+            @Path("ShopAdminID") int shopAdminID,
+            @Path("AmountToAdd") double amountToAdd
+    );
+
+
+
+
+
+
     // Image Calls
 
     @POST("/api/v1/Shop/Image")

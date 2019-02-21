@@ -41,6 +41,7 @@ import com.yalantis.ucrop.UCrop;
 import com.yalantis.ucrop.UCropActivity;
 
 
+import org.nearbyshops.serviceprovider.AddCredit.AddCredit;
 import org.nearbyshops.serviceprovider.DaggerComponentBuilder;
 import org.nearbyshops.serviceprovider.Model.Image;
 import org.nearbyshops.serviceprovider.Model.Shop;
@@ -136,6 +137,9 @@ public class EditShopFragment extends Fragment {
 
     @BindView(R.id.switch_enable) Switch aSwitch;
     @BindView(R.id.switch_waitlist) Switch switchWaitlist;
+
+    @BindView(R.id.extended_credit_limit) EditText extendedCreditLimit;
+    @BindView(R.id.account_balance) TextView accountBalance;
 
 
 //    @BindView(R.id.item_id) EditText item_id;
@@ -265,6 +269,9 @@ public class EditShopFragment extends Fragment {
                 .load(iamgepath)
                 .into(resultView);
     }
+
+
+
 
 
 
@@ -488,6 +495,12 @@ public class EditShopFragment extends Fragment {
             aSwitch.setChecked(shop.getShopEnabled());
             switchWaitlist.setChecked(shop.getShopWaitlisted());
 
+            extendedCreditLimit.setText(String.valueOf(shop.getExtendedCreditLimit()));
+            accountBalance.setText("Account Balance : " + String.format(" %.2f",shop.getAccountBalance()));
+
+            timeOfRegistration.setText("Registered at : " + shop.getTimestampCreated().toLocaleString());
+
+
         }
     }
 
@@ -538,6 +551,12 @@ public class EditShopFragment extends Fragment {
 
         shop.setShopEnabled(aSwitch.isChecked());
         shop.setShopWaitlisted(switchWaitlist.isChecked());
+
+
+        if(extendedCreditLimit.getText().toString().length()>0)
+        {
+            shop.setExtendedCreditLimit(Double.parseDouble(extendedCreditLimit.getText().toString()));
+        }
     }
 
 
@@ -1217,5 +1236,18 @@ public class EditShopFragment extends Fragment {
         super.onDestroyView();
         isDestroyed = true;
     }
+
+
+
+
+    @OnClick(R.id.add_credit)
+    void addCredit()
+    {
+//        showToastMessage("Add Credit !");
+        Intent intent = new Intent(getActivity(), AddCredit.class);
+        intent.putExtra("tag_user_id",shop.getShopAdminID());
+        startActivity(intent);
+    }
+
 
 }
