@@ -44,6 +44,14 @@ public interface ShopService {
 
 
 
+
+    @GET("/api/v1/Shop/{id}")
+    Call<Shop> getShop(@Path("id") int id,
+                       @Query("latCenter")double latCenter,
+                       @Query("lonCenter")double lonCenter);
+
+
+
     @PUT("/api/v1/Shop/UpdateByAdmin/{ShopID}")
     Call<ResponseBody> updateShop(@Header("Authorization") String headers,
                                   @Body Shop shop,

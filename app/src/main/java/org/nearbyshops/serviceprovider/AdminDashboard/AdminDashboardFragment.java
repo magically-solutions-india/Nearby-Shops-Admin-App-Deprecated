@@ -21,6 +21,7 @@ import org.nearbyshops.serviceprovider.EditProfile.FragmentEditProfile;
 import org.nearbyshops.serviceprovider.ItemSpecName.ItemSpecName;
 import org.nearbyshops.serviceprovider.ItemsByCategorySimple.ItemCategoriesSimple;
 import org.nearbyshops.serviceprovider.Login.Interfaces.NotifyAboutLogin;
+import org.nearbyshops.serviceprovider.OrderHistoryNew.OrderHistoryNew;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.ServiceConfigurationService;
 import org.nearbyshops.serviceprovider.ShopAdminList.ShopAdminApprovals;
@@ -188,6 +189,17 @@ public class AdminDashboardFragment extends Fragment {
         intent.putExtra(FragmentEditProfile.EDIT_MODE_INTENT_KEY, FragmentEditProfile.MODE_UPDATE);
         startActivity(intent);
 
+    }
+
+
+    @OnClick(R.id.orders_database)
+    void ordersClick()
+    {
+//        showToastMessage("Orders DB Clicked !");
+
+
+        Intent intent = new Intent(getActivity(), OrderHistoryNew.class);
+        startActivity(intent);
     }
 
 

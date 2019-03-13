@@ -35,6 +35,8 @@ import org.nearbyshops.serviceprovider.ItemCategoriesTabs.Items.ItemFragmentTwo;
 import org.nearbyshops.serviceprovider.ItemsByCategorySimple.ItemCategoriesFragmentSimple;
 import org.nearbyshops.serviceprovider.ItemsByCategorySimple.ItemImageList.ImageListFragment;
 import org.nearbyshops.serviceprovider.Login.LoginFragment;
+import org.nearbyshops.serviceprovider.OrderDetail.FragmentOrderDetail;
+import org.nearbyshops.serviceprovider.OrderHistoryNew.OrdersFragmentNew;
 import org.nearbyshops.serviceprovider.ServiceConfiguration.EditConfiguration.EditConfigurationFragment;
 import org.nearbyshops.serviceprovider.Services.ServiceFragment.ServicesFragment;
 import org.nearbyshops.serviceprovider.Services.SubmitURLDialog.SubmitURLDialog;
@@ -227,6 +229,10 @@ public interface NetComponent {
     void Inject(StaffHomeFragment staffHomeFragment);
 
     void Inject(FragmentAddCredit fragmentAddCredit);
+
+    void Inject(OrdersFragmentNew ordersFragmentNew);
+
+    void Inject(FragmentOrderDetail fragmentOrderDetail);
 
 
 //    void Inject(LoginDialog loginDialog);

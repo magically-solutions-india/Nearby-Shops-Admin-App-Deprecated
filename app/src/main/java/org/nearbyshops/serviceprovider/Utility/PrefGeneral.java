@@ -5,8 +5,12 @@ import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
+import com.google.gson.Gson;
+
 import org.nearbyshops.serviceprovider.MyApplication;
 import org.nearbyshops.serviceprovider.R;
+
+import static android.content.Context.MODE_PRIVATE;
 
 /**
  * Created by sumeet on 5/5/16.
@@ -23,6 +27,8 @@ public class PrefGeneral {
     public static final String SERVICE_URL_LOCAL_HOTSPOT = "http://192.168.43.73:5121";
     public static final String SERVICE_URL_LOCAL = "http://192.168.0.5:5120";
     public static final String SERVICE_URL_NEARBYSHOPS = "http://api.nearbyshops.org";
+
+    private static final String TAG_PREF_CURRENCY = "currency_symbol";
 
 
 
@@ -85,7 +91,7 @@ public class PrefGeneral {
 
         //service_url = "http://localareademo-env.ap-southeast-1.elasticbeanstalk.com";
 
-        return sharedPref.getString(context.getString(R.string.preference_service_url_key), SERVICE_URL_LOCAL_HOTSPOT);
+        return sharedPref.getString(context.getString(R.string.preference_service_url_key), SERVICE_URL_NEARBYSHOPS);
     }
 
 
@@ -170,6 +176,29 @@ public class PrefGeneral {
 
         //http://192.168.1.35:5050
         //"http://sds.nearbyshops.org"
+    }
+
+
+
+    public static void saveCurrencySymbol(String symbol, Context context)
+    {
+        //Creating a shared preference
+        SharedPreferences sharedPref = context.getSharedPreferences(context.getString(R.string.preference_file_name), MODE_PRIVATE);
+        SharedPreferences.Editor prefsEditor = sharedPref.edit();
+        Gson gson = UtilityFunctions.provideGson();
+
+        String json = gson.toJson(symbol);
+        prefsEditor.putString(TAG_PREF_CURRENCY, json);
+        prefsEditor.apply();
+    }
+
+
+    public static String getCurrencySymbol(Context context)
+    {
+        SharedPreferences sharedPref = context.getSharedPreferences(context.getString(R.string.preference_file_name), MODE_PRIVATE);
+        Gson gson = UtilityFunctions.provideGson();
+
+        return sharedPref.getString(TAG_PREF_CURRENCY, context.getString(R.string.rupee_symbol));
     }
 
 

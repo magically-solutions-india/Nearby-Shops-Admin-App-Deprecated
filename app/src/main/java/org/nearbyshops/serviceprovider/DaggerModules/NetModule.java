@@ -12,6 +12,8 @@ import org.nearbyshops.serviceprovider.MyApplication;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.AdminService;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.DistributorAccountService;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.ItemCategoryService;
+import org.nearbyshops.serviceprovider.RetrofitRESTContract.OrderItemService;
+import org.nearbyshops.serviceprovider.RetrofitRESTContract.OrderService;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.StaffLoginService;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.UserService;
 import org.nearbyshops.serviceprovider.RetrofitRESTContractItem.ItemImageService;
@@ -333,6 +335,23 @@ public class NetModule {
         return retrofit.create(ItemImageSubmissionService.class);
     }
 
+
+
+    @Provides
+    OrderItemService provideOrderItemService(@Named("normal") Retrofit retrofit)
+    {
+        return retrofit.create(OrderItemService.class);
+    }
+
+
+
+
+
+    @Provides
+    OrderService provideOrderService(@Named("normal") Retrofit retrofit)
+    {
+        return retrofit.create(OrderService.class);
+    }
 
 
 
