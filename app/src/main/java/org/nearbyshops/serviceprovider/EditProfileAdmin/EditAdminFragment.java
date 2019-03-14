@@ -20,6 +20,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -109,8 +110,10 @@ public class EditAdminFragment extends Fragment {
 //    @BindView(R.id.approve_end_user_accounts) CheckBox approveEndUserAccounts;
 
 
-    @BindView(R.id.saveButton)
-    Button buttonUpdateItem;
+    @BindView(R.id.saveButton) Button buttonUpdateItem;
+    @BindView(R.id.progress_bar) ProgressBar progressBar;
+
+    boolean isDestroyed = false;
 
 
     public static final String STAFF_INTENT_KEY = "staff_intent_key";
@@ -233,6 +236,25 @@ public class EditAdminFragment extends Fragment {
                 .load(iamgepath)
                 .into(resultView);
     }
+
+
+
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        isDestroyed = false;
+    }
+
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        isDestroyed = true;
+    }
+
+
 
 
 
@@ -494,6 +516,9 @@ public class EditAdminFragment extends Fragment {
         getDataFromViews();
 
 
+        buttonUpdateItem.setVisibility(View.INVISIBLE);
+        progressBar.setVisibility(View.VISIBLE);
+
 //        final Staff admin = UtilityStaff.getStaff(getContext());
         Call<ResponseBody> call = adminService.putAdmin(PrefLogin.getAuthorizationHeaders(
                                                         getContext()), admin);
@@ -501,6 +526,14 @@ public class EditAdminFragment extends Fragment {
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+
+
+                if(isDestroyed)
+                {
+                    return;
+                }
+
+
 
                 if(response.code()==200)
                 {
@@ -513,12 +546,26 @@ public class EditAdminFragment extends Fragment {
                     showToastMessage("Update Failed Code : " + String.valueOf(response.code()));
                 }
 
+
+
+                buttonUpdateItem.setVisibility(View.VISIBLE);
+                progressBar.setVisibility(View.INVISIBLE);
+
             }
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
 
+                if(isDestroyed)
+                {
+                    return;
+                }
+
                 showToastMessage("Update Failed !");
+
+
+                buttonUpdateItem.setVisibility(View.VISIBLE);
+                progressBar.setVisibility(View.INVISIBLE);
             }
         });
     }
@@ -818,6 +865,13 @@ public class EditAdminFragment extends Fragment {
 
 
 
+
+        showToastMessage("Uploading Image ...");
+        buttonUpdateItem.setVisibility(View.INVISIBLE);
+        progressBar.setVisibility(View.VISIBLE);
+
+
+
         Call<Image> imageCall = adminService.uploadImage(PrefLogin.getAuthorizationHeaders(getContext()),
                 requestBodyBinary);
 
@@ -825,6 +879,14 @@ public class EditAdminFragment extends Fragment {
         imageCall.enqueue(new Callback<Image>() {
             @Override
             public void onResponse(Call<Image> call, Response<Image> response) {
+
+
+                if(isDestroyed)
+                {
+                    return;
+                }
+
+
 
                 if(response.code()==201)
                 {
@@ -862,10 +924,24 @@ public class EditAdminFragment extends Fragment {
                 }
 
 
+
+
+                buttonUpdateItem.setVisibility(View.VISIBLE);
+                progressBar.setVisibility(View.INVISIBLE);
+
+                showToastMessage("Image Uploaded !");
             }
 
             @Override
             public void onFailure(Call<Image> call, Throwable t) {
+
+
+                if(isDestroyed)
+                {
+                    return;
+                }
+
+
 
                 showToastMessage("Image Upload failed !");
                 admin.setProfileImageURL(null);
@@ -878,6 +954,11 @@ public class EditAdminFragment extends Fragment {
                 {
 //                    retrofitPOSTRequest();
                 }
+
+
+
+                buttonUpdateItem.setVisibility(View.VISIBLE);
+                progressBar.setVisibility(View.INVISIBLE);
             }
         });
 
@@ -892,6 +973,11 @@ public class EditAdminFragment extends Fragment {
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+
+                    if(isDestroyed)
+                    {
+                        return;
+                    }
 
 
                     if(response.code()==200)
@@ -908,6 +994,11 @@ public class EditAdminFragment extends Fragment {
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
+
+                if(isDestroyed)
+                {
+                    return;
+                }
 
 //                showToastMessage("Image Delete failed");
             }

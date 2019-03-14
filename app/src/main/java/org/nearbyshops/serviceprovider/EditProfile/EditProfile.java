@@ -29,7 +29,7 @@ public class EditProfile extends AppCompatActivity implements NotifyChangePasswo
 //        Fabric.with(this, new Crashlytics());
 
 
-        overridePendingTransition(R.anim.enter_from_right,R.anim.exit_to_left);
+//        overridePendingTransition(R.anim.enter_from_right,R.anim.exit_to_left);
         setContentView(R.layout.activity_edit_profile);
         ButterKnife.bind(this);
 
@@ -50,7 +50,7 @@ public class EditProfile extends AppCompatActivity implements NotifyChangePasswo
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        overridePendingTransition(R.anim.enter_from_left,R.anim.exit_to_right);
+//        overridePendingTransition(R.anim.enter_from_left,R.anim.exit_to_right);
     }
 
     @Override

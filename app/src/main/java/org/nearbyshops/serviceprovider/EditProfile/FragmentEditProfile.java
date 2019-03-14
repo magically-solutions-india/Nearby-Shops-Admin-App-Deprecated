@@ -489,6 +489,11 @@ public class FragmentEditProfile extends Fragment {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
 
+                if(isDestroyed)
+                {
+                    return;
+                }
+
                 if(response.code()==200)
                 {
                     //username already exists
@@ -509,6 +514,10 @@ public class FragmentEditProfile extends Fragment {
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
 
+                if(isDestroyed)
+                {
+                    return;
+                }
 
                 saveButton.setVisibility(View.VISIBLE);
                 progressBar.setVisibility(View.INVISIBLE);
@@ -680,6 +689,11 @@ public class FragmentEditProfile extends Fragment {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
 
+                if(isDestroyed)
+                {
+                    return;
+                }
+
                 if(response.code()==200)
                 {
                     showToastMessage("Update Successful !");
@@ -707,6 +721,11 @@ public class FragmentEditProfile extends Fragment {
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
+
+                if(isDestroyed)
+                {
+                    return;
+                }
 
                 showToastMessage("Update Failed !");
 
@@ -1073,6 +1092,11 @@ public class FragmentEditProfile extends Fragment {
             @Override
             public void onResponse(Call<Image> call, Response<Image> response) {
 
+                if(isDestroyed)
+                {
+                    return;
+                }
+
                 if(response.code()==201)
                 {
 //                    showToastMessage("Image UPload Success !");
@@ -1122,6 +1146,12 @@ public class FragmentEditProfile extends Fragment {
             @Override
             public void onFailure(Call<Image> call, Throwable t) {
 
+                if(isDestroyed)
+                {
+                    return;
+                }
+
+
                 showToastMessage("Image Upload failed !");
                 driver.setProfileImagePath(null);
 
@@ -1148,8 +1178,9 @@ public class FragmentEditProfile extends Fragment {
     {
 
 
-        saveButton.setVisibility(View.INVISIBLE);
-        progressBar.setVisibility(View.VISIBLE);
+        // dont uncomment following lines ... it creates a silent bug ...
+//        saveButton.setVisibility(View.INVISIBLE);
+//        progressBar.setVisibility(View.VISIBLE);
 
 
         Call<ResponseBody> call = userService.deleteImage(PrefLogin.getAuthorizationHeaders(getContext()),filename);
@@ -1157,6 +1188,11 @@ public class FragmentEditProfile extends Fragment {
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+
+                    if(isDestroyed)
+                    {
+                        return;
+                    }
 
 
                     if(response.code()==200)
@@ -1170,8 +1206,8 @@ public class FragmentEditProfile extends Fragment {
 
 
 
-                saveButton.setVisibility(View.VISIBLE);
-                progressBar.setVisibility(View.INVISIBLE);
+//                saveButton.setVisibility(View.VISIBLE);
+//                progressBar.setVisibility(View.INVISIBLE);
 
 
             }
@@ -1179,11 +1215,17 @@ public class FragmentEditProfile extends Fragment {
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
 
+
+                if(isDestroyed)
+                {
+                    return;
+                }
+
 //                showToastMessage("Image Delete failed");
 
 
-                saveButton.setVisibility(View.VISIBLE);
-                progressBar.setVisibility(View.INVISIBLE);
+//                saveButton.setVisibility(View.VISIBLE);
+//                progressBar.setVisibility(View.INVISIBLE);
 
             }
         });

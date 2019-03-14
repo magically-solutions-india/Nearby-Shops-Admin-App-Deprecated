@@ -326,6 +326,29 @@
             android:layout_height="1dp" />
 
 
+        <!--<TextView-->
+            <!--app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--app:layout_constraintTop_toTopOf="parent"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--android:layout_gravity="end|center_vertical"-->
+            <!--android:gravity="center"-->
+            <!--android:paddingEnd="2dp"-->
+            <!--android:paddingStart="2dp"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:background="@color/phonographyBlue"-->
+            <!--android:textStyle="normal"-->
+            <!--android:textSize="18sp"-->
+            <!--android:layout_margin="10dp"-->
+            <!--android:id="@+id/saveButton"-->
+            <!--android:text="Save"-->
+            <!--android:layout_width="130dp"-->
+            <!--android:layout_height="0dp" />-->
+
+
+
+
+
+
         <TextView
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -345,7 +368,6 @@
             android:layout_height="0dp" />
 
 
-
         <ProgressBar
             android:visibility="invisible"
             android:id="@+id/progress_bar"
@@ -355,6 +377,36 @@
             app:layout_constraintStart_toStartOf="@id/saveButton"
             android:layout_width="30dp"
             android:layout_height="30dp" />
+
+
+        <!--<TextView-->
+            <!--app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--app:layout_constraintTop_toTopOf="parent"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--android:layout_gravity="end|center_vertical"-->
+            <!--android:gravity="center"-->
+            <!--android:paddingEnd="2dp"-->
+            <!--android:paddingStart="2dp"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:background="@color/phonographyBlue"-->
+            <!--android:textStyle="normal"-->
+            <!--android:textSize="18sp"-->
+            <!--android:layout_margin="10dp"-->
+            <!--android:id="@+id/saveButtonNew"-->
+            <!--android:text="Save"-->
+            <!--android:layout_width="130dp"-->
+            <!--android:layout_height="0dp" />-->
+
+
+        <!--<ProgressBar-->
+            <!--android:visibility="invisible"-->
+            <!--android:id="@+id/progress_bar_new"-->
+            <!--app:layout_constraintBottom_toBottomOf="@id/saveButtonNew"-->
+            <!--app:layout_constraintTop_toTopOf="@id/saveButtonNew"-->
+            <!--app:layout_constraintEnd_toEndOf="@id/saveButtonNew"-->
+            <!--app:layout_constraintStart_toStartOf="@id/saveButtonNew"-->
+            <!--android:layout_width="30dp"-->
+            <!--android:layout_height="30dp" />-->
 
 
     </android.support.constraint.ConstraintLayout>

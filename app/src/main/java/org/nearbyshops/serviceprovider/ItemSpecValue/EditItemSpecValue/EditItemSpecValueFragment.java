@@ -886,8 +886,7 @@ public class EditItemSpecValueFragment extends Fragment {
     void deleteImage(String filename)
     {
 
-        buttonUpdateItem.setVisibility(View.INVISIBLE);
-        progressBar.setVisibility(View.VISIBLE);
+
 
         Call<ResponseBody> call = itemSpecNameService.deleteImage(
                 PrefLogin.getAuthorizationHeaders(getContext()),
@@ -919,8 +918,6 @@ public class EditItemSpecValueFragment extends Fragment {
 
 
 
-                buttonUpdateItem.setVisibility(View.VISIBLE);
-                progressBar.setVisibility(View.INVISIBLE);
 
             }
 
@@ -933,10 +930,6 @@ public class EditItemSpecValueFragment extends Fragment {
                 }
 //                showToastMessage("Image Delete failed");
 
-
-
-                buttonUpdateItem.setVisibility(View.VISIBLE);
-                progressBar.setVisibility(View.INVISIBLE);
             }
         });
     }
