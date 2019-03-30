@@ -22,15 +22,19 @@ public class PagerAdapter extends FragmentPagerAdapter {
         // getItem is called to instantiate the fragment for the given page.
         // Return a FragmentShopApprovals (defined as a static inner class below).
 
-        if(position==0)
+        if (position == 0)
         {
-            return FragmentShopList.newInstance(FragmentShopList.MODE_DISABLED);
+            return FragmentShopList.newInstance(FragmentShopList.MODE_NEW);
         }
         else if(position==1)
         {
             return FragmentShopList.newInstance(FragmentShopList.MODE_ENABLED);
         }
         else if(position==2)
+        {
+            return FragmentShopList.newInstance(FragmentShopList.MODE_DISABLED);
+        }
+        else if(position==3)
         {
             return FragmentShopList.newInstance(FragmentShopList.MODE_WAITLISTED);
         }
@@ -42,27 +46,32 @@ public class PagerAdapter extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         // Show 3 total pages.
-        return 3;
+        return 4;
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
         switch (position) {
+
             case 0:
-                return titleDisabled;
+                return titleNew;
             case 1:
                 return titleEnabled;
             case 2:
+                return titleDisabled;
+            case 3:
                 return titleWaitlisted;
         }
         return null;
     }
 
 
-
+    private String titleNew = "New (0/0)";
+    private String titleEnabled = "Enabled (0/0)";
     private String titleDisabled = "Disabled (0/0)";
     private String titleWaitlisted = "Waitlisted (0/0)";
-    private String titleEnabled = "Enabled (0/0)";
+
+
 //    private String titleDetachedItems = "Detached Items (0/0)";
 
 
@@ -70,20 +79,21 @@ public class PagerAdapter extends FragmentPagerAdapter {
     {
         if(tabPosition == 0){
 
-            titleDisabled = title;
+            titleNew = title;
         }
         else if (tabPosition == 1)
         {
 
-            titleWaitlisted = title;
+            titleEnabled = title;
 
         }else if(tabPosition == 2)
         {
-            titleEnabled = title;
+
+            titleDisabled = title;
 
         }else if(tabPosition == 3)
         {
-//            titleDetachedItems = title;
+            titleWaitlisted = title;
         }
 
 

@@ -142,6 +142,11 @@ public class EditShopFragment extends Fragment {
     @BindView(R.id.account_balance) TextView accountBalance;
 
 
+    @BindView(R.id.error_delivery_option) TextView errorDeliveryOption;
+    @BindView(R.id.error_delivery_option_top) TextView errorDeliveryOptionTop;
+
+
+
 //    @BindView(R.id.item_id) EditText item_id;
 //    @BindView(R.id.name) EditText name;
 //    @BindView(R.id.username) EditText username;
@@ -304,7 +309,7 @@ public class EditShopFragment extends Fragment {
 
         if(shopName.getText().toString().length()==0)
         {
-            shopName.setError("Please enter Phone Number");
+            shopName.setError("Please enter Shop Name");
             shopName.requestFocus();
             isValid= false;
         }
@@ -317,8 +322,21 @@ public class EditShopFragment extends Fragment {
             homeDeliveryAvailable.requestFocus();
             pickFromShopAvailable.requestFocus();
 
+
+            errorDeliveryOption.setVisibility(View.VISIBLE);
+            errorDeliveryOptionTop.setVisibility(View.VISIBLE);
+
             isValid = false;
         }
+        else
+        {
+
+            errorDeliveryOption.setVisibility(View.GONE);
+            errorDeliveryOptionTop.setVisibility(View.GONE);
+        }
+
+
+
 
 
         if(latitude.getText().toString().length()==0)
@@ -363,6 +381,9 @@ public class EditShopFragment extends Fragment {
             rangeOfDelivery.requestFocus();
             isValid = false;
         }
+
+
+
 
         if(shopDescriptionShort.getText().toString().length()>100)
         {

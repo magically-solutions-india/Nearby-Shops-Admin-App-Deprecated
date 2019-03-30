@@ -2,6 +2,7 @@ package org.nearbyshops.serviceprovider.ShopsList.Fragment;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.support.constraint.ConstraintLayout;
 import android.support.graphics.drawable.VectorDrawableCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
@@ -62,7 +63,7 @@ class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
         if(viewType== VIEW_TYPE_SHOP_APPROVAL)
         {
             view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.list_item_shop,parent,false);
+                    .inflate(R.layout.list_item_shop_new,parent,false);
 
             return new ViewHolderShopApproval(view);
         }
@@ -127,9 +128,32 @@ class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
                 holder.shopName.setText(shop.getShopName());
 
+
+                if(shop.getPickFromShopAvailable())
+                {
+                    holder.pickFromShopIndicator.setVisibility(View.VISIBLE);
+                }
+                else
+                {
+                    holder.pickFromShopIndicator.setVisibility(View.GONE);
+                }
+
+
+
+                if(shop.getHomeDeliveryAvailable())
+                {
+                    holder.homeDeliveryIndicator.setVisibility(View.VISIBLE);
+                }
+                else
+                {
+                    holder.homeDeliveryIndicator.setVisibility(View.GONE);
+                }
+
+
+
                 if(shop.getShopAddress()!=null)
                 {
-                    holder.shopAddress.setText(shop.getShopAddress() + "\n" + String.valueOf(shop.getPincode()));
+                    holder.shopAddress.setText(shop.getShopAddress() + ", " + shop.getCity()  + " - " + String.valueOf(shop.getPincode()));
                 }
 
 //                String imagePath = UtilityGeneral.getImageEndpointURL(MyApplication.getAppContext())
@@ -147,7 +171,11 @@ class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
                         .placeholder(placeholder)
                         .into(holder.shopLogo);
 
-                holder.delivery.setText("Delivery : Rs " + String.format( "%.2f", shop.getDeliveryCharges()) + " per order");
+
+                String currency = "";
+                currency = PrefGeneral.getCurrencySymbol(context);
+
+                holder.delivery.setText("Delivery : " + currency + ". " + String.format( "%.2f", shop.getDeliveryCharges()) + " per order");
                 holder.distance.setText("Distance : " + String.format( "%.2f", shop.getRt_distance()) + " Km");
 
 
@@ -159,7 +187,7 @@ class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
                 }
                 else
                 {
-                    holder.rating.setText(String.valueOf(shop.getRt_rating_avg()));
+                    holder.rating.setText(String.format("%.2f",shop.getRt_rating_avg()));
                     holder.rating_count.setText("( " + String.format( "%.0f", shop.getRt_rating_count()) + " Ratings )");
                 }
 
@@ -168,6 +196,51 @@ class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
                 {
                     holder.description.setText(shop.getShortDescription());
                 }
+
+
+//                holder.shopName.setText(shop.getShopName());
+//
+//                if(shop.getShopAddress()!=null)
+//                {
+//                    holder.shopAddress.setText(shop.getShopAddress() + "\n" + String.valueOf(shop.getPincode()));
+//                }
+//
+////                String imagePath = UtilityGeneral.getImageEndpointURL(MyApplication.getAppContext())
+////                        + shop.getLogoImagePath();
+//
+//                String imagePath = PrefGeneral.getServiceURL(context) + "/api/v1/Shop/Image/three_hundred_"
+//                        + shop.getLogoImagePath() + ".jpg";
+//
+//                Drawable placeholder = VectorDrawableCompat
+//                        .create(context.getResources(),
+//                                R.drawable.ic_nature_people_white_48px, context.getTheme());
+//
+//                Picasso.with(context)
+//                        .load(imagePath)
+//                        .placeholder(placeholder)
+//                        .into(holder.shopLogo);
+//
+//                holder.delivery.setText("Delivery : Rs " + String.format( "%.2f", shop.getDeliveryCharges()) + " per order");
+//                holder.distance.setText("Distance : " + String.format( "%.2f", shop.getRt_distance()) + " Km");
+//
+//
+//                if(shop.getRt_rating_count()==0)
+//                {
+//                    holder.rating.setText("N/A");
+//                    holder.rating_count.setText("( Not Yet Rated )");
+//
+//                }
+//                else
+//                {
+//                    holder.rating.setText(String.valueOf(shop.getRt_rating_avg()));
+//                    holder.rating_count.setText("( " + String.format( "%.0f", shop.getRt_rating_count()) + " Ratings )");
+//                }
+//
+//
+//                if(shop.getShortDescription()!=null)
+//                {
+//                    holder.description.setText(shop.getShortDescription());
+//                }
 
             }
 
@@ -228,7 +301,7 @@ class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
 
 
-    public class ViewHolderShopApproval extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolderShopApproval extends RecyclerView.ViewHolder{
 
 
 //        @BindView(R.id.shop_id) TextView shopID;
@@ -246,7 +319,10 @@ class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
         @BindView(R.id.rating) TextView rating;
         @BindView(R.id.rating_count) TextView rating_count;
         @BindView(R.id.description) TextView description;
-        @BindView(R.id.shop_info_card) CardView list_item;
+        @BindView(R.id.shop_info_card) ConstraintLayout list_item;
+
+        @BindView(R.id.indicator_pick_from_shop) TextView pickFromShopIndicator;
+        @BindView(R.id.indicator_home_delivery) TextView homeDeliveryIndicator;
 
 
 
@@ -254,20 +330,24 @@ class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
             super(itemView);
 
             ButterKnife.bind(this,itemView);
-            itemView.setOnClickListener(this);
+//            itemView.setOnClickListener(this);
         }
 
-        @OnClick({R.id.edit_icon,R.id.edit_text})
+//        @OnClick({R.id.edit_icon,R.id.edit_text})
+
+        @OnClick({R.id.shop_info_card})
         void editClick()
         {
             notifyByShopAdapter.notifyEditClick(dataset.get(getLayoutPosition()));
         }
 
 
-        @Override
-        public void onClick(View v) {
-            notifyByShopAdapter.notifyListItemClick(dataset.get(getLayoutPosition()));
-        }
+//        @Override
+//        public void onClick(View v) {
+//            notifyByShopAdapter.notifyListItemClick(dataset.get(getLayoutPosition()));
+//        }
+
+
     }
 
 

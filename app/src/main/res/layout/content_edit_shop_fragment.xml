@@ -42,6 +42,7 @@
 
 
     <LinearLayout
+        android:animateLayoutChanges="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -231,11 +232,68 @@
 
 
 
+        <TextView
+            android:textColor="@color/white"
+            android:layout_marginTop="10dp"
+            android:paddingStart="5dp"
+            android:paddingLeft="5dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:background="@color/gplus_color_2"
+            android:text="Administrative Options"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+
+        <Switch
+            android:layout_marginTop="10dp"
+            android:background="@color/light_grey"
+            android:text="Enable / Disable Account"
+            android:id="@+id/switch_enable"
+            android:textOff="Enable Account"
+            android:textOn="Disable Account"
+            android:paddingStart="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="10dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:textSize="17sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+
+
+
+
+
+        <Switch
+            android:layout_marginTop="10dp"
+            android:background="@color/light_grey"
+            android:text="Transfer to waitlist"
+            android:id="@+id/switch_waitlist"
+            android:textOff="Transfer to waitlist"
+            android:textOn="Remove From Waitlist"
+            android:paddingStart="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="10dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:textSize="17sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+
+
 
         <TextView
             android:textColor="@color/white"
             android:textSize="17sp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:padding="10dp"
             android:text="Shop Profile"
             android:background="@color/buttonColorDark"
@@ -253,13 +311,31 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
+        <!--<TextView-->
+            <!--android:visibility="gone"-->
+            <!--android:layout_marginEnd="0dp"-->
+            <!--android:layout_marginRight="0dp"-->
+            <!--android:background="#88000000"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="1dp" />-->
+
+
+
+
         <TextView
             android:visibility="gone"
-            android:layout_marginEnd="0dp"
-            android:layout_marginRight="0dp"
-            android:background="#88000000"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:padding="10dp"
+            android:background="@color/gplus_color_4"
+            android:id="@+id/error_delivery_option_top"
+            android:text="Error Saving Profile : You must pick at least one delivery Option"
             android:layout_width="match_parent"
-            android:layout_height="1dp" />
+            android:layout_height="wrap_content" />
+
+
+
+
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -613,6 +689,23 @@
 
 
 
+
+
+        <TextView
+            android:visibility="gone"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:padding="10dp"
+            android:background="@color/gplus_color_4"
+            android:id="@+id/error_delivery_option"
+            android:text="Error Saving Profile : You must pick at least one delivery Option"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+
+
+
         <CheckBox
             android:layout_marginTop="10dp"
             android:text="Pick from Shop Available"
@@ -629,60 +722,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-
-        <TextView
-            android:textColor="@color/white"
-            android:layout_marginTop="20dp"
-            android:paddingStart="5dp"
-            android:paddingLeft="5dp"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:background="@color/gplus_color_2"
-            android:text="Administrative Options"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-
-
-        <Switch
-            android:layout_marginTop="10dp"
-            android:background="@color/light_grey"
-            android:text="Enable / Disable Account"
-            android:id="@+id/switch_enable"
-            android:textOff="Enable Account"
-            android:textOn="Disable Account"
-            android:paddingStart="5dp"
-            android:paddingLeft="5dp"
-            android:paddingRight="10dp"
-            android:paddingEnd="10dp"
-            android:paddingTop="20dp"
-            android:paddingBottom="20dp"
-            android:textSize="17sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-
-
-
-
-
-
-        <Switch
-            android:layout_marginTop="10dp"
-            android:background="@color/light_grey"
-            android:text="Transfer to waitlist"
-            android:id="@+id/switch_waitlist"
-            android:textOff="Transfer to waitlist"
-            android:textOn="Remove From Waitlist"
-            android:paddingStart="5dp"
-            android:paddingLeft="5dp"
-            android:paddingRight="10dp"
-            android:paddingEnd="10dp"
-            android:paddingTop="20dp"
-            android:paddingBottom="20dp"
-            android:textSize="17sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
 
         <!--<Button-->

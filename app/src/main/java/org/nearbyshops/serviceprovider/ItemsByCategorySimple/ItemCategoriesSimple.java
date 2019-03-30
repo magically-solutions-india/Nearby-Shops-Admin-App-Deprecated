@@ -146,12 +146,12 @@ public class ItemCategoriesSimple extends AppCompatActivity implements NotifyHea
 
     @Override
     public void showFab() {
-        fab_menu.animate().translationY(0);
+//        fab_menu.animate().translationY(0);
     }
 
     @Override
     public void hideFab() {
-        fab_menu.animate().translationY(fab_menu.getHeight());
+//        fab_menu.animate().translationY(fab_menu.getHeight());
     }
 
 

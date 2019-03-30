@@ -28,6 +28,7 @@ public interface ShopService {
 
     @GET("/api/v1/Shop/QuerySimple")
     Call<ShopEndPoint> getShopListSimple(
+            @Query("UnderReview")Boolean underReview,
             @Query("Enabled")Boolean enabled,
             @Query("Waitlisted") Boolean waitlisted,
             @Query("FilterByVisibility") Boolean filterByVisibility,
@@ -39,8 +40,6 @@ public interface ShopService {
             @Query("SortBy") String sortBy,
             @Query("Limit") Integer limit, @Query("Offset") int offset
     );
-
-
 
 
 

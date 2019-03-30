@@ -658,7 +658,7 @@
         android:layout_marginTop="10dp"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        layout="@layout/list_item_shop"/>
+        layout="@layout/list_item_shop_new"/>
 
 
 

@@ -27,6 +27,7 @@ import org.nearbyshops.serviceprovider.ShopsList.EditShop.EditShop;
 import org.nearbyshops.serviceprovider.ShopsList.EditShop.EditShopFragment;
 import org.nearbyshops.serviceprovider.ShopsList.EditShop.UtilityShop;
 import org.nearbyshops.serviceprovider.ShopsList.SlidingLayerSort.UtilitySortShops;
+import org.nearbyshops.serviceprovider.Utility.DividerItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,6 +73,7 @@ public class FragmentShopList extends Fragment implements SwipeRefreshLayout.OnR
     public static final int MODE_ENABLED = 1;
     public static final int MODE_DISABLED = 2;
     public static final int MODE_WAITLISTED = 3;
+    public static final int MODE_NEW = 4;
 
 
 
@@ -146,6 +148,9 @@ public class FragmentShopList extends Fragment implements SwipeRefreshLayout.OnR
 
 
 //        recyclerView.addItemDecoration(new DividerItemDecoration(getContext(),DividerItemDecoration.VERTICAL_LIST));
+
+        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL_LIST));
+
 
         int spanCount = (int) (metrics.widthPixels/(230 * metrics.density));
 
@@ -246,43 +251,57 @@ public class FragmentShopList extends Fragment implements SwipeRefreshLayout.OnR
 //        showToastMessage("Latitude : " + UtilityLocationServices.getLatitude(getActivity()) + " : Longitude " + UtilityLocationServices.getLongitude(getActivity()));
 
 
-        if(getArguments().getInt(ARG_SECTION_NUMBER) == MODE_DISABLED)
+        if(getArguments().getInt(ARG_SECTION_NUMBER)==MODE_NEW)
         {
             call = shopService.getShopListSimple(
-                    false,false,
-                    null,
-                    latitude,longitude,
-                    null,null,null,
-                    searchQuery,current_sort,limit,offset);
-
-        }
-        else if (getArguments().getInt(ARG_SECTION_NUMBER) == MODE_WAITLISTED)
-        {
-
-            call = shopService.getShopListSimple(
-                    false,true,
-                    null,
-                    latitude,longitude,
-                    null,null,null,
-                    searchQuery,current_sort,limit,offset);
-
-        }
-        else if(getArguments().getInt(ARG_SECTION_NUMBER)==MODE_ENABLED)
-        {
-
-            call = shopService.getShopListSimple(
-                    true,null,
+                    true,
+                    null,null,
                     null,
                     latitude,longitude,
                     null,null, null,
                     searchQuery,current_sort,limit,offset);
         }
+        else if(getArguments().getInt(ARG_SECTION_NUMBER)==MODE_ENABLED)
+        {
+
+            call = shopService.getShopListSimple(
+                    null,
+                    true,null,
+                    null,
+                    latitude,longitude,
+                    null,null, null,
+                    searchQuery,current_sort,limit,offset);
+
+        }
+        else if(getArguments().getInt(ARG_SECTION_NUMBER) == MODE_DISABLED)
+        {
+
+            call = shopService.getShopListSimple(
+                    null,
+                    false,false,
+                    null,
+                    latitude,longitude,
+                    null,null,null,
+                    searchQuery,current_sort,limit,offset);
+        }
+        else if (getArguments().getInt(ARG_SECTION_NUMBER) == MODE_WAITLISTED)
+        {
+
+            call = shopService.getShopListSimple(
+                    null,
+                    false,true,
+                    null,
+                    latitude,longitude,
+                    null,null,null,
+                    searchQuery,current_sort,limit,offset);
+        }
+
 
 
 
         if(call == null)
         {
-            showToastMessage("call returned !");
+            showToastMessage("Error fetching shop list !");
             return;
         }
 
@@ -380,27 +399,34 @@ public class FragmentShopList extends Fragment implements SwipeRefreshLayout.OnR
         if(getActivity() instanceof NotifyTitleChanged)
         {
 
-            if(getArguments().getInt(ARG_SECTION_NUMBER)==MODE_DISABLED)
+            if(getArguments().getInt(ARG_SECTION_NUMBER)==MODE_NEW)
             {
                 ((NotifyTitleChanged)getActivity())
                         .NotifyTitleChanged(
-                                "Disabled (" + String.valueOf(dataset.size())
+                                "New (" + String.valueOf(dataset.size())
                                         + "/" + String.valueOf(item_count) + ")",0);
-            }
-            else if(getArguments().getInt(ARG_SECTION_NUMBER)==MODE_WAITLISTED)
-            {
-                ((NotifyTitleChanged)getActivity())
-                        .NotifyTitleChanged(
-                                "Waitlisted (" + String.valueOf(dataset.size())
-                                        + "/" + String.valueOf(item_count) + ")",1);
-
             }
             else if(getArguments().getInt(ARG_SECTION_NUMBER)==MODE_ENABLED)
             {
                 ((NotifyTitleChanged)getActivity())
                         .NotifyTitleChanged(
                                 "Enabled (" + String.valueOf(dataset.size())
+                                        + "/" + String.valueOf(item_count) + ")",1);
+
+            }
+            else if(getArguments().getInt(ARG_SECTION_NUMBER)==MODE_DISABLED)
+            {
+                ((NotifyTitleChanged)getActivity())
+                        .NotifyTitleChanged(
+                                "Disabled (" + String.valueOf(dataset.size())
                                         + "/" + String.valueOf(item_count) + ")",2);
+            }
+            else if(getArguments().getInt(ARG_SECTION_NUMBER)==MODE_WAITLISTED)
+            {
+                ((NotifyTitleChanged)getActivity())
+                        .NotifyTitleChanged(
+                                "Waitlisted (" + String.valueOf(dataset.size())
+                                        + "/" + String.valueOf(item_count) + ")",3);
 
             }
 

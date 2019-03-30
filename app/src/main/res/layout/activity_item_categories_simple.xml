@@ -22,8 +22,8 @@
 
         <LinearLayout
             android:background="@color/cyan900"
-            android:paddingBottom="1dp"
-            android:paddingTop="1dp"
+            android:paddingTop="7dp"
+            android:paddingBottom="7dp"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -42,7 +42,8 @@
                 android:layout_marginStart="5dp"
                 android:id="@+id/text_sub"
                 android:padding="5dp"
-                android:text="4 out of 46 Grocery Items"
+                android:textColor="@color/white"
+                android:text="- out of - Items"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -60,6 +61,7 @@
                 android:layout_height="match_parent" />
 
             <TextView
+                android:textColor="@color/white"
                 android:layout_marginEnd="5dp"
                 android:layout_marginRight="5dp"
                 android:id="@+id/text_sort"

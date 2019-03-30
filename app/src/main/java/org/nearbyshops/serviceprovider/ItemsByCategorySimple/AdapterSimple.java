@@ -446,6 +446,10 @@ public class AdapterSimple extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
 
 
+
+
+
+
     void bindItem(ViewHolderItemSimple holder,int position)
     {
 
@@ -455,8 +459,8 @@ public class AdapterSimple extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
         ItemStats itemStats = item.getItemStats();
 
-        holder.priceRange.setText("Price Range :\nRs." + itemStats.getMin_price() + " - " + itemStats.getMax_price() + " per " + item.getQuantityUnit());
-        holder.priceAverage.setText("Price Average :\nRs." + itemStats.getAvg_price() + " per " + item.getQuantityUnit());
+        holder.priceRange.setText("Price Range :\nRs." + String.format("%.2f",itemStats.getMin_price()) + " - " + String.format("%.2f",itemStats.getMax_price()) + " per " + item.getQuantityUnit());
+        holder.priceAverage.setText("Price Average :\nRs." + String.format("%.2f",itemStats.getAvg_price()) + " per " + item.getQuantityUnit());
         holder.shopCount.setText("Available in " + itemStats.getShopCount() + " Shops");
         holder.itemRating.setText(String.format("%.2f",itemStats.getRating_avg()));
         holder.ratingCount.setText("( " + String.valueOf(itemStats.getRatingCount()) + " Ratings )");

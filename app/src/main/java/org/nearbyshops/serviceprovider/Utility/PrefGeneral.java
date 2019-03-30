@@ -87,11 +87,11 @@ public class PrefGeneral {
     public static String getServiceURL(Context context) {
 
         context = MyApplication.getAppContext();
-        SharedPreferences sharedPref = context.getSharedPreferences(context.getString(R.string.preference_file_name), context.MODE_PRIVATE);
+        SharedPreferences sharedPref = context.getSharedPreferences(context.getString(R.string.preference_file_name), Context.MODE_PRIVATE);
 
         //service_url = "http://localareademo-env.ap-southeast-1.elasticbeanstalk.com";
 
-        return sharedPref.getString(context.getString(R.string.preference_service_url_key), SERVICE_URL_NEARBYSHOPS);
+        return sharedPref.getString(context.getString(R.string.preference_service_url_key), SERVICE_URL_LOCAL_HOTSPOT);
     }
 
 
@@ -105,7 +105,7 @@ public class PrefGeneral {
         // get a handle to shared Preference
         SharedPreferences sharedPref;
 
-        sharedPref = context.getSharedPreferences(context.getString(R.string.preference_file_name), context.MODE_PRIVATE);
+        sharedPref = context.getSharedPreferences(context.getString(R.string.preference_file_name), Context.MODE_PRIVATE);
 
         // write to the shared preference
         SharedPreferences.Editor editor = sharedPref.edit();
@@ -118,7 +118,7 @@ public class PrefGeneral {
 
         context = MyApplication.getAppContext();
 
-        SharedPreferences sharedPref = context.getSharedPreferences(context.getString(R.string.preference_file_name), context.MODE_PRIVATE);
+        SharedPreferences sharedPref = context.getSharedPreferences(context.getString(R.string.preference_file_name), Context.MODE_PRIVATE);
         String service_url = sharedPref.getString(context.getString(R.string.preference_service_url_gidb_key), "http://nbsidb.nearbyshops.org");
 
         //http://192.168.1.35:5200
@@ -130,12 +130,12 @@ public class PrefGeneral {
     }
 
 
-    public static boolean isNetworkAvailable(Context context) {
-        ConnectivityManager connectivityManager
-                = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-    }
+//    public static boolean isNetworkAvailable(Context context) {
+//        ConnectivityManager connectivityManager
+//                = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+//        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+//        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+//    }
 
 
     public static String getImageEndpointURL(Context context)
@@ -193,6 +193,10 @@ public class PrefGeneral {
     }
 
 
+
+
+
+
     public static String getCurrencySymbol(Context context)
     {
         SharedPreferences sharedPref = context.getSharedPreferences(context.getString(R.string.preference_file_name), MODE_PRIVATE);
@@ -200,6 +204,8 @@ public class PrefGeneral {
 
         return sharedPref.getString(TAG_PREF_CURRENCY, context.getString(R.string.rupee_symbol));
     }
+
+
 
 
 }
