@@ -21,7 +21,7 @@ import com.squareup.picasso.Picasso;
 
 import org.nearbyshops.serviceprovider.ModelServiceConfig.ServiceConfigurationGlobal;
 import org.nearbyshops.serviceprovider.R;
-import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
+import org.nearbyshops.serviceprovider.Preferences.PrefGeneral;
 
 import java.util.List;
 

@@ -16,8 +16,8 @@ import org.nearbyshops.serviceprovider.AdminDashboard.AdminHome;
 import org.nearbyshops.serviceprovider.ModelRoles.User;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.UserService;
 import org.nearbyshops.serviceprovider.StaffHome.StaffHome;
-import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
-import org.nearbyshops.serviceprovider.Utility.PrefLogin;
+import org.nearbyshops.serviceprovider.Preferences.PrefGeneral;
+import org.nearbyshops.serviceprovider.Preferences.PrefLogin;
 
 import javax.inject.Inject;
 

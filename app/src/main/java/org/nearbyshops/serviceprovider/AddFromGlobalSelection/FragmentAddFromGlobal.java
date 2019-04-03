@@ -30,8 +30,8 @@ import org.nearbyshops.serviceprovider.RetrofitRESTContract.ItemCategoryService;
 import org.nearbyshops.serviceprovider.RetrofitRESTContractItem.ItemService;
 import org.nearbyshops.serviceprovider.RetrofitRESTContractGIDB.ItemCategoryServiceGIDB;
 import org.nearbyshops.serviceprovider.RetrofitRESTContractGIDB.ItemServiceGIDB;
-import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
-import org.nearbyshops.serviceprovider.Utility.PrefLogin;
+import org.nearbyshops.serviceprovider.Preferences.PrefGeneral;
+import org.nearbyshops.serviceprovider.Preferences.PrefLogin;
 
 import java.util.ArrayList;
 import java.util.List;

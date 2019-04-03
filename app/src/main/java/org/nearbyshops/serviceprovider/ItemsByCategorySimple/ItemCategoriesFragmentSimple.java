@@ -47,7 +47,7 @@ import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.ItemCategoryService;
 import org.nearbyshops.serviceprovider.RetrofitRESTContractItem.ItemService;
 import org.nearbyshops.serviceprovider.SelectParent.ItemCategoriesParent;
-import org.nearbyshops.serviceprovider.Utility.PrefLogin;
+import org.nearbyshops.serviceprovider.Preferences.PrefLogin;
 
 import java.util.ArrayList;
 import java.util.List;

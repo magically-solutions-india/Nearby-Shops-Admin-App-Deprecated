@@ -20,8 +20,8 @@ import org.nearbyshops.serviceprovider.DaggerComponentBuilder;
 import org.nearbyshops.serviceprovider.Model.ItemCategory;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.ItemCategoryService;
-import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
-import org.nearbyshops.serviceprovider.Utility.PrefLogin;
+import org.nearbyshops.serviceprovider.Preferences.PrefGeneral;
+import org.nearbyshops.serviceprovider.Preferences.PrefLogin;
 
 import java.util.ArrayList;
 import java.util.List;

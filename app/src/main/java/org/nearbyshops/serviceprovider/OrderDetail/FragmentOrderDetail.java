@@ -1,6 +1,5 @@
 package org.nearbyshops.serviceprovider.OrderDetail;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -22,8 +21,8 @@ import org.nearbyshops.serviceprovider.ModelEndPoints.OrderItemEndPoint;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.OrderItemService;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.ShopService;
-import org.nearbyshops.serviceprovider.Utility.PrefLocation;
-import org.nearbyshops.serviceprovider.Utility.PrefLogin;
+import org.nearbyshops.serviceprovider.Preferences.PrefLocation;
+import org.nearbyshops.serviceprovider.Preferences.PrefLogin;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -28,7 +28,6 @@ import org.nearbyshops.serviceprovider.Interfaces.RefreshFragment;
 import org.nearbyshops.serviceprovider.ItemCategoriesTabs.Interfaces.NotifySort;
 import org.nearbyshops.serviceprovider.Login.Login;
 import org.nearbyshops.serviceprovider.Model.Order;
-import org.nearbyshops.serviceprovider.Model.Shop;
 import org.nearbyshops.serviceprovider.ModelEndPoints.OrderEndPoint;
 import org.nearbyshops.serviceprovider.ModelRoles.User;
 import org.nearbyshops.serviceprovider.OrderDetail.OrderDetail;
@@ -37,7 +36,7 @@ import org.nearbyshops.serviceprovider.OrderHistoryNew.SlidingLayerSort.PrefSort
 import org.nearbyshops.serviceprovider.OrderHistoryNew.SlidingLayerSort.SlidingLayerSortOrders;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.OrderService;
-import org.nearbyshops.serviceprovider.Utility.PrefLogin;
+import org.nearbyshops.serviceprovider.Preferences.PrefLogin;
 
 import java.util.ArrayList;
 import java.util.List;

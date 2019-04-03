@@ -31,7 +31,7 @@ import org.nearbyshops.serviceprovider.Model.Item;
 import org.nearbyshops.serviceprovider.Model.ItemCategory;
 import org.nearbyshops.serviceprovider.ModelStats.ItemStats;
 import org.nearbyshops.serviceprovider.R;
-import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
+import org.nearbyshops.serviceprovider.Preferences.PrefGeneral;
 
 import java.util.HashMap;
 import java.util.List;

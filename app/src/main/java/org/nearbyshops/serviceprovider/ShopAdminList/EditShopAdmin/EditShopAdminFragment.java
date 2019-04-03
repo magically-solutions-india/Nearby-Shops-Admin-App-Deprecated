@@ -34,9 +34,9 @@ import org.nearbyshops.serviceprovider.ModelRoles.OldFiles.ShopAdmin;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.ShopAdminService;
 import org.nearbyshops.serviceprovider.ShopAdminList.UtilityShopAdmin;
-import org.nearbyshops.serviceprovider.Utility.ImageCropUtility;
-import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
-import org.nearbyshops.serviceprovider.Utility.PrefLogin;
+import org.nearbyshops.serviceprovider.Preferences.ImageCropUtility;
+import org.nearbyshops.serviceprovider.Preferences.PrefGeneral;
+import org.nearbyshops.serviceprovider.Preferences.PrefLogin;
 
 
 import java.io.File;

@@ -19,7 +19,7 @@ import com.squareup.picasso.Picasso;
 
 import org.nearbyshops.serviceprovider.ModelItemSpecification.ItemSpecificationValue;
 import org.nearbyshops.serviceprovider.R;
-import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
+import org.nearbyshops.serviceprovider.Preferences.PrefGeneral;
 
 import java.util.List;
 

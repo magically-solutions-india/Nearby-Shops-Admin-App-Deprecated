@@ -13,7 +13,7 @@ import org.nearbyshops.serviceprovider.ModelRoles.StaffPermissions;
 import org.nearbyshops.serviceprovider.ModelRoles.User;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.ShopsList.ShopsDatabase;
-import org.nearbyshops.serviceprovider.Utility.PrefLogin;
+import org.nearbyshops.serviceprovider.Preferences.PrefLogin;
 
 
 import butterknife.BindView;

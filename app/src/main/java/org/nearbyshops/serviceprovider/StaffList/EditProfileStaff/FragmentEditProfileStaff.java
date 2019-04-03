@@ -40,8 +40,8 @@ import org.nearbyshops.serviceprovider.ModelRoles.User;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.StaffLoginService;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.UserService;
-import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
-import org.nearbyshops.serviceprovider.Utility.PrefLogin;
+import org.nearbyshops.serviceprovider.Preferences.PrefGeneral;
+import org.nearbyshops.serviceprovider.Preferences.PrefLogin;
 
 import java.io.File;
 import java.io.FileInputStream;

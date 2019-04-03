@@ -43,34 +43,35 @@
 
 
         <activity
-            android:name=".zSavedConfigurations.ServiceConfigurationActivity"
-            android:label="Saved Configurations"
-            android:parentActivityName=".AdminDashboard.AdminHome"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:name=".EditServiceConfig.EditConfiguration"
+            android:label="Edit Configuration"
+            android:parentActivityName=".Home"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Home" />
+        </activity>
+
+
+        <activity
+            android:name=".EditServiceConfig.PickLocationActivity"
+            android:label="Pick Location"
+            android:parentActivityName=".EditServiceConfig.EditConfiguration"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".EditServiceConfig.EditConfiguration" />
+        </activity>
+
+
+
+
         <activity
             android:name=".LoginScreen"
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
-        <activity
-            android:name=".zSavedConfigurations.AddService"
-            android:label="Add Service"
-            android:parentActivityName=".zSavedConfigurations.ServiceConfigurationActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".zSavedConfigurations.ServiceConfigurationActivity" />
-        </activity>
-        <activity
-            android:name=".ServiceConfiguration.EditServiceConfiguration"
-            android:label="Service Configuration"
-            android:parentActivityName=".zSavedConfigurations.ServiceConfigurationActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".zSavedConfigurations.ServiceConfigurationActivity" />
-        </activity>
         <activity
             android:name=".ItemCategoriesTabs.ItemCategories.Deprecated.AddItemCategory"
             android:label="Add Item Category"
@@ -111,13 +112,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity
-            android:name=".MapsActivity"
-            android:label="@string/title_activity_maps">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="org.nearbyshops.serviceprovider.AdminDashboard.AdminHome" />
-        </activity>
+
         <activity
             android:name=".ItemCategoriesTabs.ItemCategoriesTabs"
             android:label="@string/title_activity_item_categories_tabs"
@@ -317,15 +312,6 @@
                 android:value=".StaffHome.StaffHome" />
         </activity>
         <activity
-            android:name=".ServiceConfiguration.EditConfiguration.EditConfiguration"
-            android:label="Edit Profile"
-            android:parentActivityName=".AdminDashboard.AdminHome"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".AdminDashboard.AdminHome" />
-        </activity>
-        <activity
             android:name=".StaffHome.StaffDashboard"
             android:label="@string/title_activity_staff_dashboard"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -427,16 +413,7 @@
                 android:value=".AdminDashboard.AdminHome" />
         </activity>
 
-        <activity
-            android:name=".ServiceConfiguration.Utility.PickLocationActivity"
-            android:label="Pick Location"
-            android:parentActivityName=".ServiceConfiguration.EditConfiguration.EditConfiguration"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ServiceConfiguration.EditConfiguration.EditConfiguration" />
-        </activity>
+
         <activity
             android:name=".ItemSubmissionsMenu.ItemSubmissionMenu"
             android:label="Item Submissions"

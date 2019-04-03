@@ -2,7 +2,6 @@ package org.nearbyshops.serviceprovider.ItemsByCategorySimple.EditItem;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.constraint.ConstraintLayout;
 import android.support.graphics.drawable.VectorDrawableCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
@@ -21,7 +20,7 @@ import com.squareup.picasso.Picasso;
 
 import org.nearbyshops.serviceprovider.Model.ItemImage;
 import org.nearbyshops.serviceprovider.R;
-import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
+import org.nearbyshops.serviceprovider.Preferences.PrefGeneral;
 
 import java.util.List;
 

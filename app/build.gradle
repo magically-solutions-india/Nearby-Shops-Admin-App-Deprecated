@@ -14,6 +14,9 @@ android {
     }
 
 
+
+
+
     compileSdkVersion 28
     buildToolsVersion '28.0.3'
 
@@ -31,11 +34,13 @@ android {
 
     }
 
-/*
+
+
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
-    }*/
+    }
 
 
     buildTypes {
@@ -57,15 +62,20 @@ android {
             url "https://maven.google.com"
         }
     }
-
-
 }
+
+
+
+
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     //    apt 'com.google.dagger:dagger-compiler:2.2'
 
     //    compile 'com.google.dagger:dagger:2.2'
+
+    implementation 'com.mapbox.mapboxsdk:mapbox-android-sdk:6.5.0'
+
 
     implementation 'com.github.stfalcon:smsverifycatcher:0.3.2'
 

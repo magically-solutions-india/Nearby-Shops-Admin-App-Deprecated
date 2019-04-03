@@ -21,7 +21,7 @@ import org.nearbyshops.serviceprovider.ModelItemSpecification.EndPoints.ItemSpec
 import org.nearbyshops.serviceprovider.ModelItemSpecification.ItemSpecificationValue;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContractItem.ItemSpecValueService;
-import org.nearbyshops.serviceprovider.Utility.DividerItemDecoration;
+import org.nearbyshops.serviceprovider.Preferences.DividerItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;

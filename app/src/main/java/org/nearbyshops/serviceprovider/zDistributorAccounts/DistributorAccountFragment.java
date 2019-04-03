@@ -23,8 +23,8 @@ import org.nearbyshops.serviceprovider.ModelRoles.OldFiles.Distributor;
 import org.nearbyshops.serviceprovider.ModelRoles.OldFiles.DistributorEndPoint;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.DistributorAccountService;
-import org.nearbyshops.serviceprovider.Utility.PrefLogin;
-import org.nearbyshops.serviceprovider.Utility.UtilitySortDistributor;
+import org.nearbyshops.serviceprovider.Preferences.PrefLogin;
+import org.nearbyshops.serviceprovider.Preferences.UtilitySortDistributor;
 
 import java.util.ArrayList;
 

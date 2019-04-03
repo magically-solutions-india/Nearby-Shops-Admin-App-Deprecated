@@ -33,8 +33,8 @@ import org.nearbyshops.serviceprovider.Model.Image;
 import org.nearbyshops.serviceprovider.ModelItemSpecification.ItemSpecificationName;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContractItem.ItemSpecNameService;
-import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
-import org.nearbyshops.serviceprovider.Utility.PrefLogin;
+import org.nearbyshops.serviceprovider.Preferences.PrefGeneral;
+import org.nearbyshops.serviceprovider.Preferences.PrefLogin;
 
 import java.io.File;
 import java.io.FileInputStream;

@@ -18,7 +18,7 @@ import org.nearbyshops.serviceprovider.ModelDelivery.DeliveryAddress;
 import org.nearbyshops.serviceprovider.ModelStatusCode.OrderStatusHomeDelivery;
 import org.nearbyshops.serviceprovider.ModelStatusCode.OrderStatusPickFromShop;
 import org.nearbyshops.serviceprovider.R;
-import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
+import org.nearbyshops.serviceprovider.Preferences.PrefGeneral;
 
 import java.util.List;
 

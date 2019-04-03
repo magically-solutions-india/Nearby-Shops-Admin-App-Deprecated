@@ -27,8 +27,8 @@ import org.nearbyshops.serviceprovider.RetrofitRESTContract.StaffLoginService;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.UserService;
 import org.nearbyshops.serviceprovider.StaffList.EditProfileStaff.EditProfileStaff;
 import org.nearbyshops.serviceprovider.StaffList.EditProfileStaff.FragmentEditProfileStaff;
-import org.nearbyshops.serviceprovider.Utility.PrefLocation;
-import org.nearbyshops.serviceprovider.Utility.PrefLogin;
+import org.nearbyshops.serviceprovider.Preferences.PrefLocation;
+import org.nearbyshops.serviceprovider.Preferences.PrefLogin;
 
 import java.util.ArrayList;
 

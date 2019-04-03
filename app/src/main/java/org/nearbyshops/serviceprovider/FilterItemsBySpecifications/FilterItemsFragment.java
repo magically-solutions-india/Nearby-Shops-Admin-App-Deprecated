@@ -20,7 +20,7 @@ import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContractItem.ItemSpecItemService;
 import org.nearbyshops.serviceprovider.RetrofitRESTContractItem.ItemSpecNameService;
 import org.nearbyshops.serviceprovider.RetrofitRESTContractItem.ItemSpecValueService;
-import org.nearbyshops.serviceprovider.Utility.PrefLogin;
+import org.nearbyshops.serviceprovider.Preferences.PrefLogin;
 
 import java.util.ArrayList;
 import java.util.HashSet;

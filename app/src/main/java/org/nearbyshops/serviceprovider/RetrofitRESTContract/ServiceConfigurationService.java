@@ -22,23 +22,27 @@ import retrofit2.http.Query;
 public interface ServiceConfigurationService {
 
 
-    @GET("/api/ServiceConfiguration")
+
+    @GET("/api/serviceconfiguration")
     Call<ServiceConfigurationLocal> getServiceConfiguration(@Query("latCenter") Double latCenter,
                                                             @Query("lonCenter") Double lonCenter);
 
-    @PUT("/api/ServiceConfiguration")
+
+
+    @PUT("/api/serviceconfiguration")
     Call<ResponseBody> putServiceConfiguration(@Header("Authorization") String headers,
                                                @Body ServiceConfigurationLocal serviceConfiguration);
 
 
 
     // Image Calls
-
-    @POST("/api/ServiceConfiguration/Image")
+    @POST("/api/serviceconfiguration/Image")
     Call<Image> uploadImage(@Header("Authorization") String headers,
                             @Body RequestBody image);
 
-    @DELETE("/api/ServiceConfiguration/Image/{name}")
+
+
+    @DELETE("/api/serviceconfiguration/Image/{name}")
     Call<ResponseBody> deleteImage(@Header("Authorization") String headers,
                                    @Path("name") String fileName);
 }

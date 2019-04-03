@@ -1,4 +1,4 @@
-package org.nearbyshops.serviceprovider.Utility;
+package org.nearbyshops.serviceprovider.Preferences;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,7 +16,7 @@ import java.io.File;
 /**
  * Created by sumeet on 5/5/16.
  */
-public class ConfigImageCropUtility {
+public class ImageCropUtility{
 
 
 
@@ -68,6 +68,8 @@ public class ConfigImageCropUtility {
 
         UCrop.Options options = new UCrop.Options();
         options.setCompressionFormat(Bitmap.CompressFormat.JPEG);
+        options.setFreeStyleCropEnabled(true);
+
 //        options.setCompressionQuality(100);
 
         options.setToolbarColor(activityContext.getResources().getColor(R.color.cyan900));
@@ -77,9 +79,9 @@ public class ConfigImageCropUtility {
         // this function takes the file from the source URI and saves in into the destination URI location.
         UCrop.of(sourceUri, destinationUri)
                 .withOptions(options)
-                .withMaxResultSize(800,600)
                 .start(activityContext);
 
+        //.withMaxResultSize(400,300)
         //.withMaxResultSize(500, 400)
         //.withAspectRatio(16, 9)
     }

@@ -1,4 +1,4 @@
-package org.nearbyshops.serviceprovider.ServiceConfiguration.EditConfiguration;
+package org.nearbyshops.serviceprovider.EditServiceConfig;
 
 
 import android.Manifest;
@@ -12,15 +12,17 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.PermissionChecker;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,15 +31,16 @@ import com.squareup.picasso.Picasso;
 import com.yalantis.ucrop.UCrop;
 import com.yalantis.ucrop.UCropActivity;
 
+
 import org.nearbyshops.serviceprovider.DaggerComponentBuilder;
 import org.nearbyshops.serviceprovider.Model.Image;
 import org.nearbyshops.serviceprovider.ModelServiceConfig.ServiceConfigurationLocal;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.ServiceConfigurationService;
-//import org.nearbyshops.serviceprovider.ServiceConfiguration.Utility.PickLocationActivity;
-import org.nearbyshops.serviceprovider.Utility.ImageCropUtility;
-import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
-import org.nearbyshops.serviceprovider.Utility.PrefLogin;
+import org.nearbyshops.serviceprovider.RetrofitRESTContract.UserService;
+import org.nearbyshops.serviceprovider.Preferences.PrefGeneral;
+import org.nearbyshops.serviceprovider.Preferences.PrefLogin;
+import org.nearbyshops.serviceprovider.Preferences.PrefServiceConfiguration;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -56,19 +59,41 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-//import rx.Subscription;
 
 import static android.app.Activity.RESULT_OK;
 
 
-public class EditConfigurationFragment extends Fragment{
+public class EditConfigurationFragment extends Fragment {
+
+
+
+
+    /* Token renewal variables : BEGIN */
+
+    // constants - request codes for token renewal
+    public static final int REQUEST_CODE_SAVE_CONFIG = 1;
+
+    // housekeeping for token renewal
+    int token_renewal_attempts = 0;  // variable to keep record of renewal attempts
+    int token_renewal_request_code = -1; // variable to store the request code;
+
+    /* Token renewal variables : END */
+
+
+
 
     public static int PICK_IMAGE_REQUEST = 21;
     // Upload the image after picked up
     private static final int REQUEST_CODE_READ_EXTERNAL_STORAGE = 56;
 
+
+
     @Inject
     ServiceConfigurationService configurationService;
+
+    @Inject
+    UserService userService;
+
 
 
     // flag for knowing whether the image is changed or not
@@ -92,9 +117,11 @@ public class EditConfigurationFragment extends Fragment{
     @BindView(R.id.longitude) EditText longitude;
     @BindView(R.id.service_coverage) EditText serviceCoverage;
 //    @BindView(R.id.getlatlon) Button getlatlon;
+//    @BindView(R.id.style_url) EditText styleURL;
     @BindView(R.id.spinner_country) Spinner spinnerCountry;
-    @BindView(R.id.spinner_service_level) Spinner spinnerServiceLevel;
-    @BindView(R.id.spinner_service_type) Spinner spinnerServiceType;
+
+//    @BindView(R.id.spinner_service_level) Spinner spinnerServiceLevel;
+//    @BindView(R.id.spinner_service_type) Spinner spinnerServiceType;
 
     @BindView(R.id.description_short) EditText descriptionShort;
     @BindView(R.id.description_long) EditText descriptionLong;
@@ -102,7 +129,11 @@ public class EditConfigurationFragment extends Fragment{
     ArrayList<String> countryCodeList = new ArrayList<>();
     ArrayList<String> languageCodeList = new ArrayList<>();
 
-    @BindView(R.id.saveButton) Button buttonUpdateItem;
+//    @BindView(R.id.saveButton) TextView buttonUpdateItem;
+
+    @BindView(R.id.saveButton) TextView buttonUpdateItem;
+    @BindView(R.id.progress_bar) ProgressBar progressBar;
+
 
     public static final String STAFF_INTENT_KEY = "staff_intent_key";
     public static final String EDIT_MODE_INTENT_KEY = "edit_mode";
@@ -110,7 +141,7 @@ public class EditConfigurationFragment extends Fragment{
     public static final int MODE_UPDATE = 52;
     public static final int MODE_ADD = 51;
 
-    int current_mode = MODE_ADD;
+    int current_mode = MODE_UPDATE;
 
     ServiceConfigurationLocal serviceConfiguration = null;
 
@@ -130,20 +161,38 @@ public class EditConfigurationFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
 
+
         setRetainInstance(true);
         View rootView = inflater.inflate(R.layout.content_edit_service, container, false);
 
         ButterKnife.bind(this,rootView);
+
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+//
+        Toolbar toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
+        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
         setupSpinners();
+
+
+
+
+
 
         if(savedInstanceState==null)
         {
 
-            current_mode = getActivity().getIntent().getIntExtra(EDIT_MODE_INTENT_KEY,MODE_ADD);
+            current_mode = getActivity().getIntent().getIntExtra(EDIT_MODE_INTENT_KEY,MODE_UPDATE);
 
             if(current_mode == MODE_UPDATE)
             {
-                serviceConfiguration = UtilityServiceConfiguration.getStaff(getContext());
+                serviceConfiguration = PrefServiceConfiguration.getServiceConfig(getActivity());
             }
 
 
@@ -177,6 +226,9 @@ public class EditConfigurationFragment extends Fragment{
 
         return rootView;
     }
+
+
+
 
 
     void setupSpinners()
@@ -225,9 +277,7 @@ public class EditConfigurationFragment extends Fragment{
 //        autoComplete.setValidator(new Validator());
 
 
-
         // setup spinner ends
-
     }
 
 
@@ -259,7 +309,7 @@ public class EditConfigurationFragment extends Fragment{
 
     void loadImage(String imagePath) {
 
-        String iamgepath = PrefGeneral.getServiceURL(getContext()) + "/api/ServiceConfiguration/Image/" + imagePath;
+        String iamgepath = PrefGeneral.getServiceURL(getContext()) + "/api/serviceconfiguration/Image/" + imagePath;
 
         Picasso.with(getContext())
                 .load(iamgepath)
@@ -371,6 +421,12 @@ public class EditConfigurationFragment extends Fragment{
     }
 
 
+
+
+
+
+
+
     void update()
     {
 
@@ -417,8 +473,8 @@ public class EditConfigurationFragment extends Fragment{
             item_id.setText(String.valueOf(serviceConfiguration.getServiceID()));
             service_name.setText(serviceConfiguration.getServiceName());
             helpline_number.setText(serviceConfiguration.getHelplineNumber());
-            spinnerServiceType.setSelection(serviceConfiguration.getServiceType()-1);
-            spinnerServiceLevel.setSelection(serviceConfiguration.getServiceLevel()-1);
+//            spinnerServiceType.setSelection(serviceConfiguration.getServiceType()-1);
+//            spinnerServiceLevel.setSelection(serviceConfiguration.getServiceLevel()-1);
             address.setText(serviceConfiguration.getAddress());
             city.setText(serviceConfiguration.getCity());
             pincode.setText(String.valueOf(serviceConfiguration.getPincode()));
@@ -466,8 +522,8 @@ public class EditConfigurationFragment extends Fragment{
         serviceConfiguration.setServiceName(service_name.getText().toString());
 //            serviceConfigurationForEdit.setServiceURL(service_url.getText().toString());
         serviceConfiguration.setHelplineNumber(helpline_number.getText().toString());
-        serviceConfiguration.setServiceType(spinnerServiceType.getSelectedItemPosition() + 1);
-        serviceConfiguration.setServiceLevel(spinnerServiceLevel.getSelectedItemPosition() + 1);
+//        serviceConfiguration.setServiceType(spinnerServiceType.getSelectedItemPosition() + 1);
+//        serviceConfiguration.setServiceLevel(spinnerServiceLevel.getSelectedItemPosition() + 1);
         serviceConfiguration.setAddress(address.getText().toString());
         serviceConfiguration.setCity(city.getText().toString());
 
@@ -500,6 +556,9 @@ public class EditConfigurationFragment extends Fragment{
 
         serviceConfiguration.setDescriptionShort(descriptionShort.getText().toString());
         serviceConfiguration.setDescriptionLong(descriptionLong.getText().toString());
+
+
+//        serviceConfiguration.setStyleURL(styleURL.getText().toString());
     }
 
 
@@ -510,21 +569,41 @@ public class EditConfigurationFragment extends Fragment{
         getDataFromViews();
 
 
+        buttonUpdateItem.setVisibility(View.INVISIBLE);
+        progressBar.setVisibility(View.VISIBLE);
+
+
+
 //        final Staff staff = UtilityStaff.getStaff(getContext());
         Call<ResponseBody> call = configurationService.putServiceConfiguration(
-                                            PrefLogin.getAuthorizationHeaders(
-                                                        getContext()), serviceConfiguration);
+                PrefLogin.getAuthorizationHeaders(getContext()),
+                serviceConfiguration
+        );
+
+
 
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
 
+
+                buttonUpdateItem.setVisibility(View.VISIBLE);
+                progressBar.setVisibility(View.INVISIBLE);
+
+
                 if(response.code()==200)
                 {
                     showToastMessage("Update Successful !");
 
-                    UtilityServiceConfiguration.saveConfiguration(serviceConfiguration,getContext());
+                    PrefServiceConfiguration.saveServiceConfig(serviceConfiguration,getContext());
                 }
+//                else if(response.code()==401 || response.code()==403)
+//                {
+//
+//                    // token may have expired so attempt token renewal
+////                    token_renewal_request_code = REQUEST_CODE_SAVE_CONFIG;
+////                    renewToken();
+//                }
                 else
                 {
                     showToastMessage("Update Failed Code : " + String.valueOf(response.code()));
@@ -534,6 +613,11 @@ public class EditConfigurationFragment extends Fragment{
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
+
+
+                buttonUpdateItem.setVisibility(View.VISIBLE);
+                progressBar.setVisibility(View.INVISIBLE);
+
 
                 showToastMessage("Update Failed !");
             }
@@ -582,6 +666,10 @@ public class EditConfigurationFragment extends Fragment{
 //    }
 
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
 
 
 
@@ -684,7 +772,8 @@ public class EditConfigurationFragment extends Fragment{
         }
 
 
-        if (requestCode == ImageCropUtility.PICK_IMAGE_REQUEST && resultCode == RESULT_OK
+
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
                 && result != null
                 && result.getData() != null) {
 
@@ -800,6 +889,11 @@ public class EditConfigurationFragment extends Fragment{
         Log.d("applog", "onClickUploadImage");
 
 
+        buttonUpdateItem.setVisibility(View.INVISIBLE);
+        progressBar.setVisibility(View.VISIBLE);
+
+
+
         // code for checking the Read External Storage Permission and granting it.
         if (PermissionChecker.checkSelfPermission(getContext(), Manifest.permission.READ_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -844,13 +938,19 @@ public class EditConfigurationFragment extends Fragment{
 
 
 
-        Call<Image> imageCall = configurationService.uploadImage(PrefLogin.getAuthorizationHeaders(getContext()),
-                requestBodyBinary);
+        Call<Image> imageCall = configurationService.uploadImage(
+                PrefLogin.getAuthorizationHeaders(getContext()),
+                requestBodyBinary
+        );
 
 
         imageCall.enqueue(new Callback<Image>() {
             @Override
             public void onResponse(Call<Image> call, Response<Image> response) {
+
+                buttonUpdateItem.setVisibility(View.VISIBLE);
+                progressBar.setVisibility(View.INVISIBLE);
+
 
                 if(response.code()==201)
                 {
@@ -893,6 +993,11 @@ public class EditConfigurationFragment extends Fragment{
             @Override
             public void onFailure(Call<Image> call, Throwable t) {
 
+
+                buttonUpdateItem.setVisibility(View.VISIBLE);
+                progressBar.setVisibility(View.INVISIBLE);
+
+
                 showToastMessage("Image Upload failed !");
                 serviceConfiguration.setLogoImagePath(null);
 
@@ -913,14 +1018,26 @@ public class EditConfigurationFragment extends Fragment{
 
     void deleteImage(String filename)
     {
-        Call<ResponseBody> call = configurationService.deleteImage(PrefLogin.getAuthorizationHeaders(getContext()),filename);
+
+//        buttonUpdateItem.setVisibility(View.INVISIBLE);
+//        progressBar.setVisibility(View.VISIBLE);
+
+
+        Call<ResponseBody> call = configurationService.deleteImage(
+                PrefLogin.getAuthorizationHeaders(getActivity()),
+                filename
+        );
 
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
 
 
-                    if(response.code()==200)
+//                buttonUpdateItem.setVisibility(View.VISIBLE);
+//                progressBar.setVisibility(View.INVISIBLE);
+
+
+                if(response.code()==200)
                     {
                         showToastMessage("Image Removed !");
                     }
@@ -935,6 +1052,10 @@ public class EditConfigurationFragment extends Fragment{
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
 
+//                buttonUpdateItem.setVisibility(View.VISIBLE);
+//                progressBar.setVisibility(View.INVISIBLE);
+
+
 //                showToastMessage("Image Delete failed");
             }
         });
@@ -943,14 +1064,16 @@ public class EditConfigurationFragment extends Fragment{
 
 
     // Pick location code
-
-
-
     private int REQUEST_CODE_PICK_LAT_LON = 23;
+
+
+
 
     @OnClick(R.id.pick_location_button)
     void pickLocationClick()
     {
+
+        showToastMessage("Feature not available !");
 
 //        Intent intent = new Intent(getActivity(),PickLocationActivity.class);
 //
@@ -967,10 +1090,15 @@ public class EditConfigurationFragment extends Fragment{
 //                );
 //            }
 //        }
-
-
+//
+//
 //        startActivityForResult(intent,REQUEST_CODE_PICK_LAT_LON);
     }
+
+
+
+
+    boolean isDestroyed = false;
 
 
 }

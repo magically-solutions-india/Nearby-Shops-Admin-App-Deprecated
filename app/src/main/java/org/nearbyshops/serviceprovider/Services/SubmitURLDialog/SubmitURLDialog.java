@@ -20,7 +20,7 @@ import android.widget.Toast;
 
 import org.nearbyshops.serviceprovider.DaggerComponentBuilder;
 import org.nearbyshops.serviceprovider.R;
-import org.nearbyshops.serviceprovider.RetrofitRESTContractSDS.ServiceConfigService;
+import org.nearbyshops.serviceprovider.RetrofitRESTContractSDS.ServiceDiscoveryService;
 
 import javax.inject.Inject;
 
@@ -45,7 +45,7 @@ public class SubmitURLDialog extends DialogFragment implements View.OnClickListe
     ProgressBar progressBar;
 
     @Inject
-    ServiceConfigService serviceConfigService;
+    ServiceDiscoveryService serviceConfigService;
 
 
     public SubmitURLDialog() {

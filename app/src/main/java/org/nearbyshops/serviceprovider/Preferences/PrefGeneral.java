@@ -1,9 +1,7 @@
-package org.nearbyshops.serviceprovider.Utility;
+package org.nearbyshops.serviceprovider.Preferences;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 
 import com.google.gson.Gson;
 
@@ -167,6 +165,10 @@ public class PrefGeneral {
         editor.apply();
     }
 
+
+
+
+
     public static String getServiceURL_SDS(Context context) {
 
 //        context = MyApplication.getAppContext();
@@ -177,6 +179,11 @@ public class PrefGeneral {
         //http://192.168.1.35:5050
         //"http://sds.nearbyshops.org"
     }
+
+
+
+
+
 
 
 

@@ -22,7 +22,7 @@ import retrofit2.http.Query;
 /**
  * Created by sumeet on 12/3/16.
  */
-public interface ServiceConfigService {
+public interface ServiceDiscoveryService {
 
 
     @GET("/api/v1/ServiceConfiguration/UpdateService")

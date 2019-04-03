@@ -1,7 +1,6 @@
 package org.nearbyshops.serviceprovider;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
@@ -12,7 +11,7 @@ import org.nearbyshops.serviceprovider.Login.Interfaces.NotifyAboutLogin;
 import org.nearbyshops.serviceprovider.LoginPlaceholders.FragmentSignInMessage;
 import org.nearbyshops.serviceprovider.ModelRoles.User;
 import org.nearbyshops.serviceprovider.StaffHome.StaffHomeFragment;
-import org.nearbyshops.serviceprovider.Utility.PrefLogin;
+import org.nearbyshops.serviceprovider.Preferences.PrefLogin;
 
 
 

@@ -1,16 +1,13 @@
 package org.nearbyshops.serviceprovider.AdminDashboard;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -18,21 +15,27 @@ import android.widget.Toast;
 import org.nearbyshops.serviceprovider.DaggerComponentBuilder;
 import org.nearbyshops.serviceprovider.EditProfile.EditProfile;
 import org.nearbyshops.serviceprovider.EditProfile.FragmentEditProfile;
+import org.nearbyshops.serviceprovider.EditServiceConfig.EditConfiguration;
 import org.nearbyshops.serviceprovider.ItemSpecName.ItemSpecName;
 import org.nearbyshops.serviceprovider.ItemsByCategorySimple.ItemCategoriesSimple;
 import org.nearbyshops.serviceprovider.Login.Interfaces.NotifyAboutLogin;
+import org.nearbyshops.serviceprovider.ModelServiceConfig.ServiceConfigurationLocal;
 import org.nearbyshops.serviceprovider.OrderHistoryNew.OrderHistoryNew;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.ServiceConfigurationService;
 import org.nearbyshops.serviceprovider.ShopAdminList.ShopAdminApprovals;
 import org.nearbyshops.serviceprovider.ShopsList.ShopsDatabase;
 import org.nearbyshops.serviceprovider.StaffList.StaffList;
-import org.nearbyshops.serviceprovider.Utility.PrefLogin;
+import org.nearbyshops.serviceprovider.Preferences.PrefLogin;
+import org.nearbyshops.serviceprovider.Preferences.PrefServiceConfiguration;
 
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class AdminDashboardFragment extends Fragment {
@@ -111,6 +114,69 @@ public class AdminDashboardFragment extends Fragment {
     {
         startActivity(new Intent(getActivity(), ItemCategoriesSimple.class));
     }
+
+
+
+    @OnClick(R.id.service_config)
+    void serviceCOnfigClick()
+    {
+//        startActivity(new Intent(getActivity(), EditServiceConfiguration.class));
+
+
+        getServiceConfig(true);
+    }
+
+
+
+
+
+
+    void getServiceConfig(final boolean launchEditConfig)
+    {
+        final ProgressDialog pd = new ProgressDialog(getActivity());
+        pd.setMessage("loading");
+        pd.show();
+
+        Call<ServiceConfigurationLocal> call = configurationService.getServiceConfiguration(null,null);
+
+
+
+        call.enqueue(new Callback<ServiceConfigurationLocal>() {
+            @Override
+            public void onResponse(Call<ServiceConfigurationLocal> call, Response<ServiceConfigurationLocal> response) {
+
+                if(response.code()==200 && response.body()!=null)
+                {
+                    PrefServiceConfiguration.saveServiceConfig(
+                            response.body(),getActivity()
+                    );
+
+
+                    if(launchEditConfig)
+                    {
+                        startActivity(new Intent(getActivity(), EditConfiguration.class));
+                    }
+                }
+                else
+                {
+                    System.out.println("Failed to get config " + response.code());
+                }
+
+                pd.dismiss();
+            }
+
+            @Override
+            public void onFailure(Call<ServiceConfigurationLocal> call, Throwable t) {
+
+
+                pd.dismiss();
+
+                System.out.println("Check your network !");
+            }
+        });
+
+    }
+
 
 
 

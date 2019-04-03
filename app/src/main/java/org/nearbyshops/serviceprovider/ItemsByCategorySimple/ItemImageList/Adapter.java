@@ -21,7 +21,7 @@ import com.squareup.picasso.Picasso;
 import org.nearbyshops.serviceprovider.ItemSubmissionsList.HeaderTitle;
 import org.nearbyshops.serviceprovider.Model.ItemImage;
 import org.nearbyshops.serviceprovider.R;
-import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
+import org.nearbyshops.serviceprovider.Preferences.PrefGeneral;
 
 import java.util.HashMap;
 import java.util.List;

@@ -37,7 +37,6 @@ import org.nearbyshops.serviceprovider.ItemsByCategorySimple.ItemImageList.Image
 import org.nearbyshops.serviceprovider.Login.LoginFragment;
 import org.nearbyshops.serviceprovider.OrderDetail.FragmentOrderDetail;
 import org.nearbyshops.serviceprovider.OrderHistoryNew.OrdersFragmentNew;
-import org.nearbyshops.serviceprovider.ServiceConfiguration.EditConfiguration.EditConfigurationFragment;
 import org.nearbyshops.serviceprovider.Services.ServiceFragment.ServicesFragment;
 import org.nearbyshops.serviceprovider.Services.SubmitURLDialog.SubmitURLDialog;
 import org.nearbyshops.serviceprovider.ShopsList.EditShop.EditShopFragment;
@@ -60,7 +59,6 @@ import org.nearbyshops.serviceprovider.ItemCategoriesTabs.Items.Deprecated.AddIt
 import org.nearbyshops.serviceprovider.ItemCategoriesTabs.Items.ItemAdapterTwo;
 import org.nearbyshops.serviceprovider.ItemCategoriesTabs.Items.Deprecated.ItemAdapterOld;
 import org.nearbyshops.serviceprovider.LoginScreen;
-import org.nearbyshops.serviceprovider.ServiceConfiguration.EditServiceConfiguration;
 import org.nearbyshops.serviceprovider.SelectParent.ItemCategoriesParent;
 import org.nearbyshops.serviceprovider.SelectParent.ItemCategoriesParentAdapter;
 import org.nearbyshops.serviceprovider.ItemCategoriesTabs.ItemCategories.ItemCategoriesAdapter;
@@ -71,8 +69,6 @@ import org.nearbyshops.serviceprovider.ShopAdminList.EditShopAdmin.EditShopAdmin
 import org.nearbyshops.serviceprovider.ShopAdminList.Fragment.FragmentShopAdmins;
 import org.nearbyshops.serviceprovider.StaffAccounts.EditStaff.EditStaffFragment;
 import org.nearbyshops.serviceprovider.StaffAccounts.FragmentStaffAccounts;
-import org.nearbyshops.serviceprovider.zSavedConfigurations.AddService;
-import org.nearbyshops.serviceprovider.zSavedConfigurations.ServiceConfigurationActivity;
 
 import javax.inject.Singleton;
 
@@ -87,11 +83,6 @@ import dagger.Component;
 public interface NetComponent {
 
 
-    void Inject(ServiceConfigurationActivity serviceConfigurationActivity);
-
-    void Inject(AddService addService);
-
-    void Inject(EditServiceConfiguration editServiceConfiguration);
 
     void Inject(EditItemCategoryOld editItemCategoryOld);
 
@@ -152,8 +143,6 @@ public interface NetComponent {
     void Inject(EditStaffSelfFragment editStaffSelfFragment);
 
     void Inject(StaffHome staffHome);
-
-    void Inject(EditConfigurationFragment editConfigurationFragment);
 
     void Inject(AdminHome home);
 
@@ -233,6 +222,8 @@ public interface NetComponent {
     void Inject(OrdersFragmentNew ordersFragmentNew);
 
     void Inject(FragmentOrderDetail fragmentOrderDetail);
+
+    void Inject(org.nearbyshops.serviceprovider.EditServiceConfig.EditConfigurationFragment editConfigurationFragment);
 
 
 //    void Inject(LoginDialog loginDialog);

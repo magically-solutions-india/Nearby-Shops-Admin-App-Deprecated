@@ -26,8 +26,8 @@ import org.nearbyshops.serviceprovider.SignUp.ForgotPassword.ForgotPassword;
 import org.nearbyshops.serviceprovider.SignUp.PrefSignUp.PrefrenceForgotPassword;
 import org.nearbyshops.serviceprovider.SignUp.PrefSignUp.PrefrenceSignUp;
 import org.nearbyshops.serviceprovider.SignUp.SignUp;
-import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
-import org.nearbyshops.serviceprovider.Utility.PrefLogin;
+import org.nearbyshops.serviceprovider.Preferences.PrefGeneral;
+import org.nearbyshops.serviceprovider.Preferences.PrefLogin;
 
 import javax.inject.Inject;
 
@@ -427,7 +427,7 @@ TextInputEditText username;
 //
 //
 //
-//        ServiceConfigService service = retrofit.create(ServiceConfigService.class);
+//        ServiceDiscoveryService service = retrofit.create(ServiceDiscoveryService.class);
 //
 //
 //

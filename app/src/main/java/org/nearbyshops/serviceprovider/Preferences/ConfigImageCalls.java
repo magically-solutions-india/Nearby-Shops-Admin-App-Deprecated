@@ -1,4 +1,4 @@
-package org.nearbyshops.serviceprovider.Utility;
+package org.nearbyshops.serviceprovider.Preferences;
 
 import android.Manifest;
 import android.content.Context;
@@ -7,10 +7,9 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-
 import org.nearbyshops.serviceprovider.Model.Image;
 import org.nearbyshops.serviceprovider.MyApplication;
-import org.nearbyshops.serviceprovider.RetrofitRESTContract.ImageService;
+import org.nearbyshops.serviceprovider.RetrofitRESTContract.ConfigImageService;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -27,30 +26,30 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * Created by sumeet on 12/5/16.
  */
-public class ImageCalls {
+public class ConfigImageCalls {
 
-    private static ImageCalls instance;
+    private static ConfigImageCalls instance;
 
     Retrofit retrofit;
-    ImageService imageService;
+    ConfigImageService imageService;
 
 
-    private ImageCalls(Context context) {
+    private ConfigImageCalls(Context context) {
 
         retrofit = new Retrofit.Builder()
                 .baseUrl(PrefGeneral.getServiceURL(context))
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        imageService = retrofit.create(ImageService.class);
+        imageService = retrofit.create(ConfigImageService.class);
     }
 
 
-    public static ImageCalls getInstance()
+    public static ConfigImageCalls getInstance()
     {
         if(instance == null)
         {
-            instance = new ImageCalls(MyApplication.getAppContext());
+            instance = new ConfigImageCalls(MyApplication.getAppContext());
         }
 
         return instance;
@@ -61,12 +60,9 @@ public class ImageCalls {
     public void deleteImage(String imageID, Callback<ResponseBody> deleteImageCallback)
     {
 
-        if(imageID!=null)
-        {
-            if (imageID.length() > 2) {
+        if (imageID.length() > 2) {
 
-                imageID = imageID.substring(1);
-            }
+            imageID = imageID.substring(1);
         }
 
         Call<ResponseBody> response = imageService.deleteImage(imageID);

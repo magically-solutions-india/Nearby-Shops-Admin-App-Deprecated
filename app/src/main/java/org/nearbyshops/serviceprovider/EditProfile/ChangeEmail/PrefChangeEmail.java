@@ -8,7 +8,7 @@ import com.google.gson.Gson;
 
 import org.nearbyshops.serviceprovider.ModelRoles.User;
 import org.nearbyshops.serviceprovider.R;
-import org.nearbyshops.serviceprovider.Utility.UtilityFunctions;
+import org.nearbyshops.serviceprovider.Preferences.UtilityFunctions;
 
 import static android.content.Context.MODE_PRIVATE;
 

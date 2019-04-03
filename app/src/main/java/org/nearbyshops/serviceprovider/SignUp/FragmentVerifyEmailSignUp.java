@@ -23,7 +23,7 @@ import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.UserService;
 import org.nearbyshops.serviceprovider.SignUp.Interfaces.ShowFragmentSignUp;
 import org.nearbyshops.serviceprovider.SignUp.PrefSignUp.PrefrenceSignUp;
-import org.nearbyshops.serviceprovider.Utility.PrefLogin;
+import org.nearbyshops.serviceprovider.Preferences.PrefLogin;
 
 import javax.inject.Inject;
 

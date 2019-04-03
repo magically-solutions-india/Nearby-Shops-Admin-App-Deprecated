@@ -19,8 +19,8 @@ import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.StaffService;
 import org.nearbyshops.serviceprovider.StaffAccounts.EditStaff.EditStaff;
 import org.nearbyshops.serviceprovider.StaffAccounts.EditStaff.EditStaffFragment;
-import org.nearbyshops.serviceprovider.Utility.DividerItemDecoration;
-import org.nearbyshops.serviceprovider.Utility.PrefLogin;
+import org.nearbyshops.serviceprovider.Preferences.DividerItemDecoration;
+import org.nearbyshops.serviceprovider.Preferences.PrefLogin;
 
 import java.util.ArrayList;
 import java.util.List;

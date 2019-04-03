@@ -1,10 +1,10 @@
-package org.nearbyshops.serviceprovider.ServiceConfiguration.EditConfiguration;
+package org.nearbyshops.serviceprovider.EditServiceConfig;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 
 import org.nearbyshops.serviceprovider.R;
+
 
 public class EditConfiguration extends AppCompatActivity {
 
@@ -13,11 +13,14 @@ public class EditConfiguration extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        overridePendingTransition(R.anim.enter_from_right,R.anim.exit_to_left);
         setContentView(R.layout.activity_edit_service_configuration);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+
 
         if(getSupportFragmentManager().findFragmentByTag(TAG_FRAGMENT_EDIT)==null)
         {
@@ -26,6 +29,13 @@ public class EditConfiguration extends AppCompatActivity {
                     .add(R.id.fragment_container,new EditConfigurationFragment(),TAG_FRAGMENT_EDIT)
                     .commit();
         }
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.enter_from_left,R.anim.exit_to_right);
     }
 
 }

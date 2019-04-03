@@ -1,4 +1,4 @@
-package org.nearbyshops.serviceprovider.Utility;
+package org.nearbyshops.serviceprovider.Preferences;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

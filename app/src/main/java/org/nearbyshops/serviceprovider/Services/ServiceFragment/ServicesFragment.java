@@ -23,7 +23,7 @@ import org.nearbyshops.serviceprovider.ItemCategoriesTabs.Interfaces.ToggleFab;
 import org.nearbyshops.serviceprovider.ModelServiceConfig.Endpoints.ServiceConfigurationEndPoint;
 import org.nearbyshops.serviceprovider.ModelServiceConfig.ServiceConfigurationGlobal;
 import org.nearbyshops.serviceprovider.R;
-import org.nearbyshops.serviceprovider.RetrofitRESTContractSDS.ServiceConfigService;
+import org.nearbyshops.serviceprovider.RetrofitRESTContractSDS.ServiceDiscoveryService;
 import org.nearbyshops.serviceprovider.Services.SlidingLayerSort.UtilitySortServices;
 import org.nearbyshops.serviceprovider.Services.UtilityLocationServices;
 
@@ -44,7 +44,7 @@ public class ServicesFragment extends Fragment implements Adapter.NotifyConfirmO
 //    OrderServicePFS orderService;
 
     @Inject
-    ServiceConfigService serviceConfigService;
+    ServiceDiscoveryService serviceConfigService;
 
     RecyclerView recyclerView;
     Adapter adapter;

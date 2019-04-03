@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import org.nearbyshops.serviceprovider.ItemCategoriesTabs.Interfaces.NotifySort;
 import org.nearbyshops.serviceprovider.R;
-import org.nearbyshops.serviceprovider.Utility.UtilitySortDistributor;
+import org.nearbyshops.serviceprovider.Preferences.UtilitySortDistributor;
 
 
 import butterknife.BindView;

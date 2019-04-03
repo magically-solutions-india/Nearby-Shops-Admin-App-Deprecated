@@ -22,7 +22,7 @@ import org.nearbyshops.serviceprovider.ItemSubmissionsList.HeaderTitle;
 import org.nearbyshops.serviceprovider.ModelRoles.StaffPermissions;
 import org.nearbyshops.serviceprovider.ModelRoles.User;
 import org.nearbyshops.serviceprovider.R;
-import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
+import org.nearbyshops.serviceprovider.Preferences.PrefGeneral;
 
 import java.util.List;
 

@@ -1,7 +1,6 @@
 package org.nearbyshops.serviceprovider.OrderDetail;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.constraint.ConstraintLayout;
 import android.support.graphics.drawable.VectorDrawableCompat;
@@ -24,7 +23,7 @@ import org.nearbyshops.serviceprovider.ModelDelivery.DeliveryAddress;
 import org.nearbyshops.serviceprovider.ModelStatusCode.OrderStatusHomeDelivery;
 import org.nearbyshops.serviceprovider.ModelStatusCode.OrderStatusPickFromShop;
 import org.nearbyshops.serviceprovider.R;
-import org.nearbyshops.serviceprovider.Utility.PrefGeneral;
+import org.nearbyshops.serviceprovider.Preferences.PrefGeneral;
 
 import java.util.List;
 

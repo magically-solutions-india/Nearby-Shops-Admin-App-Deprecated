@@ -24,7 +24,7 @@ import org.nearbyshops.serviceprovider.ShopAdminList.EditShopAdmin.EditShopAdmin
 import org.nearbyshops.serviceprovider.ShopAdminList.EditShopAdmin.EditShopAdminFragment;
 import org.nearbyshops.serviceprovider.ShopAdminList.SlidingLayerSort.UtilitySortShopAdmin;
 import org.nearbyshops.serviceprovider.ShopAdminList.UtilityShopAdmin;
-import org.nearbyshops.serviceprovider.Utility.PrefLogin;
+import org.nearbyshops.serviceprovider.Preferences.PrefLogin;
 
 import java.util.ArrayList;
 import java.util.List;

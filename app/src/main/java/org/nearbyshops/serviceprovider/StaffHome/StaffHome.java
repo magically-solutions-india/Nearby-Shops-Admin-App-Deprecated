@@ -14,9 +14,7 @@ import org.nearbyshops.serviceprovider.EditProfile.FragmentEditProfile;
 import org.nearbyshops.serviceprovider.ModelRoles.OldFiles.Staff;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.StaffService;
-import org.nearbyshops.serviceprovider.StaffHome.EditStaffSelf.EditStaffSelf;
-import org.nearbyshops.serviceprovider.StaffHome.EditStaffSelf.EditStaffSelfFragment;
-import org.nearbyshops.serviceprovider.Utility.PrefLogin;
+import org.nearbyshops.serviceprovider.Preferences.PrefLogin;
 
 import javax.inject.Inject;
 
@@ -25,8 +23,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class StaffHome extends AppCompatActivity {
 
