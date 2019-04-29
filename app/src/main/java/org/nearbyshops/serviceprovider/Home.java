@@ -98,8 +98,10 @@ public class Home extends AppCompatActivity implements NotifyAboutLogin {
         showDashboard();
     }
 
+    @Override
+    public void loggedOut() {
 
-
+    }
 
 
     public void showLoginFragment()

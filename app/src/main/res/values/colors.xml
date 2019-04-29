@@ -16,6 +16,8 @@
     <color name="colorAccent">#FF5722</color>
     -->
 
+    <color name="mapboxBlue">#1e8cab</color>
+
     <color name="colorPrimary">#607D8B</color>
     <color name="colorPrimaryDark">#455A64</color>
     <color name="colorAccent">#FF9800</color>

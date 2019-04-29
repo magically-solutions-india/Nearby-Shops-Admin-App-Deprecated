@@ -2,56 +2,51 @@ package org.nearbyshops.serviceprovider.Preferences;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.location.Location;
+import android.location.LocationManager;
 
-import com.google.gson.Gson;
 
-
-import org.nearbyshops.serviceprovider.ModelUtility.LocationWithAddress;
 import org.nearbyshops.serviceprovider.R;
 
 import static android.content.Context.MODE_PRIVATE;
 
 /**
- * Created by sumeet on 24/6/17.
+ * Created by sumeet on 19/10/16.
  */
+
+
+
+
+
+
 
 public class PrefLocation {
 
+    public static String KEY_LAT_CENTER = "key_lat_center";
+    public static String KEY_LON_CENTER = "key_lon_center";
 
-    public static final String TAG_LOCATION_CURRENT = "tag_location_current";
-    public static final String TAG_LATITUDE_CURRENT = "tag_lat_current";
-    public static final String TAG_LONGITUDE_CURRENT = "tag_lon_current";
+    public static String KEY_PROXIMITY = "key_proximity";
+    public static String KEY_DELIVERY_RANGE_MAX = "key_delivery_range_max";
+    public static String KEY_DELIVERY_RANGE_MIN = "key_delivery_range_min";
 
 
 
-    public static void saveLocationCurrent(LocationWithAddress currentLocation, Context context)
+    public static Location getLocation(Context context)
     {
-
-        //Creating a shared preference
 
         SharedPreferences sharedPref = context.getSharedPreferences(context.getString(R.string.preference_file_name), MODE_PRIVATE);
 
-        SharedPreferences.Editor prefsEditor = sharedPref.edit();
+        double longitude = (double) sharedPref.getFloat(KEY_LON_CENTER, 0f);
+        double latitude = (double)sharedPref.getFloat(KEY_LAT_CENTER, 0f);
 
-        Gson gson = UtilityFunctions.provideGson();
-        String json = gson.toJson(currentLocation);
-        prefsEditor.putString(TAG_LOCATION_CURRENT, json);
 
-        prefsEditor.apply();
+        Location location = new Location(LocationManager.GPS_PROVIDER);
+        location.setLatitude(latitude);
+        location.setLongitude(longitude);
+
+        return location;
     }
 
-
-
-
-    public static LocationWithAddress getLocationCurrent(Context context)
-    {
-        SharedPreferences sharedPref = context.getSharedPreferences(context.getString(R.string.preference_file_name), MODE_PRIVATE);
-
-        Gson gson = UtilityFunctions.provideGson();
-        String json = sharedPref.getString(TAG_LOCATION_CURRENT, null);
-
-        return gson.fromJson(json, LocationWithAddress.class);
-    }
 
 
 
@@ -62,8 +57,8 @@ public class PrefLocation {
         SharedPreferences sharedPref = context.getSharedPreferences(context.getString(R.string.preference_file_name), MODE_PRIVATE);
         SharedPreferences.Editor prefsEditor = sharedPref.edit();
 
-        prefsEditor.putFloat(TAG_LATITUDE_CURRENT, (float) lat);
-        prefsEditor.putFloat(TAG_LONGITUDE_CURRENT, (float) lon);
+        prefsEditor.putFloat(KEY_LAT_CENTER, (float) lat);
+        prefsEditor.putFloat(KEY_LON_CENTER, (float) lon);
 
         prefsEditor.apply();
     }
@@ -71,19 +66,60 @@ public class PrefLocation {
 
 
 
-    public static float getLatitideCurrent(Context context)
+    public static void saveLatitude(float latitude, Context context)
+    {
+
+        //Creating a shared preference
+
+        SharedPreferences sharedPref = context.getSharedPreferences(
+                        context.getString(R.string.preference_file_name),
+                        MODE_PRIVATE
+                );
+
+
+        SharedPreferences.Editor prefsEditor = sharedPref.edit();
+        prefsEditor.putFloat(KEY_LAT_CENTER, latitude);
+        prefsEditor.apply();
+    }
+
+
+    public static double getLatitude(Context context)
     {
         SharedPreferences sharedPref = context.getSharedPreferences(context.getString(R.string.preference_file_name), MODE_PRIVATE);
-        return sharedPref.getFloat(TAG_LATITUDE_CURRENT, -300);
+        return (double)sharedPref.getFloat(KEY_LAT_CENTER, 0f);
     }
 
 
 
-    public static float getLongitudeCurrent(Context context)
+
+
+
+
+    // saving longitude
+
+    public static void saveLongitude(float longitude, Context context)
+    {
+
+        //Creating a shared preference
+
+        SharedPreferences sharedPref = context.getSharedPreferences(context.getString(R.string.preference_file_name), MODE_PRIVATE);
+        SharedPreferences.Editor prefsEditor = sharedPref.edit();
+
+
+        prefsEditor.putFloat(KEY_LON_CENTER, longitude);
+        prefsEditor.apply();
+    }
+
+
+
+
+    public static double getLongitude(Context context)
     {
         SharedPreferences sharedPref = context.getSharedPreferences(context.getString(R.string.preference_file_name), MODE_PRIVATE);
-        return sharedPref.getFloat(TAG_LONGITUDE_CURRENT, -300);
+        return (double) sharedPref.getFloat(KEY_LON_CENTER, 0f);
     }
+
+
 
 
 }

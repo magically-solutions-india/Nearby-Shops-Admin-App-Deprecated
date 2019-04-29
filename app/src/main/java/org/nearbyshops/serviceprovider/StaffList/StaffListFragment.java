@@ -27,7 +27,7 @@ import org.nearbyshops.serviceprovider.RetrofitRESTContract.StaffLoginService;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.UserService;
 import org.nearbyshops.serviceprovider.StaffList.EditProfileStaff.EditProfileStaff;
 import org.nearbyshops.serviceprovider.StaffList.EditProfileStaff.FragmentEditProfileStaff;
-import org.nearbyshops.serviceprovider.Preferences.PrefLocation;
+import org.nearbyshops.serviceprovider.Preferences.PrefLocationDeprecated;
 import org.nearbyshops.serviceprovider.Preferences.PrefLogin;
 
 import java.util.ArrayList;
@@ -272,7 +272,7 @@ public class StaffListFragment extends Fragment implements SwipeRefreshLayout.On
 
         Call<UserEndpoint> call = service.getStaffForAdmin(
                 PrefLogin.getAuthorizationHeaders(getActivity()),
-                (double) PrefLocation.getLatitideCurrent(getActivity()),(double)PrefLocation.getLongitudeCurrent(getActivity()),
+                (double) PrefLocationDeprecated.getLatitideCurrent(getActivity()),(double) PrefLocationDeprecated.getLongitudeCurrent(getActivity()),
                 null,null,
                 null,null,
                 limit_vehicle,offset_vehicle,

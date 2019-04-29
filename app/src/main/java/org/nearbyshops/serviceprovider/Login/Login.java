@@ -22,6 +22,12 @@ public class Login extends AppCompatActivity implements ShowFragmentSelectServic
     public static final String TAG_SELECT_SERVICE = "select_service";
 
 
+    public static final String TAG_LOGIN_GLOBAL  = "tag_login_global";
+
+    public static final String TAG_LOGIN_FRAGMENT = "tag_login_fragment";
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +46,29 @@ public class Login extends AppCompatActivity implements ShowFragmentSelectServic
 
         if(savedInstanceState==null)
         {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.fragment_container,new LoginFragment(),TAG_STEP_ONE)
-                    .commitNow();
+//            getSupportFragmentManager()
+//                    .beginTransaction()
+//                    .replace(R.id.fragment_container,new LoginFragment(),TAG_STEP_ONE)
+//                    .commitNow();
+
+            if(getIntent().getBooleanExtra(TAG_LOGIN_GLOBAL,false))
+            {
+
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_container,new LoginGlobalFragment(),TAG_LOGIN_FRAGMENT)
+                        .commitNow();
+
+            }
+            else
+            {
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_container,new LoginFragment(),TAG_LOGIN_FRAGMENT)
+                        .commitNow();
+
+            }
+
         }
 
     }
@@ -91,5 +116,10 @@ public class Login extends AppCompatActivity implements ShowFragmentSelectServic
 
         setResult(RESULT_OK);
         finish();
+    }
+
+    @Override
+    public void loggedOut() {
+
     }
 }

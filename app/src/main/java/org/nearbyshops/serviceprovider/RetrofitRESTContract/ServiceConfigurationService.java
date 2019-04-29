@@ -1,8 +1,8 @@
 package org.nearbyshops.serviceprovider.RetrofitRESTContract;
 
 
+import org.nearbyshops.serviceprovider.Markets.Model.ServiceConfigurationLocal;
 import org.nearbyshops.serviceprovider.Model.Image;
-import org.nearbyshops.serviceprovider.ModelServiceConfig.ServiceConfigurationLocal;
 
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;

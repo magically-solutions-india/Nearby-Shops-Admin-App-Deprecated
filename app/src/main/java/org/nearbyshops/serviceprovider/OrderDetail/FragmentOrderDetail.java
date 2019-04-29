@@ -18,10 +18,10 @@ import org.nearbyshops.serviceprovider.Model.Item;
 import org.nearbyshops.serviceprovider.Model.Order;
 import org.nearbyshops.serviceprovider.Model.Shop;
 import org.nearbyshops.serviceprovider.ModelEndPoints.OrderItemEndPoint;
+import org.nearbyshops.serviceprovider.Preferences.PrefLocationDeprecated;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.OrderItemService;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.ShopService;
-import org.nearbyshops.serviceprovider.Preferences.PrefLocation;
 import org.nearbyshops.serviceprovider.Preferences.PrefLogin;
 
 import java.util.ArrayList;
@@ -371,8 +371,8 @@ public class FragmentOrderDetail extends Fragment implements SwipeRefreshLayout.
     {
         Call<Shop> call = shopService.getShop(
                     order.getShopID(),
-                PrefLocation.getLatitideCurrent(getActivity()),
-                PrefLocation.getLongitudeCurrent(getActivity())
+                PrefLocationDeprecated.getLatitideCurrent(getActivity()),
+                PrefLocationDeprecated.getLongitudeCurrent(getActivity())
         );
 
 

@@ -23,7 +23,6 @@ public class PrefGeneral {
 
 
     public static final String SERVICE_URL_LOCAL_HOTSPOT = "http://192.168.43.73:5121";
-    public static final String SERVICE_URL_LOCAL = "http://192.168.0.5:5120";
     public static final String SERVICE_URL_NEARBYSHOPS = "http://api.nearbyshops.org";
 
     private static final String TAG_PREF_CURRENCY = "currency_symbol";
@@ -58,9 +57,9 @@ public class PrefGeneral {
 
 
 
-    public static void saveServiceURL(String service_url)
+    public static void saveServiceURL(String service_url, Context context)
     {
-        Context context = MyApplication.getAppContext();
+        context = MyApplication.getAppContext();
         // get a handle to shared Preference
         SharedPreferences sharedPref;
 
@@ -82,6 +81,9 @@ public class PrefGeneral {
 
 
 
+
+
+
     public static String getServiceURL(Context context) {
 
         context = MyApplication.getAppContext();
@@ -89,7 +91,7 @@ public class PrefGeneral {
 
         //service_url = "http://localareademo-env.ap-southeast-1.elasticbeanstalk.com";
 
-        return sharedPref.getString(context.getString(R.string.preference_service_url_key), SERVICE_URL_LOCAL_HOTSPOT);
+        return sharedPref.getString(context.getString(R.string.preference_service_url_key), SERVICE_URL_NEARBYSHOPS);
     }
 
 

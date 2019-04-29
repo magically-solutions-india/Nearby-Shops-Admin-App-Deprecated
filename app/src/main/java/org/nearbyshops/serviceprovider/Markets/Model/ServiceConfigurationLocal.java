@@ -1,4 +1,4 @@
-package org.nearbyshops.serviceprovider.ModelServiceConfig;
+package org.nearbyshops.serviceprovider.Markets.Model;
 
 import java.sql.Timestamp;
 
@@ -25,7 +25,7 @@ public class ServiceConfigurationLocal {
 
     private String address;
     private String city;
-    private long pincode;
+    private Long pincode;
 
     private String landmark;
     private String state;
@@ -35,29 +35,85 @@ public class ServiceConfigurationLocal {
     private String ISOLanguageCode;
     private String ISOCurrencyCode;
 
+    private Integer serviceType;
+    private Integer serviceLevel;
 
     private double latCenter;
     private double lonCenter;
 
-    private int serviceRange;
+    private Integer serviceRange;
+//    private Integer shopDeliveryRangeMax;
 
     private Timestamp created;
     private Timestamp updated;
 
-
-
     // real time variables : the values of these variables are generated in real time.
-    private Double rt_distance;
-    private String rt_styleURL;
+    private double rt_distance;
 
 
+    public String getDescriptionShort() {
+        return descriptionShort;
+    }
 
+    public void setDescriptionShort(String descriptionShort) {
+        this.descriptionShort = descriptionShort;
+    }
 
+    public String getDescriptionLong() {
+        return descriptionLong;
+    }
 
+    public void setDescriptionLong(String descriptionLong) {
+        this.descriptionLong = descriptionLong;
+    }
 
+    public String getISOCurrencyCode() {
+        return ISOCurrencyCode;
+    }
 
-    //    Getter and Setters
+    public void setISOCurrencyCode(String ISOCurrencyCode) {
+        this.ISOCurrencyCode = ISOCurrencyCode;
+    }
 
+    public Timestamp getCreated() {
+        return created;
+    }
+
+    public void setCreated(Timestamp created) {
+        this.created = created;
+    }
+
+    public Timestamp getUpdated() {
+        return updated;
+    }
+
+    public void setUpdated(Timestamp updated) {
+        this.updated = updated;
+    }
+
+    public Double getRt_distance() {
+        return rt_distance;
+    }
+
+    public void setRt_distance(Double rt_distance) {
+        this.rt_distance = rt_distance;
+    }
+
+    public String getISOCountryCode() {
+        return ISOCountryCode;
+    }
+
+    public void setISOCountryCode(String ISOCountryCode) {
+        this.ISOCountryCode = ISOCountryCode;
+    }
+
+    public String getISOLanguageCode() {
+        return ISOLanguageCode;
+    }
+
+    public void setISOLanguageCode(String ISOLanguageCode) {
+        this.ISOLanguageCode = ISOLanguageCode;
+    }
 
     public int getServiceID() {
         return serviceID;
@@ -66,6 +122,7 @@ public class ServiceConfigurationLocal {
     public void setServiceID(int serviceID) {
         this.serviceID = serviceID;
     }
+
 
     public String getLogoImagePath() {
         return logoImagePath;
@@ -99,22 +156,6 @@ public class ServiceConfigurationLocal {
         this.helplineNumber = helplineNumber;
     }
 
-    public String getDescriptionShort() {
-        return descriptionShort;
-    }
-
-    public void setDescriptionShort(String descriptionShort) {
-        this.descriptionShort = descriptionShort;
-    }
-
-    public String getDescriptionLong() {
-        return descriptionLong;
-    }
-
-    public void setDescriptionLong(String descriptionLong) {
-        this.descriptionLong = descriptionLong;
-    }
-
     public String getAddress() {
         return address;
     }
@@ -131,11 +172,11 @@ public class ServiceConfigurationLocal {
         this.city = city;
     }
 
-    public long getPincode() {
+    public Long getPincode() {
         return pincode;
     }
 
-    public void setPincode(long pincode) {
+    public void setPincode(Long pincode) {
         this.pincode = pincode;
     }
 
@@ -163,83 +204,47 @@ public class ServiceConfigurationLocal {
         this.country = country;
     }
 
-    public String getISOCountryCode() {
-        return ISOCountryCode;
+
+    public Integer getServiceType() {
+        return serviceType;
     }
 
-    public void setISOCountryCode(String ISOCountryCode) {
-        this.ISOCountryCode = ISOCountryCode;
+    public void setServiceType(Integer serviceType) {
+        this.serviceType = serviceType;
     }
 
-    public String getISOLanguageCode() {
-        return ISOLanguageCode;
+    public Integer getServiceLevel() {
+        return serviceLevel;
     }
 
-    public void setISOLanguageCode(String ISOLanguageCode) {
-        this.ISOLanguageCode = ISOLanguageCode;
+    public void setServiceLevel(Integer serviceLevel) {
+        this.serviceLevel = serviceLevel;
     }
 
-    public String getISOCurrencyCode() {
-        return ISOCurrencyCode;
-    }
-
-    public void setISOCurrencyCode(String ISOCurrencyCode) {
-        this.ISOCurrencyCode = ISOCurrencyCode;
-    }
-
-    public double getLatCenter() {
+    public Double getLatCenter() {
         return latCenter;
     }
 
-    public void setLatCenter(double latCenter) {
+    public void setLatCenter(Double latCenter) {
         this.latCenter = latCenter;
     }
 
-    public double getLonCenter() {
+    public Double getLonCenter() {
         return lonCenter;
     }
 
-    public void setLonCenter(double lonCenter) {
+    public void setLonCenter(Double lonCenter) {
         this.lonCenter = lonCenter;
     }
 
-    public int getServiceRange() {
+    public Integer getServiceRange() {
         return serviceRange;
     }
 
-    public void setServiceRange(int serviceRange) {
+    public void setServiceRange(Integer serviceRange) {
         this.serviceRange = serviceRange;
     }
 
-    public Timestamp getCreated() {
-        return created;
-    }
 
-    public void setCreated(Timestamp created) {
-        this.created = created;
-    }
 
-    public Timestamp getUpdated() {
-        return updated;
-    }
-
-    public void setUpdated(Timestamp updated) {
-        this.updated = updated;
-    }
-
-    public Double getRt_distance() {
-        return rt_distance;
-    }
-
-    public void setRt_distance(Double rt_distance) {
-        this.rt_distance = rt_distance;
-    }
-
-    public String getRt_styleURL() {
-        return rt_styleURL;
-    }
-
-    public void setRt_styleURL(String rt_styleURL) {
-        this.rt_styleURL = rt_styleURL;
-    }
 }

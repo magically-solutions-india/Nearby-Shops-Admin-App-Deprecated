@@ -8,4 +8,5 @@ public interface NotifyAboutLogin {
 
     void loginSuccess();
 
+    void loggedOut();
 }

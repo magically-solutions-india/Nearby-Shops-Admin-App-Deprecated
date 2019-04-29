@@ -1,4 +1,4 @@
-package org.nearbyshops.serviceprovider.ModelServiceConfig;
+package org.nearbyshops.serviceprovider.Markets.Model;
 
 import java.sql.Timestamp;
 
@@ -8,100 +8,13 @@ import java.sql.Timestamp;
 public class ServiceConfigurationGlobal {
 
 
-    // Table Name
-    public static final String TABLE_NAME = "SERVICE_CONFIGURATION";
-
-    // column Names
-    public static final String SERVICE_CONFIGURATION_ID = "SERVICE_CONFIGURATION_ID";
-
-//    public static final String IMAGE_PATH = "IMAGE_PATH";
-    public static final String LOGO_IMAGE_PATH = "LOGO_IMAGE_PATH";
-    public static final String BACKDROP_IMAGE_PATH = "BACKDROP_IMAGE_PATH";
-
-    public static final String SERVICE_NAME = "SERVICE_NAME";
-    public static final String HELPLINE_NUMBER = "HELPLINE_NUMBER";
-
-    public static final String DESCRIPTION_SHORT = "DESCRIPTION_SHORT";
-    public static final String DESCRIPTION_LONG = "DESCRIPTION_LONG";
-
-    public static final String ADDRESS = "ADDRESS";
-    public static final String CITY = "CITY";
-    public static final String PINCODE = "PINCODE";
-    public static final String LANDMARK = "LANDMARK";
-    public static final String STATE = "STATE";
-    public static final String COUNTRY = "COUNTRY";
-
-    public static final String ISO_COUNTRY_CODE = "ISO_COUNTRY_CODE";
-    public static final String ISO_LANGUAGE_CODE = "ISO_LANGUAGE_CODE";
-    public static final String ISO_CURRENCY_CODE = "ISO_CURRENCY_CODE";
-
-    public static final String SERVICE_TYPE = "SERVICE_TYPE";
-    public static final String SERVICE_LEVEL = "SERVICE_LEVEL";
-
-    public static final String LAT_CENTER = "LAT_CENTER";
-    public static final String LON_CENTER = "LON_CENTER";
-
     public static final String SERVICE_RANGE = "SERVICE_RANGE";
-
-    // to be taken out to global Service Configuration
-    public static final String IS_OFFICIAL_SERVICE_PROVIDER = "IS_OFFICIAL_SERVICE_PROVIDER";
-    public static final String IS_VERIFIED = "IS_VERIFIED";
-    public static final String SERVICE_URL = "SERVICE_URL";
 
     public static final String CREATED = "CREATED";
     public static final String UPDATED = "UPDATED";
 
+    public static final String SERVICE_NAME = "SERVICE_NAME";
 
-    // Consider Revising : Are these fields Required ?
-//    public static final String LAT_MAX = "LAT_MAX";
-//    public static final String LON_MAX = "LON_MAX";
-//    public static final String LAT_MIN = "LAT_MIN";
-//    public static final String LON_MIN = "LON_MIN";
-
-
-
-
-    // Create Table Statement
-    public static final String createTableServiceConfigurationPostgres
-            = "CREATE TABLE IF NOT EXISTS " + ServiceConfigurationGlobal.TABLE_NAME + "("
-
-            + " " + ServiceConfigurationGlobal.SERVICE_CONFIGURATION_ID + " SERIAL PRIMARY KEY,"
-
-//            + " " + ServiceConfigurationLocal.IMAGE_PATH + " text,"
-            + " " + ServiceConfigurationGlobal.LOGO_IMAGE_PATH + " text,"
-            + " " + ServiceConfigurationGlobal.BACKDROP_IMAGE_PATH + " text,"
-
-            + " " + ServiceConfigurationGlobal.SERVICE_NAME + " text,"
-            + " " + ServiceConfigurationGlobal.HELPLINE_NUMBER + " text,"
-
-            + " " + ServiceConfigurationGlobal.DESCRIPTION_SHORT + " text,"
-            + " " + ServiceConfigurationGlobal.DESCRIPTION_LONG + " text,"
-
-            + " " + ServiceConfigurationGlobal.ADDRESS + " text,"
-            + " " + ServiceConfigurationGlobal.CITY + " text,"
-            + " " + ServiceConfigurationGlobal.PINCODE + " BIGINT,"
-            + " " + ServiceConfigurationGlobal.LANDMARK + " text,"
-            + " " + ServiceConfigurationGlobal.STATE + " text,"
-            + " " + ServiceConfigurationGlobal.COUNTRY + " text,"
-
-            + " " + ServiceConfigurationGlobal.ISO_COUNTRY_CODE + " text,"
-            + " " + ServiceConfigurationGlobal.ISO_LANGUAGE_CODE + " text,"
-            + " " + ServiceConfigurationGlobal.ISO_CURRENCY_CODE + " text,"
-
-            + " " + ServiceConfigurationGlobal.SERVICE_TYPE + " INT,"
-            + " " + ServiceConfigurationGlobal.SERVICE_LEVEL + " INT,"
-
-            + " " + ServiceConfigurationGlobal.LAT_CENTER + " FLOAT,"
-            + " " + ServiceConfigurationGlobal.LON_CENTER + " FLOAT,"
-            + " " + ServiceConfigurationGlobal.SERVICE_RANGE + " FLOAT,"
-
-            + " " + ServiceConfigurationGlobal.IS_OFFICIAL_SERVICE_PROVIDER + " boolean,"
-            + " " + ServiceConfigurationGlobal.IS_VERIFIED + " boolean,"
-            + " " + ServiceConfigurationGlobal.SERVICE_URL + " text UNIQUE NOT NULL,"
-
-            + " " + ServiceConfigurationGlobal.UPDATED + " timestamp with time zone,"
-            + " " + ServiceConfigurationGlobal.CREATED + " timestamp with time zone NOT NULL DEFAULT now()"
-            + ")";
 
 
 
@@ -157,6 +70,33 @@ public class ServiceConfigurationGlobal {
     // real time variables : the values of these variables are generated in real time.
     private Double rt_distance;
 
+
+    private float rt_rating_avg;
+    private float rt_rating_count;
+
+
+
+
+
+
+    // getter and setter
+
+
+    public float getRt_rating_avg() {
+        return rt_rating_avg;
+    }
+
+    public void setRt_rating_avg(float rt_rating_avg) {
+        this.rt_rating_avg = rt_rating_avg;
+    }
+
+    public float getRt_rating_count() {
+        return rt_rating_count;
+    }
+
+    public void setRt_rating_count(float rt_rating_count) {
+        this.rt_rating_count = rt_rating_count;
+    }
 
     public String getDescriptionShort() {
         return descriptionShort;

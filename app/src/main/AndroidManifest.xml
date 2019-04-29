@@ -66,6 +66,17 @@
 
 
 
+        <activity android:name=".MarketDetail.MarketDetail"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+
+
+        <activity android:name=".Markets.Markets"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+
+
+
         <activity
             android:name=".LoginScreen"
             android:label="@string/title_activity_login"

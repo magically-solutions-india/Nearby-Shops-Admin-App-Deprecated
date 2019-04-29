@@ -2,9 +2,9 @@ package org.nearbyshops.serviceprovider.RetrofitRESTContractSDS;
 
 
 
+import org.nearbyshops.serviceprovider.Markets.Model.Endpoints.ServiceConfigurationEndPoint;
+import org.nearbyshops.serviceprovider.Markets.Model.ServiceConfigurationGlobal;
 import org.nearbyshops.serviceprovider.Model.Image;
-import org.nearbyshops.serviceprovider.ModelServiceConfig.Endpoints.ServiceConfigurationEndPoint;
-import org.nearbyshops.serviceprovider.ModelServiceConfig.ServiceConfigurationGlobal;
 
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;

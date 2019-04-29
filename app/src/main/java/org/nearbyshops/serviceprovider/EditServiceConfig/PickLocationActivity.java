@@ -17,7 +17,7 @@ import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 
 
-import org.nearbyshops.serviceprovider.ModelServiceConfig.ServiceConfigurationLocal;
+
 import org.nearbyshops.serviceprovider.Preferences.PrefServiceConfiguration;
 import org.nearbyshops.serviceprovider.R;
 

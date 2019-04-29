@@ -52,16 +52,25 @@ public class LoginFragment extends Fragment {
 
     boolean isDestroyed = false;
 
+
+
     @Inject Gson gson;
 //    @BindView(R.id.ccp) CountryCodePicker ccp;
-    @BindView(R.id.username)
-TextInputEditText username;
-    @BindView(R.id.password)
-    TextInputEditText password;
+    @BindView(R.id.username) TextInputEditText username;
+    @BindView(R.id.password) TextInputEditText password;
     @BindView(R.id.progress_bar_login) ProgressBar progressBar;
 
-    @BindView(R.id.clear) TextView clear;
-    @BindView(R.id.select_service) TextView selectAutomatic;
+
+
+//    @BindView(R.id.clear) TextView clear;
+//    @BindView(R.id.select_service) TextView selectAutomatic;
+
+
+
+
+    @BindView(R.id.change_market) TextView changeMarket;
+
+
 
 
     public LoginFragment() {
@@ -84,14 +93,26 @@ TextInputEditText username;
         ButterKnife.bind(this,rootView);
 
 
-//        if(getChildFragmentManager().findFragmentByTag(TAG_SERVICE_INDICATOR)==null)
-//        {
-//            getChildFragmentManager()
-//                    .beginTransaction()
-//                    .replace(R.id.service_indicator,new ServiceIndicatorFragment(),TAG_SERVICE_INDICATOR)
-//                    .commit();
-//        }
-//
+        if(getChildFragmentManager().findFragmentByTag(TAG_SERVICE_INDICATOR)==null)
+        {
+            getChildFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.service_indicator,new ServiceIndicatorFragment(),TAG_SERVICE_INDICATOR)
+                    .commit();
+        }
+
+
+
+
+
+        if(PrefGeneral.getServiceURL(getActivity())==null)
+        {
+            changeMarket.setText("Select Market");
+        }
+        else
+        {
+            changeMarket.setText("Change Market");
+        }
 
 
         return rootView;
@@ -432,7 +453,7 @@ TextInputEditText username;
 //
 //
 //        Call<ServiceConfigEndpoint> call = service.getServicesListSimple(
-//                (double) PrefLocation.getLatitideCurrent(getActivity()),(double)PrefLocation.getLongitudeCurrent(getActivity()),
+//                (double) PrefLocationDeprecated.getLatitideCurrent(getActivity()),(double)PrefLocationDeprecated.getLongitudeCurrent(getActivity()),
 //                null, null,null,null,null,null,
 //                " distance ",1,0
 //        );

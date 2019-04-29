@@ -1,27 +1,19 @@
-package org.nearbyshops.serviceprovider.ModelServiceConfig.Endpoints;
+package org.nearbyshops.serviceprovider.ModelReviewMarket;
 
-import org.nearbyshops.serviceprovider.ModelServiceConfig.ServiceConfigurationGlobal;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
- * Created by sumeet on 30/6/16.
+ * Created by sumeet on 9/8/16.
  */
-public class ServiceConfigurationEndPoint {
+public class FavouriteMarketEndpoint {
 
-    int itemCount;
-    int offset;
-    int limit;
-    int max_limit;
-    ArrayList<ServiceConfigurationGlobal> results;
+    private Integer itemCount;
+    private Integer offset;
+    private Integer limit;
+    private Integer max_limit;
+    private List<FavouriteMarket> results;
 
-    public ArrayList<ServiceConfigurationGlobal> getResults() {
-        return results;
-    }
-
-    public void setResults(ArrayList<ServiceConfigurationGlobal> results) {
-        this.results = results;
-    }
 
     public Integer getItemCount() {
         return itemCount;
@@ -53,5 +45,15 @@ public class ServiceConfigurationEndPoint {
 
     public void setMax_limit(Integer max_limit) {
         this.max_limit = max_limit;
+    }
+
+
+
+    public List<FavouriteMarket> getResults() {
+        return results;
+    }
+
+    public void setResults(List<FavouriteMarket> results) {
+        this.results = results;
     }
 }

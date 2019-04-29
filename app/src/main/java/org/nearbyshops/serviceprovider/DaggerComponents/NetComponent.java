@@ -35,6 +35,16 @@ import org.nearbyshops.serviceprovider.ItemCategoriesTabs.Items.ItemFragmentTwo;
 import org.nearbyshops.serviceprovider.ItemsByCategorySimple.ItemCategoriesFragmentSimple;
 import org.nearbyshops.serviceprovider.ItemsByCategorySimple.ItemImageList.ImageListFragment;
 import org.nearbyshops.serviceprovider.Login.LoginFragment;
+import org.nearbyshops.serviceprovider.Login.LoginGlobalFragment;
+import org.nearbyshops.serviceprovider.Login.ServiceIndicatorFragment;
+import org.nearbyshops.serviceprovider.MarketDetail.MarketDetailFragment;
+import org.nearbyshops.serviceprovider.MarketDetail.RateReviewDialogMarket;
+import org.nearbyshops.serviceprovider.Markets.MarketsFragmentNew;
+import org.nearbyshops.serviceprovider.Markets.ViewHolders.AdapterMarkets;
+import org.nearbyshops.serviceprovider.Markets.ViewHolders.ViewHolderConnectWithURL;
+import org.nearbyshops.serviceprovider.Markets.ViewHolders.ViewHolderMarket;
+import org.nearbyshops.serviceprovider.Markets.ViewHolders.ViewHolderSavedMarket;
+import org.nearbyshops.serviceprovider.Markets.ViewModels.MarketViewModel;
 import org.nearbyshops.serviceprovider.OrderDetail.FragmentOrderDetail;
 import org.nearbyshops.serviceprovider.OrderHistoryNew.OrdersFragmentNew;
 import org.nearbyshops.serviceprovider.Services.ServiceFragment.ServicesFragment;
@@ -224,6 +234,28 @@ public interface NetComponent {
     void Inject(FragmentOrderDetail fragmentOrderDetail);
 
     void Inject(org.nearbyshops.serviceprovider.EditServiceConfig.EditConfigurationFragment editConfigurationFragment);
+
+    void Inject(ViewHolderSavedMarket viewHolderSavedMarket);
+
+    void Inject(AdapterMarkets adapterMarkets);
+
+    void Inject(ViewHolderConnectWithURL viewHolderConnectWithURL);
+
+    void Inject(ViewHolderMarket viewHolderMarket);
+
+    void Inject(org.nearbyshops.serviceprovider.Markets.SubmitURLDialog submitURLDialog);
+
+    void Inject(MarketViewModel marketViewModel);
+
+    void Inject(LoginGlobalFragment loginGlobalFragment);
+
+    void Inject(MarketsFragmentNew marketsFragmentNew);
+
+    void Inject(MarketDetailFragment marketDetailFragment);
+
+    void Inject(RateReviewDialogMarket rateReviewDialogMarket);
+
+    void Inject(ServiceIndicatorFragment serviceIndicatorFragment);
 
 
 //    void Inject(LoginDialog loginDialog);

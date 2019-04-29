@@ -10,6 +10,10 @@
     <string name="usage_instructions_select_location">Long Click To select Location.</string>
     <string name="toast_location_not_selected">Location not selected !</string>
 
+    <string name="market_review_be_the_first_to_review">"Be the first to review and rate this Market. "</string>
+
+
+    <string name="selection_tip">Please select a market to get started</string>
 
     <string name="preference_file_name">sharedpreferencefile</string>
     <string name="preference_service_url_key">service_url</string>

@@ -19,7 +19,7 @@ import org.nearbyshops.serviceprovider.EditServiceConfig.EditConfiguration;
 import org.nearbyshops.serviceprovider.ItemSpecName.ItemSpecName;
 import org.nearbyshops.serviceprovider.ItemsByCategorySimple.ItemCategoriesSimple;
 import org.nearbyshops.serviceprovider.Login.Interfaces.NotifyAboutLogin;
-import org.nearbyshops.serviceprovider.ModelServiceConfig.ServiceConfigurationLocal;
+import org.nearbyshops.serviceprovider.Markets.Model.ServiceConfigurationLocal;
 import org.nearbyshops.serviceprovider.OrderHistoryNew.OrderHistoryNew;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.ServiceConfigurationService;

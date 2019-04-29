@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 
 import org.nearbyshops.serviceprovider.ItemCategoriesTabs.Interfaces.NotifySort;
-import org.nearbyshops.serviceprovider.ModelServiceConfig.ServiceConfigurationGlobal;
+import org.nearbyshops.serviceprovider.Markets.Model.ServiceConfigurationGlobal;
 import org.nearbyshops.serviceprovider.R;
 
 
@@ -51,10 +51,14 @@ public class SlidingLayerSortServices extends Fragment {
     int colorSelectedFilterByType = R.color.buttonColorDark;
 
 
+
     public static String SORT_BY_SERVICE_RANGE = ServiceConfigurationGlobal.SERVICE_RANGE;
     public static String SORT_BY_CREATED = ServiceConfigurationGlobal.CREATED;
     public static String SORT_BY_UPDATED = ServiceConfigurationGlobal.UPDATED;
     public static String SORT_BY_SERVICE_NAME = ServiceConfigurationGlobal.SERVICE_NAME;
+
+
+
 
     public static String SORT_DESCENDING = "DESC NULLS LAST";
     public static String SORT_ASCENDING = "ASC NULLS LAST";
