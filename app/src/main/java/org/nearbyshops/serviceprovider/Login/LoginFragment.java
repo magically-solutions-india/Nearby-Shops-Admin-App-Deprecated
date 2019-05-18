@@ -18,6 +18,7 @@ import com.google.gson.Gson;
 
 import org.nearbyshops.serviceprovider.DaggerComponentBuilder;
 import org.nearbyshops.serviceprovider.Login.Interfaces.NotifyAboutLogin;
+import org.nearbyshops.serviceprovider.Markets.Markets;
 import org.nearbyshops.serviceprovider.ModelRoles.User;
 import org.nearbyshops.serviceprovider.MyApplication;
 import org.nearbyshops.serviceprovider.R;
@@ -155,6 +156,20 @@ public class LoginFragment extends Fragment {
 //                ((ServiceIndicatorFragment)fragment).refresh();
 //            }
         }
+        else if(requestCode==567)
+        {
+
+            Fragment fragment = getChildFragmentManager()
+                    .findFragmentByTag(TAG_SERVICE_INDICATOR);
+
+            if(fragment instanceof ServiceIndicatorFragment)
+            {
+                ((ServiceIndicatorFragment)fragment).refresh();
+            }
+        }
+
+
+
     }
 
 
@@ -515,6 +530,18 @@ public class LoginFragment extends Fragment {
 //        });
 //
 //    }
+
+
+
+
+
+
+    @OnClick(R.id.change_market)
+    void changeMarketClick()
+    {
+        Intent intent = new Intent(getActivity(), Markets.class);
+        startActivityForResult(intent,567);
+    }
 
 
 

@@ -18,16 +18,23 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.google.gson.Gson;
+
 import org.nearbyshops.serviceprovider.DaggerComponentBuilder;
+import org.nearbyshops.serviceprovider.MyApplication;
+import org.nearbyshops.serviceprovider.Preferences.PrefServiceConfig;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContractSDS.ServiceDiscoveryService;
 
 import javax.inject.Inject;
 
+import okhttp3.OkHttpClient;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by sumeet on 12/8/16.
@@ -44,8 +51,14 @@ public class SubmitURLDialog extends DialogFragment implements View.OnClickListe
 
     ProgressBar progressBar;
 
+
+
     @Inject
-    ServiceDiscoveryService serviceConfigService;
+    Gson gson;
+
+
+//    @Inject
+//    ServiceDiscoveryService serviceConfigService;
 
 
     public SubmitURLDialog() {
@@ -127,7 +140,20 @@ public class SubmitURLDialog extends DialogFragment implements View.OnClickListe
     void submit_click()
     {
 
-        Call<ResponseBody> call = serviceConfigService.saveService(service_url.getText().toString());
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .baseUrl(PrefServiceConfig.getServiceURL_SDS(MyApplication.getAppContext()))
+                .client(new OkHttpClient().newBuilder().build())
+                .build();
+
+
+
+        Call<ResponseBody> call = retrofit.create(ServiceDiscoveryService.class)
+                .saveService(service_url.getText().toString());
+
+
+
 
         progressBar.setVisibility(View.VISIBLE);
 

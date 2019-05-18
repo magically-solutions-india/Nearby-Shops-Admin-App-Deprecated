@@ -20,6 +20,7 @@ import com.squareup.picasso.Picasso;
 
 
 import org.nearbyshops.serviceprovider.Markets.Model.ServiceConfigurationGlobal;
+import org.nearbyshops.serviceprovider.Preferences.PrefServiceConfig;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.Preferences.PrefGeneral;
 
@@ -166,7 +167,7 @@ class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
 
 
-                String imagePath = PrefGeneral.getServiceURL_SDS(fragment.getActivity())
+                String imagePath = PrefServiceConfig.getServiceURL_SDS(fragment.getActivity())
                         + "/api/v1/ServiceConfiguration/Image/three_hundred_" + service.getLogoImagePath() + ".jpg";
 
 //                System.out.println("Service LOGO : " + imagePath);

@@ -14,6 +14,8 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 
+import com.google.gson.Gson;
+
 import org.nearbyshops.serviceprovider.DaggerComponentBuilder;
 import org.nearbyshops.serviceprovider.Interfaces.NotifyLocation;
 import org.nearbyshops.serviceprovider.Interfaces.NotifySearch;
@@ -22,6 +24,10 @@ import org.nearbyshops.serviceprovider.ItemCategoriesTabs.Interfaces.NotifyTitle
 import org.nearbyshops.serviceprovider.ItemCategoriesTabs.Interfaces.ToggleFab;
 import org.nearbyshops.serviceprovider.Markets.Model.Endpoints.ServiceConfigurationEndPoint;
 import org.nearbyshops.serviceprovider.Markets.Model.ServiceConfigurationGlobal;
+import org.nearbyshops.serviceprovider.Markets.api.ServiceConfigService;
+import org.nearbyshops.serviceprovider.MyApplication;
+import org.nearbyshops.serviceprovider.Preferences.PrefLocation;
+import org.nearbyshops.serviceprovider.Preferences.PrefServiceConfig;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContractSDS.ServiceDiscoveryService;
 import org.nearbyshops.serviceprovider.Services.SlidingLayerSort.UtilitySortServices;
@@ -32,19 +38,26 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class ServicesFragment extends Fragment implements Adapter.NotifyConfirmOrder, SwipeRefreshLayout.OnRefreshListener ,NotifySort,NotifySearch, NotifyLocation {
 
 
+
+    @Inject
+    Gson gson;
+
 //    @Inject
 //    OrderServicePFS orderService;
 
-    @Inject
-    ServiceDiscoveryService serviceConfigService;
+//    @Inject
+//    ServiceDiscoveryService serviceConfigService;
 
     RecyclerView recyclerView;
     Adapter adapter;
@@ -290,13 +303,25 @@ public class ServicesFragment extends Fragment implements Adapter.NotifyConfirmO
 
 
 
-        Call<ServiceConfigurationEndPoint> call = serviceConfigService.getShopListSimple(
-                    UtilityLocationServices.getLatitude(getActivity()),
-                    UtilityLocationServices.getLongitude(getActivity()),
-                    null,null,
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .baseUrl(PrefServiceConfig.getServiceURL_SDS(MyApplication.getAppContext()))
+                .client(new OkHttpClient().newBuilder().build())
+                .build();
+
+
+
+
+//        filterOfficial,filterVerified,
+//                serviceType,
+
+
+        Call<ServiceConfigurationEndPoint> call = retrofit.create(ServiceConfigService.class).getShopListSimple(
+                    PrefLocation.getLatitude(getActivity()),
+                    PrefLocation.getLongitude(getActivity()),
+                    null,
                     searchQuery,
-                    filterOfficial,filterVerified,
-                    serviceType,
                     current_sort,limit,offset);
 
 

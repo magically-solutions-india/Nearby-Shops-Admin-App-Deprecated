@@ -20,6 +20,20 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class PrefServiceConfig {
 
+
+    public static final String SDS_URL_NEARBY_SHOPS = "http://sds.nearbyshops.org";
+    public static final String SDS_URL_LOCAL_HOTSPOT = "http://192.168.43.73:5125";
+
+
+    // to change your sds url declare a constant above and assign its value to service_url_sds given below
+    public static final String SERVICE_URL_SDS = SDS_URL_NEARBY_SHOPS;
+
+
+
+
+
+
+
     // simple or advanced at service selection screen
     // role selected at login screen
 
@@ -28,12 +42,6 @@ public class PrefServiceConfig {
     public static final int SERVICE_SELECT_MODE_SIMPLE = 1;
     public static final int SERVICE_SELECT_MODE_ADVANCED = 2;
 
-
-    public static final String DEFAULT_SDS_URL = "http://sds.nearbyshops.org";
-    public static final String DEFAULT_SDS_URL_LOCAL_HOTSPOT = "http://192.168.43.73:5125";
-
-
-    public static final String DEFAULT_SDS_URL_BACKUP = "http://192.168.1.36:5600";
 
     private static final String TAG_PREF_CONFIG = "configuration";
     private static final String TAG_SDS_URL = "url_for_sds";
@@ -112,7 +120,7 @@ public class PrefServiceConfig {
 
         //service_url = "http://localareademo-env.ap-southeast-1.elasticbeanstalk.com";
 
-        return sharedPref.getString(TAG_SDS_URL, DEFAULT_SDS_URL);
+        return sharedPref.getString(TAG_SDS_URL, SERVICE_URL_SDS);
     }
 
 

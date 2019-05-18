@@ -8,6 +8,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import org.nearbyshops.serviceprovider.MyApplication;
+import org.nearbyshops.serviceprovider.Preferences.PrefServiceConfig;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.AdminService;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.DistributorAccountService;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.ItemCategoryService;
@@ -169,32 +170,34 @@ public class NetModule {
 
 
 
-    @Provides @Named("sds")
-    Retrofit provideRetrofitSDS(Gson gson, OkHttpClient okHttpClient) {
 
-        //        .client(okHttpClient)
-
-//        Log.d("applog","Retrofit : " + UtilityGeneral.getServiceURL_SDS(MyApplication.getAppContext()));
-
-
-        return new Retrofit.Builder()
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .baseUrl(PrefGeneral.getServiceURL_SDS(MyApplication.getAppContext()))
-                .build();
-    }
-
-
-
-
+//
+//    @Provides @Named("sds")
+//    Retrofit provideRetrofitSDS(Gson gson, OkHttpClient okHttpClient) {
+//
+//        //        .client(okHttpClient)
+//
+////        Log.d("applog","Retrofit : " + UtilityGeneral.getServiceURL_SDS(MyApplication.getAppContext()));
+//
+//
+//        return new Retrofit.Builder()
+//                .addConverterFactory(GsonConverterFactory.create(gson))
+//                .baseUrl(PrefServiceConfig.getServiceURL_SDS(MyApplication.getAppContext()))
+//                .build();
+//    }
 
 
 
-    @Provides
-    ServiceDiscoveryService provideServiceConfig(@Named("sds")Retrofit retrofit)
-    {
-        return retrofit.create(ServiceDiscoveryService.class);
-    }
 
+
+//
+//
+//    @Provides
+//    ServiceDiscoveryService provideServiceConfig(@Named("sds")Retrofit retrofit)
+//    {
+//        return retrofit.create(ServiceDiscoveryService.class);
+//    }
+//
 
 
 

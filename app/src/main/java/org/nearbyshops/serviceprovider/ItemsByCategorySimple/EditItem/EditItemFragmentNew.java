@@ -908,13 +908,7 @@ public class EditItemFragmentNew extends Fragment implements AdapterItemImages.n
             } else {
                 super.onActivityResult(requestCode, resultCode, result);
             }
-
         }
-
-
-
-
-
     }
 
 
@@ -944,7 +938,9 @@ public class EditItemFragmentNew extends Fragment implements AdapterItemImages.n
         // this function takes the file from the source URI and saves in into the destination URI location.
         UCrop.of(sourceUri, destinationUri)
                 .withOptions(options)
+                .withMaxResultSize(1500,1500)
                 .start(context,this);
+
 
         //.withMaxResultSize(400,300)
         //.withMaxResultSize(500, 400)
