@@ -2,9 +2,9 @@ package org.nearbyshops.serviceprovider.ItemSubmissionsList.ImageUpdates;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.RecyclerView;
+import androidx.fragment.app.Fragment;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -200,7 +200,7 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
             Drawable drawable = ContextCompat.getDrawable(context,R.drawable.ic_nature_people_white_48px);
             String imagePath = PrefGeneral.getServiceURL(context) + "/api/v1/ItemImage/Image/" + "three_hundred_"+ itemImageSubmission.getItemImage().getImageFilename() + ".jpg";
 
-            Picasso.with(context)
+            Picasso.get()
                     .load(imagePath)
                     .placeholder(drawable)
                     .into(holder.profileImage);
@@ -267,7 +267,7 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
             Drawable drawable = ContextCompat.getDrawable(context,R.drawable.ic_nature_people_white_48px);
             String imagePath = PrefGeneral.getServiceURL(context) + "/api/v1/ItemImage/Image/" + "three_hundred_"+ itemImage.getImageFilename() + ".jpg";
 
-            Picasso.with(context)
+            Picasso.get()
                     .load(imagePath)
                     .placeholder(drawable)
                     .into(holder.profileImage);

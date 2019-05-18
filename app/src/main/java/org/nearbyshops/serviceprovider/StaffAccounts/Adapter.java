@@ -2,8 +2,8 @@ package org.nearbyshops.serviceprovider.StaffAccounts;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.RecyclerView;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -64,7 +64,7 @@ class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
         Drawable drawable = ContextCompat.getDrawable(context,R.drawable.ic_nature_people_white_48px);
         String imagePath = PrefGeneral.getServiceURL(context) + "/api/v1/Staff/Image/" + "three_hundred_"+ staff.getProfileImageURL() + ".jpg";
 
-        Picasso.with(context)
+        Picasso.get()
                 .load(imagePath)
                 .placeholder(drawable)
                 .into(holder.profilePicture);

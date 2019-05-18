@@ -1,10 +1,10 @@
 package org.nearbyshops.serviceprovider.Markets.ViewModels;
 
 import android.app.Application;
-import android.arch.lifecycle.AndroidViewModel;
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
-import android.support.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+import androidx.annotation.NonNull;
 
 import com.google.gson.Gson;
 
@@ -20,7 +20,6 @@ import org.nearbyshops.serviceprovider.Markets.api.ServiceConfigService;
 import org.nearbyshops.serviceprovider.ModelRoles.User;
 import org.nearbyshops.serviceprovider.MyApplication;
 import org.nearbyshops.serviceprovider.Preferences.PrefLocation;
-import org.nearbyshops.serviceprovider.Preferences.PrefLocationDeprecated;
 import org.nearbyshops.serviceprovider.Preferences.PrefLoginGlobal;
 import org.nearbyshops.serviceprovider.Preferences.PrefServiceConfig;
 

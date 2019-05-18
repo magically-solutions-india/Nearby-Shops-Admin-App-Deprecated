@@ -2,10 +2,10 @@ package org.nearbyshops.serviceprovider.Login;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.graphics.drawable.VectorDrawableCompat;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
+import androidx.annotation.Nullable;
+import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
+import androidx.fragment.app.Fragment;
+import androidx.core.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -168,7 +168,7 @@ public class ServiceIndicatorFragment extends Fragment {
                                 R.drawable.ic_nature_people_white_48px, getActivity().getTheme());
 
 
-                Picasso.with(getActivity())
+                Picasso.get()
                         .load(imagePath)
                         .placeholder(placeholder)
                         .into(marketPhoto);

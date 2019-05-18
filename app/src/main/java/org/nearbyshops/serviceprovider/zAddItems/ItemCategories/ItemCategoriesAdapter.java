@@ -3,8 +3,8 @@ package org.nearbyshops.serviceprovider.zAddItems.ItemCategories;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.RecyclerView;
+import androidx.appcompat.app.AlertDialog;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
@@ -121,7 +121,9 @@ public class ItemCategoriesAdapter extends RecyclerView.Adapter<ItemCategoriesAd
 
         if(!dataset.get(position).getImagePath().equals(""))
         {
-            Picasso.with(context).load(imagePath).into(holder.categoryImage);
+            Picasso.get()
+                    .load(imagePath)
+                    .into(holder.categoryImage);
         }
 
 

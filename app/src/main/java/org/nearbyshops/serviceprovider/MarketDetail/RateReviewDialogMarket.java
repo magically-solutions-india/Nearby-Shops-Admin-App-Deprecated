@@ -3,10 +3,10 @@ package org.nearbyshops.serviceprovider.MarketDetail;
 import android.app.Dialog;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.graphics.drawable.VectorDrawableCompat;
-import android.support.v4.app.DialogFragment;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
+import androidx.fragment.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -165,7 +165,8 @@ public class RateReviewDialogMarket extends DialogFragment {
                     .create(getResources(),
                             R.drawable.ic_nature_people_white_48px, getActivity().getTheme());
 
-            Picasso.with(getActivity()).load(imagepath)
+            Picasso.get()
+                    .load(imagepath)
                     .placeholder(placeholder)
                     .into(member_profile_image);
         }
@@ -313,7 +314,8 @@ public class RateReviewDialogMarket extends DialogFragment {
                     .create(getResources(),
                             R.drawable.ic_nature_people_white_48px, null);
 
-            Picasso.with(getActivity()).load(imagepath)
+            Picasso.get()
+                    .load(imagepath)
                     .placeholder(placeholder)
                     .into(member_profile_image);
         }

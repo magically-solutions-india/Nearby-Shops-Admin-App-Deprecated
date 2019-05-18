@@ -4,14 +4,15 @@ apply plugin: 'com.android.application'
 android {
 
 
-    signingConfigs {
-        release {
-            keyAlias 'sumeet'
-            keyPassword 'abcde23870'
-            storeFile file('/media/sumeet/data/BookDiscovery/keystore/androidplaystore.jks')
-            storePassword 'bluetree'
-        }
-    }
+
+//    signingConfigs {
+//        release {
+//            keyAlias 'sumeet'
+//            keyPassword 'abcde12345'
+//            storeFile file('/media/abcde.jks')
+//            storePassword '12345'
+//        }
+//    }
 
 
 
@@ -47,7 +48,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
+//            signingConfig signingConfigs.release
         }
         debug {
         }
@@ -83,15 +84,15 @@ dependencies {
     implementation 'com.github.stfalcon:smsverifycatcher:0.3.2'
 
     implementation 'com.github.arimorty:floatingsearchview:2.1.1'
-    implementation 'com.android.support:multidex:1.0.3'
-    implementation 'com.android.support:support-v4:28.0.0'
-    implementation 'com.android.support:recyclerview-v7:28.0.0'
-    implementation 'com.android.support:cardview-v7:28.0.0'
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'com.android.support:design:28.0.0'
-    implementation 'com.android.support:palette-v7:28.0.0'
+    implementation 'androidx.multidex:multidex:2.0.1'
+//    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.palette:palette:1.0.0'
 
-    implementation 'com.jakewharton:butterknife:8.8.1'
+
 //    compile 'com.jakewharton:butterknife:7.0.1'
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
@@ -99,7 +100,7 @@ dependencies {
 //    implementation 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
 
     implementation 'com.squareup.okhttp3:okhttp:3.11.0'
-    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'com.squareup.picasso:picasso:2.71828'
 
     implementation 'com.yalantis:ucrop:2.2.0'
 //    implementation 'com.google.android.gms:play-services-maps:15.0.1'
@@ -113,7 +114,7 @@ dependencies {
 //    implementation 'io.reactivex:rxjava:1.2.3'
 //    implementation 'com.jakewharton.rxbinding:rxbinding:1.0.0'
 
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
     implementation 'commons-validator:commons-validator:1.6'
     implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
@@ -124,7 +125,9 @@ dependencies {
 
     implementation 'frankiesardo:icepick:3.2.0'
     annotationProcessor 'frankiesardo:icepick-processor:3.2.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+    implementation 'com.jakewharton:butterknife:10.1.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
 
     
     implementation 'com.airbnb.android:lottie:2.2.5'

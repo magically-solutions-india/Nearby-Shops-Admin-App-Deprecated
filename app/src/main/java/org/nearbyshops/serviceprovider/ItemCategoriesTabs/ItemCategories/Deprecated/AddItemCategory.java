@@ -3,11 +3,11 @@ package org.nearbyshops.serviceprovider.ItemCategoriesTabs.ItemCategories.Deprec
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.NonNull;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import com.google.android.material.snackbar.Snackbar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -175,7 +175,9 @@ public class AddItemCategory extends AppCompatActivity implements Callback<Image
 
     void loadImage(String imagePath) {
 
-        Picasso.with(this).load(PrefGeneral.getServiceURL(null) + IMAGES_END_POINT_URL + imagePath).into(resultView);
+        Picasso.get()
+                .load(PrefGeneral.getServiceURL(null) + IMAGES_END_POINT_URL + imagePath)
+                .into(resultView);
     }
 
 

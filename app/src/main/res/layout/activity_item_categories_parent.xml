@@ -18,7 +18,7 @@
 
     -->
 
-    <android.support.design.widget.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:animateLayoutChanges="true"
         android:theme="@style/AppTheme.AppBarOverlay"
         android:fitsSystemWindows="true"
@@ -26,7 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <android.support.v7.widget.Toolbar
+        <androidx.appcompat.widget.Toolbar
             app:popupTheme="@style/AppTheme.PopupOverlay"
             app:layout_scrollFlags = "scroll|enterAlways"
             android:id="@+id/toolbar"
@@ -35,7 +35,7 @@
             android:background="?attr/colorPrimary" />
 
 
-        <android.support.design.widget.TabLayout
+        <com.google.android.material.tabs.TabLayout
             android:layout_below="@id/appbar"
             android:visibility="gone"
             android:background="@color/buttonColorDark"
@@ -51,7 +51,7 @@
             app:tabBackground="@color/buttonColorDark" />
 
         <!-- android:text="//Groceries\n\n- Rice \n- Basmati"-->
-    </android.support.design.widget.AppBarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
 
 
@@ -94,7 +94,7 @@
 
 
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_below="@id/usage_instructions"
         android:id="@+id/recyclerViewItemCategories"
         android:layout_width="match_parent"

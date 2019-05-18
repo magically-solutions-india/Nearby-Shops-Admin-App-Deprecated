@@ -7,17 +7,17 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.graphics.drawable.VectorDrawableCompat;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.widget.SwipeRefreshLayout;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.core.content.ContextCompat;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import android.support.v7.graphics.Palette;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import androidx.palette.graphics.Palette;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -357,11 +357,12 @@ public class MarketDetailFragment extends Fragment implements SwipeRefreshLayout
                 .create(getResources(),
                         R.drawable.ic_nature_people_white_48px, getActivity().getTheme());
 
-        Picasso.with(getActivity()).load(imagePath)
+        Picasso.get()
+                .load(imagePath)
                 .placeholder(placeholder)
                 .into(shopProfilePhoto);
 
-        Picasso.with(getActivity())
+        Picasso.get()
                 .load(imagePath)
                 .placeholder(placeholder)
                 .into(this);
@@ -453,13 +454,12 @@ public class MarketDetailFragment extends Fragment implements SwipeRefreshLayout
         }
     }
 
-
-
-
     @Override
-    public void onBitmapFailed(Drawable errorDrawable) {
+    public void onBitmapFailed(Exception e, Drawable errorDrawable) {
 
     }
+
+
 
     @Override
     public void onPrepareLoad(Drawable placeHolderDrawable) {
@@ -1029,7 +1029,7 @@ public class MarketDetailFragment extends Fragment implements SwipeRefreshLayout
                                                 R.drawable.ic_nature_people_white_48px,null);
 
 
-                                Picasso.with(getActivity())
+                                Picasso.get()
                                         .load(imagepath)
                                         .placeholder(placeholder)
                                         .into(member_profile_image);

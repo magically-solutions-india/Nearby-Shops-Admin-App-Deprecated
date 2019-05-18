@@ -4,10 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.support.constraint.ConstraintLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.RecyclerView;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.Fragment;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -192,7 +192,7 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             String image_url = PrefGeneral.getServiceURL(context) + "/api/v1/User/Image/" + tripRequest.getProfileImagePath();
 
 
-            Picasso.with(context)
+            Picasso.get()
                     .load(imagePath)
                     .placeholder(drawable)
                     .into(holder.profileImage);

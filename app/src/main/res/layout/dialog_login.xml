@@ -43,7 +43,7 @@
         android:layout_height="match_parent"/>
     
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
 
         android:layout_below="@id/dialog_dismiss_icon"
         android:id="@+id/text_input_username"
@@ -56,11 +56,11 @@
             android:layout_height="wrap_content"
             android:hint="Enter Username"/>
 
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
 
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_below="@id/text_input_username"
         android:id="@+id/text_input_password"
         android:layout_width="match_parent"
@@ -73,7 +73,7 @@
             android:layout_height="wrap_content"
             android:hint="Enter Password"/>
 
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
     
 

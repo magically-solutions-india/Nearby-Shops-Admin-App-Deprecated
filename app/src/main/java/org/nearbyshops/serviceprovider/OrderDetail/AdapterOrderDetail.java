@@ -2,10 +2,10 @@ package org.nearbyshops.serviceprovider.OrderDetail;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.constraint.ConstraintLayout;
-import android.support.graphics.drawable.VectorDrawableCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.RecyclerView;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -324,7 +324,7 @@ class AdapterOrderDetail extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
                         .create(context.getResources(),
                                 R.drawable.ic_nature_people_white_48px, context.getTheme());
 
-                Picasso.with(context)
+                Picasso.get()
                         .load(imagePath)
                         .placeholder(placeholder)
                         .into(holder.shopLogo);
@@ -443,7 +443,7 @@ class AdapterOrderDetail extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
                         R.drawable.nature_people, context.getTheme());
 
 
-        Picasso.with(context)
+        Picasso.get()
                 .load(imagePath)
                 .placeholder(placeholder)
                 .into(holder.itemImage);

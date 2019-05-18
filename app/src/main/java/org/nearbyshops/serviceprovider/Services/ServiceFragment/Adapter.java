@@ -4,10 +4,10 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.graphics.drawable.VectorDrawableCompat;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.RecyclerView;
+import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
+import androidx.fragment.app.Fragment;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +22,6 @@ import com.squareup.picasso.Picasso;
 import org.nearbyshops.serviceprovider.Markets.Model.ServiceConfigurationGlobal;
 import org.nearbyshops.serviceprovider.Preferences.PrefServiceConfig;
 import org.nearbyshops.serviceprovider.R;
-import org.nearbyshops.serviceprovider.Preferences.PrefGeneral;
 
 import java.util.List;
 
@@ -178,7 +177,7 @@ class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
 
 
-                Picasso.with(fragment.getActivity())
+                Picasso.get()
                         .load(imagePath)
                         .placeholder(placeholder)
                         .into(holder.serviceLogo);

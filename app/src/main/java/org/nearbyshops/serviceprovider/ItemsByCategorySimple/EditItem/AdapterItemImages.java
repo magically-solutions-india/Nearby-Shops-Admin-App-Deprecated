@@ -2,9 +2,9 @@ package org.nearbyshops.serviceprovider.ItemsByCategorySimple.EditItem;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.graphics.drawable.VectorDrawableCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
+import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -98,7 +98,8 @@ public class AdapterItemImages extends RecyclerView.Adapter<RecyclerView.ViewHol
                     .create(context.getResources(),
                             R.drawable.ic_nature_people_white_48px, context.getTheme());
 
-            Picasso.with(context).load(imagePath)
+            Picasso.get()
+                    .load(imagePath)
                     .placeholder(placeholder)
                     .into(holder.itemImage);
         }

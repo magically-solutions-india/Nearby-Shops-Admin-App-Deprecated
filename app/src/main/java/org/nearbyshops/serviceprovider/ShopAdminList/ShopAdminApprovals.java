@@ -2,21 +2,19 @@ package org.nearbyshops.serviceprovider.ShopAdminList;
 
 import android.app.SearchManager;
 import android.content.Intent;
-import android.support.design.widget.TabLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.MenuItemCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SearchView;
-import android.support.v7.widget.Toolbar;
+import com.google.android.material.tabs.TabLayout;
 
-import android.support.v4.view.ViewPager;
+import androidx.fragment.app.Fragment;
+import androidx.core.view.MenuItemCompat;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
+
+import androidx.viewpager.widget.ViewPager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.wunderlist.slidinglayer.SlidingLayer;
 
@@ -25,7 +23,6 @@ import org.nearbyshops.serviceprovider.ItemCategoriesTabs.Interfaces.NotifySort;
 import org.nearbyshops.serviceprovider.ItemCategoriesTabs.Interfaces.NotifyTitleChanged;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.ShopAdminList.SlidingLayerSort.SlidingLayerSortShopAdmin;
-import org.nearbyshops.serviceprovider.ShopsList.SlidingLayerSort.SlidingLayerSortShops;
 
 
 import butterknife.BindView;

@@ -2,7 +2,7 @@ package org.nearbyshops.serviceprovider.ItemSubmissionsList.SubmissionDetails;
 
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -120,7 +120,7 @@ public class SubmissionDetailsFragment extends Fragment {
 
             String iamgepath = PrefGeneral.getServiceURL(getContext()) + "/api/v1/Item/Image/" + item.getItemImageURL();
 
-            Picasso.with(getContext())
+            Picasso.get()
                     .load(iamgepath)
                     .into(itemImage);
 

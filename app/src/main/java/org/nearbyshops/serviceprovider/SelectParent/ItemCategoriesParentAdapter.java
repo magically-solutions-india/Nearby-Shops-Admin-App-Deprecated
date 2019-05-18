@@ -2,10 +2,10 @@ package org.nearbyshops.serviceprovider.SelectParent;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.constraint.ConstraintLayout;
-import android.support.graphics.drawable.VectorDrawableCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.RecyclerView;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -136,7 +136,7 @@ public class ItemCategoriesParentAdapter extends RecyclerView.Adapter<ItemCatego
 
         Drawable compat = ContextCompat.getDrawable(context,R.drawable.ic_nature_people_white_48px);
 
-        Picasso.with(context)
+        Picasso.get()
                 .load(imagePath)
                 .placeholder(compat)
                 .into(holder.categoryImage);

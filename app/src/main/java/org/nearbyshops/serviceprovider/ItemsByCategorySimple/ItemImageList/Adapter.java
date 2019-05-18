@@ -2,10 +2,10 @@ package org.nearbyshops.serviceprovider.ItemsByCategorySimple.ItemImageList;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.constraint.ConstraintLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.RecyclerView;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.Fragment;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -193,7 +193,7 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             String imagePath = PrefGeneral.getServiceURL(context) + "/api/v1/ItemImage/Image/five_hundred_" + taxiImage.getImageFilename() + ".jpg";
 
 
-            Picasso.with(context)
+            Picasso.get()
                     .load(imagePath)
                     .placeholder(drawable)
                     .into(holder.taxiImage);

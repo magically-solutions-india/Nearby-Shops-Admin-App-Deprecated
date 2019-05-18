@@ -2,12 +2,12 @@ package org.nearbyshops.serviceprovider.zDistributorAccounts.DistributorDetail;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.Snackbar;
-import android.support.graphics.drawable.VectorDrawableCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SwitchCompat;
-import android.support.v7.widget.Toolbar;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import com.google.android.material.snackbar.Snackbar;
+import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
+import androidx.appcompat.widget.Toolbar;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -112,7 +112,8 @@ public class DistributorDetail extends AppCompatActivity {
                 .create(getResources(),
                         R.drawable.ic_nature_people_white_48px, getTheme());
 
-        Picasso.with(this).load(imagePath)
+        Picasso.get()
+                .load(imagePath)
                 .placeholder(drawable)
                 .into(profileImage);
 

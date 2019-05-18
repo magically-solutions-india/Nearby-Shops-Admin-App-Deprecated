@@ -2,11 +2,11 @@ package org.nearbyshops.serviceprovider.ItemSubmissionsList;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.graphics.drawable.VectorDrawableCompat;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
+import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
+import androidx.fragment.app.Fragment;
+import androidx.core.content.ContextCompat;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -214,7 +214,7 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
             Drawable drawable = ContextCompat.getDrawable(context,R.drawable.ic_nature_people_white_48px);
             String imagePath = PrefGeneral.getServiceURL(context) + "/api/v1/Item/Image/" + "three_hundred_"+ item.getItemImageURL() + ".jpg";
 
-            Picasso.with(context)
+            Picasso.get()
                     .load(imagePath)
                     .placeholder(drawable)
                     .into(holder.itemImage);
@@ -267,7 +267,8 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
                 .create(context.getResources(),
                         R.drawable.ic_nature_people_white_48px, context.getTheme());
 
-        Picasso.with(context).load(imagePath)
+        Picasso.get()
+                .load(imagePath)
                 .placeholder(drawable)
                 .into(holder.itemImage);
 
