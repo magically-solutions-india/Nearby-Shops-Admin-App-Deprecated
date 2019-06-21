@@ -1,3 +1,13 @@
+
+Important : Commertial Use Restricted !
+---------------------------------------------
+
+Nearby Shops is Nonprofit open-source project. We want people to use this project for good purpose and not use it to create another business like amazon and wallmart which monopolise markets and stifle fair compitition and harms people. 
+
+Therefore commertial Use of Nearby Shops open-source project is restricted. Please read more about it on this link : https://blog.nearbyshops.org/nearby-shops-software-license-usage-terms/
+
+
+
 Nearby Shops Admin android app
 ====================================
 
@@ -5,6 +15,8 @@ Nearby Shops is a multi-vendor mobile based e-commerce platform. Multi-vendor me
 Its designed primarily for local shopping needs like selling grocery, fruits and vegetables. 
 
 It has 3 android apps each for End-User, Shop-Owner and adminstrator and a JSON based REST API at the backend. 
+
+
 
 
 Screenshots
