@@ -12,6 +12,16 @@ It has 3 android apps each for End-User, Shop-Owner and adminstrator and a JSON 
 
 
 
+A note to potential Contributors
+----------------------------------
+For those who are interested in contributing to this repo you are welcome ... but source code in this repository is due for some refactoring. Which will make it easy to understand and work upon. You may want to wait until the refactoring is done. 
+
+Until then feel free to review the code and suggest best technologies/ libraries to use and how can we improve the code in this repository. 
+
+To give your suggestion ... you can create an Issue or also post on our forum ... 
+
+
+
 
 Screenshots
 --------------
