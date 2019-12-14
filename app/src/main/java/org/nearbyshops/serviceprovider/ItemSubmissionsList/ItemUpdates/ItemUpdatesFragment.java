@@ -24,7 +24,7 @@ import org.nearbyshops.serviceprovider.ItemSubmissionsList.SubmissionDetails.Sub
 import org.nearbyshops.serviceprovider.ItemSubmissionsList.SubmissionDetails.SubmissionDetailsFragment;
 import org.nearbyshops.serviceprovider.Model.Item;
 import org.nearbyshops.serviceprovider.Model.ItemImage;
-import org.nearbyshops.serviceprovider.ModelItemSpecification.EndPoints.ItemImageEndPoint;
+import org.nearbyshops.serviceprovider.ModelEndPoints.ItemImageEndPoint;
 import org.nearbyshops.serviceprovider.ModelItemSubmission.Endpoints.ItemImageSubmissionEndPoint;
 import org.nearbyshops.serviceprovider.ModelItemSubmission.Endpoints.ItemSubmissionEndPoint;
 import org.nearbyshops.serviceprovider.ModelItemSubmission.ItemImageSubmission;

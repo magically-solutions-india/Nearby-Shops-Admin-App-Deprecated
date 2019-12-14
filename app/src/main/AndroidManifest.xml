@@ -133,6 +133,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.nearbyshops.serviceprovider.AdminDashboard.AdminHome" />
         </activity>
+
+
         <activity
             android:name=".DetachedTabs.DetachedTabs"
             android:label="@string/title_activity_item_categories_tabs"
@@ -142,6 +144,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.nearbyshops.serviceprovider.AdminDashboard.AdminHome" />
         </activity>
+
         <activity
             android:name=".ItemCategoriesTabs.Items.Deprecated.AddItem"
             android:label="Add Item"
@@ -151,6 +154,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.nearbyshops.serviceprovider.ItemCategoriesTabs.ItemCategoriesTabs" />
         </activity>
+
+
+
         <activity
             android:name=".ItemCategoriesTabs.Items.Deprecated.EditItemOld"
             android:label="Edit Item"
@@ -271,7 +277,7 @@
                 android:value="org.nearbyshops.serviceprovider.AdminDashboard.AdminHome" />
         </activity>
         <activity
-            android:name=".ItemsByCategorySimple.EditItemOld.EditItemOld"
+            android:name=".EditItemOld.EditItemOld"
             android:label="Edit Item"
             android:parentActivityName=".AdminDashboard.AdminHome"
             android:theme="@style/AppTheme.NoActionBar">
@@ -280,7 +286,7 @@
                 android:value="org.nearbyshops.serviceprovider.AdminDashboard.AdminHome" />
         </activity>
         <activity
-            android:name=".ItemsByCategorySimple.EditItemCategory.EditItemCategory"
+            android:name=".EditItemCategory.EditItemCategory"
             android:label="Edit Item Category"
             android:parentActivityName=".AdminDashboard.AdminHome"
             android:theme="@style/AppTheme.NoActionBar">
@@ -309,10 +315,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.nearbyshops.serviceprovider.AdminDashboard.AdminHome" />
         </activity>
+
+
         <activity
             android:name=".StaffHome.StaffHome"
             android:label="@string/title_activity_staff_home"
             android:theme="@style/AppTheme.NoActionBar" />
+
+
         <activity
             android:name=".StaffHome.EditStaffSelf.EditStaffSelf"
             android:label="Edit Profile"
@@ -375,7 +385,7 @@
 
 
         <activity
-            android:name=".ItemsByCategorySimple.EditItem.EditItem"
+            android:name=".EditItem.EditItem"
             android:label="Edit Item"
             android:parentActivityName=".AdminDashboard.AdminHome"
             android:theme="@style/AppTheme.NoActionBar">
@@ -385,7 +395,7 @@
         </activity>
 
         <activity
-            android:name=".ItemsByCategorySimple.EditItemImage.EditItemImage"
+            android:name=".EditItemImage.EditItemImage"
             android:label="Edit Item Image"
             android:parentActivityName=".AdminDashboard.AdminHome"
             android:theme="@style/AppTheme.NoActionBar">
@@ -393,6 +403,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".AdminDashboard.AdminHome" />
         </activity>
+
+
+
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:screenOrientation="fullSensor"
@@ -478,7 +491,7 @@
 
 
         <activity
-            android:name=".EditProfile.EditProfile"
+            android:name=".EditProfileStaff.EditProfileStaff"
             android:label="Edit Profile"
             android:parentActivityName=".AdminDashboard.AdminHome"
             android:theme="@style/AppTheme.NoActionBar">
@@ -492,12 +505,12 @@
 
         <activity
             android:theme="@style/AppTheme.NoActionBar"
-            android:name=".EditProfile.ChangeEmail.ChangeEmail"
+            android:name=".EditProfileStaff.ChangeEmail.ChangeEmail"
             android:label="Change E-mail"
-            android:parentActivityName=".EditProfile.EditProfile">
+            android:parentActivityName=".EditProfileStaff.EditProfileStaff">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".EditProfile.EditProfile" />
+                android:value=".EditProfileStaff.EditProfileStaff" />
         </activity>
 
 
@@ -506,12 +519,12 @@
 
         <activity
             android:theme="@style/AppTheme.NoActionBar"
-            android:name=".EditProfile.ChangePhone.ChangePhone"
+            android:name=".EditProfileStaff.ChangePhone.ChangePhone"
             android:label="Change Phone"
-            android:parentActivityName=".EditProfile.EditProfile">
+            android:parentActivityName=".EditProfileStaff.EditProfileStaff">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".EditProfile.EditProfile" />
+                android:value=".EditProfileStaff.EditProfileStaff" />
         </activity>
 
 

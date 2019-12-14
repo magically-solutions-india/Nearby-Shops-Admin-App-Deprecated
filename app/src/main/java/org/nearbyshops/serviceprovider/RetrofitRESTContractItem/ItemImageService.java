@@ -3,7 +3,7 @@ package org.nearbyshops.serviceprovider.RetrofitRESTContractItem;
 
 import org.nearbyshops.serviceprovider.Model.Image;
 import org.nearbyshops.serviceprovider.Model.ItemImage;
-import org.nearbyshops.serviceprovider.ModelItemSpecification.EndPoints.ItemImageEndPoint;
+import org.nearbyshops.serviceprovider.ModelEndPoints.ItemImageEndPoint;
 
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;

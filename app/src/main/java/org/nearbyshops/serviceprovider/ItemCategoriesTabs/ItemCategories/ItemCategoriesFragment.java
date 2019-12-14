@@ -24,8 +24,8 @@ import org.nearbyshops.serviceprovider.ItemCategoriesTabs.Interfaces.NotifyFabCl
 import org.nearbyshops.serviceprovider.ItemCategoriesTabs.Interfaces.NotifySort;
 import org.nearbyshops.serviceprovider.ItemCategoriesTabs.Interfaces.NotifyTitleChanged;
 import org.nearbyshops.serviceprovider.ItemCategoriesTabs.Interfaces.ToggleFab;
-import org.nearbyshops.serviceprovider.ItemsByCategorySimple.EditItemCategory.EditItemCategory;
-import org.nearbyshops.serviceprovider.ItemsByCategorySimple.EditItemCategory.EditItemCategoryFragment;
+import org.nearbyshops.serviceprovider.EditItemCategory.EditItemCategory;
+import org.nearbyshops.serviceprovider.EditItemCategory.EditItemCategoryFragment;
 import org.nearbyshops.serviceprovider.ItemCategoriesTabs.Interfaces.NotifyInsertTab;
 import org.nearbyshops.serviceprovider.Model.ItemCategory;
 import org.nearbyshops.serviceprovider.ModelEndPoints.ItemCategoryEndPoint;

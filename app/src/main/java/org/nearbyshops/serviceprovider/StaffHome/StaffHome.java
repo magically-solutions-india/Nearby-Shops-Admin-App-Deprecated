@@ -9,8 +9,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.nearbyshops.serviceprovider.DaggerComponentBuilder;
-import org.nearbyshops.serviceprovider.EditProfile.EditProfile;
-import org.nearbyshops.serviceprovider.EditProfile.FragmentEditProfile;
+import org.nearbyshops.serviceprovider.EditProfileStaff.EditProfileStaff;
+import org.nearbyshops.serviceprovider.EditProfileStaff.FragmentEditProfileStaff;
 import org.nearbyshops.serviceprovider.ModelRoles.OldFiles.Staff;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContract.StaffService;
@@ -80,8 +80,8 @@ public class StaffHome extends AppCompatActivity {
 
 
 
-        Intent intent = new Intent(this, EditProfile.class);
-        intent.putExtra(FragmentEditProfile.EDIT_MODE_INTENT_KEY, FragmentEditProfile.MODE_UPDATE);
+        Intent intent = new Intent(this, EditProfileStaff.class);
+        intent.putExtra(FragmentEditProfileStaff.EDIT_MODE_INTENT_KEY, FragmentEditProfileStaff.MODE_UPDATE);
         startActivity(intent);
     }
 

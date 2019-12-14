@@ -903,7 +903,7 @@ public class FragmentEditProfileStaff extends Fragment {
 
         super.onActivityResult(requestCode, resultCode, result);
 
-        showLogMessage("FragmentEditProfile : onActivityResult()"
+        showLogMessage("FragmentEditProfileStaff : onActivityResult()"
         + "\nRequest Code : " + String.valueOf(requestCode)
         + "\nResponse Code : " + String.valueOf(resultCode)
         );
@@ -924,7 +924,7 @@ public class FragmentEditProfileStaff extends Fragment {
             }
 
 
-            showLogMessage("FragmentEditProfile : onActivityResult()");
+            showLogMessage("FragmentEditProfileStaff : onActivityResult()");
 
         }
         else if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK

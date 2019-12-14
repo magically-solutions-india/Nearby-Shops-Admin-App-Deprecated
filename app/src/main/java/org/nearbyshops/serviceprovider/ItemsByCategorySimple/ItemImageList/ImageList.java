@@ -8,8 +8,8 @@ import androidx.appcompat.widget.Toolbar;
 import android.widget.Toast;
 
 
-import org.nearbyshops.serviceprovider.ItemsByCategorySimple.EditItemImage.EditItemImage;
-import org.nearbyshops.serviceprovider.ItemsByCategorySimple.EditItemImage.EditItemImageFragment;
+import org.nearbyshops.serviceprovider.EditItemImage.EditItemImage;
+import org.nearbyshops.serviceprovider.EditItemImage.EditItemImageFragment;
 import org.nearbyshops.serviceprovider.R;
 
 import butterknife.ButterKnife;

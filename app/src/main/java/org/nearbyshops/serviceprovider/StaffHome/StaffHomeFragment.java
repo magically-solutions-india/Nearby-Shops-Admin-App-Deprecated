@@ -13,8 +13,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.nearbyshops.serviceprovider.DaggerComponentBuilder;
-import org.nearbyshops.serviceprovider.EditProfile.EditProfile;
-import org.nearbyshops.serviceprovider.EditProfile.FragmentEditProfile;
+import org.nearbyshops.serviceprovider.EditProfileStaff.EditProfileStaff;
+import org.nearbyshops.serviceprovider.EditProfileStaff.FragmentEditProfileStaff;
 import org.nearbyshops.serviceprovider.Login.Interfaces.NotifyAboutLogin;
 import org.nearbyshops.serviceprovider.ModelRoles.OldFiles.Staff;
 import org.nearbyshops.serviceprovider.R;
@@ -86,8 +86,8 @@ public class StaffHomeFragment extends Fragment {
 
 
 
-        Intent intent = new Intent(getActivity(), EditProfile.class);
-        intent.putExtra(FragmentEditProfile.EDIT_MODE_INTENT_KEY, FragmentEditProfile.MODE_UPDATE);
+        Intent intent = new Intent(getActivity(), EditProfileStaff.class);
+        intent.putExtra(FragmentEditProfileStaff.EDIT_MODE_INTENT_KEY, FragmentEditProfileStaff.MODE_UPDATE);
         startActivity(intent);
     }
 

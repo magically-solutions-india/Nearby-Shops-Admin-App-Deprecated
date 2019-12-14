@@ -13,8 +13,8 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import org.nearbyshops.serviceprovider.DaggerComponentBuilder;
-import org.nearbyshops.serviceprovider.EditProfile.EditProfile;
-import org.nearbyshops.serviceprovider.EditProfile.FragmentEditProfile;
+import org.nearbyshops.serviceprovider.EditProfileStaff.EditProfileStaff;
+import org.nearbyshops.serviceprovider.EditProfileStaff.FragmentEditProfileStaff;
 import org.nearbyshops.serviceprovider.EditServiceConfig.EditConfiguration;
 import org.nearbyshops.serviceprovider.ItemSpecName.ItemSpecName;
 import org.nearbyshops.serviceprovider.ItemsByCategorySimple.ItemCategoriesSimple;
@@ -251,8 +251,8 @@ public class AdminDashboardFragment extends Fragment {
 //        intent.putExtra(EditAdminFragment.EDIT_MODE_INTENT_KEY,EditAdminFragment.MODE_UPDATE);
 //        startActivity(intent);
 
-        Intent intent = new Intent(getActivity(), EditProfile.class);
-        intent.putExtra(FragmentEditProfile.EDIT_MODE_INTENT_KEY, FragmentEditProfile.MODE_UPDATE);
+        Intent intent = new Intent(getActivity(), EditProfileStaff.class);
+        intent.putExtra(FragmentEditProfileStaff.EDIT_MODE_INTENT_KEY, FragmentEditProfileStaff.MODE_UPDATE);
         startActivity(intent);
 
     }

@@ -28,12 +28,12 @@ import org.nearbyshops.serviceprovider.AddFromGlobalSelection.AddFromGlobal;
 import org.nearbyshops.serviceprovider.DaggerComponentBuilder;
 import org.nearbyshops.serviceprovider.ItemCategoriesTabs.Interfaces.NotifySort;
 import org.nearbyshops.serviceprovider.ItemCategoriesTabs.Interfaces.ToggleFab;
-import org.nearbyshops.serviceprovider.ItemsByCategorySimple.EditItem.EditItem;
-import org.nearbyshops.serviceprovider.ItemsByCategorySimple.EditItem.EditItemFragmentNew;
-import org.nearbyshops.serviceprovider.ItemsByCategorySimple.EditItemCategory.EditItemCategory;
-import org.nearbyshops.serviceprovider.ItemsByCategorySimple.EditItemCategory.EditItemCategoryFragment;
-import org.nearbyshops.serviceprovider.ItemsByCategorySimple.EditItemCategory.PrefItemCategory;
-import org.nearbyshops.serviceprovider.ItemsByCategorySimple.EditItemOld.UtilityItemOld;
+import org.nearbyshops.serviceprovider.EditItem.EditItem;
+import org.nearbyshops.serviceprovider.EditItem.EditItemFragmentNew;
+import org.nearbyshops.serviceprovider.EditItemCategory.EditItemCategory;
+import org.nearbyshops.serviceprovider.EditItemCategory.EditItemCategoryFragment;
+import org.nearbyshops.serviceprovider.EditItemCategory.PrefItemCategory;
+import org.nearbyshops.serviceprovider.EditItemOld.UtilityItemOld;
 import org.nearbyshops.serviceprovider.ItemsByCategorySimple.Interfaces.NotifyBackPressed;
 import org.nearbyshops.serviceprovider.ItemsByCategorySimple.Interfaces.NotifyFABClick;
 import org.nearbyshops.serviceprovider.ItemsByCategorySimple.Interfaces.NotifyHeaderChanged;
@@ -1009,6 +1009,9 @@ public class ItemCategoriesFragmentSimple extends Fragment implements SwipeRefre
 //        showToastMessage("Change Parent");
         changeParentBulk();
     }
+
+
+
 
     @Override
     public void addItem() {

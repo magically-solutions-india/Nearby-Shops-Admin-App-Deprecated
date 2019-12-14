@@ -24,11 +24,11 @@ import android.widget.Toast;
 
 import org.nearbyshops.serviceprovider.DaggerComponentBuilder;
 import org.nearbyshops.serviceprovider.ItemSubmissionsList.HeaderTitle;
-import org.nearbyshops.serviceprovider.ItemsByCategorySimple.EditItemImage.EditItemImage;
-import org.nearbyshops.serviceprovider.ItemsByCategorySimple.EditItemImage.EditItemImageFragment;
-import org.nearbyshops.serviceprovider.ItemsByCategorySimple.EditItemImage.UtilityItemImage;
+import org.nearbyshops.serviceprovider.EditItemImage.EditItemImage;
+import org.nearbyshops.serviceprovider.EditItemImage.EditItemImageFragment;
+import org.nearbyshops.serviceprovider.EditItemImage.PrefItemImage;
 import org.nearbyshops.serviceprovider.Model.ItemImage;
-import org.nearbyshops.serviceprovider.ModelItemSpecification.EndPoints.ItemImageEndPoint;
+import org.nearbyshops.serviceprovider.ModelEndPoints.ItemImageEndPoint;
 import org.nearbyshops.serviceprovider.ModelRoles.User;
 import org.nearbyshops.serviceprovider.R;
 import org.nearbyshops.serviceprovider.RetrofitRESTContractItem.ItemImageService;
@@ -519,7 +519,7 @@ public class ImageListFragment extends Fragment implements SwipeRefreshLayout.On
         intent.putExtra(EditItemImageFragment.ITEM_ID_INTENT_KEY,itemID);
 
 
-        UtilityItemImage.saveItemImage(itemImage,getActivity());
+        PrefItemImage.saveItemImage(itemImage,getActivity());
         startActivity(intent);
     }
 

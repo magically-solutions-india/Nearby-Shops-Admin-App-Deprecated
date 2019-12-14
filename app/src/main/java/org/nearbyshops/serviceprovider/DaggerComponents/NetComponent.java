@@ -9,12 +9,12 @@ import org.nearbyshops.serviceprovider.DetachedTabs.ItemCategories.DetachedItemC
 import org.nearbyshops.serviceprovider.DetachedTabs.ItemCategories.DetachedItemCatFragment;
 import org.nearbyshops.serviceprovider.DetachedTabs.Items.DetachedItemAdapter;
 import org.nearbyshops.serviceprovider.DetachedTabs.Items.DetachedItemFragment;
-import org.nearbyshops.serviceprovider.EditProfile.ChangeEmail.FragmentChangeEmail;
-import org.nearbyshops.serviceprovider.EditProfile.ChangeEmail.FragmentVerifyEmailChange;
-import org.nearbyshops.serviceprovider.EditProfile.ChangePassword.FragmentChangePassword;
-import org.nearbyshops.serviceprovider.EditProfile.ChangePhone.FragmentChangePhone;
-import org.nearbyshops.serviceprovider.EditProfile.ChangePhone.FragmentVerifyPhone;
-import org.nearbyshops.serviceprovider.EditProfile.FragmentEditProfile;
+import org.nearbyshops.serviceprovider.EditProfileStaff.ChangeEmail.FragmentChangeEmail;
+import org.nearbyshops.serviceprovider.EditProfileStaff.ChangeEmail.FragmentVerifyEmailChange;
+import org.nearbyshops.serviceprovider.EditProfileStaff.ChangePassword.FragmentChangePassword;
+import org.nearbyshops.serviceprovider.EditProfileStaff.ChangePhone.FragmentChangePhone;
+import org.nearbyshops.serviceprovider.EditProfileStaff.ChangePhone.FragmentVerifyPhone;
+import org.nearbyshops.serviceprovider.EditProfileStaff.FragmentEditProfileStaff;
 import org.nearbyshops.serviceprovider.EditProfileAdmin.EditAdminFragment;
 import org.nearbyshops.serviceprovider.FilterItemsBySpecifications.FilterItemsFragment;
 import org.nearbyshops.serviceprovider.ItemSpecName.EditItemSpecName.EditItemSpecNameFragment;
@@ -25,11 +25,11 @@ import org.nearbyshops.serviceprovider.ItemSubmissionsList.ImageUpdates.ImageUpd
 import org.nearbyshops.serviceprovider.ItemSubmissionsList.ItemReviewFragment;
 import org.nearbyshops.serviceprovider.ItemSubmissionsList.ItemUpdates.ItemUpdatesFragment;
 import org.nearbyshops.serviceprovider.ItemSubmissionsList.SubmissionDetails.SubmissionDetailsFragment;
-import org.nearbyshops.serviceprovider.ItemsByCategorySimple.EditItem.EditItemFragmentNew;
-import org.nearbyshops.serviceprovider.ItemsByCategorySimple.EditItemCategory.EditItemCategoryFragment;
+import org.nearbyshops.serviceprovider.EditItem.EditItemFragmentNew;
+import org.nearbyshops.serviceprovider.EditItemCategory.EditItemCategoryFragment;
 import org.nearbyshops.serviceprovider.ItemCategoriesTabs.ItemCategories.Deprecated.EditItemCategoryOld;
-import org.nearbyshops.serviceprovider.ItemsByCategorySimple.EditItemImage.EditItemImageFragment;
-import org.nearbyshops.serviceprovider.ItemsByCategorySimple.EditItemOld.EditItemFragmentOld;
+import org.nearbyshops.serviceprovider.EditItemImage.EditItemImageFragment;
+import org.nearbyshops.serviceprovider.EditItemOld.EditItemFragmentOld;
 import org.nearbyshops.serviceprovider.ItemCategoriesTabs.Items.Deprecated.EditItemOld;
 import org.nearbyshops.serviceprovider.ItemCategoriesTabs.Items.ItemFragmentTwo;
 import org.nearbyshops.serviceprovider.ItemsByCategorySimple.ItemCategoriesFragmentSimple;
@@ -60,7 +60,6 @@ import org.nearbyshops.serviceprovider.SignUp.FragmentVerifyEmailSignUp;
 import org.nearbyshops.serviceprovider.StaffHome.EditStaffSelf.EditStaffSelfFragment;
 import org.nearbyshops.serviceprovider.StaffHome.StaffHome;
 import org.nearbyshops.serviceprovider.StaffHome.StaffHomeFragment;
-import org.nearbyshops.serviceprovider.StaffList.EditProfileStaff.FragmentEditProfileStaff;
 import org.nearbyshops.serviceprovider.StaffList.StaffListFragment;
 import org.nearbyshops.serviceprovider.zDistributorAccounts.DistributorAccountFragment;
 import org.nearbyshops.serviceprovider.zDistributorAccounts.DistributorDetail.DistributorDetail;
@@ -201,9 +200,9 @@ public interface NetComponent {
 
     void Inject(FragmentVerifyPhone fragmentVerifyPhone);
 
-    void Inject(FragmentEditProfile fragmentEditProfile);
-
     void Inject(FragmentEditProfileStaff fragmentEditProfileStaff);
+
+    void Inject(org.nearbyshops.serviceprovider.StaffList.EditProfileStaff.FragmentEditProfileStaff fragmentEditProfileStaff);
 
     void Inject(FragmentEmailOrPhone fragmentEmailOrPhone);
 

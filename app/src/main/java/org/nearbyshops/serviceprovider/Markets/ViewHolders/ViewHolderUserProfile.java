@@ -85,8 +85,8 @@ public class ViewHolderUserProfile extends RecyclerView.ViewHolder {
 //    @OnClick(R.id.list_item)
 //    void onlistItemClick()
 //    {
-//        Intent  intent = new Intent(context, EditProfile.class);
-//        intent.putExtra(EditProfile.TAG_IS_GLOBAL_PROFILE,true);
+//        Intent  intent = new Intent(context, EditProfileStaff.class);
+//        intent.putExtra(EditProfileStaff.TAG_IS_GLOBAL_PROFILE,true);
 //        intent.putExtra(FragmentEditProfileGlobal.EDIT_MODE_INTENT_KEY,FragmentEditProfileGlobal.MODE_UPDATE);
 //        context.startActivity(intent);
 //    }

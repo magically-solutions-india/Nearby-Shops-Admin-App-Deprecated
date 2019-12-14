@@ -24,12 +24,12 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
-import org.nearbyshops.serviceprovider.ItemsByCategorySimple.EditItem.EditItem;
-import org.nearbyshops.serviceprovider.ItemsByCategorySimple.EditItem.EditItemFragmentNew;
-import org.nearbyshops.serviceprovider.ItemsByCategorySimple.EditItemCategory.EditItemCategory;
-import org.nearbyshops.serviceprovider.ItemsByCategorySimple.EditItemCategory.EditItemCategoryFragment;
-import org.nearbyshops.serviceprovider.ItemsByCategorySimple.EditItemCategory.PrefItemCategory;
-import org.nearbyshops.serviceprovider.ItemsByCategorySimple.EditItemOld.UtilityItemOld;
+import org.nearbyshops.serviceprovider.EditItem.EditItem;
+import org.nearbyshops.serviceprovider.EditItem.EditItemFragmentNew;
+import org.nearbyshops.serviceprovider.EditItem.PrefItem;
+import org.nearbyshops.serviceprovider.EditItemCategory.EditItemCategory;
+import org.nearbyshops.serviceprovider.EditItemCategory.EditItemCategoryFragment;
+import org.nearbyshops.serviceprovider.EditItemCategory.PrefItemCategory;
 import org.nearbyshops.serviceprovider.ItemsByCategorySimple.Utility.HeaderItemsList;
 import org.nearbyshops.serviceprovider.Model.Item;
 import org.nearbyshops.serviceprovider.Model.ItemCategory;
@@ -82,6 +82,9 @@ public class AdapterSimple extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         this.context = context;
         this.fragment = fragment;
     }
+
+
+
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -599,7 +602,9 @@ public class AdapterSimple extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
                     if (dataset.get(getLayoutPosition()) instanceof Item) {
 
-                        UtilityItemOld.saveItem((Item) dataset.get(getLayoutPosition()), context);
+//                        UtilityItemOld.saveItem((Item) dataset.get(getLayoutPosition()), context);
+
+                        PrefItem.saveItem((Item) dataset.get(getLayoutPosition()), context);
 
                         Intent intentEdit = new Intent(context, EditItem.class);
                         intentEdit.putExtra(EditItemFragmentNew.EDIT_MODE_INTENT_KEY, EditItemFragmentNew.MODE_UPDATE);

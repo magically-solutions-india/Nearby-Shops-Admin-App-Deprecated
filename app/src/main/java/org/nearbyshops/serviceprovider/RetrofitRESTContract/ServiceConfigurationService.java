@@ -23,13 +23,13 @@ public interface ServiceConfigurationService {
 
 
 
-    @GET("/api/serviceconfiguration")
+    @GET("/api/ServiceConfiguration")
     Call<ServiceConfigurationLocal> getServiceConfiguration(@Query("latCenter") Double latCenter,
                                                             @Query("lonCenter") Double lonCenter);
 
 
 
-    @PUT("/api/serviceconfiguration")
+    @PUT("/api/ServiceConfiguration")
     Call<ResponseBody> putServiceConfiguration(@Header("Authorization") String headers,
                                                @Body ServiceConfigurationLocal serviceConfiguration);
 

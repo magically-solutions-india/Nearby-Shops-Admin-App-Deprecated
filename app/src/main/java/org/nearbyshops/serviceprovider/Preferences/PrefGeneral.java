@@ -20,6 +20,7 @@ public class PrefGeneral {
 
     public static final String SERVICE_URL_LOCAL_HOTSPOT = "http://192.168.43.73:5121";
     public static final String SERVICE_URL_NEARBYSHOPS = "http://api.nearbyshops.org";
+    public static final String SERVICE_URL_NEARBYSHOPS_DEMO = "http://api-demo.nearbyshops.org";
 
     private static final String TAG_PREF_CURRENCY = "currency_symbol";
 
@@ -27,8 +28,7 @@ public class PrefGeneral {
 
 
     // for multi-market mode set default service url to null and multi market mode to true
-    public static final String DEFAULT_SERVICE_URL = null;
-
+    public static final String DEFAULT_SERVICE_URL = SERVICE_URL_LOCAL_HOTSPOT;
 
 
 
@@ -43,7 +43,7 @@ public class PrefGeneral {
 
         sharedPref = context.getSharedPreferences(
                 context.getString(R.string.preference_file_name),
-                context.MODE_PRIVATE);
+                Context.MODE_PRIVATE);
 
         // write to the shared preference
         SharedPreferences.Editor editor = sharedPref.edit();
@@ -57,11 +57,6 @@ public class PrefGeneral {
 
 
 
-
-
-
-
-
     public static String getServiceURL(Context context) {
 
         context = MyApplication.getAppContext();
@@ -71,8 +66,6 @@ public class PrefGeneral {
 
         return sharedPref.getString(context.getString(R.string.preference_service_url_key), DEFAULT_SERVICE_URL);
     }
-
-
 
 
 
@@ -91,6 +84,9 @@ public class PrefGeneral {
         editor.putString(context.getString(R.string.preference_service_url_gidb_key), service_url);
         editor.apply();
     }
+
+
+
 
     public static String getServiceURL_GIDB(Context context) {
 

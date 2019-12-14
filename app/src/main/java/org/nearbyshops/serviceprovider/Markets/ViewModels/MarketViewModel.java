@@ -215,33 +215,15 @@ public class MarketViewModel extends AndroidViewModel {
 
 
 
-
-
-                            User user = PrefLoginGlobal.getUser(getApplication());
-
-                            if(user!=null)
-                            {
-                                dataset.add(user);
-                            }
-                            else
-                            {
-                                dataset.add(new SignInMarker());
-                            }
-
-
-
-
-
-                            dataset.add(new ConnectWithURLMarker());
-
-
 //                            if(item_count>0)
 //                            {
 //                                dataset.add(new HeaderItemsList());
 //                            }
 
-
-                            dataset.add(new HeaderItemsList());
+                            if(response.body().getResults().size()>0)
+                            {
+                                dataset.add(new HeaderItemsList());
+                            }
 
                         }
 
@@ -251,12 +233,34 @@ public class MarketViewModel extends AndroidViewModel {
                         {
                             dataset.addAll(response.body().getResults());
 
+                            dataset.add(new CreateMarketMarker());
 
-                            if(response.body().getResults().size()==0)
-                            {
-                                dataset.add(new CreateMarketMarker());
-                            }
+
+
+//                            if(response.body().getResults().size()==0)
+//                            {
+//                                dataset.add(new CreateMarketMarker());
+//                            }
                         }
+
+
+
+
+                        User user = PrefLoginGlobal.getUser(getApplication());
+
+                        if(user!=null)
+                        {
+                            dataset.add(user);
+                        }
+                        else
+                        {
+                            dataset.add(new SignInMarker());
+                        }
+
+
+
+                        dataset.add(new ConnectWithURLMarker());
+
 
 
 

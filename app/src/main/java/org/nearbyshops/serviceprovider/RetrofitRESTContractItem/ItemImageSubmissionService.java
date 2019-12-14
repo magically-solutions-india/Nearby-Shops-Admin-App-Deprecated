@@ -1,20 +1,11 @@
 package org.nearbyshops.serviceprovider.RetrofitRESTContractItem;
 
-import org.nearbyshops.serviceprovider.Model.Item;
 import org.nearbyshops.serviceprovider.ModelEndPoints.ItemEndPoint;
-import org.nearbyshops.serviceprovider.ModelItemSpecification.EndPoints.ItemImageEndPoint;
+import org.nearbyshops.serviceprovider.ModelEndPoints.ItemImageEndPoint;
 import org.nearbyshops.serviceprovider.ModelItemSubmission.Endpoints.ItemImageSubmissionEndPoint;
-import org.nearbyshops.serviceprovider.ModelItemSubmission.Endpoints.ItemSubmissionEndPoint;
-import org.nearbyshops.serviceprovider.ModelItemSubmission.ItemImageSubmission;
 
-import okhttp3.ResponseBody;
 import retrofit2.Call;
-import retrofit2.http.Body;
 import retrofit2.http.GET;
-import retrofit2.http.Header;
-import retrofit2.http.POST;
-import retrofit2.http.PUT;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 /**

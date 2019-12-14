@@ -20,12 +20,12 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import org.nearbyshops.serviceprovider.ItemsByCategorySimple.EditItemOld.EditItemOld;
-import org.nearbyshops.serviceprovider.ItemsByCategorySimple.EditItemOld.EditItemFragmentOld;
-import org.nearbyshops.serviceprovider.ItemsByCategorySimple.EditItemOld.UtilityItemOld;
-import org.nearbyshops.serviceprovider.ItemsByCategorySimple.EditItemCategory.EditItemCategory;
-import org.nearbyshops.serviceprovider.ItemsByCategorySimple.EditItemCategory.EditItemCategoryFragment;
-import org.nearbyshops.serviceprovider.ItemsByCategorySimple.EditItemCategory.PrefItemCategory;
+import org.nearbyshops.serviceprovider.EditItemOld.EditItemOld;
+import org.nearbyshops.serviceprovider.EditItemOld.EditItemFragmentOld;
+import org.nearbyshops.serviceprovider.EditItemOld.UtilityItemOld;
+import org.nearbyshops.serviceprovider.EditItemCategory.EditItemCategory;
+import org.nearbyshops.serviceprovider.EditItemCategory.EditItemCategoryFragment;
+import org.nearbyshops.serviceprovider.EditItemCategory.PrefItemCategory;
 import org.nearbyshops.serviceprovider.ItemsByCategorySimple.Utility.HeaderItemsList;
 import org.nearbyshops.serviceprovider.Model.Item;
 import org.nearbyshops.serviceprovider.Model.ItemCategory;
