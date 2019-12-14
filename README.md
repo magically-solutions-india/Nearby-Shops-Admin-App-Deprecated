@@ -1,15 +1,8 @@
+Nearby Shops Admin android app - Deprecated
+==============================================
 
-
-
-
-Nearby Shops Admin android app
-====================================
-
-Nearby Shops is a multi-vendor mobile based e-commerce platform. Multi-vendor means it can have multiple sellers. 
-Its designed primarily for local shopping needs like selling grocery, fruits and vegetables. 
-
-It has 3 android apps each for End-User, Shop-Owner and adminstrator and a JSON based REST API at the backend. 
-
+This repository is now deprecated.
+The admin features are now merged with the nearby shops android app.  You can access the admin features from the main app. 
 
 
 A note to potential Contributors
