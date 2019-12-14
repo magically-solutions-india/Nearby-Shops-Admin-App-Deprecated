@@ -1,3 +1,7 @@
+
+
+
+
 Nearby Shops Admin android app
 ====================================
 
@@ -5,6 +9,18 @@ Nearby Shops is a multi-vendor mobile based e-commerce platform. Multi-vendor me
 Its designed primarily for local shopping needs like selling grocery, fruits and vegetables. 
 
 It has 3 android apps each for End-User, Shop-Owner and adminstrator and a JSON based REST API at the backend. 
+
+
+
+A note to potential Contributors
+----------------------------------
+For those who are interested in contributing to this repo you are welcome ... but source code in this repository is due for some refactoring. Which will make it easy to understand and work upon. You may want to wait until the refactoring is done. 
+
+Until then feel free to review the code and suggest best technologies/ libraries to use and how can we improve the code in this repository. 
+
+To give your suggestion ... you can create an Issue or also post on our forum ... 
+
+
 
 
 Screenshots
@@ -43,6 +59,7 @@ Shop-Owner app : https://github.com/SumeetMoray/Nearby-Shops-Shop-Owner-app
 End-User app : https://github.com/SumeetMoray/Nearby-Shops-End-User-Android-app
 
 Source code for Server Side JSON Based REST API is available in this repository https://github.com/SumeetMoray/Nearby-Shops-API
+
 
 
 License
