@@ -4,9 +4,6 @@ Deprecation Notice
 This repository is now deprecated. The admin features are now merged with the end-user app. 
 
 
-Nearby Shops Admin android app - Deprecated
-==============================================
-
 A note to potential Contributors
 ----------------------------------
 For those who are interested in contributing to this repo you are welcome ... but source code in this repository is due for some refactoring. Which will make it easy to understand and work upon. You may want to wait until the refactoring is done. 
