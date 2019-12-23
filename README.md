@@ -1,8 +1,7 @@
 Nearby Shops Admin android app - Deprecated
 ==============================================
 
-This repository is now deprecated.
-The admin features are now merged with the nearby shops android app.  You can access the admin features from the main app. 
+This repository is now deprecated. The admin features are now merged with the end-user app. 
 
 
 A note to potential Contributors
